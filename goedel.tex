@@ -1,0 +1,1261 @@
+\documentclass{scrartcl}
+
+\emergencystretch3em
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fourier}
+\usepackage[ngerman]{babel}
+\usepackage{soulutf8}
+\usepackage{amsmath}
+\usepackage{pifont}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{xcolor}
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+\newcommand{\fnelfa}{11a}
+\newcommand{\fnachtzehna}{18a}
+\newcommand{\fnvierunddreissiga}{34a}
+\newcommand{\fnvierunddreissigb}{34b}
+\newcommand{\fnfunfundvierziga}{45a}
+\newcommand{\fnachtundvierziga}{48a}
+
+\makeatletter
+\newcommand{\Spvek}[2][r]{%
+  \gdef\@VORNE{1}
+  \left(\hskip-\arraycolsep%
+    \begin{array}{#1}\vekSp@lten{#2}\end{array}%
+  \hskip-\arraycolsep\right)}
+
+\def\vekSp@lten#1{\xvekSp@lten#1;vekL@stLine;}
+\def\vekL@stLine{vekL@stLine}
+\def\xvekSp@lten#1;{\def\temp{#1}%
+  \ifx\temp\vekL@stLine
+  \else
+    \ifnum\@VORNE=1\gdef\@VORNE{0}
+    \else\@arraycr\fi%
+    #1%
+    \expandafter\xvekSp@lten
+  \fi}
+\makeatother
+
+\DeclareRobustCommand*{\pmstar}{%
+  \text{%
+      \resizebox{!}{.75\height}{\ding{107}}%
+        }%
+}
+
+\makeatletter
+\newcount\bracketnum
+\newcommand\makecolorlist[1]{%
+    \bracketnum0\relax
+        \makecolorlist@#1,.%
+	    \bracketnum0\relax
+}
+\def\makecolorlist@#1,{%
+    \advance\bracketnum1\relax
+        \expandafter\def\csname bracketcolor\the\bracketnum\endcsname{\color{#1}}%
+	    \@ifnextchar.{\@gobble}{\makecolorlist@}%
+}
+\let\oldleft\left
+\let\oldright\right
+\def\left#1{%
+    \global\advance\bracketnum1\relax 
+        \colorlet{temp}{.}%
+	    \csname bracketcolor\the\bracketnum\endcsname
+	        \oldleft#1%
+		    \color{temp}%
+}
+\def\right#1{%
+    \colorlet{temp}{.}%
+        \csname bracketcolor\the\bracketnum\endcsname
+	    \oldright#1%
+	        \global\advance\bracketnum-1\relax
+		    \color{temp}%
+}
+\makeatother
+
+\makecolorlist{blue, green, cyan, violet, magenta, pink, teal, lime, orange, yellow, purple, red}
+
+\begin{document}
+
+\section{Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I\protect\footnote{Vgl. die im Anzeiger der Akad. d. Wiss. in Wien (math.-naturw. KI.) 1930, Nr. 19 erschienene Zusammenfassung der Resultate dieser Arbeit.}}
+
+\begin{center}
+Von \textbf{Kurt Gödel} in Wien.
+\end{center}
+
+\begin{center}
+1.
+\end{center}
+
+Die Entwicklung der Mathematik in der Richtung zu größerer
+Exaktheit hat bekanntlich dazu geführt, daß weite Gebiete
+von ihr formalisiert wurden, in der Art daß das Beweisen
+nach einigen wenigen mechanischen Regeln vollzogen werden
+kann. Die umfassendsten derzeit aufgestellten formalen 
+Systeme sind das System der Principia Mathematica 
+(PM)\footnote{A. Whitehead und B. Russell, Principia
+Mathematica, 2. Aufl., Cambridge 1925. Zu den Axiomen 
+des Systems PM rechnen wir insbesondere auch: 
+Das Unendlichkeitsaxiom (in der Form: es gibt 
+genau abzählbar viele Individuen), 
+Das Reduzibilitäts- und das Auswahlaxiom (für alle 
+Typen).} einerseits, das Zermelo-Fraenkelsche
+(von J. v. Neumann weiter ausgebildete Axiomensystem
+der Mengenlehre\footnote{Vgl. A. Fraenkel, Zehn
+Vorlesungen über die Grundlegung der Mengenlehre,
+Wissensch. u. Hypo Bd. XXXI. J. v. Neumann, die
+Axiomatisierung der Mengelehre. Math. Zeitschr. 27, 
+1928. Journ. f. reine u. angew. Math. 154 (1925), 
+160 (1929). Wir bemerken, daß man zu den in der
+angeführten Literatur gegebenen mengentheoretischen
+Axiomen noch die Axiome und die Schlußregeln des
+Logikkalküls hinzufügen muß, um die Formalisierung 
+zu vollenden. -- Die nachfolgenden Überlegungen gelten
+auch für die in den letzten Jahren von D. Hilbert und
+seinen Mitarbeitern aufgestellten formalen Systeme 
+(soweit diese bisher vorliegen). Vgl. D. Hilbert,
+Math. Ann. 88, Abh. aus d. math. Sem. der Univ. 
+Hamburg I (1922), VI (1928). P. Bernays, Math. Ann. 93.} 
+andererseits. Diese beiden Systeme sind so weit, daß 
+alle heute in der Mathematik angewendeten 
+Beweismethoden in ihnen formalisiert, d.\,h. auf
+einige wenige Axiome und Schlußregeln zurückgeführt sind.
+Es liegt daher die Vermutung nahe, daß diese Axiome
+und Schlußregeln dazu ausreichen, alle mathematischen
+Fragen, die sich in den betreffenden Systemen überhaupt
+formal ausdrücken lassen, auch zu entscheiden. Im folgenden
+wird gezeigt, daß dies nicht der Fall ist, sondern daß 
+es in den beiden angeführten Systemen sogar relativ 
+einfache Probleme aus der Theorie der gewöhnlichen Zahlen
+gibt\footnote{\label{fussnote4}D.\,h. genauer, es gibt unentscheidbare
+Sätze, in denen außer den logischen Konstanten:
+$\overline{\phantom{XX}}$ (nicht), $\lor$ (oder), 
+$(x)$ (für alle), $=$ (identisch mit) keine anderen 
+Begriffe vorkommen als $+$ (Addition), $.$ 
+(Multiplikation), beide bezogen auf natürliche Zahlen,
+wobei auch die Präfixe (x) sich nur auf natürliche Zahlen beziehen dürfen.}, die sich aus den Axiomen nicht 
+entscheiden lassen. Dieser Umstand liegt nicht etwa
+an der speziellen Natur der aufgestellten Systeme,
+sondern gilt für eine sehr weite Klasse formaler Systeme,
+zu denen insbesondere alle gehören, die aus den beiden 
+angeführten durch Hinzufügung endlich vieler Axiome
+entstehen\footnote{Dabei werden in PM nur solche Axiome
+als verschieden gezählt, die aus einander nicht bloß
+durch Typenwechsel entstehen.}, vorausgesetzt, daß 
+durch die hinzugefügten Axiome keine falschen Sätze 
+von denen in der Fußnote \ref{fussnote4} angegebenen 
+Art beweisbar werden.
+
+Wir skizzieren, bevor wir auf Details eingehen, zunächst
+den Hauptgedanken des Beweises, natürlich ohne auf 
+Exaktheit Anspruch zu erheben. Die Formeln eines formalen Systems (wir beschränken uns hier auf das System PM) sind
+äußerlich betrachtet endliche Reihen der Grundzeichen
+(Variable, logische Konstante und Klammern bzw.
+Trennungspunkte) und man kann leicht genau präzisieren,
+welche Reihen von Grundzeichen sinnvolle Formeln sind
+und welche nicht\footnote{Wir verstehen hier und im folgenden
+Unter \glqq Formel aus PM\grqq\ immer eine ohne Abkürzungen (d.\,h. ohne Verwendung von Definitionen)
+geschriebene Formel. Definitionen dienen ja nur der kürzeren
+Schreibweise und sind daher prinzipiell überflüssig.}.
+Analog sind Beweise vom formalen Standpunkt nichts anderes
+als endliche Reihen von Formeln (mit bestimmten angebbaren
+Eigenschaften). Für metamathematische Betrachtungen
+ist es natürlich gleichgültig, welche Gegenstände man
+als Grundzeichen nimmt, und wir entschließen uns dazu,
+natürliche Zahlen\footnote{D.\,h. wir bilden die Grundzeichen in eineindeutiger Weise auf die natürlichen Zahlen ab (Vgl. die Durchführung auf S. TODO.}
+als solche zu verwenden. Dementsprechend ist dann eine
+Formel eine endliche Folge natürlicher 
+Zahlen\footnote{D.\,h. eine Belegung eines Abschnittes der Zahlenreihe mit natürlichen Zahlen. (Zahlen können ja nicht in räumliche Anordnung gebracht werden.)} und eine Beweisfigur eine
+endliche Folge von endlichen Folgen natürlicher Zahlen.
+Die metamathematischen Begriffe (Sätze) werden dadurch zu
+Begriffen (Sätzen) über natürliche Zahlen bzw. Folgen von
+Solchen\footnote{m.\,a.\,W.: Das oben beschriebene Verfahren liefert ein isomorphes Bild des Systems PM im Bereich der Arithmetik und man kann alle metamathematischen Überlegungen ebenso gut an diesem isomorphen Bild vornehmen. Dies geschieht in der folgenden Beweisskizze, d.\,h. unter \glqq Formel\grqq, \glqq Satz\grqq, \glqq Variable\grqq\ etc. \so{sind immer die entsprechenden Gegenstände des isomorphen Bildes zu verstehen}.}
+und daher (wenigstens teilweise) in den Symbolen
+des Systems PM selbst ausdrückbar. Insbesondere kann man
+zeigen, daß die Begriffe \glqq Formel\grqq, 
+\glqq Beweisfigur\grqq, 
+\glqq beweisbare Formel\grqq\ innerhalb des Systems PM 
+definierbar sind, d.\,h. man kann z.\,B. eine Formel 
+$F(v)$ aus PM mit einer freien Variablen $v$ (vom Typus 
+einer Zahlenfolge) angeben\footnote{Es wäre sehr leicht (nur etwas umständlich), diese Formel tatsächlich hinzucshreiben.},
+so daß $F(v)$ inhaltlich interpretiert besagt:
+$v$ ist eine beweisbare Formel. Nun stellen wir einen
+unentscheidbaren Satz des Systems PM, d.\,h. einen
+Satz $A$, für den weder $A$ noch \textit{non}-$A$ beweisbar
+ist, folgendermaßen her:
+
+Eine Formel aus PM mit genau einer freien Variable, u. zw.
+vom Typus der natürlichen Zahlen (Klasse von Klassen)
+wollen wir ein \so{Klassenzeichen} nennen. Die 
+Klassenzeichen denken wir uns irgendwie in eine Folge 
+geordnet\footnote{Etwa nach steigender Gliedersumme und bei gleicher Summe lexikographisch.}, 
+bezeichnen das $n$-te mit $R(n)$ und emerken, daß sich der Begriff \glqq Klassenzeichen\grqq\ sowie die ordnende 
+Relation $R$ im System PM definieren lassen. Sei
+$\alpha$ ein beliebiges Klassenzeichen, mit $[\alpha; n]$
+bezeichnen wir diejenige Formel, welche aus dem
+Klassenzeichen $\alpha$ dadurch entsteht, daß man die
+freie Variable durch das Zeichen für die natürliche Zahl
+$n$ ersetzt. Auch die Tripel-Relation 
+$\alpha = [y; z]$ erweist sich als innerhalb von PM 
+definierbar. Nun definieren wir eine Klasse $K$ natürlicher
+Zahlen folgendermaßen:
+
+\let\originalfootnote=\thefootnote
+\let\thefootnote=\fnelfa
+\begin{equation}
+\label{formel1}
+n \epsilon K \equiv \overline{Bew}[R(n); n]\footnote{Durch Überstreichen wird die Negation bezeichnet.}
+\end{equation}
+\let\thefootnote=\originalfootnote
+\setcounter{footnote}{11}
+
+(wobei $Bew\ x$ bedeutet: $x$ ist eine beweisbare Formel).
+Da die Begriffe, welche im Definiens vorkommen, sämtlich
+in PM definierbar sind, so auch der daraus zusammengesetzte
+Begriff $K$, d.\,h. es gibt ein Klassenzeichen 
+$S$\footnote{Es macht wieder nicht die geringsten Schwierigkeiten, die Formel $S$ tatsächlich hinzuschreiben.},
+so daß die Formel $[S; n]$ inhaltlich gedeutet besagt,
+daß die natürliche Zahl $n$ zu $K$ gehört. $S$ ist als
+Klassenzeichen mit einem bestimmten $R(q)$ identisch, 
+d.\,h. es gilt
+
+$$ S = R(q) $$
+
+für eine bestimme natürliche Zahl $q$. Wir zeigen nun, daß
+der Satz $[R(q); q]$\footnote{Man beachte, daß
+\glqq$[R(q); q]$\grqq\ (oder was dasselbe bedeutet
+\glqq$[S; q]$\grqq) bloß eine \so{metamathematische Beschreibung} des unentscheidbaren Satzes ist. Doch kann man, sobald man die Formel $S$ ermittelt hat, natürlich auch die Zahl $q$ bestimmen und damit den unentscheidbaren Satz selbst effektiv hinschreiben.} 
+in PM unentscheidbar ist. Denn angenommen, der Satz
+$[R(q); q]$ wäre beweisbar, dann wäre er auch richtig,
+d.\,h. aber nach dem obigen $q$ würde zu $K$ gehören,
+d.\,h. nach \ref{formel1} es würde 
+$\overline{Bew}[R(q); q]$ gelten, im Widerspruch mit der
+Annahme. Wäre dagegen die Negation von
+$[R(q); q]$ beweisbar, so würde $n \epsilon K$,
+d.\,h. $Bew[R(q); q]$ gelten. $[R(q); q]$ wäre also 
+zugleich mit seiner Negation beweisbar, was wiederum 
+unmöglich ist.
+
+Die Analogie dieses Schlusses mit der Antinomie Richard
+springt in die Augen. auch mit dem 
+\glqq Lügner\grqq\ besteht eine nahe 
+Verwandtschaft\footnote{Es läßt sich überhaupt jede epistemologische Antinomie zu einem derartigen Unentscheidbarkeitsbeweis verwenden.},
+denn der unentscheidbare Satz $[R(q); q]$ besagt ja,
+daß $q$ zu $K$ gehört, d.\,h. nach \ref{formel1},
+daß $[R(q); q]$ nicht beweisbar ist. Wir haben
+also einen Satz vor uns, der seine eigene
+Unbeweisbarkeit behauptet\footnote{Ein solcher Satz hatentgegen dem Anscheind nichts Zirkelhaftes an sich, denn er behauptet zunächst die Unbeweisbarkeit einer ganz bestimmenten Formel (nämlich der $q$-ten in der lexikographischen Anordnung bei der bestimmten Einsetzung), und erst nachträglich (gewissermaßen
+zufälligen) stellt sich heraus, daß diese Formel gerade die ist, in der er selbst ausgedrückt wurde.}.
+
+Die eben auseinandergesetzte Beweismethode läßt sich 
+offenbar auf jedes formale System anwenden, das erstens 
+inhaltlich gedeutet über genügen Ausdrucksmittel
+verfügt, um die in der obigen Überlegung vorkommenden
+Begriffe (insbesondere den Begriff \glqq beweisbare
+Formel\grqq) zu definieren, und in dem zweitens jede
+beweisbare Formel auch inhaltlich richtig ist. Die
+nun folgende exakte Durchführung des obigen Beweises
+wird unter anderem die Aufgabe haben, die zweite der eben
+angeführten Voraussetzungen durch eine rein formale und 
+weit schwächere zu ersetzen.
+
+Aus der Bemerkung, daß $[R(q); q]$ seine eigene 
+Unbeweisbarkeit behauptet, folgt sofort, daß $[R(q); q]$ 
+richtig ist, denn $[R(q); q]$ ist ja unbeweisbar (weil 
+unentscheidbar). Der im System PM unentscheidbare Satz 
+wurde also durch metamathematische Überlegungen doch
+entschieden. Die genaue Analyse dieses merkwürdigen 
+Umstandes ührt zu überraschenden Resultaten, bezüglich der
+Widerspruchsfreiheitsbeweise formaler System, die in Abschn. 4. (Satz XI) näher behandelt werden.
+
+\begin{center}
+2.
+\end{center}
+
+Wir gehen nun an die exakte Durchführung des
+oben skizzierten Beweises und geben zunächst eine
+genaue Beschreibung des ormalen Systems $P$, für welches
+für die Existenz unentscheidbarer Sätze nachweisen wollen. 
+$P$ ist im wesentlichen das System, welches man erhält, 
+wenn man die Peanoschen Axiome mit der Logik
+der PM\footnote{Die Hinzufügung der Peanoschen Axiome ebenso wie alle anderen am System PM angebrachten Abänderungen dienen lediglich zur Vereinfachung des Beweises und sind prinzipiell entbehrlich.}
+überbaut (Zahlen als Individuen, Nachfolgerelation
+als undefinierten Grundbegriff).
+
+Die Grundzeichen des Systems $P$ sind die folgenden:
+
+I. Konstante: \glqq $\thicksim$\grqq\ (nicht), 
+\glqq$\lor$\grqq\ (oder), \glqq$\Pi$\grqq\ (für alle),
+\glqq $0$\grqq\ (Null), \glqq$f$\grqq\ (der Nachfolger
+von), \glqq(\grqq, \glqq)\grqq\ (Klammern),
+
+II. Variable ersten Typs (für Individuen, d.\,h. natürliche Zahlen inklusive 0): \glqq$x_1$\grqq, \glqq$y_1$\grqq,\glqq$z_1$\grqq, \dots,
+
+Variable zweiten Typs (für Klassen von Individuen):
+\glqq$x_2$\grqq, \glqq$y_2$\grqq, \glqq$z_3$\grqq, \dots,
+
+Variable dritten Typs (für Klassen von Klassen von Individuen): \glqq$x_3$\grqq, \glqq$y_3$\grqq, \glqq$z_3$\grqq, \dots usw. für jede natürliche Zahl
+als Typus\footnote{Es wird vorausgesetzt, daß für jeden Variablentypus abzählbar viele Zeichen zur Verfügung stehen.}.
+
+Anm.: Variable für zwei- und mehrstellige Funktionen
+(Relationen) sind als Grundzeichen überflüssig, da man
+Relationen als Klassen geordneter Paare definieren kann
+und geordnete Paare wiederum als Klassen von Klasse, z.\,B.
+das geordnete Paar $a, b$ durch $\left(\left(a\right), \left(a, b\right)\right)$, wo $(x, y)$ bzw. $(x)$ die 
+Klassen bedeuten, deren einzige Elemenete $x, y$ bzw. $x$ sind\footnote{Auch inhomegene Relationen können auf diese Weise definieren werden, z.\,B. eine Relation zwischen Individuen und Klassen als eine Klasse aus Elementen der Form: $\left(\left(x_2\right), \left(\left(x_1\right), x_3\right)\right)$. Alle in den PM über Relationen beweisbaren Sätze sind, wie eine einfache Überlegung lehrt, auch bei dieser Behandlungsweise beweisbar.}.
+
+Unter einem Zeichen ersten Typs verstehen wir eine Zeichenkombination der Form:
+
+$$ a, fa, ffa, fffa \dots \text{usw.} $$
+
+wo $a$ entweder 0 oder eine Variable ersten Typs ist.
+Im ersten Fall nennen wir ein solches Zeichen Zahlzeichen.
+Für $n > 1$ verstehen wir unter einem Zeichen $n$-ten
+Typs dasselbe wie Variable $n$-ten Typs. 
+Zeichenkombinationen der Form $a(b)$, wobei
+$b$ ein Zeichne $n$-tenn und $a$ ein Zeichen $n + 1$-ten 
+Typs ist, nennen wir Elementarformeln. Die Klasse der 
+Formeln definieren wir als die kleinste
+Klasse\footnote{Bez. dieser Definition (und analoger später vorkommender), vgl. J. \L{}ukasiewicz und A. Taski, Untersuchungen über den Aussagenkalkül, Comptes Rendus des s\'eances de la Soci\'et\'e de Sciences et Lettres de Varsovie XXIII, 1930, Cl. III.},
+zu welcher sämtliche Elementarformeln gehören und zu
+welcher zugleich mit $a, b$ stets auch $\thicksim(a)$, $(a)\lor(b)$, $x\Pi(a)$ gehören (wobei $x$ eine
+\let\originalfootnote=\thefootnote
+\let\thefootnote=\fnachtzehna
+beliebige Variable ist)\footnote{$x\Pi(a)$ ist also auch dann eine Formel, wenn $x$ in $a$ nicht oder nicht frei vorkommt. In diesem Fall bedeutet $x\Pi(a)$ natürlich dasselbe wie $a$.}
+\let\thefootnote=\originalfootnote
+\setcounter{footnote}{19}
+$(a)\lor(b)$ nennen wir Disjunktion aus $a$ und $b$, $\thicksim(a)$ die Negation und $x\Pi(a)$ eine Generalisation von $a$. Satzformel heißt eine Formel, in der keine freie Variable vorkommt (freie Variable in der bekannten Weise
+definiert). Eine Formel mit genau $n$-freien Individuenvariablen (und sonst keinen freien Variablen)
+nennen wir $n$-stelliges Relationszeichen, für $n = 1$
+auch Klassenzeichen.
+
+Unter $\text{Subst\ } a \Spvek{v; b}$ (wo $a$ eine Formel, $v$ eine Variable und $b$ ein Zeichen vom selben Typ wie $v$ bedeutet) verstehen wir die Formel, welche aus $a$ entsteht, wenn man darin $v$ überall, wo es frei ist, durch
+$b$ ersetzt\footnote{Falls $v$ in $a$ nicht als freie Variable vorkommt, soll $\text{Subst\ } a \Spvek{v; b} = a$ sein. Man beachte, daß \glqq Subst\grqq\ ein Zeichen der Metamathematik ist.}.
+Wir sagen, daß eine Formel $a$ eine Typenerhöhung einer
+anderen $b$ ist, wenn $a$ aus $b$ dadurch entsteht, daß
+man den Typus aller in $b$ vorkommenden Variablen um die
+gleiche Zahl erhöht.
+
+Folgende Formeln (I bis V) heißen Axiome (sie sind mit Hilfe der in bekannter WEise definierten Abkürzungen:
+$., \supset, \equiv, (Ex), =$\footnote{$x_1 = y_1$ ist, wie in PM I, $\pmstar$ 13 durch $x_2\Pi\left(x_2\left(x_1\right) \supset x_2\left(y_1\right)\right)$ definiert zu denken (ebenso für die höheren Typen).}
+und mit der Verwendung der üblichen Konventionen über
+das Weglassen von Klammern geschrieben\footnote{Um aus den
+angeschriebenen Schemata die Axiome zu erhalten, muß man also (in II, II, IV nach Ausführung der erlaubten Einsetzungen) noch
+\begin{enumerate}
+\item die Abkürzungen elimieren,
+\item die unterdrückten Klammern hinzufügen.
+\end{enumerate}
+
+Man beachte, daß die so entstehenden Ausdrücke \glqq Formeln\grqq\ im obigen Sinn sein müssen. (Vgl. auch die 
+exakten Definitionen der metamathe. Begriffe S. 182fg.) TODO}:
+
+\begin{enumerate}[I.]
+	\item \begin{enumerate}[1.]
+		\item $\thicksim(fx_1 = 0)$
+		\item $fx_1 = fy_1 \supset x_y = y_1$
+		\item $x_2(0).x_1\Pi\left(x_2\left(x_1\right) \supset x_2\left(fx_1\right)\right) \supset x_1 \Pi \left(x_2\left(x_1\right)\right)$.
+	\end{enumerate}
+	\item Jede Formel, die aus den folgenden Schemata
+	durch Einsetzung beliebiger Formeln für $p$, $q$,
+	$r$ entsteht.
+	\begin{enumerate}[1.]
+		\item $p\lor p\supset p$
+		\item $p \supset p \lor p$
+		\item $p \lor q \supset q \lor p$
+		\item $\left(p \supset q\right) \supset \left(r \lor p \supset r \lor q\right)$
+	\end{enumerate}
+
+	\item Jede Formel, die aus einem der beiden Schemata
+
+	\begin{enumerate}[1.]
+		\item $v\Pi(a) \supset \text{Subst\ } a \Spvek{v; c}$
+		\item $v\Pi(b \lor a)\supset b \lor v \Pi(a)$
+	\end{enumerate}
+	dadurch entsteht, daß man für $a, v, b, c$ folgende
+	Einsetzungen vornimmt (und in 1. die durch \glqq Subst\grqq\ angezeigte Operation ausführt:
+
+	Für $a$ eine bebliebige Formel, für $v$ eine beliebige Variable, für $b$ eine Formel, in der $v$ nicht frei vorkommt, für $c$ ein Zeichen vom selben Typ wie $v$, vorausgesetzt, daß $c$ keine Variable enthält, welche in $a$ an einer Stelle gebunden ist, an der $v$ frei ist\footnote{$c$ ist also entweder eine Variable oder 0 oder ein Zeichen der Form $f \dots fu$, wo $u$ entweder 0 oder eine Variable 1. Typs ist. Bez. des Begriffs \glqq frei (gebunden) an einer Stelle von $a$\grqq, vgl. die Fußnote \ref{fussnote24} zitierte Arbeit I A 5.}.
+
+	\item Jede Formel, die aus dem Schema
+
+	\begin{enumerate}[1.]
+		\item $(Eu)\left(v\Pi\left(u\left(v\right) \equiv a\right)\right)$
+	\end{enumerate}
+
+	dadurch entsteht, daß man für $v$ bzw. $u$ 
+	beliebige Variablen  vom Typ $n$ 
+	bzw. $n + 1$ und für $a$ eine Formel, die $u$
+	nicht frei enthält, einsetzt. Dieses Axiom
+	vertritt das Reduzibilitätsaxiom 
+	(Komprehensionsaxiom der Mengenlehre).
+
+	\item Jede Formel, die aus der folgenden durch 
+	Typenerhöhung entsteht (und diese Formel selbst):
+
+	\begin{enumerate}[1.]
+		\item $x_1\Pi\left(x_2\left(x_1\right)\equiv y_2\left(x_1\right)\right) \supset x_2 = y_2$.
+	\end{enumerate}
+	
+	Dieses Axiom besagt, daß eine Klasse durch
+	ihre Elemente vollständig bestimmt ist.
+\end{enumerate}
+
+Eine Formel $c$ heißt unmittelbare Folge aus $a$ und $b$
+(bzw. aus $a$), wenn $a$ die Formel $\left(\thicksim\left(b\right)\right)\lor\left(c\right)$
+ist (bzw. wenn $c$ die Formel $v\Pi\left(a\right)$ ist,
+wo $v$ eine beliebige Variable bedeutet). Die Klasse
+der beweisbaren Formeln wird definiert als die kleinste
+Klasse von Formeln, welche die Axiome enthält und gegen
+die Relation \glqq unmittelbare Folge\grqq\ abgeschlossen
+ist\footnote{\label{fussnote24}Die Einsetzungsregel wird
+dadurch überflüssig, daß wir alle möglichen Einsetzungen
+bereits in den Axiomen selbst vorgenommen haben (analog bei
+J.~v.~Neumann, Zur \so{Hilbert}schen Beweistheorie, Math. Zeitschr. 26, 1927.)}.
+
+Wir ordnen nun den Grundzeichen des Systems $P$ in
+folgender Weise eineindeutig natürliche Zahlen zu:
+
+\glqq$0$\grqq \dots 1
+
+\glqq$f$\grqq \dots 3
+
+\glqq$\thicksim$\grqq \dots 5
+
+\glqq$\lor$\grqq \dots 7
+
+\glqq$\Pi$\grqq \dots 9
+
+\glqq(\grqq \dots 11
+
+\glqq)\grqq \dots 13
+
+\noindent ferner den Variablen $n$-ten Typs die Zahlen der
+Form $p^n$ (wo $p$ eine Primzahl $> 13$ ist). Dadurch
+entspricht jeder endlichen Reihe von Grundzeichen (also
+auch jeder Formel) in eineindeutiger Weise
+eine endliche Reihe natürlicher Zahlen. Die endlichen 
+Reihen natürlicher Zahlen bilden wir nun (wieder eineindeutig) auf natürliche Zahlen ab, indem wir der Reihe $n_1, n_2, \dots n_k$ die Zahl $2^{n_1}, 3^{n_2}, \dots p_k^{nk}$ entsprechen lassen, wo $p_k$ die $k$-te
+Primzahl (der Größe nach) bedeutet. Dadurch ist nicht nur
+jeder endlichen Reihe von solchen in eineindeutiger Weise
+eine natürliche Zahl zugeordnet. Die Grundzeichen (bzw.
+der Grundzeichenreihe) $a$ zugeordnete Zahl bezeichnen
+wir mit $\Phi(a)$. Sei nun irgend eine Klasse oder 
+Relation $R(a_1, a_2, \dots a_n)$ zwischen Grundzeichen
+oder Reihen von solchen gegeben. Wir ordnen ihr diejenige
+Klasse (Relation) $R'(x_1, x_2, \dots x_n)$ zwischen
+natürlichen Zahlen zu, welche dann und nur dann zwischen
+$x_1, x_2, \dots x_n$ besteht, wenn es solche
+$a_1, a_2, \dots a_n$ gibt, daß $x_i = \Phi(a_i) (i = 1, 2, \dots n)$ und $R(a_1, a_2, \dots a_n)$ gilt. Diejenigen
+Klassen und Relationen ntaürlicher Zahlen, welche
+auf dieser Weise den bisher definierten
+metamathematischen Begriffen, z.\,B. \glqq Variable\grqq,
+\glqq Formel\grqq, \glqq Satzformel\grqq, \glqq Axiom\grqq,
+\glqq beweisbare Formel\grqq\ usw. zugeordnet sind,
+bezeichnen wir mit denselben Worten in Kursivschrit. Der
+Satz, daß es im System $P$ unentscheidbare Probleme gibt, 
+lautet z.\,B. folgendermaßen: es gibt \textit{Satzformeln} $a$, so daß weder $a$ noch die \textit{Negation} von $a$
+\textit{beweisbare Formeln} sind.
+
+Wir schalten nun eine Zwischenbetrachtung ein, die mit dem
+formalen System $P$ vorderhand nichts zu tun hat, und
+geben zunächst folgende Definition: eine zahlentheoretische
+Funktion\footnote{D.\,h. ihr Definitionsbereich ist die Klasse der nicht negativen ganzen Zahlen (bzw. der $n$-tupel von solchen) und ihre Werte sind nicht negative ganze Zahlen.}
+$\phi(x_1, x_2, \dots x_n)$ heißt \so{rekursiv definiert}
+aus den zahlentheoretischen Funktionen $\psi(x_1, x_2 \dots x_{n - 1})$ und $\mu(x_1, x_2 \dots x_{n + 1}$, wenn
+für alle $x_2 \dots x_n$, $k$\footnote{Kleine lateinische Buchstaben (ev. mit Indizes) sind im folgenden immer Variable gfür nicht negative ganze Zahlen (falls nicht ausdrücklich das Gegenteil bemerkt ist).}
+folgendes gilt:
+
+\begin{equation}
+	\begin{aligned}
+		\phi(0, x_2 \dots x_n) =  \psi(x_2 \dots x_n)\\
+		\phi(k + 1, x_2 \dots x_n) = \mu\left(k, \phi\left(k, x_2 \dots x_n\right), x_2 \dots x_n\right)
+	\end{aligned}
+\end{equation}
+
+Eine zahlentheoretische Funktion $\phi$ heißt 
+\so{rekursiv}, wenn es eine endliche Reihe von zahlentheor.
+Funktionen $\phi_1, \phi_2 \dots \phi_n$ gibt, welche
+mit $\phi$ endet und die Eigenschaft hat, daß jede
+Funktion $\phi_k$ der Reihe entweder aus zwei
+vorhergehenden rekursiv definiert ist oder aus irgend
+welchen der vorhergehenden durch Einsetzung 
+entsteht\footnote{Genauer: durch Einsetzung gewisser der vorhergehenden Funktionen an die Leerstellen einer der vorhergehenden, z.\,B. $\phi_k(x_1, x_2) = \phi_p[\phi_q(x_1, x_2), \phi_r(x_2)]$ ($p, q, r < k$). Nicht alle Variable der linken Seite müssen auch rechts vorkommen (ebenso im Rekursionsschma (2)).}
+oder schließlich eine Konstante oder die Nachfolgerfunktion
+$x + 1$ ist. Die Länge der kürzesten Reihe von $\phi_i$,
+welche zu einer rekursiven Funktion $\phi$ gehört,
+heißt ihre Stufe. Eine Relation zwischen natürlichen
+Zahlen $R(x_1 \dots x_n)$ heißt rekursiv\footnote{Klassen rechnen wir mit zu den Relation (einstellige Relationen). Rekursive Relation $R$ haben natürlich die Eigenschaft, daß man für jedes spezielle Zahlen-$n$-tupel entscheiden kann, ob $R(x_1 \dots x_n)$ gilt oder nicht.},
+wenn es eine rekursive Funktion $\phi(x_1 \dots x_n)$ gibt,
+so daß für alle $x_1, x2 \dots x_n$ 
+
+$$ R(x_1 \dots x_n) \thicksim [\phi(x_1 \dots x_n) = 0]\footnote{Für alle inhaltlichen (insbes. auch die metamathematischen) Überlegungen wird die \so{Hilbert}sche Symbolik verwendet. Vgl. Hilbert-Ackermann, Grundzüge der
+theoretischen Logik, Berlin 1928.}$$
+
+Es gelten folgende Sätze:
+
+\begin{enumerate}[I.]
+	\item \so{Jede aus rekursiven Funktionen (Relationen) durch Einsetzung rekursiver Funktionen an Stelle der Variablen entstehende Funktion (Relation) ist rekursiv; ebenso jede Funktion, die aus rekursiven Funktionen durch rekursive Definition nach dem Schema (2) entsteht.}
+	\item \so{Wenn $R$ und $S$ rekusive Relationen sind,
+	dann auch $R$, $R\lor S$ (daher auch $R \& S$)}.
+	\item \so{Wenn die Funktionen $\phi(\mathfrak{x}), \psi(\mathfrak{y})$ rekursiv sind, dann auch die Relation
+	$\phi(\mathfrak{x}) = \psi(\mathfrak{y})$\footnote{Wir verwenden deutsche
+	Bustaben $\mathfrak{x}, \mathfrak{y}$ als abkürzende Bezeichnung für beliebige Variablen-$n$-tupel, z.\,B. $x_1 x_2 \dots x_n$}.}
+	
+	\item \so{Wenn die Funktion $\phi(\mathfrak{x})$
+	und die Relation $R(\mathfrak{x}, \mathfrak{y})$
+	rekursiv sind, dann auch die Relationen $S, T$}
+
+	\begin{equation*}
+		\begin{aligned}
+			S(\mathfrak{x}, \mathfrak{y} \thicksim (Ex)[x \leqq \phi(\mathfrak{x}) \& R(\mathfrak{x}, \mathfrak{y})]\\
+			T(\mathfrak{x}, \mathfrak{y}) \thicksim [x \leqq \phi(\mathfrak{x}) \longrightarrow R(\mathfrak{x}, \mathfrak{y})]
+		\end{aligned}
+	\end{equation*}
+	\so{sowie die Funktion $\psi$}
+	\begin{equation*}
+		\psi(\mathfrak{x}, \mathfrak{y}) = \epsilon x[x \leqq \phi(\mathfrak{x}) \& R(\mathfrak{x}, \mathfrak{y})],
+	\end{equation*}
+	wobei $\epsilon x F(x)$ bedeutet: Die kleinste 
+	Zahl $x$, für welche $F(x)$ gilt und $0$, falls es 
+	keine solche Zahl gibt.
+\end{enumerate}
+
+Satz I folgt unmittelbar aus der Definition von \glqq rekursiv\grqq. Satz II und III beruhen darauf, daß die den logischen Begriffen $\overline{\phantom{XX}}$, $\lor$, $=$ entsprechenden zahlentheoretischen Funktionen
+\begin{equation*}
+	\alpha(x), \beta(x, y), \gamma(x, y)
+\end{equation*}
+nämlich:
+\begin{equation*}
+	\alpha(0) = 1; \alpha(x) = 0\text{ für } x \not = 0
+\end{equation*}
+\begin{equation*}
+	\beta(0, x) = \beta(x, 0) = 0; \beta(x, y) = 1,
+	\text{ wenn } x, y \text{ beide } \not = 0 \text{ sind}
+\end{equation*}
+\begin{equation*}
+	\gamma(x, y) = 0, \text{ wenn } x = y; \gamma(x, y) = 1, \text{ wenn } x \not = y
+\end{equation*}
+rekursiv sind, wie man sich leicht überzeugen kann. Der
+Beweis für Satz IV ist kurz der folgende: Nach der 
+Voraussetzung gibt es ein rekursives $\rho(\mathfrak{x}, \mathfrak{y})$, so daß:
+
+\begin{equation*}
+	R(\mathfrak{x}, \mathfrak{y}) \thicksim [\rho(\mathfrak{x}, \mathfrak{y}) = 0].
+\end{equation*}
+
+Wir definieren nun nach dem Rekursionsschma (2) eine 
+Funktion $\chi(\mathfrak{x}, \mathfrak{y})$ folgendermaßen:
+
+\begin{equation*}
+	\chi(0, \mathfrak{y}) = 0
+\end{equation*}
+\begin{equation*}
+	\chi(n + 1, \mathfrak{y}) = (n + 1).a + \chi(n, \mathfrak{y}).\alpha(a)\footnote{Wir setzen als bekannt voraus, daß die Funktionen $x + y$ (Addition), $x.y$ (Multiplikation) rekursiv sind.}
+\end{equation*}
+wobei $a = \alpha[\alpha(\rho(0, \mathfrak{y}))].\alpha[\rho(n + 1, \mathfrak{y})].\alpha[\chi(n, \mathfrak{y})]$.
+
+$\chi(n + 1, \mathfrak{y})$ ist daher entweder $ = n + 1$ (wenn $a = 1$) oder $ = \chi(n, \mathfrak{y})$ (wenn $a = 0$)\footnote{Andere Werte als 0 und 1 kann $a$, wie aus der Definition für $\alpha$ ersichtlich ist, nicht annehmen.}.
+Der erste Fall tritt offenbar dann und nur dann ein, wenn
+sämtliche Faktoren von $a$ $1$ sind, d.\,h. wenn gilt:
+
+\begin{equation*}
+	\overline{R}(0, \mathfrak{y}) \& R(n + 1, \mathfrak{y}) \& [\chi(n, \mathfrak{y}) = 0]
+\end{equation*}
+
+Daraus folgt, daß die Funktion $\chi(n, \mathfrak{y})$ (als
+Funktion von $n$ betrachtet) 0 bleibt bis zum kleinsten Wert von $n$, für den $R(n, \mathfrak{y})$ gilt, und von 
+da ab gleich diesm Wert ist (falls schon $R(0, \mathfrak{y})$ gilt, ist dementsprechend $\chi(n, \mathfrak{y})$ konstant und $ = 0$). Demnach gilt:
+
+\begin{equation*}
+	\psi(\mathfrak{x}, \mathfrak{y}) = \chi(\phi(\mathfrak{x}), \mathfrak{y})
+\end{equation*}
+\begin{equation*}
+	S(\mathfrak{x}, \mathfrak{y}) \thicksim R[\psi(\mathfrak{x}, \mathfrak{y}), \mathfrak{y}]
+\end{equation*}
+
+Die Relation $T$ läßt sich durch Negation auf einen zu
+$S$ analogen Fall zurückführen, womit Satz IV bewiesen
+ist.
+
+Die Funktionen $x + y, x.y, x^y$, ferner die Relationen
+$x < y, x = y$ sind, wie man sich leicht überzeugt,
+rekursiv und wir definieren nun, von diesen Begriffen
+ausgehend, eine Reihe von Funktionen (Relationen) 1--45,
+deren jede au den vorhergehenden mittels der in den Sätzen 
+I bis IV genannten erfahren definiert ist. Dabei sind
+meistens mehrere der nach Satz I bis IV erlaubten 
+Definitionsschritte in einem zusammengefaßt. Jede der 
+Funktionen (Relationen) 1--45, unter denen z.\,B. die
+Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmittelbare Folge}\grqq\ vorkommen, ist daher rekursiv.
+
+\begin{enumerate}[1.]
+	\item $x/y \equiv (Ez) [z \leqq x \& x = y.z]$\footnote{Das Zeichen $\equiv$ wird im Sinne von \glqq Definitionsgleichheit\grqq\ verwendet, vertritt also bei Definitionen entweder $=$ oder $\thicksim$ (im übrigen ist
+	die Symbol die \so{Hilbert}sche).}
+
+	$x$ ist teilbar durch $y$\footnote{Überall, wo in den folgenden Definitionen eines der Zeichen $(x), (Ex), \epsilon x$ auftritt, ist es von einer Abschätzung für $x$ gefolgt. Diese Abschätzung dient lediglich dazu, um die rekursive Natur des definierten Begriffes (vgl. Satz IV) zu sichern. Dagegen würde sich der Umgang der definierten Begriffe durch Weglassung dieser Abschätzung meistens nicht ändern.}
+
+	\item $\text{Prim }(x) \equiv \overline{(Ez)} [z \leqq x \& z \not = 1 \& z \not = x \& x/z] \& x > 1$
+
+	$x$ ist eine Primzahl.
+
+	\item $0 Pr x \equiv 0$
+
+	$(n + 1) Pr x \equiv \epsilon x [y \leqq x \& \text{Prim}(y) \& x/y \& y > n Pr x]$
+	\let\originalfootnote=\thefootnote
+	\let\thefootnote=\fnvierunddreissiga
+
+	$n Prx$ ist die $n$-te (der Größe nach) in $x$ enthaltene Primzahl\footnote{Für $0 < n \leqq z$, wenn $z$ die Anzahl der verschiedenen in $x$ aufgehenden Primzahlen ist. Man beachte, daß für $n = z + 1$ \hspace{0.5cm} $n Pr x = 0$ ist!}.
+	\let\thefootnote=\originalfootnote
+	\setcounter{footnote}{35}
+
+	\item $0! \equiv 1$
+
+	$(n + 1)! \equiv (n + 1).n!$
+
+	\item $pr\ (0) \equiv 0$
+
+	$pr\ (n + 1) \equiv \epsilon y [y \leqq \{ pr\ (n) \}! + 1 \& \text{prim }(y) \& y > pr\ (n)] $
+
+	$pr\ (n)$ ist die $n$-te primzahl (der größe nach).
+
+	\item $n Gl x \equiv \epsilon y [y \leqq x \& x/(n pr x)^y \& \overline{x/n pr x)^{y + 1}}]$
+
+	$n Gl x$ ist das $n$-te Glied der der Zahl $x$
+	zugeordneten Zahlenreihe (für $n > 0$ und $n$ nicht
+	größer als die Länge dieser Reihe).
+
+	\item $l(x) \equiv \epsilon y [y \leqq x \& y Pr x > 0 \&(y + 1) Pr x = 0]$
+
+	$l(x)$ ist die Länge der $x$ zugeordneten Zahlenreihe.
+
+	\item $x \pmstar y \equiv \{ z \leqq [ Pr (l(x) + l(y))]^{x + 1} \& 
+	(n) [n \leqq l(x) \longrightarrow (n Gl z = n Gl x] \&
+	(n) [0 < n \leqq (l(y) \longrightarrow (n + l(x)) Gl z = n Gl y]\}$
+
+	$x \pmstar y$ entspricht der Operation des
+	\glqq Aneinanderfügens\grqq\ zweier endlicher
+	Zahlenreihen.
+
+	\item $R(x) \equiv 2^\omega$
+
+	$R(x)$ entspricht der nur aus der Zahl $x$ bestehenden Zahlenreihe (für $x > 0$).
+
+	\item $E(x) \equiv R(11) \pmstar x \pmstar R(13)$
+
+	$E(x)$ entspricht der Operation des \glqq Einklammerns\grqq\ [11 und 13 sind den Grundzeichen
+	\glqq(\grqq\ und \glqq)\grqq\ zugeordnet].
+
+	\item $n\text{ Var } x \equiv (Ez)[13 < z \leqq x \& \text{Prim }(z) \& x = z^n] \& n \not = 0$
+
+	$x$ ist eine \textit{Variable $n$-ten Typs}.
+
+	\item $\text{Var }(x) \equiv (En)[n \leqq x \& n \text{ Var } x$
+
+	$x$ ist eine \textit{Variable}.
+
+	\item $\text{Neg }(x) \equiv R(5) \pmstar E(x)$
+
+	$\text{Neg }(x)$ ist die \textit{Negation} von
+	$x$.
+
+	\item $x \text{ Dis } y \equiv E(x) \pmstar R(7) \pmstar E(y)$
+
+	$x \text{ Dis } y$ ist die \textit{Disjunktion} aus $x$ und $y$.
+
+	\item $x \text{ Gen } y \equiv = R(x) \pmstar R(9) \pmstar E(y)$
+
+	$x \text{ Gen } y$ ist die \textit{Generalisation} von $y$ mittels der Variablen $x$ (vorausgesetzt, daß $x$ eine \textit{Variable} ist).
+
+	\item $0 N x \equiv x$
+
+	$(n + 1) N x \equiv R(3) n N x$
+
+	$n N x$ entspricht der Operation \glqq$n$-maliges
+	Vorsetzen des Zeichens \glq$f$\grq\ vor $x$\grqq.
+
+	\item $Z(n) \equiv n N[R(1)]$
+
+	$Z(n)$ ist das \textit{Zahlzeichen} für die Zahl $n$.
+
+	\let\originalfootnote=\thefootnote
+	\let\thefootnote=\fnvierunddreissigb
+	% 18
+	\item $\text{Typ}_1'(x) \equiv (Em, n) \{m, n\leqq x \& [m = 1 \lor 1\textit{ Var } m] \& x = n N [R(m)]\}$\footnote{$m, n \leqq x$ steht für: $m \leqq x \& n \leqq x$ (ebenso für mehr als 2 Variable).}
+	\let\thefootnote=\originalfootnote
+	\setcounter{footnote}{34}
+
+	$x$ ist \textit{Zeichen ersten Typs}.
+
+	\item $\text{Typ}_n(x) \equiv [n = 1 \& \text{Typ}_1'(x)] \lor [n > 1 \& (Ev) \{v \leqq x \& n\text{ Var } v \& x = R(v)\}]$
+
+	$x$ ist \textit{Zeichen $n$-ten Typs}.
+
+	\item $Elf(x) \equiv (E y, z, n) [y, z, n \leqq x \& \text{Typ}_n(y) \& \text{Typ}_{n + 1}(z) \& x = z \pmstar E(y)]$
+
+	$x$ ist \textit{Elementarformel}.
+
+	\item $Op(x\ y\ z) \equiv x = \text{Neg}(y) \lor x = y \text{ Dis } z \lor (Ev) [v \leqq x \& \text{Var}(x) \& x = v \text{ Gen } y]$
+
+	\item $FR(x) \equiv (n) \{ 0 < n \leqq l(x) \longrightarrow Elf(n Gl x) \lor (Ep, q) [0 < p, q < n \& Op(n Gl x, p Gl x, q Gl x)]\} \& l(x) > 0$
+
+	$x$ ist eine Reihe von \textit{Formeln}, deren jede entweder
+	\textit{Elementarformel} ist oder aus vorhergehenden durch die Operationen der \textit{Negation},
+	\textit{Disjunktion}, \textit{Generalisation} hervorgeht.
+
+	\item $\text{Form}(x) \equiv (En) \{n \leqq (Pr [l(x)^2])^{x.[l(x)]^2} \& FR(n) \& x = [l(n)] Gl n\}$\footnote{Die Abschätzung $n \leqq (Pr [l(x)^2])^{x l(x)^2}$ erkennt man so:Die Länge der kürzesten zu $x$ gehörigen Formelreihe kann höchstens gleich der Anzahl der Teilformeln von $x$ sein. Es gibt aber höchstens $l(x)$ Teilformeln der Länge 1, hchstens $l(x) - 1$ der Länge 2 usw., im Ganzen als höchstens $\frac{l(x)[l(x) + 1]}{2} \leqq l(x)^2$. Die Primzahlen aus $n$ können also sämtlich kleiner als $Pr\{[l(x)]^x\}$ angenommen werden, ihre Anzahl $\leqq l(x)^2$ und ihre Exponenten (welche Teilformeln von $x$ sind) $\leqq x$.}
+
+	$x$ ist \textit{Formel} (d.\,h. letztes Glied einer \textit{Formelreihe $n$}).
+
+	\item $v \text{ Geb } n, x \equiv \text{Var}(v) \& \text{Form}(x) \& (Ea, b, c) [a, b, c \leqq x \& x a = \pmstar (v \text{ Gen } b \pmstar c \& \text{Form}(b) \& l(a) + 1 \leqq n \leqq l(a) + l(v \text{ Gen } b)]$
+
+	Die \textit{Variable} $v$ ist in $x$ an $n$-ter Stelle \textit{gebunden}.
+
+	\item $v Fr n, x \equiv \text{Var}(v) \& \text{Form}(x) \& v = n Gl x \& n \leqq l(x) \& v \text{ Geb } n, x$
+
+	Die \textit{Variable} $v$ ist in $x$ an $n$-ter Stelle \textit{frei}.
+
+	\item $v Fr x \equiv (En) [n \leqq l(x) \& v Fr n, x]$
+
+	$v$ kommt in $x$ als \textit{freie Variable} vor.
+
+	\item $S u x \Spvek{n; y} \equiv \epsilon z \{ z \leqq [Pr(l(x) + l(y))]^{x + y} \& [(Eu, v) u, v \leqq x \& x = u \pmstar R(n Gl x) v \& z = u \pmstar y \pmstar v \& n = l(u) + 1]\}$
+
+	$S u x \Spvek{n; y}$ entsteht aus $x$, wenn man an Stelle des $n$-ten Gliedes von $x$ $y$ einsetzt (vorausgesetzt, daß $0 < n \leqq l(x)$).
+
+	\item $0 St v, x \equiv \{ n \leqq l(x) \& v Fr n, x \& \overline{(Ep)} [n < p \leqq l(x) \& v Fr p x]\}$
+
+	$(k + 1) St v, x \equiv \epsilon n \{n < k St , x \& v Fr n, x \& \overline{(Ep)} [n < p < k St v, x \& v Fr p, x]\}$
+
+	$k St v, x$ ist die $k + 1$-te Stelle in $x$ (vom Ende der \textit{Formel} $x$ an gezählt), an der $v$ in $x$ \textit{frei} ist (und 0, falls es keine solche Stelle gibt).
+
+	\item $A(v, x) \equiv \epsilon n\{ n \leqq l(x) \& n St v x = 0\}$
+
+	$A(v, x)$ ist die Anzahl der Stellen, an denen $v$ in $x$ \textit{frei} ist.
+
+	\item $Sb_0 \left(x\substack{v\\y }\right) \equiv \alpha$
+
+	$Sb_{k + 1} \left(x\substack{v\\y}\right) \equiv Su [Sb_k\left(x\substack{v\\y}\right)] \left(\substack{k\ St\ v, x\\y}\right)$
+	
+	% 31
+	\item $Sb\left(x\substack{v\\y}\right) \equiv Sb_{A(v, x)}\left(x\substack{v\\y}\right)$\footnote{Falls $v$ keine \textit{Variable} oder $x$ keine \textit{Formel} ist, ist $Sb\left(x\substack{v\\y}\right) = x$.}
+
+	$Sb\left(x\substack{v\\y}\right)$ ist der oben definierte Begriff $Subst a\left(\substack{v\\b}\right)$\footnote{Statt $Sb\left[Sb\left(x\substack{v\\y}\right)\substack{w\\z}\right]$ schreiben wir: $Sb\left(x\substack{v\ u\\y\ z}\right)$ (analog für mehr als zwei Variable).}.
+
+	\item $x \text{ Imp } y \equiv [\text{Neg }(x)] \text{ Dis } y $
+
+	$x \text{ Con } y \equiv \text{ Neg } \{[\text{Neg }(x)]\text{ Dis }[\text{Neg }(y)]\}$
+
+% TODO check hier ist eine Klammer nicht geschlossen!!!
+	$x \text{ Aeq } y \equiv (x \text{ Imp } y \text{ Con } (y \text { Imp } x)$
+
+	$v \text { Ex } y \equiv \text{Neg } \{v \text{ Gen } [\text{Neg } (y)]\}$
+
+	\item $n Th x \equiv \epsilon y \{ y \leqq x^{(x^n)} \& (k) [k \leqq l(x) \longrightarrow (k Gl x \leqq 13 \& k Gl y = k Gl x) \lor (k Gl x > 13 \& k Gl y = k Gl x.[1 Pr (k Gl x)]^n)]\}$
+
+	$n Th x$ ist die \textit{$n$-te Typenerhöhung} von $x$ (falls $x$ und $n Th x$ \textit{Formeln} sind).
+
+	Den Axiomen I, 1 bis 3, entsprechen drei bestimmte Zahlen, die wir mit $z_1, z_2, z_3$ bezeichnen un wir definieren:
+
+	\item $Z - Ax(x) \equiv (x = z_1 \lor x = z_2 \lor x = z_3)$
+
+	\item $A_1 - Ax(x) \equiv (Ey) [y \leqq x\& \text{Form }(y) \& x = (y \text{ Dis } y) \text{ Imp } y]$
+
+	$x$ ist eine durch Einsetzung in das Axiomenschema II, 1 entstehende \textit{Formel}. Analog werden $A_2 - Ax, A_3 - Ax, A_4 - Ax$ entsprechend den Axiomen II, 2 bis 4 definiert.
+
+	\item $A - Ax (x) \equiv A_1 - Ax(x) \lor A_2 - Ax(x) \lor A_3 - Ax(x) \lor A_4 - Ax(x)$
+
+	$x$ ist eine durch Einsetzung in ein Aussagenaxiom entstehende \textit{Formel}.
+
+	\item $Q(z, y, v) \equiv \overline{(En, m, w)} [n \leqq l(y) \& m \leqq l(z) \& w \leqq z \&  w = m Gl z \& w \text{ Geb } n, y \& v Fr n, y]$
+	
+	$z$ enthält keine Variable, die in $y$ an einer Stelle
+	\textit{gebunden} ist, an der $v$ \textit{frei} ist.
+
+	\item $L_1 - Ax(x) \equiv (Ev, y, z, n) \{v, y, z, n \leqq x \& n \text{ Var } v \& \text{Typ}_n(z) \& \text{Form}(y) \& Q(z, y, v) \& x = (v \text{ Gen } y) \text{ Imp } [Sb \left(y \substack{v\\z}\right)]\}$
+
+	$x$ ist eine aus dem Axiomenschema III, 1 durch Einsetzung entstehende \textit{Formel}.
+
+	\item $L_2 - Ax(x) \equiv (Ev, q, p) \{v, q, p \leqq x \& \text{Var}(v) \& \text{Form}(p) \& v Fr p \& \text{Form}(x) \& x = [v \text{ Gen } (p\text{ Dis } q)]\}$
+
+	$x$ ist eine aus dem Axiomenschema III, 2 durch Einsetzung entstehende \textit{Formel}.
+
+	\item $R - Ax(x) \equiv (Eu, v, y, n) [u, v, y, n \leqq x \& n \text{ Var } v \& (n + 1) \text{ Var } u \&  u Fr y \& \text{Form }(y) \& x = u\text{ Ex } \{v \text{Gen } [[R(u) \pmstar E(R(v))] \text{ Aeq } y ]\} ]$
+
+	$x$ ist eine aus aus dem Axiomenschema Iv, 1 durch
+	Einsetzung entstehende \textit{Formel}.
+
+	Dem Axiom V, 1 entspricht eine bestimmte Zahl $z_4$ und wir definieren:
+
+	\item $M - Ax(x) \equiv (En) [n \leqq x \& x = n Th z_4]$
+
+	\item $Ax(x) \equiv Z - Ax(x) \lor A - Ax(x) \lor L_1 - Ax(x) \lor L_2 - Ax(x) \lor R - Ax(x) \lor M - Ax(x)$
+
+	$x$ ist ein \textit{Axiom}.
+
+	\item $Fl(x\ y\ z) \equiv y = z \text{ Imp } x \lor (Ev) [ v \leqq x \& \text{ Var }(v) \& x = v \text{ Gen } y]$
+
+	$x$ ist \textit{unmittelbare Folge} aus $y$ und $z$.
+
+	\item $Bw(x) \equiv (n)\{0 < n \leqq l(x) \longrightarrow Ax(n Gl x) \lor (Ep, q) [0, < p, q < n \& Fl(n Gl x, p Gl x, q Gl x)]\} \& l(x) > 0$
+
+	$x$ ist eine \textit{Beweisfigur} (eine endliche Folge von \textit{Formeln}, deren jede entweder \textit{Axiom} oder \textit{unmittelbare Folge} aus der vorhergehenden ist).
+
+	\item $x B y \equiv Bw(x) \& [ l(x) ] Gl x = y$
+
+	$x$ ist ein \textit{Beweis} für die \textit{Formel} $y$.
+
+	\item $\text{Bew }(x) \equiv (Ey) y B x$
+
+	$x$ ist eine \textit{beweisbare Formel}. [$\text{Bew }(x)$ ist der einzige unter den Begriffen 1--46, von dem nicht behauptet werden kann, er sei rekursiv.]
+\end{enumerate}
+
+Die Tatsache, die man vage so formulieren kann: Jede rekursive Relation ist innerhalb des Systems $P$ (dieses inhaltlich gedeutet) definierbar, wird, ohne auf eine inhaltliche Deutung der Formeln aus $P$ Bezug zu nehmen, durch folgenden Satz exakt ausgedrückt:
+
+Satz V: Zu jeder reksursiven Relation $R(x_1 \dots x_n)$
+gibt es ein $n$-stelliges \textit{Relationszeichen} $r$ (mit den \textit{freien Variablen}\footnote{Die \textit{Variablen} $u_1 \dots u_n$ können willkürlich vorgegeben werden. Es gibt z.\,B. immer ein $§r$ mit den \textit{freien Variablen} 17, 19, 23 \dots usw., für welches (3) und (4) gilt.}
+$u_1, u_2 \dots u_n$), so, dass für alle Zahlen-$n$-tupel
+$x_1 \dots x_n$ gilt:
+
+% S 15
+\begin{equation}
+	R(x_1 \dots x_n) \longrightarrow \text{Bew}\left[Sb\left(r\substack{u_1 \dots u_n\\ Z(x_1) \dots Z(x_n)}\right)\right]
+\end{equation}
+
+\begin{equation}
+	\overline{R}(x_1 \dots x_n) \longrightarrow \text{Bew }\left[\text{Neg } Sb\left(r\substack{u_1 \dots u_n \\ Z(x_1) \dots Z(x_n)}\right)\right]
+\end{equation}
+
+Wir begnügen uns hier damit, den Beweis dieses Satzes, da er keine prinzipipiellen Schwierigkeiten bietet und ziemlich umständlich ist, in Umrissen anzudeuten\footnote{Satz V beruht natürlich darauf, daß bei einer rekursien Relation $R$ für jedes $n$-tupel von Zahlen \so{aus den Axiomen des Systems $P$} entscheidbar ist, ob dieses Relation $R$ besteht oder nicht.}.
+Wir beweisen den Satz für alle Relationen $R(x_1 \dots x_n)$ der Form: $x_1 = \phi(x2 \dots x_n)$\footnote{Daraus folgt sofort seine Geltung für jede rekursive Relation, da eine solche gleichbedeutung ist mit $0 = \phi(x_1 \dots x_n)$, wo $\phi$ rekursiv ist.}
+(wo $\phi$ eine rekursive Funktion ist) und wenden vollständige Induktion nach der Stufe von $\phi$ an. Für die Funktionen erste Stufe (d.\,h. Konstante und die Funktion $x + 1$) ist der Satz trivial. Habe also
+$\phi$ die $m$-te Stufe. Es entsteht aus Funktionen niederigerer Stufe $\phi_1 \dots \phi_k$ durch die Operationen der Einsetzung oder der rekursiven Definition. Da für $\phi_1 \dots \phi_k$ nach induktiver Annahme bereits alles bewiesen ist, gibt es zugehörige \textit{Relationszeichen} $r_1 \dots r_k$, so daß (3), (4) gilt. Die Definitionsprozesse, durch die $\phi$ aus $\phi_1 \dots \phi_k$ entsteht (Einsetzung und rekursive Definition), können sämtlich im System $P$ formal nachgebildet werden. Tut man dies, so erhält man aus $r_1 \dots r_k$ ein neues \textit{Relationszeichen} $r$\footnote{Bei der genauen Durchführung dieses Beweises wird natürlich $r$ nicht auf dem Umweg über die inhaltliche Deutung, sondern durch seine rein formale Beschaffenheit definiert.},
+für welches man die Geltung von (3), (4) unter der Verwendung der induktiven Annahmen ohne Schwierigkeit beweisen kann. Ein \textit{Relationszeichen} $r$, welches auf diesem Wege einer rekursiven relation zugeordnet ist\footnote{Welches also, inhaltlich gedeutet, das Bestehen dieser Relation ausdrückt.},
+soll rekursiv heißen.
+
+Wir kommen nun ans Ziel unserer Ausführungen. Sei $\chi$ eine beliebige Klasse von \textit{Formeln}. Wir bezeichnen mit $\text{Flg}(x)$ (Folgerungsmenge von $\chi$) die kleinste Menge von \textit{Formeln}, die alle \textit{Formeln} aus $\chi$ und alle \textit{Axiome} enthäklt und gegen die Relation \glqq\textit{unmittelbare Folge}\grqq\ abgeschlossen ist. $\chi$ heißt $\omega$-widerspruchsfrei, wenn es kein \textit{Klassenzeichen}
+$a$ gibt, so daß:
+\begin{equation*}
+	(n)\left[Sb\left(a\substack{v\\ Z(n)}\right) \epsilon \text{ Flg } (x)\right] \& \left[\text{Neg }(v\text{ Gen } a)\right] \epsilon \text{ Flg }(\chi)
+\end{equation*}
+wobei $v$ die \textit{freie Variable} des \textit{Klassenzeichens} $a$ ist.
+
+
+Jedes $\omega$-widerspruchsfreie System ist selbstverständlich auch widerspruchsfrei. Es gilt aber, wie später gezeigt werden wird, nicht das Umgekehrte.
+
+Das allgemeine Resultat über die Existenz unentscheidbarer Sätze lautet:
+
+Satz VI: \so{Zu jeder $\omega$-widerspruchsfreien rekursiven Klasse $\chi$ von} \textit{Formeln} \so{gibt es
+rekursive} \textit{Klassenzeichen} $r$, \so{so daß weder $v \text{ Gen } r$ noch $\text{Neg }(v \text{ Gen } r)$ zu
+$\text{Flg }(\chi)$ gehört (wobei $v$ die} \textit{freie Variable} \so{aus $r$ ist)}.
+
+Beweis: Sei $\chi$ eine beliebige rekursive $\omega$-widerspruchsfreie Klasse von \textit{Formeln}. Wir definieren:
+
+\begin{equation}
+	Bw_x(x) \equiv (n) [ n \leqq l(x) \longrightarrow Ax(n Gl x) \lor n Gl x) \epsilon \chi \lor
+\end{equation}
+\begin{equation*}
+	(Ep, q) \{0 < p, q < n \& Fl(n Gl x, p Gl x, q Gl x)\}] \& l(x) > 0
+\end{equation*}
+(vgl. den analogen Begriff 44)
+
+\begin{equation}
+	x B_x y \equiv Bw_x(x) \& [l(x)] Gl x = y
+\end{equation}
+\begin{equation}
+	\tag{6.1}
+	\text{Bew}_x(x) \equiv (Ey) y B_x x
+\end{equation}
+(vgl. die analogen Begriffe 45, 46).
+
+Es gilt offenbar:
+
+\begin{equation}
+	(x) [\text{Bew}_x(x) \thicksim x \epsilon \text{Flg}(\chi)]
+\end{equation}
+\begin{equation}
+	(x) [\text{Bew}(x) \longrightarrow \text{Bew}_x(x)]
+\end{equation}
+
+Nun definieren wir die Relation:
+
+\begin{equation}
+	\tag{8.1}
+	Q(x, y) \equiv \overline{x B\chi\left\lfloor Sb\left(y\substack{19\\ Z(y)}\right)\right\rfloor}.
+\end{equation}
+
+Da $x B_x y$ [nach (6), (5)] und $Sb\left(y\substack{19\\ Z(y)}\right)$ (nach Def. 17, 31) rekursiv sind, so auch $Q(xy)$. Nach Satz V und (8) gibt es also ein \textit{Relationszeichen} $q$ (mit den \textit{freien Variablen} 17, 19), so daß gilt:
+
+\begin{equation}
+	\overline{x B_\chi\left[Sb\left(y\substack{19\\ Z(y)}\right)\right]} \longrightarrow \text{Bew}_{\chi} \left[Sb \left(q \substack{17\\ Z(x)}\substack{19\\ Z(y)}\right)\right]
+\end{equation}
+
+\begin{equation}
+	x B_\chi \left[Sb\left(y\substack{19\\ Z(y)}\right)\right] \longrightarrow \text{Bew}_\chi \left[\text{Neg }Sb\left(q\substack{17\\ Z(x)}\substack{19\\ Z(y)}\right)\right]
+\end{equation}
+
+Wir setzen:
+
+\begin{equation}
+	p = 17 \text{ Gen } q
+\end{equation}
+($p$ ist ein \textit{Klassenzeichen} mit der \textit{freien Variablen} 19) und
+
+\begin{equation}
+	r = Sb\left(q\substack{19\\ Z(p)}\right)
+\end{equation}
+($r$ ist ein rekursives \textit{Klassenzeichen} mit der \textit{freien Variablen} 17\footnote{$r$ entsteht ja aus dem rekursiven \textit{Relationszeichen} $q$ durch Ersetzen einer \textit{Variablen} durch eine Bestimmte Zahl $(p)$.}).
+Dann gilt:
+\begin{equation}
+	Sb\left(p\substack{19\\ Z(p)}\right) = Sb\left([17\text{ Gen } q]\substack{19\\ Z(p)}\right) = 17\text{ Gen } Sb\left(q\substack{19\\ Z(p)}\right) = 17\text{ Gen } r\footnote{Die Operationen $\text{Gen}$, $Sb$ sind natürlich immer vertauschbar, falls sie sich auf verschiedene \textit{Variablen} beziehen.}
+\end{equation}
+[wegen (11) und (12)] ferner:
+
+\begin{equation}
+	Sb\left(q\substack{17\\ Z(x)}\substack{19\\ Z(p)}\right) = Sb\left(r\substack{17\\ Z(x)}\right)
+\end{equation}
+
+[nach (12)]. Setzt man nun in (9) und (10) $p$ für $y$ ein, so entsteht unter Berücksichtigung von (13) und (14):
+
+\begin{equation}
+	\overline{x B_\chi (17\text{ Gen } r)} \longrightarrow \text{Bew}_\chi \left[Sb\left(r\substack{17\\ Z(x)}\right)\right]
+\end{equation}
+
+\begin{equation}
+	x B_\chi (17\text{ Gen } r) \longrightarrow \text{Bew}_\chi\left[\text{Neg } Sb\left(r\substack{17\\ Z(x)}\right)\right]
+\end{equation}
+
+Daraus ergibt sich:
+
+\begin{enumerate}
+	\item $17 \text{ Gen } r$ ist nicht $\chi$-beweisbar\footnote{$x$ ist $\chi$-beweisbar, soll bedeuten: $x \epsilon \text{Flg}(x)$, was nach (7) dasselbe besagt wie: $\text{Bew}_\chi(x)$.}. Denn wäre dies der Fall, so gäbe es (nach 6.1) ein $n$, so daß $n B_\chi (17 \text{ Gen } r)$. Nach 17 gälte also: $\text{Bew}_\chi \left[\text{Neg }Sb\left(r\substack{17\\ Z(n)}\right)\right]$, während andererseits aus der $\chi$-\textit{Beweisbarkeit} von $17 \text{ Gen } r$ auch die von $Sb \left(r\substack{17\\ Z(n)}\right)$ folgt. $\chi$ wäre also widerspruchsvoll (umso mehr $\omega$-widerspruchsvoll).
+
+	\item $\text{Neg }(17 \text{ Gen } r)$ ist nicht $\chi$-\textit{beweisbar}. Beweis: wie eben bewiesen wurde, ist $17 \text{ Gen } r$ nicht $\chi$-beweisbar, d.\,h. (nach 6.1) es gilt $(n)\overline{n B_\chi (17\text{ Gen } r)}$. Daraus folgt nach (15) $(n) \text{Bew}_\chi\left[Sb\left(r\substack{17\\ Z(n)}\right)\right]$, was zusammen mit $\text{Bew}_\chi [\text{Neg }(17 \text{ Gen } r)]$ gegen die $\omega$-Widerspruchsfreiheit von $\chi$ verstoßen würde.
+
+	$17\text{ Gen } r$ ist also aus $\chi$ unentscheidbar, womit Satz IV bewiesen ist.
+\end{enumerate}
+
+\let\originalfootnote=\thefootnote
+\let\thefootnote=\fnfunfundvierziga
+Man kann sich leicht überzeugen, daß der eben geführte Beweis konstruktiv ist\footnote{Denn alle im Beweise vorkommenden Existentialbehauptungen beruhen auf Satz , der, wie leicht zu sehen, intuitionistisch einwandfrei ist.},
+\let\thefootnote=\originalfootnote
+\setcounter{footnote}{45}
+d.\,h. es ist intuitionistisch einwandfrei folgendes bewiesn:
+Sei eine beliebige rekursiv definierte Klasse $\chi$ 
+von \textit{Formeln} vorgelegt. Wenn dann eine formale Entscheidung (aus $\chi$) für die (effektiv aufweisbare)
+\textit{Satzformel} $17 \text{ Gen } r$ vorgelegt ist, so kann man effektive angeben:
+
+\begin{enumerate}
+	\item Einen \textit{Beweis} für $\text{Neg } (17 \text{ Gen } r)$.
+	\item Für jedes beliebige $n$ einen Beweis für $Sb\left(r\substack{17\\ Z(n)}\right)$, d.h. eine formale Entscheidung von $17\text{ Gen } r$ würde die effektive Aufweisbarkeit eines $\omega$-Widerspruches zur Folge haben.
+\end{enumerate}
+
+Wir wollen eine Relation (Klasse) zwischen natürlichen Zahlen $R(x_1 \dots x_n)$ \so{entscheidungsdefinit} nennen,
+wenn es ein $n$-stelliges \textit{Relationszeichen} $r$ gibt, so daß (3) und (4) (vgl. Satz V) gilt.
+Insbesondere ist also nach Satz V jede rekursive Relation
+entscheidungsdefinit. Analog soll ein \textit{Relationszeichen} entscheidungsdefinit heißen, wenn es auf diese Weise einer entscheidungsdefiniten Relation zugeordnet ist. Es genügt nun für die Existenz unentscheidbarer Sätze, von der Klasse $\chi$ vorauszusetzen, daß sie $\omega$-widerspruchsfrei und entscheidungsdefinit ist. Denn die Entscheidungsdefinitheit überträgt sich von $\chi$ auf $x B_\chi y$ (vgl. (5), (6)) und auf $Q(x, y)$ (vgl. (8.1)) und nur dies wurde im obigen Beweise verwendet. Der unentscheidbare Satz hat in diesem Fall die Gestalt $v\text{ Gen } r$, wo $r$ ein entscheidungsdefinites \textit{Klassenzeichen} ist (es genügt übrigens sogar, daß $\chi$ in dem durch $\chi$ erweiterten System entscheidungsdefinit ist).
+
+Setzt man von $\chi$ statt $\omega$-Widerspruchsfreiheit, bloß Widerspruchsfreiheit voraus, so folgt zwar nicht die Exitsenz eines unentscheidbaren Satzes, wohl aber die Existenz einer Eigenschaft $(r)$, für die weder ein Gegenbeispiel \so{angebbar}, noch beweisbar ist, daß sie allen Zahlen zukommt. Denn zum Beweise, dass $17\text{ Gen } r$ nicht $\chi$-\textit{beweisbar} ist, wurde nur die Widerspruchsfreiheit von $\chi$ verwene (Vgl. S. 189 TODO) und aus $\overline{\text{Bew}_\chi}(17\text{ Gen } r)$ folgt nach (15), daß für jede Zahl $x$ 
+$Sb\left(r\substack{17\\ Z(x)}\right)$, folglich für keine Zahl $\text{Neg }Sb\left(r\substack{17\\ Z(x)}\right)$ $\chi$-\textit{beweisbar} ist.
+
+Adjungiert man $\text{Neg }(17 \text{ Gen } r)$ zu $\chi$, so erhält man eine widerspruchsfreie aber nicht $\omega$-widerspruchsfreie \textit{Formelklasse} $\chi'$. $\chi'$ ist widerspruchsfrei, denn sonst wäre $17 \text{ Gen } r$ $\chi$-\text{beweisbar}.
+$\chi'$ ist aber nicht $\omega$-widerspruchsfrei, denn wegen $\overline{\text{Bew}_\chi}(17\text{ Gen } r)$ und (15) gilt: $(x) \text{Bew}_\chi Sb\left(r\substack{17\\ Z(x)}\right)$, umso mehr also:
+$(x)\text{Bew}_{\chi'} Sb\left(r\substack{17\\ Z(x)}\right)$ und anderseits gilt natürlich: $\text{Bew}_{\chi'}[\text{Neg }(17\text{ Gen }r)]$\footnote{Die Existenz widerspruchsfreie und nicht $\omega$-widerspruchsfreier $\chi$ ist damit natürlich nur unter der Voraussetzung bewiesen, daß es überhaupt widerspruchsfreie $\chi$ gibt (d.\,h. daß $P$ widerspruchsfrei ist).}.
+
+Ein Spezialfall von Satz VI ist der, daß die Klasse $\chi$ aus endlich vielen \textit{Formeln} (und ev. den daraus durch \textit{Typenerhöhung} entstehenden) besteht. Jede endliche Klasse $\alpha$ ist natürlich rekursiv. Sei $a$ die größte in $\alpha$ enthaltene Zahl. Dann gilt in diesem
+Fall für $\chi$:
+
+$$
+x \epsilon x \thicksim (Em, n) \left[m \leqq x \& n \leqq a \& n \epsilon \alpha \& x = m Th n\right]
+$$
+
+$\chi$ ist also rekursiv. Das erlaubt z.\,B. zu schließen, daß auch mit Hilfe des Auswahlaxioms (für alle Typen) oder der verallgemeinerten Kontinuumshypothese nicht alle Sätze entscheidbar sind, vorausgesetzt, daß diese Hypothesen $\omega$-widerspruchsfrei sind.
+
+Beim Beweise von Satz VI wurden keine anderen Eigenschaften des Systems $P$ verwendet als die folgenden:
+
+\begin{enumerate}
+	\item Die Klassen der Axiome und die Schlußregeln
+	 (d.\,h. die Relation \glqq unmittelbare Folge\grqq) sind rekursiv definierbar (sobald man die Grundzeichen in irgend einer Weise durch natürliche Zahlen ersetzt).
+	 \item Jede rekursive Relation ist innerhalb des Systems $P$ definierbar (im Sinn von Satz V).
+\end{enumerate}
+
+Daher gibt es in jedem formalen System, das den Voraussetzungen 1, 2 genügt und $\omega$-widerspruchsfrei ist, unentscheidbare Sätze der Form $(x)F(x)$, wo $F$ eine rekursiv definierte Eigenschaft natürlicher Zahlen ist, un ebenso in jeder Erweiterung eines solchen Systems durch eine rekursiv definierbare $\omega$-widerspruchsfreie Klasse von Axiomen.
+Zu den Systemen, welche die Voraussetzungen 1, 2 erfüllen, gehören, wie man leicht bestätigen kann, das \so{Zermelo-Fraenkel}sche und das \so{v.~Neumann}sche Axiomensystem
+der Mengenlehre\footnote{Der Beweis von Voraussetzung 1. gestaltet sich hier sogar einfacher als im Falle des Systems $P$, da es nur eine Art von Grundvariablen gibt (bzw. zwei bei J.~v.~Neumann).},
+ferner das Axiomensystem der Zahlentheorie, welches aus
+den \so{Peano}schen Axiomen, der rekursiven Definition [nach Schema (2)] und den logischen Regeln besteht\footnote{Vgl. Problem III in D. \so{Hilbert}s Vortrag: Probleme der Grundlegung der Mathematik. Math. Ann. 102.}.
+
+\let\originalfootnote=\thefootnote
+\let\thefootnote=\fnachtundvierziga
+Die Voraussetzung 1. erfüllt überhaupt jedes System, dessen Schlußregeln die gewöhnlichen sind und dessen Axiome (analog wie in $P$) durch Einsetzung aus endlich vielen Schemeta 
+entstehen\footnote{Der wahre Grund für die
+Unvollständigkeit, welche allen formalen Systemen 
+der Mathematik liegt anhaftet, liegt, wie im II. 
+Teil dieser Abhandlung gezeigt werden wird, darin,
+daß die Bildung immer höherer Typen sich ins 
+Transfinite fortsetzen läßt. (Vgl. D.~\so{Hilbert}, 
+Über das Unendliche, Math. An. 95. S. 184), während 
+in jedem formalen System höchstens abzählbar viele
+vorhanden sind. Man kann nämlich zeigen, daß die hier
+aufgestellten unentscheidbaren Sätze durch Adjunktion
+passender höherer Typen (z.\,B. des typus $\omega$ zum
+System $P$) immer entscheidbar werden. Analoges gilt auch 
+für das Axiomensystem der Mengenlehre.}.
+\let\thefootnote=\originalfootnote
+\setcounter{footnote}{48}
+
+\begin{center}
+3.
+\end{center}
+
+Wir ziehen nun aus Satz VI weitere Folgerungen und geben zu diesem Zweck folgende Definition:
+
+Eine Relation (Klasse) heißt arithmetisch, wenn sie allein mittels der Begriffe $+, .$ [Addition und Multiplikation, bezogen auf natürliche Zahlen\footnote{Die Null wird hier und im folgenden immer mit zu den natürlichen Zahlen gerechnet.}] und den logischen Konstanten $\lor, \overline{\phantom{XX}}, (x), =$ definieren lässt, wobei $(x)$ und $=$ sich nur auf natürliche Zahlen beziehen dürfen\footnote{Das Definiens eines solchen Begriffes muß sich also allein mittels der angeführten Zeichen, Variablen für natürliche Zahlen $x, y, \dots$ und den Zeichen $0, 1$ aufbauen (Funktions- und Mengenvariable dürfen nicht vorkommen). (In den Präfixen darf statt $x$ natürlich auch jede andere Zahlvariable stehen.)}. Entsprechend wird der Begriff \glqq arithmetischer Satz\grqq\ definiert. Insbesondere sind z.\,B. die Relation \glqq größer\grqq\ und \glqq kongruent nach einem Modul\grqq\ arithmetisch, denn es gilt:
+
+$$
+y > y \thicksim \overline{(Ez)}\left[y = x + z\right]
+$$
+
+$$
+x \equiv y \left(\text{mod} n\right) \thicksim (Ez) \left[x = y + z.n \lor y = x + z.n\right]
+$$
+
+Es gilt der
+
+Satz VII: \so{Jede rekursive Relation ist arithmetisch}.
+
+Wir beweisen den Satz in der Gewalt: Jede Relation der Form
+$x_n = \phi(x_1\dots x_n)$, wo $\phi$rekursiv ist, ist arithmetisch, und wenden die vollständige Induktion nach der Stufe von $\phi$ an. $\phi$ habe die $s$-te Stufe ($s > 1$). Dann gilt entweder:
+
+$$
+1. \phi(x_1 \dots x_n) = \rho\left[\chi_1(x_1 \dots x_n), \chi_2(x_1 \dots x_n) \dots \chi_m (x_1 \dots x_n)\right]\footnote{Es brauchen natürlich nicht alle $x_1 \dots x_n$ in den $\chi_i$ tatsächlich vorkommen [vgl. das Beispiel in Fußnote $^{27}$].}
+$$
+(wo $\rho$ und sämtliche $\chi_i$ kleinere Stufen haben als $s$) oder:
+
+$$
+2. \phi(0, x_2 \dots x_n) = \psi(x_2\dots x_n) 
+$$
+
+$$
+\phi(k + 1, x_2 \dots x_n) = \mu\left[k, \phi(k, x_2 \dots x_n), x_2 \dots x_n\right]
+$$
+(wo $\psi, \mu$ niedrigere Stufen als $s$ haben) oder:
+
+$$
+2. \phi(0, x_2 \dots x_n) = \psi(x_2 \dots x_n)
+$$
+
+$$
+\phi(k + 1, x_2 \dots x_n) = \mu\left[k, \phi(k, x_2 \dots x_n), x_2 \dots x_n\right]
+$$
+
+(wo $\psi, \mu$ niedrigere Stufen als $s$ haben).
+
+Im ersten Falle gilt:
+
+$$
+x_0 = \phi(x_1 \dots x_n) \thicksim \left(Ey_1 \dots y_m\right) \left[R(x_0 y_1 \dots y_m) \& S_1(y_1, x_1 \dots x_n) \& \dots \& S_m(y_m, x_1 \dots x_n)\right],
+$$
+
+wo $R$ bzw. $S_i$ die nach induktiver Annahme existierenden mit $x_0 = \rho(y_1 \dots y_m)$ bzw. 
+$y = \chi_i(x_1 \dots x_n)$ äquivalenten arithmetischen
+Relationen sind. Daher ist $x_0 = \phi(x_1\dots x_n)$ in
+diesem Fall arithmetisch.
+
+Im zweiten Fall wenden wir folgendes Verfahren an: Man 
+kann die Relation $x_0 = \phi(x_1 \dots x_n)$ mit Hilfe des Begriffes \glqq Folge von Zahlen\grqq\ 
+($f$)\footnote{$f$ bedeutet hier eine Variable, deren Wertbereich die Folgen natürl. Zahlen sind. Mit $f_k$ wird das $k + 1$-te Glied einer Folge $f$ bezeichnet (mit $f_0$ das Erste).}
+folgendermaßen ausdrücken:
+
+$$
+x_0 = \phi(x_1 \dots x_n) \thicksim (Ef)\left\{ f_0 = \psi(x_2 \dots x_n) \& (k) \left[k < x_1 \longrightarrow f_{k + 1} = \mu(k, f_k, x_2 \dots x_n)\right] \& x_0 = f_{x_1}\right\}
+$$
+
+Wenn $S(y, x_2 \dots x_n)$ bzw. $T(z, x_1 \dots x_{n + 1})$ die nach induktiver Annahme existieren mit $y = \psi(x_2 \dots x_n)$ bzw. $z = \mu(x_1 \dots x_{n + 1})$ äquivalenten arithmetische Relationen sind, gilt daher:
+
+\begin{equation}
+x_0 = \phi(x_1 \dots x_n) \thicksim (Ef) \left\{S(f_0, x_2 \dots x_n) \& (k)\left[k < x_1 \longrightarrow T(f_{k + 1}, k, f_k, x_2 \dots x_n)\right] \& x_0 = f_{x_1}\right\}
+\end{equation}
+
+Nun ersetzen wir den Begriff \glqq Folge von Zahlen\grqq\ durch \glqq Paar von Zahlen\grqq, indem wir dem Zahlenpaar $n, d$ die Zahlenfolge $f^{(n, d)}$ $\left(f_k^{n, d} = [n]_{1 + (k + 1) d})\right)$ zuordnen, wobei $[n]_p$ den kleinsten nicht negativen Rest von $n$ modulo $p$ bedeutet.
+
+Es gilt dann der
+
+Hilfssatz 1: ist $f$ eine beliebige Folge natürlicher Zahlen und $k$ eine beliebige natürliche Zahl, so gibt es ein paar von natürlichen Zahlen $n, d$, so daß $f^{(n, d)}$ und $f$ in den ersten $k$ Gliedern übereinstimmen.
+
+Beweis: Sei $l$ die größte der Zahlen $k, f_0, f_1 \dots f_{k - 1}$. Man bestimme $n$ so, daß:
+
+$$
+n \equiv \left[\text{mod }(1 + (i + 1 l!)\right]\text{ für } i = 0, 1 \dots k - 1
+		$$
+		was möglich ist, da jede der Zahlen $1 + (i + 1) l l!$ $(i = 0, 1 \dots k - 1)$ relativ prim sind. Denn eine in den zwei von diesen Zahlen enthaltene Primzahl müßte auch in der Differenz $i_1 - i_2)l!$ und daher wegen
+$|i_1 - i_2| < l$ in $l!$ enthalten sein, was unmöglich
+ist. Das Zahlenpaar $n, l!$ leistet dann das Verlangte.
+
+Da die Relation $x = [n]_p$ durch:
+
+$$
+x \equiv n (\text{mod } p) \& x < p
+$$
+
+definiert und daher arithmetisch ist, so ist auch die folgendermaßen definierte Relation $P(x_0, x_1 \dots x_n)$:
+
+$$
+P(x_0 \dots x_n) \equiv (En, d) \left\{S([n]_{d + 1}, x_2 \dots x_n) \& (k) \left[k < x_1 \longrightarrow T([n]_{1 + 1 (k + 2)}, k, [n]_{1 + d (k + 1)}, x_2 \dots x_n)\right] \& x_0 = [n]_{1 + d (x_1 + 1)}\right\}
+$$
+arithmetisch, welche nach (17) und Hilfssatz 1 mit:
+$x_0 = \phi(x_1 \dots x_n)$ äquivalent ist (es kommt
+		bei der Folge $f$ in (17) nur auf ihren Verlauf 
+		bis zum $x_1 + 1$-ten Glied an). Damit ist der
+Satz~VII bewiesen.
+
+Gemäß Satz VII gibt es zu jedem Problem der Form
+$(x)F(x)$ ($F$ rekursiv) ein äquivalentes arithmetisches
+Problem und da der ganze Beweis von Satz VII sich (für jedes spezielle $F$) innerhalb des Systems $P$ formalisieren läßt, ist diese Äquialenz in $P$ beweisbar. Daher gilt:
+
+\so{Satz VIII: In jedem der in Satz VI genannten formalen Systeme\footnote{Das sind diejenigen $\omega$-widerspruchsfreien Systeme, welche aus $P$ durch Hinzufügung einer rekursiv definierbaren Klasse von Axiomen entstehen.}
+gibt es unentscheidbare arithmetische Sätze.}
+
+Dasselbe gilt (nach der Bemerkung auf Seite 190 TODO)
+für das Axiomensystem der Mengenlehre und dessen Erweiterungen durch $\omega$-widerspruchsfreie rekursive
+Klassen von Axiomen.
+
+Wir leiten schließlich noch folgendes Resultat her:
+
+\so{Satz IX: In allen in Satz VI genannten formalen Systeme gibt es unentscheidbare Probleme des engeren Funktionenkalküls}\footnote{Vgl. \so{Hilbert-Ackermann}, Grundzüge der theoretischen Logik. Im System $P$ sind unter Formeln des engeren Funktionenkalküls diejenigen zu verstehen, welche aus den Formeln des engeren Funktionenkalküls der PM durch die auf S. 176 TODO angedeutete Ersetzung der Relationen durch Klassen höheren Typs entstehen.}
+(d.\,h. Formeln des engeren Funktionenkalküls, für die weder Allgemeingültigkeit noch Existenz eines Gegenbeispiels beweisbar ist)\footnote{In meiner Arbeit: Die Vollständigkeit der Axiome des logischen Funktionenkalküls, Monatsh. f. Math. u. Phys. XXXVII, 2, habe ich gezeigt, daß jede Formel des engeren Funktionenkalküls entweder als allgemeingültig nachweisbar ist oder ein Gegenbeispiel existiert; die Existenz dieses Gegenbeispiels ist aber nach Satz IX \so{nicht} immer nachweisbar (in den angeführten formalen Systemen).}.
+
+Dies beruht auf:
+
+\so{Satz X: Jedes Problem der Form $(x)F(x)$ ($F$ rekursiv) läßt sich zurückführen auf die Frage nach der Erfüllbarkeit einer Formel des engeren Funktionenkalküls} (d.\,h. zu jedem rekursiven $F$ kann man eine Formel des engeren Funktionenkalküls angeben, deren Erfüllbarkeit mit der Richtigkeit von $(x)F(x)$ äquivalent ist).
+
+Zum engeren Funktionenkalkül (e. F.) rechnen wir diejenigenFormeln, welche sich aus den Grundzeichen $\overline{\phantom{XX}}, \lor, (x), =, x, y \dots \text{(Individuenvariable)} F(x), G(x y), H(x, y, z) \dots $ (Eigenschafts- und Relationsvariable) aufbauen\footnote{D.~\so{Hilbert} und \so{W.~Ackermann} rechnen in dem eben zitierten Buch das Zeichen $=$ nicht zum engeren Funktionenkalkül. Es geht aber zu jeder Formel in der das Zeichen $=$ vorkommt, eine solche ohne dieses Zeichen, die mit der ursprünglichen gleichzeitig erfüllbar ist (vgl. die in Fußnote $^{55}$ zitiert Arbeit).},
+wobei $(x)$ und $=$ sich nur auf Individuen beziehen dürfen. Wir fügen zu diesen Zeichen noch eine dritte Art von Variablen $\phi(x), \psi(x y), \chi(x y z)$ hinzu, die Gegenstandsfunktionen vertreten (d.\,h. $\phi(x), \psi(x y)$ etc. bezeichnen eindeutige Funktionen, deren Argumente und Werte Individuen sind\footnote{Und zwar soll der Definitionsbereich immer der \so{ganze} Individuenbereich sein.}.
+Eine Formel, die außer den zuerst angeführten Zeichen
+des e.~F. noch Variable dritter Art ($\phi(x), \psi(x y)$ etc.) enthält, soll eine Formel im weiteren Sinne (i.~w.~S.) heißen\footnote{Variable dritter Art dürfen dabei an allen Leerstellen für Individuenvariable stehen, z.\,B.: $y = \phi(x), F\left(x, \phi\left(y\right)\right), G\left[\psi\left(x, \phi(y)\right), x)\right]$ usw.}.
+Die Begriffe \glqq erfüllbar\grqq, \glqq allgemeingültig\grqq\ übertragen sich ohneweiters auf die Formel i.~w.~S. und es gilt der Satz, daß man zu jeder Formel i.~w.~S. $A$ eine gewöhnliche Formel des e.~F.
+$B$ angeben kann, so daß die Erfüllbarkeit von $A$ mit der von $B$ äquivalent ist. $B$ erhält man aus $A$, indem man die in $A$ vorkommenden Vriablen dritter Art $\phi(x), \psi(x y) \dots$ durch Ausdrücke der Form $(\i z)F(z x), (\i z)G(z, x y)\dots$ ersetzt, die \glqq beschreibenden\grqq\ Funktionen im Sinne der PM I $\pmstar$ 14 auflöst und die so erhaltene Formel mit einem Ausdruck logisch multipliziert\footnote{D.\,h. die Konjunktion bildet.},
+der besagt, daß sämtliche an Stelle der $\phi, \psi \dots$ gesetzte $F, G\dots$ hinsichtlich der ersten Leerstelle genau eindeutig sind.
+
+Wir zeigen nun, daß es zu jedem Problem der Form $(x)F(x)$ ($F$ rekursiv) ein äquivalentes betreffend die Erfüllbarkeit einer Formel i.~w.~S. gibt, woraus nach der eben gemachten Bemerkung Satz X folgt.
+
+Da $F$ rekursiv ist, gibt es eine rekursive Funktion $\Phi(x)$, so daß $F(x) \thicksim [\Phi(x) = 0]$, und für $\Phi$ gibt es eine Reihe von Funktionen $\Phi_1, \Phi2 \dots \Phi_n$, so daß: $\Phi_n = \Phi, \Phi_1(x) = x + 1$ und für jedes $\Phi_k(1 < k \leqq n)$ entweder:
+
+\begin{equation}
+1. \left(x_2 \dots x_m\right) \left[\Phi_k(0, x_2 \dots x_m) = \Phi_p(x_2 \dots x_m)\right] 
+\end{equation}
+\begin{equation*}
+\left(x, x_2 \dots x_m\right) \left\{\Phi_k[\Phi_1(x), x_2 \dots x_m] = \Phi_q \left[x, \Phi_k(x, x_2 \dots x_m), x_2 \dots x_m\right]\right\}
+\end{equation*}
+\begin{equation*}
+p, q < k
+\end{equation*}
+
+oder:
+
+\begin{equation}
+2. \left(x_1 \dots x_m\right) \left[\Phi_k(x_1 \dots x_m) = \Phi_r(\Phi_{i_1}(\mathfrak{x_1}) \dots \Phi_{i_1}(\mathfrak{x}_s))\right]\footnote{$\mathfrak{x}_i (i = 1 \dots s)$ vertreten irgend welche Komplexe der Variablen $x_1, x_2 \dots x_m$, z.\,B. $x_1 x_3 x_2$.}
+\end{equation}
+\begin{equation*}
+r < k, i_v < k (\text{für } v = 1, 2 \dots s)
+\end{equation*}
+
+oder:
+
+\begin{equation}
+3. \left(x_1 \dots x_m\right) \left[\Phi_k(x_1 \dots x_m) = \Phi_1(\Phi_1 \dots \Phi_1(0))\right]
+\end{equation}
+
+Ferner bilden wir die Sätze:
+
+\begin{equation}
+(x) \overline{\Phi_1(x) = 0} \& (x y) \left[\Phi_1(x) = \Phi_1(y) \longrightarrow x = y\right]
+\end{equation}
+
+\begin{equation}
+(x)\left[\Phi_n(x) = 0\right]
+\end{equation}
+
+Wir ersetzen nun in allen Formeln (18), (19), (20) (für $k = 2, 3 \dots n$) und in (21) (22) die Funktionen $\Phi_i$ durch Funktionsvariable
+$\phi_i$, die Zahl $0$ durch eine sonst nicht vorkommende 
+Individuenvariablen $x_0$ und bilden die Konjunktion $C$ sämtlicher so erhaltener Formeln.
+
+Die Formel $(Ex_0) C$ hat dann die verlangte Eigenschaft, d.\,h.
+
+\begin{enumerate}
+	\item Wenn $(x)[\Phi(x) = 0]$ gilt, ist $(Ex_0)C$ erfüllbar, denn die Funktionen $\Phi_1, \Phi_2 \dots \Phi_n$ ergeben dann offenbar in $(Ex_0)C$ für $\phi_1, \phi2 \dots \phi_n$ eingesetzt einen richtigen Satz.
+	\item Wenn $(Ex_0)C$ erfüllbar ist, gilt $(x)[\Phi(x)=0]$.
+\end{enumerate}
+
+Beweis: Seien $\Psi_1, \Psi_2 \dots \Psi_n$ die nach Voraussetzung
+existierende Funktionen, welche in $(Ex_0)C$für $\phi_1, \phi_2 \dots \phi_n$ eingesetzt einen richtigen Satz liefern. Ihr Individuenbereich Sei $\mathfrak{J}$. Wegen der Richtigkeit von $(Ex_0)C$ für die Funktion $\Psi_4$ gibt es ein Individuum $a$ (aus $\mathfrak{J}$), so, daß sämtliche Formeln (18) bis (22) bei der Ersetzung der $\Phi_i$ durch $\Psi_i$ und von 0 durch $a$ in richtige Sätze ($18'$) bis ($22'$) übergeben. Wir bilden nun die kleinste Teilklase von $\mathfrak{J}$, welche $a$ enthält und gegen die Operation $\Psi_1(x)$ abgeschlossen ist. Diese Teilklasse ($\mathfrak{J}'$) hat die Eigenschaft, daß jede der Funktionen $\Psi_i$ auf Elemente aus $\mathfrak{J}'$ angewendet wieder Elemente aus $\mathfrak{J}'$ ergibt. 
+Denn für $\Psi_1$ gilt dies nach Definition von $\mathfrak{J}'$ und wegen ($18'$), ($19'$), ($20'$) überträgt sich diese Eigenschaft von $\Psi_i$ mit niedrigerem Index auf solche mit höherem.
+Die funktion, welche aus $\Psi_i$ durch Beschränkung auf den Individuenbereich $\mathfrak{J}'$ entstehen, nennen wir
+$\Psi_i'$. Auch für diese Funktion gelten sämtliche Formeln (18) bis (22) (bei der  Ersetzung von 0 durch $a$ und $\Phi_i$ durch $\Psi_i'$).
+
+Wegen der Richtigkeit von (21) für $\Psi_1'$ und $a$ kann man die Individuen aus $\mathfrak{J}'$ eineindeutig auf die natürlichen Zahlen abbilden u. zw. so, daß $a$ in $0$ und die Funktion $\Psi_1'$ in die Nachfolgerfunktion $\Phi_1$ übergeht. Durch diese Abbildung gehen aber sämtliche Funktionen $\Psi_i'$ in die Funktionen $\Phi_i$ über und wegen der Richtigkeit von (22) für $\Psi_n'$ und $a$ gilt $(x)\left[\Phi_n(x) = 0\right]$ oder $(x)\left[\Phi(x) = 0\right]$, was zu beweisen war\footnote{Aus Satz X folgt z.\,B., daß das \so{Fermat}sche und das \so{Goldbach}sche Problem lösbar wären, wenn man das Entscheidungsproblem des e.~F. gelöst hätte.}.
+
+Da man die Überlegungen, welche zu Satz X führen, (für jedes spezielle $F$) auch innerhalb des Systems $P$ durchführen kann, so ist die Äquialenz zwischen einem Satz der Form $(x)F(x)$ ($F$ rekursiv) und der Erfüllbarkeit der entsprechenden Formel des e.~F. in $P$ beweisbar und daher folgt aus der Unentscheidbarkeit des einen die des anderen, womit Satz IX bewiesen ist.\footnote{Satz IX gilt natürlich auch für das Axiomensystem der Mengenlehre und dessen Erweiterungen durch rekursiv definierbar $\omega$-widerspruchsfreie Klassen von Axiomen, da es ja auch in diesem Systemen unentscheidbare Sätze der Form $(x)F(x)$ ($F$ rekursiv) gibt}.
+
+\begin{center}
+4.
+\end{center}
+
+Aus den Ergebnissen von Abschnitt 2 folgt ein merkwürdiges Resultat, bezüglich eines Widerspruchslosigkeitsbeweises des Systems $P$ (und seiner Erweiterungen), der durch folgenden Satz ausgesprochen wird:
+
+\so{Satz XI: Sei $\chi$ eine beliebige rekursive widerspruchsfreie\footnote{$\chi$ ist widerspruchsfrei (abgekürzt als $\text{Wid }(x)$) wird folgendermaßen definiert: $\text{Wid}(x)\equiv(Ex)[\text{Form}(x)\&\text{Bew}_\chi(x)]$.}
+Klasse von} \textit{Formeln}\so{, dann gilt: Die }\textit{Satzformel}\so{, welche besagt, daß $\chi$ widerspruchsfrei ist, ist nicht} $\chi$-\textit{beweisbar}; insbesondere ist die Widerspruchsfreiheit von $P$ in $P$ unbeweisbar\footnote{Dies folgt, wenn man für $\chi$ die leere Klasse von \textit{Formeln} einsetzt.},
+vorausgesetzt, daß $P$ widerspruchsfrei ist (im entgegengesetzten Fall ist natürlich jede Aussage beweisbar).
+
+Der beweis ist (in Umrissen skizziert) der folgende: Sei $\chi$ eine beliebige für die folgenden Betrachtungen ein für allemal gewählte rekursive Klasse von \textit{Formeln} (im einfachsten Falle die leere Klasse).
+Zum Beweise der Tatsache, daß $17\text{ Gen }r$ nicht $\chi$-\textit{beweisbar} ist\footnote{$r$ hängt natürlich (ebenso wie $p$) von $\chi$ ab.}, wurde, wie aus 1. Seite 189 TODO hervorgeht, nur die Widerspruchsfreiheit von $\chi$ benutzt, d.\,h. es gilt:
+
+\begin{equation}
+\text{Wid }(x) \longrightarrow \overline{\text{Bew}_x} (17\text{ Gen } r)
+\end{equation}
+d.\,h. nach (6.1):
+
+\begin{equation*}
+\text{Wid }(x) \longrightarrow (x)\overline{x B_x (17\text{ Gen } r)}
+\end{equation*}
+Nach (13) ist $17\text{ Gen } r = Sb\left(p\substack{19\\ Z(p)}\right)$ und daher:
+
+\begin{equation*}
+\text{Wid}(x) \longrightarrow(x)\overline{x B_x Sb\left(p\substack{19\\ Z(p)}\right)}
+\end{equation*}
+d.\,h. nach (8.1):
+
+\begin{equation}
+\text{Wid}(x) \longrightarrow (x) Q(x, p)
+\end{equation}
+
+Wir stellen nun folgendes fest: Sämtliche in Abschnitt 2\footnote{Von der Definition für \glqq rekursiv\grqq\ auf Seite 179 TODO bis zum Beweis von Satz VI inkl.}
+und Abschnitt 4 bisher definierten Begriffe (bzw. bewiesene Behauptungen) sind auch in $P$ ausdrückbar (bzw. beweisbar). Denn es wurden überall nur die gewöhnlichen Definitions- und BEweismethoden der klassischen Mathematik verwendet, wie sie im System $P$ formalisiert sind. Insbesondere ist $\chi$ (wie jede rekursive Klasse) in $P$ definierbar. Sei $w$ die \textit{Satzformel}, durch welche in $P\text{ Wid } (x)$ ausgedrückt wird. Die Relation $Q(x, y)$ wird gemäß (8.1), (9), (10) durch das \textit{Relationszeichen} $q$ ausgedrückt, folglich $Q(x, p)$ durch $r \left[\text{ da nach (12)} r_?^? = Sb\left(q\substack{19\\ Z(p)}\right)\right]$ und der Satz $(x)Q(x, p)$ durch $17\text{ Gen } r$.
+% Problem in vorvorletzter Formel, was sind die Fragezeichen?!?!
+
+Wegen (24) ist also $w\text{ Imp } (17\text{ Gen }r)$ in $P$ beweisbar\footnote{Daß aus (23) auf die Richtigkeit von $w\text{ Imp }(17\text{ Gen } r)$ geschlossen werden kann, beruht einfacch darauf, daß der unentschiedbare Satz $17\text{ Gen }r$, wie gleich zu Anfang bemerkt, seine eigene Unbeweisbarkeit behauptet.} (umso mehr $\chi$-\textit{beweisbar}). Wäre nun $w$ $\chi$-\textit{beweisbar}, so wäre auch $17\text{ Gen }r$ $\chi$-\textit{beweisbar} und daraus würde nach (23) folgen, daß $\chi$ nicht widerspruchsfrei ist.
+
+Es sei bemerkt, daß auch dieser Beweis konstruktiv ist, d.\,h. er gestattet, falls ein \textit{Beweis} aus $\chi$ für $w$ vorgelegt ist, ein Widerspruch aus $\chi$ effektiv herzuleiten. Der ganze Beweis für Satz XI läßt sich wörtlich auch auf das Axiomensystem der Mengenlenge $M$ und der klassischen Mathematik\footnote{Vgl. J.~v.~\so{Neumann}, Zur \so{Hilbert}schen Beweistheorie, Math. Zeitschr. 26, 1927.}
+$A$ übertragen und liefert auch hier das Resultat: es gibt keinen Widerspruchlosigkeitsbeweis für $M$ bzw. $A$, der innerhalb von $M$ bzw. $A$ formalisiert werden könnte, vorausgesetzt, daß $M$ bzw. $A$ widerspruchsfrei ist. Es sei ausdrücklich bemerkt, daß Satz XI (und die entsprechenden Resultate über $M, A$) in keinem Widerspruch zum \so{Hilbert}schen formalistischen Standpunkt stehen. Denn dieser setzt nur die Existenz eines mit finiten Mitteln geführten Widerspruchsfreiheitsbeweieses voraus und es wäre denkbar, daß es finite Beweise gibt, die sich in $P$ (bzw. $M, A$) \so{nicht} darstellen lassen.
+
+Da es für jede widerspruchsfreie Klasse $\chi$ $w$ nicht $\chi$-\textit{beweisbar} ist, so gibt es schon immer dann (aus $\chi$) unentscheidbäre Sätze (nämlich $w$, wenn $\text{Neg }(w)$ nicht $\chi$-beweisbar ist; m.~a.~W. kann man in Satz VI die Voraussetzung der $\omega$-Widerspruchsfreiheit ersetzen durch die folgende: Die Aussage
+\glqq $\chi$ ist widerspruchsvoll\grqq\ ist nicht $\chi$-beweisbar. (Man beachte, daß es widerspruchsfreie $\chi$ gibt, für die diese Aussage $\chi$-beweisbar ist.)
+
+Wir haben uns in dieser Arbeit im wesentlichen auf das System $P$ beschränkt und die Anwendungen auf andere Systeme nur angedeutet. In voller Allgemeinheit werden dieResultate in einer demnächst erscheinenden Fortsetzung ausgesprochen und bewiesen werden. In dieser Arbeit wird auch der nur skizzenhaft geführte Beweis von Satz XI ausführlich dargestellt werden.
+
+\begin{center}
+(Eingelangt: 17.XI.1930)
+\end{center}
+\vspace{0.5cm}
+\begin{center}
+\rule{2cm}{0.01cm}
+\end{center}
+
+\end{document}
