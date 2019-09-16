@@ -1,5 +1,5 @@
 # GoedelLaTex
-This is the paper "Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I." completely retyped in LaTeX
+This is the paper "Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I." by logician Kurt Gödel completely retyped in LaTeX
 
 # Stuff left to do
 
