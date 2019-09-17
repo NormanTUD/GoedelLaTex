@@ -10,7 +10,7 @@ main();
 
 sub main {
 	my $text = slurp("goedel.tex");
-	#$text = slurp("test3.tex");
+	#$text = slurp("test4.tex");
 	my @math_modes = get_math($text);
 	my @missing_left_right = get_missing_left_right(@math_modes);
 
@@ -94,7 +94,10 @@ sub get_math {
 		};
 	}
 
-	@math_modes = map { $_ =~ s#\\(?:footnote|text)\{.+?\}##g; $_ } @math_modes;
+	@math_modes = map { 
+		$_->{equation} =~ s#\\(?:footnote|text)\{.+?\}##gism;
+		$_
+	} @math_modes;
 
 	return @math_modes;
 }

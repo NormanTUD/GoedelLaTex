@@ -725,7 +725,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$x$ ist teilbar durch $y$\footnote{Überall, wo in den folgenden Definitionen eines der Zeichen $\left(x\right), \left(Ex\right), \epsilon x$ auftritt, ist es von einer Abschätzung für $x$ gefolgt. Diese Abschätzung dient lediglich dazu, um die rekursive Natur des definierten Begriffes (vgl. Satz IV) zu sichern. Dagegen würde sich der Umgang der definierten Begriffe durch Weglassung dieser Abschätzung meistens nicht ändern.}
 
-	\item $\text{Prim }\left(x\right) \equiv \overline{\left(Ez\right)} [z \leqq x \& z \not = 1 \& z \not = x \& x/z] \& x > 1$
+	\item $\text{Prim }\left(x\right) \equiv \overline{\left(Ez\right)} \left[z \leqq x \& z \not = 1 \& z \not = x \& x/z\right] \& x > 1$
 
 	$x$ ist eine Primzahl.
 
@@ -828,7 +828,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 	\item $Op\left(x\ y\ z\right) \equiv x = \text{Neg}\left(y\right) \lor x = y \text{ Dis } z \lor\allowbreak \left(Ev\right) \left[v \leqq x \& \text{Var}\left(x\right) \& x = v \text{ Gen } y\right]$
 
 	\item $$
-		FR\left(x\right) \equiv (n) \left\{ 0 < n \leqq l\left(x\right) \longrightarrow\allowbreak Elf(n Gl x) \lor (Ep, q)\allowbreak \left[0 < p, q < n \&\allowbreak Op(n Gl x, p Gl x, q Gl x)\right]\right\} \& l\left(x\right) > 0
+		FR\left(x\right) \equiv \left(n\right) \left\{ 0 < n \leqq l\left(x\right) \longrightarrow\allowbreak Elf(n Gl x) \lor \left(Ep, q\right)\allowbreak \left[0 < p, q < n \&\allowbreak Op\left(n Gl x, p Gl x, q Gl x\right)\right]\right\} \& l\left(x\right) > 0
 		$$
 
 	$x$ ist eine Reihe von \textit{Formeln}, deren jede entweder
@@ -848,7 +848,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 	$x$ ist \textit{Formel} (d.\,h. letztes Glied einer \textit{Formelreihe $n$}).
 
 	\item $$
-		v \text{ Geb } n, x \equiv \text{Var}\left(v\right) \& \text{Form}\left(x\right) \& (Ea, b, c) [a, b, c \leqq x \& x a = \pmstar (v \text{ Gen } b \pmstar c \& \text{Form}(b) \& l(a) + 1 \leqq n \leqq l(a) + l(v \text{ Gen } b)]
+		v \text{ Geb } n, x \equiv \text{Var}\left(v\right) \& \text{Form}\left(x\right) \& \left(Ea, b, c\right) \left[a, b, c \leqq x \& x a = \pmstar \left(v \text{ Gen } b\right) \pmstar c \& \text{Form}\left(b\right) \& l\left(a\right) + 1 \leqq n \leqq l\left(a\right) + l\left(v \text{ Gen } b\right)\right]
 		$$
 
 	Die \textit{Variable} $v$ ist in $x$ an $n$-ter Stelle \textit{gebunden}.
@@ -861,7 +861,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$v$ kommt in $x$ als \textit{freie Variable} vor.
 
-	\item $S u x \Spvek{n; y} \equiv \epsilon z \{ z \leqq [Pr(l\left(x\right) + l(y))]^{x + y} \& [(Eu, v) u, v \leqq x \& x = u \pmstar R(n Gl x) v \& z = u \pmstar y \pmstar v \& n = l(u) + 1]\}$
+	\item $S u x \Spvek{n; y} \equiv \epsilon z \left\{ z \leqq \left[Pr\left(l\left(x\right) + l\left(y\right)\right)\right]^{x + y} \& \left[\left(Eu, v\right) u, v \leqq x \& x = u \pmstar R\left(n Gl x\right) v \& z = u \pmstar y \pmstar v \& n = l\left(u\right) + 1\right]\right\}$
 
 	$S u x \Spvek{n; y}$ entsteht aus $x$, wenn man an Stelle des $n$-ten Gliedes von $x$ $y$ einsetzt (vorausgesetzt, daß $0 < n \leqq l\left(x\right)$).
 
@@ -892,7 +892,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$v \text { Ex } y \equiv \text{Neg } \left\{v \text{ Gen } \left[\text{Neg } \left(y\right)\right]\right\}$
 
-	\item $n Th x \equiv \epsilon y \left\{ y \leqq x^{(x^n)} \& \left(k\right) \left[k \leqq l\left(x\right) \longrightarrow \left(k Gl x \leqq 13 \& k Gl y = k Gl x\right) \lor \left(k Gl x > 13 \& k Gl y = k Gl x.[1 Pr (k Gl x)]^n\right)\right]\right\}$
+	\item $n Th x \equiv \epsilon y \left\{ y \leqq x^{\left(x^n\right)} \& \left(k\right) \left[k \leqq l\left(x\right) \longrightarrow \left(k Gl x \leqq 13 \& k Gl y = k Gl x\right) \lor \left(k Gl x > 13 \& k Gl y = k Gl x.\left[1 Pr \left(k Gl x\right)\right]^n\right)\right]\right\}$
 
 	$n Th x$ ist die \textit{$n$-te Typenerhöhung} von $x$ (falls $x$ und $n Th x$ \textit{Formeln} sind).
 
@@ -913,7 +913,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 	$z$ enthält keine Variable, die in $y$ an einer Stelle
 	\textit{gebunden} ist, an der $v$ \textit{frei} ist.
 
-	\item $L_1 - Ax\left(x\right) \equiv (Ev, y, z, n) \{v, y, z, n \leqq x \& n \text{ Var } v \& \text{Typ}_n(z) \& \text{Form}(y) \& Q(z, y, v) \& x = (v \text{ Gen } y) \text{ Imp } [Sb \left(y \substack{v\\z}\right)]\}$
+	\item $L_1 - Ax\left(x\right) \equiv \left(Ev, y, z, n\right) \{v, y, z, n \leqq x \& n \text{ Var } v \& \text{Typ}_n(z) \& \text{Form}(y) \& Q(z, y, v) \& x = (v \text{ Gen } y) \text{ Imp } [Sb \left(y \substack{v\\z}\right)]\}$ % TODO } fehlt
 
 	$x$ ist eine aus dem Axiomenschema III, 1 durch Einsetzung entstehende \textit{Formel}.
 
@@ -922,7 +922,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 		$$
 	$x$ ist eine aus dem Axiomenschema III, 2 durch Einsetzung entstehende \textit{Formel}.
 
-	\item $R - Ax\left(x\right) \equiv (Eu, v, y, n) [u, v, y, n \leqq x \& n \text{ Var } v \& (n + 1) \text{ Var } u \&  u Fr y \& \text{Form }\left(y\right) \& x = u\text{ Ex } \left\{v \text{Gen } \left[\left[R(u) \pmstar E\left(R\left(v\right)\right)\right] \text{ Aeq } y \right]\right\} ]$
+	\item $R - Ax\left(x\right) \equiv \left(Eu, v, y, n\right) \left[u, v, y, n \leqq x \& n \text{ Var } v \& \left(n + 1\right) \text{ Var } u \&  u Fr y \& \text{Form }\left(y\right) \& x = u\text{ Ex } \left\{v \text{Gen } \left[\left[R\left(u\right) \pmstar E\left(R\left(v\right)\right)\right] \text{ Aeq } y \right]\right\} \right]$
 
 	$x$ ist eine aus aus dem Axiomenschema IV, 1 durch
 	Einsetzung entstehende \textit{Formel}.
@@ -940,7 +940,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 	$x$ ist \textit{unmittelbare Folge} aus $y$ und $z$.
 
 	\item $$
-		Bw\left(x\right) \equiv (n)\{0 < n \leqq l\left(x\right) \longrightarrow Ax(n Gl x) \lor (Ep, q) [0, < p, q < n \& Fl(n Gl x, p Gl x, q Gl x)]\} \& l\left(x\right) > 0
+		Bw\left(x\right) \equiv \left(n\right)\left\{0 < n \leqq l\left(x\right) \longrightarrow Ax\left(n Gl x\right) \lor \left(Ep, q\right) \left[0, < p, q < n \& Fl\left(n Gl x, p Gl x, q Gl x\right)\right]\right\} \& l\left(x\right) > 0
 		$$
 
 	$x$ ist eine \textit{Beweisfigur} (eine endliche Folge von \textit{Formeln}, deren jede entweder \textit{Axiom} oder \textit{unmittelbare Folge} aus der vorhergehenden ist).
@@ -1262,7 +1262,7 @@ $$
 Im ersten Falle gilt:
 
 $$
-x_0 = \phi(x_1 \dots x_n) \thicksim \left(Ey_1 \dots y_m\right) \left[R(x_0 y_1 \dots y_m) \& S_1(y_1, x_1 \dots x_n) \& \dots \& S_m(y_m, x_1 \dots x_n)\right],
+x_0 = \phi\left(x_1 \dots x_n\right) \thicksim \left(Ey_1 \dots y_m\right) \left[R\left(x_0 y_1 \dots y_m\right) \& S_1\left(y_1, x_1 \dots x_n\right) \& \dots \& S_m\left(y_m, x_1 \dots x_n\right)\right],
 $$
 
 wo $R$ bzw. $S_i$ die nach induktiver Annahme existierenden mit $x_0 = \rho\left(y_1 \dots y_m\right)$ bzw. 
@@ -1284,7 +1284,7 @@ nach induktiver Annahme existieren mit $y = \psi\left(x_2 \dots x_n\right)$ bzw.
 $z = \mu\left(x_1 \dots x_{n + 1}\right)$ äquivalenten arithmetische Relationen sind, gilt daher:
 
 \begin{equation}
-x_0 = \phi\left(x_1 \dots x_n\right) \thicksim \left(Ef\right) \left\{S(f_0, x_2 \dots x_n) \& (k)\left[k < x_1 \longrightarrow T(f_{k + 1}, k, f_k, x_2 \dots x_n)\right] \& x_0 = f_{x_1}\right\}
+x_0 = \phi\left(x_1 \dots x_n\right) \thicksim \left(Ef\right) \left\{S\left(f_0, x_2 \dots x_n\right) \& \left(k\right)\left[k < x_1 \longrightarrow T\left(f_{k + 1}, k, f_k, x_2 \dots x_n\right)\right] \& x_0 = f_{x_1}\right\}
 \end{equation}
 
 Nun ersetzen wir den Begriff \glqq Folge von Zahlen\grqq\ durch 
@@ -1319,7 +1319,7 @@ $$
 definiert und daher arithmetisch ist, so ist auch die folgendermaßen definierte Relation $P\left(x_0, x_1 \dots x_n\right)$:
 
 $$
-P(x_0 \dots x_n) \equiv (En, d) \left\{S([n]_{d + 1}, x_2 \dots x_n) \& (k) \left[k < x_1 \longrightarrow T([n]_{1 + 1 (k + 2)}, k, [n]_{1 + d (k + 1)}, x_2 \dots x_n)\right] \& x_0 = [n]_{1 + d (x_1 + 1)}\right\}
+P\left(x_0 \dots x_n\right) \equiv \left(En, d\right) \left\{S\left(\left[n\right]_{d + 1}, x_2 \dots x_n\right) \& \left(\right) \left[k < x_1 \longrightarrow T\left(\left[n\right]_{1 + 1 \left(k + 2\right)}, k, \left[n\right]_{1 + d \left(k + 1\right)}, x_2 \dots x_n\right)\right] \& x_0 = \left[n\right]_{1 + d \left(x_1 + 1\right)}\right\}
 $$
 arithmetisch, welche nach (17) und Hilfssatz 1 mit:
 $x_0 = \phi\left(x_1 \dots x_n\right)$ äquivalent ist (es kommt
