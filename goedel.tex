@@ -1,4 +1,4 @@
-\documentclass{scrartcl}
+\documentclass[draft]{scrartcl}
 
 \emergencystretch3em
 
@@ -16,6 +16,21 @@
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{xcolor}
+\usepackage{breqn}
+
+\usepackage[a4paper,
+    inner=20mm,
+    outer=50mm,% = marginparsep + marginparwidth 
+	       %   + 5mm (between marginpar and page border)
+    top=20mm,
+    bottom=25mm,
+    marginparsep=5mm,
+    marginparwidth=40mm,
+    showframe% for show your page design, normaly not used
+]{geometry}
+
+
+\setlength{\marginparwidth}{4cm}
 
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 
@@ -25,6 +40,7 @@
 \newcommand{\fnvierunddreissigb}{34b}
 \newcommand{\fnfunfundvierziga}{45a}
 \newcommand{\fnachtundvierziga}{48a}
+\newcommand{\mnote}[1]{\marginpar{\textcolor{green}{#1}}}
 
 \makeatletter
 \newcommand{\Spvek}[2][r]{%
@@ -318,13 +334,16 @@ als undefinierten Grundbegriff).
 
 Die Grundzeichen des Systems $P$ sind die folgenden:
 
-I. Konstante: \glqq $\thicksim$\grqq\ (nicht), 
-\glqq$\lor$\grqq\ (oder), \glqq$\Pi$\grqq\ (für alle),
-\glqq $0$\grqq\ (Null), \glqq$f$\grqq\ (der Nachfolger
-von), \glqq(\grqq, \glqq)\grqq\ (Klammern),
+\begin{enumerate}[I.]
+	\item Konstante: \glqq $\thicksim$\grqq\ (nicht), 
+		\glqq$\lor$\grqq\ (oder), \glqq$\Pi$\grqq\ (für alle),
+		\glqq $0$\grqq\ (Null), \glqq$f$\grqq\ (der Nachfolger
+		von), \glqq(\grqq, \glqq)\grqq\ (Klammern),
 
-II. Variable ersten Typs (für Individuen, d.\,h. 
-natürliche Zahlen inklusive 0): \glqq$x_1$\grqq, \glqq$y_1$\grqq,\glqq$z_1$\grqq, \dots,
+	\item Variable ersten Typs (für Individuen, d.\,h. 
+		natürliche Zahlen inklusive 0): 
+		\glqq$x_1$\grqq, \glqq$y_1$\grqq,\glqq$z_1$\grqq, \dots,
+\end{enumerate}
 
 Variable zweiten Typs (für Klassen von Individuen):
 \glqq$x_2$\grqq, \glqq$y_2$\grqq, \glqq$z_3$\grqq, \dots,
@@ -775,9 +794,11 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$x$ ist \textit{Elementarformel}.
 
-	\item $Op(x\ y\ z) \equiv x = \text{Neg}(y) \lor x = y \text{ Dis } z \lor (Ev) [v \leqq x \& \text{Var}(x) \& x = v \text{ Gen } y]$
+	\item $Op(x\ y\ z) \equiv x = \text{Neg}(y) \lor x = y \text{ Dis } z \lor\allowbreak (Ev) \left[v \leqq x \& \text{Var}(x) \& x = v \text{ Gen } y\right]$
 
-	\item $FR(x) \equiv (n) \{ 0 < n \leqq l(x) \longrightarrow Elf(n Gl x) \lor (Ep, q) [0 < p, q < n \& Op(n Gl x, p Gl x, q Gl x)]\} \& l(x) > 0$
+	\item \begin{dmath*}
+		FR(x) \equiv (n) \left\{ 0 < n \leqq l(x) \longrightarrow\allowbreak Elf(n Gl x) \lor (Ep, q)\allowbreak \left[0 < p, q < n \&\allowbreak Op(n Gl x, p Gl x, q Gl x)\right]\right\} \& l(x) > 0
+		\end{dmath*}
 
 	$x$ ist eine Reihe von \textit{Formeln}, deren jede entweder
 	\textit{Elementarformel} ist oder aus vorhergehenden durch die Operationen der \textit{Negation},
@@ -787,7 +808,9 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$x$ ist \textit{Formel} (d.\,h. letztes Glied einer \textit{Formelreihe $n$}).
 
-	\item $v \text{ Geb } n, x \equiv \text{Var}(v) \& \text{Form}(x) \& (Ea, b, c) [a, b, c \leqq x \& x a = \pmstar (v \text{ Gen } b \pmstar c \& \text{Form}(b) \& l(a) + 1 \leqq n \leqq l(a) + l(v \text{ Gen } b)]$
+	\item \begin{dmath*}
+		v \text{ Geb } n, x \equiv \text{Var}(v) \& \text{Form}(x) \& (Ea, b, c) [a, b, c \leqq x \& x a = \pmstar (v \text{ Gen } b \pmstar c \& \text{Form}(b) \& l(a) + 1 \leqq n \leqq l(a) + l(v \text{ Gen } b)]
+		\end{dmath*}
 
 	Die \textit{Variable} $v$ ist in $x$ an $n$-ter Stelle \textit{gebunden}.
 
@@ -856,7 +879,9 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$x$ ist eine aus dem Axiomenschema III, 1 durch Einsetzung entstehende \textit{Formel}.
 
-	\item $L_2 - Ax(x) \equiv (Ev, q, p) \{v, q, p \leqq x \& \text{Var}(v) \& \text{Form}(p) \& v Fr p \& \text{Form}(x) \& x = [v \text{ Gen } (p\text{ Dis } q)]\}$
+	\item \begin{dmath*}
+		L_2 - Ax(x) \equiv (Ev, q, p) \{v, q, p \leqq x \& \text{Var}(v) \& \text{Form}(p) \& v Fr p \& \text{Form}(x) \& x = [v \text{ Gen } (p\text{ Dis } q)]\}
+		\end{dmath*}
 
 	$x$ ist eine aus dem Axiomenschema III, 2 durch Einsetzung entstehende \textit{Formel}.
 
@@ -877,7 +902,9 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$x$ ist \textit{unmittelbare Folge} aus $y$ und $z$.
 
-	\item $Bw(x) \equiv (n)\{0 < n \leqq l(x) \longrightarrow Ax(n Gl x) \lor (Ep, q) [0, < p, q < n \& Fl(n Gl x, p Gl x, q Gl x)]\} \& l(x) > 0$
+	\item \begin{dmath*}
+		Bw(x) \equiv (n)\{0 < n \leqq l(x) \longrightarrow Ax(n Gl x) \lor (Ep, q) [0, < p, q < n \& Fl(n Gl x, p Gl x, q Gl x)]\} \& l(x) > 0
+		\end{dmath*}
 
 	$x$ ist eine \textit{Beweisfigur} (eine endliche Folge von \textit{Formeln}, deren jede entweder \textit{Axiom} oder \textit{unmittelbare Folge} aus der vorhergehenden ist).
 
@@ -1180,9 +1207,9 @@ $$
 
 definiert und daher arithmetisch ist, so ist auch die folgendermaßen definierte Relation $P(x_0, x_1 \dots x_n)$:
 
-$$
+\begin{dmath*}
 P(x_0 \dots x_n) \equiv (En, d) \left\{S([n]_{d + 1}, x_2 \dots x_n) \& (k) \left[k < x_1 \longrightarrow T([n]_{1 + 1 (k + 2)}, k, [n]_{1 + d (k + 1)}, x_2 \dots x_n)\right] \& x_0 = [n]_{1 + d (x_1 + 1)}\right\}
-$$
+\end{dmath*}
 arithmetisch, welche nach (17) und Hilfssatz 1 mit:
 $x_0 = \phi(x_1 \dots x_n)$ äquivalent ist (es kommt
 		bei der Folge $f$ in (17) nur auf ihren Verlauf 
