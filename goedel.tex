@@ -468,8 +468,8 @@ exakten Definitionen der metamathe. Begriffe S. 182fg.) TODO}):
 	\item Jede Formel, die aus einem der beiden Schemata
 
 	\begin{enumerate}[1.]
-		\item $v\Pi(a) \supset \text{Subst\ } a \Spvek{v; c}$
-		\item $v\Pi(b \lor a)\supset b \lor v \Pi(a)$
+		\item $v\Pi\left(a\right) \supset \text{Subst\ } a \Spvek{v; c}$
+		\item $v\Pi\left(b \lor a\right)\supset b \lor v \Pi\left(a\right)$
 	\end{enumerate}
 	dadurch entsteht, daß man für $a, v, b, c$ folgende
 	Einsetzungen vornimmt (und in 1. die durch \glqq Subst\grqq\ angezeigte Operation ausführt):
@@ -485,7 +485,7 @@ exakten Definitionen der metamathe. Begriffe S. 182fg.) TODO}):
 	\item Jede Formel, die aus dem Schema
 
 	\begin{enumerate}[1.]
-		\item $(Eu)\left(v\Pi\left(u\left(v\right) \equiv a\right)\right)$
+		\item $\left(Eu\right)\left(v\Pi\left(u\left(v\right) \equiv a\right)\right)$
 	\end{enumerate}
 
 	dadurch entsteht, daß man für $v$ bzw. $u$ 
@@ -626,7 +626,7 @@ Es gelten folgende Sätze:
 	Buchstaben $\mathfrak{x}, \mathfrak{y}$ als abkürzende Bezeichnung für beliebige Variablen-$n$-tupel, z.\,B. $x_1 x_2 \dots x_n$}.}
 	
 	\item \so{Wenn die Funktion $\phi\left(\mathfrak{x}\right)$
-	und die Relation $R(\mathfrak{x}, \mathfrak{y})$
+	und die Relation $R\left(\mathfrak{x}, \mathfrak{y}\right)$
 	rekursiv sind, dann auch die Relationen $S, T$}
 
 	\begin{equation*}
@@ -646,18 +646,18 @@ Es gelten folgende Sätze:
 
 Satz I folgt unmittelbar aus der Definition von \glqq rekursiv\grqq. Satz II und III beruhen darauf, daß die den logischen Begriffen $\overline{\phantom{XX}}$, $\lor$, $=$ entsprechenden zahlentheoretischen Funktionen
 \begin{equation*}
-	\alpha\left(x\right), \beta(x, y), \gamma(x, y)
+	\alpha\left(x\right), \beta\left(x, y\right), \gamma\left(x, y\right)
 \end{equation*}
 nämlich:
 \begin{equation*}
-	\alpha(0) = 1; \alpha\left(x\right) = 0\text{ für } x \not = 0
+	\alpha\left(0\right) = 1; \alpha\left(x\right) = 0\text{ für } x \not = 0
 \end{equation*}
 \begin{equation*}
-	\beta(0, x) = \beta(x, 0) = 0; \beta(x, y) = 1,
+	\beta\left(0, x\right) = \beta\left(x, 0\right) = 0; \beta\left(x, y\right) = 1,
 	\text{ wenn } x, y \text{ beide } \not = 0 \text{ sind}
 \end{equation*}
 \begin{equation*}
-	\gamma(x, y) = 0, \text{ wenn } x = y; \gamma(x, y) = 1, \text{ wenn } x \not = y
+	\gamma\left(x, y\right) = 0, \text{ wenn } x = y; \gamma\left(x, y\right) = 1, \text{ wenn } x \not = y
 \end{equation*}
 rekursiv sind, wie man sich leicht überzeugen kann. Der
 Beweis für Satz IV ist kurz der folgende: Nach der 
@@ -720,7 +720,7 @@ Funktionen (Relationen) 1--45, unter denen z.\,B. die
 Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmittelbare Folge}\grqq\ vorkommen, ist daher rekursiv.
 
 \begin{enumerate}[1.]
-	\item $x/y \equiv \left(Ez\right) [z \leqq x \& x = y.z]$\footnote{Das Zeichen $\equiv$ wird im Sinne von \glqq Definitionsgleichheit\grqq\ verwendet, vertritt also bei Definitionen entweder $=$ oder $\thicksim$ (im übrigen ist
+	\item $x/y \equiv \left(Ez\right) \left[z \leqq x \& x = y.z\right]$\footnote{Das Zeichen $\equiv$ wird im Sinne von \glqq Definitionsgleichheit\grqq\ verwendet, vertritt also bei Definitionen entweder $=$ oder $\thicksim$ (im übrigen ist
 	die Symbol die \so{Hilbert}sche).}
 
 	$x$ ist teilbar durch $y$\footnote{Überall, wo in den folgenden Definitionen eines der Zeichen $\left(x\right), \left(Ex\right), \epsilon x$ auftritt, ist es von einer Abschätzung für $x$ gefolgt. Diese Abschätzung dient lediglich dazu, um die rekursive Natur des definierten Begriffes (vgl. Satz IV) zu sichern. Dagegen würde sich der Umgang der definierten Begriffe durch Weglassung dieser Abschätzung meistens nicht ändern.}
@@ -759,9 +759,9 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$l\left(x\right)$ ist die Länge der $x$ zugeordneten Zahlenreihe.
 
-	\item $x \pmstar y \equiv \{ z \leqq [ Pr (l\left(x\right) + l\left(y\right))]^{x + 1} \& 
-	(n) [n \leqq l\left(x\right) \longrightarrow (n Gl z = n Gl x] \&
-	(n) [0 < n \leqq (l(y) \longrightarrow (n + l\left(x\right)) Gl z = n Gl y]\}$
+	\item $x \pmstar y \equiv \left\{ z \leqq \left[ Pr \left(l\left(x\right) + l\left(y\right)\right)\right]^{x + 1} \& 
+	\left(n\right) [n \leqq l\left(x\right) \longrightarrow (n Gl z = n Gl x] \&
+	\left(n\right) \left[0 < n \leqq (l(y) \longrightarrow (n + l\left(x\right)) Gl z = n Gl y\right]\right\}$
 
 	$x \pmstar y$ entspricht der Operation des
 	\glqq Aneinanderfügens\grqq\ zweier endlicher
@@ -835,7 +835,15 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 	\textit{Elementarformel} ist oder aus vorhergehenden durch die Operationen der \textit{Negation},
 	\textit{Disjunktion}, \textit{Generalisation} hervorgeht.
 
-	\item $\text{Form}\left(x\right) \equiv \left(En\right) \left\{n \leqq \left(Pr \left[l\left(x\right)^2\right]\right)^{x.\left[l\left(x\right)\right]^2} \& FR\left(n\right) \& x = \left[l\left(n\right)\right] Gl n\right\}$\footnote{Die Abschätzung $n \leqq (Pr \left[l\left(x\right)^2\right])^{x l\left(x\right)^2}$ erkennt man so:Die Länge der kürzesten zu $x$ gehörigen Formelreihe kann höchstens gleich der Anzahl der Teilformeln von $x$ sein. Es gibt aber höchstens $l\left(x\right)$ Teilformeln der Länge 1, höchstens $l\left(x\right) - 1$ der Länge 2 usw., im Ganzen als höchstens $\frac{l\left(x\right)[l\left(x\right) + 1]}{2} \leqq l\left(x\right)^2$. Die Primzahlen aus $n$ können also sämtlich kleiner als $Pr\{\left[l\left(x\right)\right]^x\}$ angenommen werden, ihre Anzahl $\leqq l\left(x\right)^2$ und ihre Exponenten (welche Teilformeln von $x$ sind) $\leqq x$.}
+	\item $\text{Form}\left(x\right) \equiv \left(En\right) \left\{n \leqq \left(Pr \left[l\left(x\right)^2\right]\right)^{x.\left[l\left(x\right)\right]^2} \& FR\left(n\right) \& x = \left[l\left(n\right)\right] Gl n\right\}$\footnote{Die Abschätzung $n \leqq (Pr \left[l\left(x\right)^2\right])^{x l\left(x\right)^2}$ 
+		erkennt man so: Die Länge der kürzesten zu $x$ gehörigen Formelreihe 
+		kann höchstens gleich der Anzahl der Teilformeln von $x$ sein. 
+		Es gibt aber höchstens $l\left(x\right)$ Teilformeln der Länge 1, 
+		höchstens $l\left(x\right) - 1$ der Länge 2 usw., im Ganzen als 
+		höchstens $\frac{l\left(x\right)[l\left(x\right) + 1]}{2} \leqq l\left(x\right)^2$. 
+		Die Primzahlen aus $n$ können also sämtlich kleiner als 
+		$Pr\left\{\left[l\left(x\right)\right]^x\right\}$ angenommen werden, 
+		ihre Anzahl $\leqq l\left(x\right)^2$ und ihre Exponenten (welche Teilformeln von $x$ sind) $\leqq x$.}
 
 	$x$ ist \textit{Formel} (d.\,h. letztes Glied einer \textit{Formelreihe $n$}).
 
@@ -849,7 +857,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	Die \textit{Variable} $v$ ist in $x$ an $n$-ter Stelle \textit{frei}.
 
-	\item $v Fr x \equiv (En) [n \leqq l\left(x\right) \& v Fr n, x]$
+	\item $v Fr x \equiv \left(En\right) [n \leqq l\left(x\right) \& v Fr n, x]$
 
 	$v$ kommt in $x$ als \textit{freie Variable} vor.
 
@@ -878,10 +886,9 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	\item $x \text{ Imp } y \equiv [\text{Neg }\left(x\right)] \text{ Dis } y $
 
-	$x \text{ Con } y \equiv \text{ Neg } \{[\text{Neg }\left(x\right)]\text{ Dis }[\text{Neg }(y)]\}$
+	$x \text{ Con } y \equiv \text{ Neg } \left\{\left[\text{Neg }\left(x\right)\right]\text{ Dis }\left[\text{Neg }\left(y\right)\right]\right\}$\mnote{$x \wedge y \equiv \left(x \supset y\right) \lor \lnot y$}
 
-% TODO check hier ist eine Klammer nicht geschlossen!!!
-	$x \text{ Aeq } y \equiv (x \text{ Imp } y \text{ Con } (y \text { Imp } x)$
+	$x \text{ Aeq } y \equiv \left(x \text{ Imp } y\right) \text{ Con } \left(y \text { Imp } x\right)$
 
 	$v \text { Ex } y \equiv \text{Neg } \{v \text{ Gen } [\text{Neg } (y)]\}$
 
@@ -891,9 +898,9 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	Den Axiomen I, 1 bis 3, entsprechen drei bestimmte Zahlen, die wir mit $z_1, z_2, z_3$ bezeichnen un wir definieren:
 
-	\item $Z - Ax\left(x\right) \equiv (x = z_1 \lor x = z_2 \lor x = z_3)$
+	\item $Z - Ax\left(x\right) \equiv \left(x = z_1 \lor x = z_2 \lor x = z_3\right)$
 
-	\item $A_1 - Ax\left(x\right) \equiv \left(Ey\right) [y \leqq x\& \text{Form }(y) \& x = (y \text{ Dis } y) \text{ Imp } y]$
+	\item $A_1 - Ax\left(x\right) \equiv \left(Ey\right) \left[y \leqq x\& \text{Form }(y) \& x = (y \text{ Dis } y) \text{ Imp } y\right]$
 
 	$x$ ist eine durch Einsetzung in das Axiomenschema II, 1 entstehende \textit{Formel}. Analog werden $A_2 - Ax, A_3 - Ax, A_4 - Ax$ entsprechend den Axiomen II, 2 bis 4 definiert.
 
@@ -922,7 +929,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	Dem Axiom V, 1 entspricht eine bestimmte Zahl $z_4$ und wir definieren:
 
-	\item $M - Ax\left(x\right) \equiv (En) [n \leqq x \& x = n Th z_4]$
+	\item $M - Ax\left(x\right) \equiv \left(En\right) \left[n \leqq x \& x = n Th z_4\right]$
 
 	\item $Ax\left(x\right) \equiv Z - Ax\left(x\right) \lor A - Ax\left(x\right) \lor L_1 - Ax\left(x\right) \lor L_2 - Ax\left(x\right) \lor R - Ax\left(x\right) \lor M - Ax\left(x\right)$
 
@@ -938,7 +945,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$x$ ist eine \textit{Beweisfigur} (eine endliche Folge von \textit{Formeln}, deren jede entweder \textit{Axiom} oder \textit{unmittelbare Folge} aus der vorhergehenden ist).
 
-	\item $x B y \equiv Bw\left(x\right) \& [ l\left(x\right) ] Gl x = y$
+	\item $x B y \equiv Bw\left(x\right) \& \left[ l\left(x\right) \right] Gl x = y$
 
 	$x$ ist ein \textit{Beweis} für die \textit{Formel} $y$.
 
@@ -977,7 +984,7 @@ soll rekursiv heißen.
 Wir kommen nun ans Ziel unserer Ausführungen. Sei $\chi$ eine beliebige Klasse von \textit{Formeln}. Wir bezeichnen mit $\text{Flg}\left(x\right)$ (Folgerungsmenge von $\chi$) die kleinste Menge von \textit{Formeln}, die alle \textit{Formeln} aus $\chi$ und alle \textit{Axiome} enthält und gegen die Relation \glqq\textit{unmittelbare Folge}\grqq\ abgeschlossen ist. $\chi$ heißt $\omega$-widerspruchsfrei, wenn es kein \textit{Klassenzeichen}
 $a$ gibt, so daß:
 \begin{equation*}
-	(n)\left[Sb\left(a\substack{v\\ Z(n)}\right) \epsilon \text{ Flg } \left(x\right)\right] \& \left[\text{Neg }(v\text{ Gen } a)\right] \epsilon \text{ Flg }(\chi)
+	(n)\left[Sb\left(a\substack{v\\ Z\left(n\right)}\right) \epsilon \text{ Flg } \left(x\right)\right] \& \left[\text{Neg }(v\text{ Gen } a)\right] \epsilon \text{ Flg }(\chi)
 \end{equation*}
 wobei $v$ die \textit{freie Variable} des \textit{Klassenzeichens} $a$ ist.
 
@@ -986,21 +993,22 @@ Jedes $\omega$-widerspruchsfreie System ist selbstverständlich auch widerspruch
 Das allgemeine Resultat über die Existenz unentscheidbarer Sätze lautet:
 
 Satz VI: \so{Zu jeder $\omega$-widerspruchsfreien rekursiven Klasse $\chi$ von} \textit{Formeln} \so{gibt es
-rekursive} \textit{Klassenzeichen} $r$, \so{so daß weder $v \text{ Gen } r$ noch $\text{Neg }(v \text{ Gen } r)$ zu
+rekursive} \textit{Klassenzeichen} $r$, \so{so daß weder $v \text{ Gen } r$ 
+noch $\text{Neg }\left(v \text{ Gen } r\right)$ zu
 $\text{Flg }\left(\chi\right)$ gehört (wobei $v$ die} \textit{freie Variable} \so{aus $r$ ist)}.
 
 Beweis: Sei $\chi$ eine beliebige rekursive $\omega$-widerspruchsfreie Klasse von \textit{Formeln}. Wir definieren:
 
 \begin{equation}
-	Bw_x\left(x\right) \equiv (n) [ n \leqq l\left(x\right) \longrightarrow Ax(n Gl x) \lor n Gl x) \epsilon \chi \lor
-\end{equation}
+	Bw_x\left(x\right) \equiv \left(n\right) [ n \leqq l\left(x\right) \longrightarrow Ax(n Gl x) \lor n Gl x) \epsilon \chi \lor
+\end{equation} % ] fehlt
 \begin{equation*}
-	(Ep, q) \{0 < p, q < n \& Fl(n Gl x, p Gl x, q Gl x)\}] \& l\left(x\right) > 0
-\end{equation*}
+	\left(Ep, q\right) \left\{0 < p, q < n \& Fl\left(n Gl x, p Gl x, q Gl x\right)\right\}] \& l\left(x\right) > 0
+\end{equation*} % [ fehlt
 (vgl. den analogen Begriff 44)
 
 \begin{equation}
-	x B_x y \equiv Bw_x\left(x\right) \& [l\left(x\right)] Gl x = y
+	x B_x y \equiv Bw_x\left(x\right) \& \left[l\left(x\right)\right] Gl x = y
 \end{equation}
 \begin{equation}
 	\tag{6.1}
@@ -1011,27 +1019,27 @@ Beweis: Sei $\chi$ eine beliebige rekursive $\omega$-widerspruchsfreie Klasse vo
 Es gilt offenbar:
 
 \begin{equation}
-	\left(x\right) [\text{Bew}_x\left(x\right) \thicksim x \epsilon \text{Flg}(\chi)]
+	\left(x\right) \left[\text{Bew}_x\left(x\right) \thicksim x \epsilon \text{Flg}\left(\chi\right)\right]
 \end{equation}
 \begin{equation}
-	\left(x\right) [\text{Bew}\left(x\right) \longrightarrow \text{Bew}_x\left(x\right)]
+	\left(x\right) \left[\text{Bew}\left(x\right) \longrightarrow \text{Bew}_x\left(x\right)\right]
 \end{equation}
 
 Nun definieren wir die Relation:
 
 \begin{equation}
 	\tag{8.1}
-	Q\left(x, y\right) \equiv \overline{x B\chi\left\lfloor Sb\left(y\substack{19\\ Z(y)}\right)\right\rfloor}.
+	Q\left(x, y\right) \equiv \overline{x B\chi\left[ Sb\left(y\substack{19\\ Z\left(y\right)}\right)\right]}.
 \end{equation}
 
-Da $x B_x y$ [nach (6), (5)] und $Sb\left(y\substack{19\\ Z(y)}\right)$ (nach Def. 17, 31) rekursiv sind, so auch $Q\left(xy\right)$. Nach Satz V und (8) gibt es also ein \textit{Relationszeichen} $q$ (mit den \textit{freien Variablen} 17, 19), so daß gilt:
+Da $x B_x y$ [nach (6), (5)] und $Sb\left(y\substack{19\\ Z\left(y\right)}\right)$ (nach Def. 17, 31) rekursiv sind, so auch $Q\left(xy\right)$. Nach Satz V und (8) gibt es also ein \textit{Relationszeichen} $q$ (mit den \textit{freien Variablen} 17, 19), so daß gilt:
 
 \begin{equation}
-	\overline{x B_\chi\left[Sb\left(y\substack{19\\ Z(y)}\right)\right]} \longrightarrow \text{Bew}_{\chi} \left[Sb \left(q \substack{17\\ Z\left(x\right)}\substack{19\\ Z(y)}\right)\right]
+	\overline{x B_\chi\left[Sb\left(y\substack{19\\ Z\left(y\right)}\right)\right]} \longrightarrow \text{Bew}_{\chi} \left[Sb \left(q \substack{17\\ Z\left(x\right)}\substack{19\\ Z\left(y\right)}\right)\right]
 \end{equation}
 
 \begin{equation}
-	x B_\chi \left[Sb\left(y\substack{19\\ Z(y)}\right)\right] \longrightarrow \text{Bew}_\chi \left[\text{Neg }Sb\left(q\substack{17\\ Z\left(x\right)}\substack{19\\ Z(y)}\right)\right]
+	x B_\chi \left[Sb\left(y\substack{19\\ Z\left(y\right)}\right)\right] \longrightarrow \text{Bew}_\chi \left[\text{Neg }Sb\left(q\substack{17\\ Z\left(x\right)}\substack{19\\ Z\left(y\right)}\right)\right]
 \end{equation}
 
 Wir setzen:
@@ -1042,7 +1050,7 @@ Wir setzen:
 ($p$ ist ein \textit{Klassenzeichen} mit der \textit{freien Variablen} 19) und
 
 \begin{equation}
-	r = Sb\left(q\substack{19\\ Z(p)}\right)
+	r = Sb\left(q\substack{19\\ Z\left(p\right)}\right)
 \end{equation}
 ($r$ ist ein rekursives \textit{Klassenzeichen} mit der
  \textit{freien Variablen} 17\footnote{$r$ entsteht ja 
@@ -1055,25 +1063,39 @@ Dann gilt:
 [wegen (11) und (12)] ferner:
 
 \begin{equation}
-	Sb\left(q\substack{17\\ Z\left(x\right)}\substack{19\\ Z(p)}\right) = Sb\left(r\substack{17\\ Z\left(x\right)}\right)
+	Sb\left(q\substack{17\\ Z\left(x\right)}\substack{19\\ Z\left(p\right)}\right) = Sb\left(r\substack{17\\ Z\left(x\right)}\right)
 \end{equation}
 
 [nach (12)]. Setzt man nun in (9) und (10) $p$ für $y$ ein, so entsteht unter Berücksichtigung von (13) und (14):
 
 \begin{equation}
-	\overline{x B_\chi (17\text{ Gen } r)} \longrightarrow \text{Bew}_\chi \left[Sb\left(r\substack{17\\ Z\left(x\right)}\right)\right]
+	\overline{x B_\chi\left(17\text{ Gen } r\right)} \longrightarrow \text{Bew}_\chi \left[Sb\left(r\substack{17\\ Z\left(x\right)}\right)\right]
 \end{equation}
 
 \begin{equation}
-	x B_\chi (17\text{ Gen } r) \longrightarrow \text{Bew}_\chi\left[\text{Neg } Sb\left(r\substack{17\\ Z\left(x\right)}\right)\right]
+	x B_\chi\left(17\text{ Gen } r\right) \longrightarrow \text{Bew}_\chi\left[\text{Neg } Sb\left(r\substack{17\\ Z\left(x\right)}\right)\right]
 \end{equation}
 
 Daraus ergibt sich:
 
 \begin{enumerate}
-	\item $17 \text{ Gen } r$ ist nicht $\chi$-beweisbar\footnote{$x$ ist $\chi$-beweisbar, soll bedeuten: $x \epsilon \text{Flg}\left(x\right)$, was nach (7) dasselbe besagt wie: $\text{Bew}_\chi\left(x\right)$.}. Denn wäre dies der Fall, so gäbe es (nach 6.1) ein $n$, so daß $n B_\chi (17 \text{ Gen } r)$. Nach 17 gälte also: $\text{Bew}_\chi \left[\text{Neg }Sb\left(r\substack{17\\ Z(n)}\right)\right]$, während andererseits aus der $\chi$-\textit{Beweisbarkeit} von $17 \text{ Gen } r$ auch die von $Sb \left(r\substack{17\\ Z(n)}\right)$ folgt. $\chi$ wäre also widerspruchsvoll (umso mehr $\omega$-widerspruchsvoll).
+	\item $17 \text{ Gen } r$ ist nicht $\chi$-beweisbar\footnote{$x$ 
+		ist $\chi$-beweisbar, soll bedeuten: $x \epsilon \text{Flg}\left(x\right)$, 
+		was nach (7) dasselbe besagt wie: $\text{Bew}_\chi\left(x\right)$.}. Denn 
+		wäre dies der Fall, so gäbe es (nach 6.1) ein $n$, so daß 
+		$n B_\chi \left(17 \text{ Gen } r\right)$. Nach 17 gälte also: 
+		$\text{Bew}_\chi \left[\text{Neg }Sb\left(r\substack{17\\ Z\left(n\right)}\right)\right]$, 
+		während andererseits aus der $\chi$-\textit{Beweisbarkeit} von $17 \text{ Gen } r$ auch 
+		die von $Sb \left(r\substack{17\\ Z\left(n\right)}\right)$ folgt. $\chi$ wäre also 
+		widerspruchsvoll (umso mehr $\omega$-widerspruchsvoll).
 
-	\item $\text{Neg }(17 \text{ Gen } r)$ ist nicht $\chi$-\textit{beweisbar}. Beweis: wie eben bewiesen wurde, ist $17 \text{ Gen } r$ nicht $\chi$-beweisbar, d.\,h. (nach 6.1) es gilt $(n)\overline{n B_\chi (17\text{ Gen } r)}$. Daraus folgt nach (15) $(n) \text{Bew}_\chi\left[Sb\left(r\substack{17\\ Z(n)}\right)\right]$, was zusammen mit $\text{Bew}_\chi [\text{Neg }(17 \text{ Gen } r)]$ gegen die $\omega$-Widerspruchsfreiheit von $\chi$ verstoßen würde.
+	\item $\text{Neg }\left(17 \text{ Gen } r\right)$ ist nicht 
+		$\chi$-\textit{beweisbar}. Beweis: wie eben bewiesen wurde, 
+		ist $17 \text{ Gen } r$ nicht $\chi$-beweisbar, d.\,h. 
+		(nach 6.1) es gilt $\left(n\right)\overline{n B_\chi\left(17\text{ Gen } r\right)}$. 
+		Daraus folgt nach (15) $\left(n\right) \text{Bew}_\chi\left[Sb\left(r\substack{17\\ Z\left(n\right)}\right)\right]$,
+		was zusammen mit $\text{Bew}_\chi\left[\text{Neg }\left(17 \text{ Gen } r\right)\right]$ 
+		gegen die $\omega$-Widerspruchsfreiheit von $\chi$ verstoßen würde.
 
 	$17\text{ Gen } r$ ist also aus $\chi$ unentscheidbar, womit Satz IV bewiesen ist.
 \end{enumerate}
@@ -1089,8 +1111,8 @@ von \textit{Formeln} vorgelegt. Wenn dann eine formale Entscheidung (aus $\chi$)
 \textit{Satzformel} $17 \text{ Gen } r$ vorgelegt ist, so kann man effektive angeben:
 
 \begin{enumerate}
-	\item Einen \textit{Beweis} für $\text{Neg } (17 \text{ Gen } r)$.
-	\item Für jedes beliebige $n$ einen Beweis für $Sb\left(r\substack{17\\ Z(n)}\right)$, d.h. eine formale Entscheidung von $17\text{ Gen } r$ würde die effektive Aufweisbarkeit eines $\omega$-Widerspruches zur Folge haben.
+	\item Einen \textit{Beweis} für $\text{Neg }\left(17 \text{ Gen } r\right)$.
+	\item Für jedes beliebige $n$ einen Beweis für $Sb\left(r\substack{17\\ Z\left(n\right)}\right)$, d.h. eine formale Entscheidung von $17\text{ Gen } r$ würde die effektive Aufweisbarkeit eines $\omega$-Widerspruches zur Folge haben.
 \end{enumerate}
 
 Wir wollen eine Relation (Klasse) zwischen natürlichen Zahlen $R\left(x_1 \dots x_n\right)$ 
@@ -1120,15 +1142,28 @@ nach (15), daß für jede Zahl $x$
 $Sb\left(r\substack{17\\ Z\left(x\right)}\right)$, folglich für
  keine Zahl $\text{Neg }Sb\left(r\substack{17\\ Z\left(x\right)}\right)$ $\chi$-\textit{beweisbar} ist.
 
-Adjungiert man $\text{Neg }(17 \text{ Gen } r)$ zu $\chi$, so erhält man eine widerspruchsfreie aber nicht $\omega$-widerspruchsfreie \textit{Formelklasse} $\chi'$. $\chi'$ ist widerspruchsfrei, denn sonst wäre $17 \text{ Gen } r$ $\chi$-\text{beweisbar}.
-$\chi'$ ist aber nicht $\omega$-widerspruchsfrei, denn wegen $\overline{\text{Bew}_\chi}(17\text{ Gen } r)$ und (15) gilt: $\left(x\right) \text{Bew}_\chi Sb\left(r\substack{17\\ Z\left(x\right)}\right)$, umso mehr also:
-$\left(x\right)\text{Bew}_{\chi'} Sb\left(r\substack{17\\ Z\left(x\right)}\right)$ und anderseits gilt natürlich: $\text{Bew}_{\chi'}[\text{Neg }(17\text{ Gen }r)]$\footnote{Die Existenz widerspruchsfreie und nicht $\omega$-widerspruchsfreier $\chi$ ist damit natürlich nur unter der Voraussetzung bewiesen, daß es überhaupt widerspruchsfreie $\chi$ gibt (d.\,h. daß $P$ widerspruchsfrei ist).}.
+Adjungiert man $\text{Neg }\left(17 \text{ Gen } r\right)$ zu $\chi$,
+so erhält man eine widerspruchsfreie aber nicht $\omega$-widerspruchsfreie 
+\textit{Formelklasse} $\chi'$. $\chi'$ ist widerspruchsfrei, denn sonst wäre 
+$17 \text{ Gen } r$ $\chi$-\text{beweisbar}.
+$\chi'$ ist aber nicht $\omega$-widerspruchsfrei, denn wegen 
+$\overline{\text{Bew}_\chi}\left(17\text{ Gen } r\right)$ und (15) gilt: 
+$\left(x\right) \text{Bew}_\chi Sb\left(r\substack{17\\ Z\left(x\right)}\right)$, umso mehr also:
+$\left(x\right)\text{Bew}_{\chi'} Sb\left(r\substack{17\\ Z\left(x\right)}\right)$ 
+und anderseits gilt natürlich: 
+$\text{Bew}_{\chi'}\left[\text{Neg }\left(17\text{ Gen }r\right)\right]$\footnote{Die Existenz 
+widerspruchsfreie und nicht $\omega$-widerspruchsfreier $\chi$ ist damit natürlich nur 
+unter der Voraussetzung bewiesen, daß es überhaupt widerspruchsfreie 
+$\chi$ gibt (d.\,h. daß $P$ widerspruchsfrei ist).}.
 
-Ein Spezialfall von Satz VI ist der, daß die Klasse $\chi$ aus endlich vielen \textit{Formeln} (und ev. den daraus durch \textit{Typenerhöhung} entstehenden) besteht. Jede endliche Klasse $\alpha$ ist natürlich rekursiv. Sei $a$ die größte in $\alpha$ enthaltene Zahl. Dann gilt in diesem
+Ein Spezialfall von Satz VI ist der, daß die Klasse $\chi$ aus endlich
+vielen \textit{Formeln} (und ev. den daraus durch \textit{Typenerhöhung} 
+entstehenden) besteht. Jede endliche Klasse $\alpha$ ist natürlich rekursiv.
+Sei $a$ die größte in $\alpha$ enthaltene Zahl. Dann gilt in diesem
 Fall für $\chi$:
 
 $$
-x \epsilon x \thicksim (Em, n) \left[m \leqq x \& n \leqq a \& n \epsilon \alpha \& x = m Th n\right]
+x \epsilon x \thicksim \left(Em, n\right) \left[m \leqq x \& n \leqq a \& n \epsilon \alpha \& x = m Th n\right]
 $$
 
 $\chi$ ist also rekursiv. Das erlaubt z.\,B. zu schließen, daß auch mit Hilfe des Auswahlaxioms (für alle Typen) oder der verallgemeinerten Kontinuumshypothese nicht alle Sätze entscheidbar sind, vorausgesetzt, daß diese Hypothesen $\omega$-widerspruchsfrei sind.
@@ -1269,8 +1304,8 @@ und $f$ in den ersten $k$ Gliedern übereinstimmen.
 Beweis: Sei $l$ die größte der Zahlen $k, f_0, f_1 \dots f_{k - 1}$. Man bestimme $n$ so, daß:
 
 $$
-n \equiv \left[\text{mod }(1 + (i + 1 l!)\right]\text{ für } i = 0, 1 \dots k - 1
-		$$
+n \equiv \left[\text{mod }(1 + \left(i + 1 l!\right)\right]\text{ für } i = 0, 1 \dots k - 1
+		$$ % TODO missing )
 		was möglich ist, da jede der Zahlen $1 + \left(i + 1\right) l!$ $\left(i = 0, 1 \dots k - 1\right)$
 		relativ prim sind. Denn eine in den zwei von diesen Zahlen enthaltene Primzahl 
 		müßte auch in der Differenz $i_1 - i_2)l!$ und daher wegen
@@ -1324,9 +1359,18 @@ $\phi\left(x\right), \psi\left(x y\right), \chi\left(x y z\right)$ hinzu,
 Eine Formel, die außer den zuerst angeführten Zeichen
 des e.~F. noch Variable dritter Art ($\phi\left(x\right), \psi\left(x y\right)$ etc.) 
 enthält, soll eine Formel im weiteren Sinne (i.~w.~S.) heißen\footnote{Variable dritter Art dürfen dabei an allen Leerstellen für Individuenvariable stehen, z.\,B.: $y = \phi\left(x\right), F\left(x, \phi\left(y\right)\right), G\left[\psi\left(x, \phi(y)\right), x)\right]$ usw.}.
-Die Begriffe \glqq erfüllbar\grqq, \glqq allgemeingültig\grqq\ übertragen sich ohneweiters auf die Formel i.~w.~S. und es gilt der Satz, daß man zu jeder Formel i.~w.~S. $A$ eine gewöhnliche Formel des e.~F.
-$B$ angeben kann, so daß die Erfüllbarkeit von $A$ mit der von $B$ äquivalent ist. $B$ erhält man aus $A$, indem man die in $A$ vorkommenden Vriablen dritter Art $\phi\left(x\right), \psi\left(x y\right) \dots$ durch Ausdrücke der Form $(\i z)F(z x), (\i z)G(z, x y)\dots$ ersetzt, die \glqq beschreibenden\grqq\ Funktionen im Sinne der PM I $\pmstar$ 14 auflöst und die so erhaltene Formel mit einem Ausdruck logisch multipliziert\footnote{D.\,h. die Konjunktion bildet.},
-der besagt, daß sämtliche an Stelle der $\phi, \psi \dots$ gesetzte $F, G\dots$ hinsichtlich der ersten Leerstelle genau eindeutig sind.
+Die Begriffe \glqq erfüllbar\grqq, \glqq allgemeingültig\grqq\ übertragen 
+sich ohneweiters auf die Formel i.~w.~S. und es gilt der Satz, daß man zu
+jeder Formel i.~w.~S. $A$ eine gewöhnliche Formel des e.~F.
+$B$ angeben kann, so daß die Erfüllbarkeit von $A$ mit der von $B$ äquivalent
+ist. $B$ erhält man aus $A$, indem man die in $A$ vorkommenden Vriablen dritter 
+Art $\phi\left(x\right), \psi\left(x y\right) \dots$ durch Ausdrücke der Form
+$\left(\i z\right)F\left(z x\right), \left(\i z\right)G\left(z, x y\right)\dots$ ersetzt, 
+die \glqq beschreibenden\grqq\ Funktionen im Sinne der PM I $\pmstar$ 14
+auflöst und die so erhaltene Formel mit einem Ausdruck logisch 
+multipliziert\footnote{D.\,h. die Konjunktion bildet.},
+der besagt, daß sämtliche an Stelle der $\phi, \psi \dots$ gesetzte 
+$F, G\dots$ hinsichtlich der ersten Leerstelle genau eindeutig sind.
 
 Wir zeigen nun, daß es zu jedem Problem der Form $\left(x\right)F\left(x\right)$ ($F$ rekursiv) ein äquivalentes betreffend die Erfüllbarkeit einer Formel i.~w.~S. gibt, woraus nach der eben gemachten Bemerkung Satz X folgt.
 
@@ -1357,7 +1401,7 @@ r < k, i_v < k \left(\text{für } v = 1, 2 \dots s\right)
 oder:
 
 \begin{equation}
-3. \left(x_1 \dots x_m\right) \left[\Phi_k(x_1 \dots x_m) = \Phi_1(\Phi_1 \dots \Phi_1(0))\right]
+3. \left(x_1 \dots x_m\right) \left[\Phi_k\left(x_1 \dots x_m\right) = \Phi_1\left(\Phi_1 \dots \Phi_1\left(0\right)\right)\right]
 \end{equation}
 
 Ferner bilden wir die Sätze:
@@ -1425,12 +1469,12 @@ Zum Beweise der Tatsache, daß $17\text{ Gen }r$ nicht $\chi$-\textit{beweisbar}
 d.\,h. nach (6.1):
 
 \begin{equation*}
-\text{Wid }\left(x\right) \longrightarrow \left(x\right)\overline{x B_x (17\text{ Gen } r)}
+\text{Wid }\left(x\right) \longrightarrow \left(x\right)\overline{x B_x \left(17\text{ Gen } r\right)}
 \end{equation*}
-Nach (13) ist $17\text{ Gen } r = Sb\left(p\substack{19\\ Z(p)}\right)$ und daher:
+Nach (13) ist $17\text{ Gen } r = Sb\left(p\substack{19\\ Z\left(p\right)}\right)$ und daher:
 
 \begin{equation*}
-\text{Wid}\left(x\right) \longrightarrow\left(x\right)\overline{x B_x Sb\left(p\substack{19\\ Z(p)}\right)}
+\text{Wid}\left(x\right) \longrightarrow\left(x\right)\overline{x B_x Sb\left(p\substack{19\\ Z\left(p\right)}\right)}
 \end{equation*}
 d.\,h. nach (8.1):
 
@@ -1439,7 +1483,7 @@ d.\,h. nach (8.1):
 \end{equation}
 
 Wir stellen nun folgendes fest: Sämtliche in Abschnitt 2\footnote{Von der Definition für \glqq rekursiv\grqq\ auf Seite 179 TODO bis zum Beweis von Satz VI inkl.}
-und Abschnitt 4 bisher definierten Begriffe (bzw. bewiesene Behauptungen) sind auch in $P$ ausdrückbar (bzw. beweisbar). Denn es wurden überall nur die gewöhnlichen Definitions- und Beweismethoden der klassischen Mathematik verwendet, wie sie im System $P$ formalisiert sind. Insbesondere ist $\chi$ (wie jede rekursive Klasse) in $P$ definierbar. Sei $w$ die \textit{Satzformel}, durch welche in $P\text{ Wid } \left(x\right)$ ausgedrückt wird. Die Relation $Q\left(x, y\right)$ wird gemäß (8.1), (9), (10) durch das \textit{Relationszeichen} $q$ ausgedrückt, folglich $Q\left(x, p\right)$ durch $r \left[\text{ da nach (12)} r_?^? = Sb\left(q\substack{19\\ Z(p)}\right)\right]$ und der Satz $\left(x\right)Q\left(x, p\right)$ durch $17\text{ Gen } r$.
+und Abschnitt 4 bisher definierten Begriffe (bzw. bewiesene Behauptungen) sind auch in $P$ ausdrückbar (bzw. beweisbar). Denn es wurden überall nur die gewöhnlichen Definitions- und Beweismethoden der klassischen Mathematik verwendet, wie sie im System $P$ formalisiert sind. Insbesondere ist $\chi$ (wie jede rekursive Klasse) in $P$ definierbar. Sei $w$ die \textit{Satzformel}, durch welche in $P\text{ Wid } \left(x\right)$ ausgedrückt wird. Die Relation $Q\left(x, y\right)$ wird gemäß (8.1), (9), (10) durch das \textit{Relationszeichen} $q$ ausgedrückt, folglich $Q\left(x, p\right)$ durch $r \left[\text{ da nach (12)} r_?^? = Sb\left(q\substack{19\\ Z\left(p\right)}\right)\right]$ und der Satz $\left(x\right)Q\left(x, p\right)$ durch $17\text{ Gen } r$.
 
 Wegen (24) ist also $w\text{ Imp } \left(17\text{ Gen }r\right)$ in $P$ 
 beweisbar\footnote{Daß aus (23) auf die Richtigkeit von $w\text{ Imp }\left(17\text{ Gen } r\right)$
