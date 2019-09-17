@@ -280,7 +280,7 @@ d.\,h. aber nach dem obigen $q$ würde zu $K$ gehören,
 d.\,h. nach \ref{formel1} es würde 
 $\overline{Bew}\left[R\left(q\right); q\right]$ gelten, im Widerspruch mit der
 Annahme. Wäre dagegen die Negation von
-$\left[R(q); q\right]$ beweisbar, so würde $n \epsilon K$,
+$\left[R\left(q\right); q\right]$ beweisbar, so würde $n \epsilon K$,
 d.\,h. $Bew\left[R\left(q\right); q\right]$ gelten. $\left[R\left(q\right); q\right]$ wäre also 
 zugleich mit seiner Negation beweisbar, was wiederum 
 unmöglich ist.
@@ -433,7 +433,7 @@ gleiche Zahl erhöht.
 
 Folgende Formeln (I bis V) heißen Axiome (sie 
 sind mit Hilfe der in bekannter Weise definierten Abkürzungen:
-$., \supset, \equiv, (Ex), =$\footnote{$x_1 = y_1$ ist, 
+$., \supset, \equiv, \left(Ex\right), =$\footnote{$x_1 = y_1$ ist, 
 wie in PM I, $\pmstar$ 13 durch 
 $x_2\Pi\left(x_2\left(x_1\right) \supset x_2\left(y_1\right)\right)$ 
 definiert zu denken (ebenso für die höheren Typen).}
@@ -451,7 +451,7 @@ exakten Definitionen der metamathe. Begriffe S. 182fg.) TODO}):
 
 \begin{enumerate}[I.]
 	\item \begin{enumerate}[1.]
-		\item $\thicksim(fx_1 = 0)$\mnote{0 ist nicht Nachfolger irgendeiner natürlichen Zahl}
+		\item $\thicksim\left(fx_1 = 0\right)$\mnote{0 ist nicht Nachfolger irgendeiner natürlichen Zahl}
 		\item $fx_1 = fy_1 \supset x_y = y_1$\mnote{Wenn die Nachfolger gleich sind, ist die Zahl gleich}
 		\item $x_2(0).x_1\Pi\left(x_2\left(x_1\right) \supset x_2\left(fx_1\right)\right) \supset x_1 \Pi \left(x_2\left(x_1\right)\right)$.\mnote{???}
 	\end{enumerate}
@@ -542,7 +542,7 @@ auch jeder Formel) in eineindeutiger Weise
 eine endliche Reihe natürlicher Zahlen. Die endlichen 
 Reihen natürlicher Zahlen bilden wir nun (wieder eineindeutig) 
 auf natürliche Zahlen ab, indem wir der Reihe 
-$n_1, n_2, \dots n_k$ die Zahl $2^{n_1}, 3^{n_2}, \dots p_k^{nk}$\mnote{$f(0) = 2^1 + 3^{11} + 5^{1} + 7^{13} = 96889187561$, 96889187561 ist 1:1 zugeordnet zu $f\left(0\right)$}
+$n_1, n_2, \dots n_k$ die Zahl $2^{n_1}, 3^{n_2}, \dots p_k^{nk}$\mnote{$f\left(0\right) = 2^1 + 3^{11} + 5^{1} + 7^{13} = 96889187561$, 96889187561 ist 1:1 zugeordnet zu $f\left(0\right)$}
 entsprechen lassen, wo $p_k$ die $k$-te
 Primzahl (der Größe nach) bedeutet. Dadurch ist nicht nur
 jeder endlichen Reihe von solchen in eineindeutiger Weise
@@ -603,8 +603,13 @@ $x + 1$ ist. Die Länge der kürzesten Reihe von $\phi_i$,\mnote{Die minimale \g
 Funktion ist ihre Stufe}
 welche zu einer rekursiven Funktion $\phi$ gehört,
 heißt ihre Stufe. Eine Relation zwischen natürlichen
-Zahlen $R(x_1 \dots x_n)$ heißt rekursiv\footnote{Klassen rechnen wir mit zu den Relation (einstellige Relationen). Rekursive Relation $R$ haben natürlich die Eigenschaft, daß man für jedes spezielle Zahlen-$n$-tupel entscheiden kann, ob $R(x_1 \dots x_n)$ gilt oder nicht.},
-wenn es eine rekursive Funktion $\phi(x_1 \dots x_n)$ gibt,
+Zahlen $R\left(x_1 \dots x_n\right)$ heißt 
+rekursiv\footnote{Klassen rechnen wir mit zu den 
+Relation (einstellige Relationen). Rekursive Relation 
+$R$ haben natürlich die Eigenschaft, daß man für 
+jedes spezielle Zahlen-$n$-tupel entscheiden kann, 
+ob $R\left(x_1 \dots x_n\right)$ gilt oder nicht.},
+wenn es eine rekursive Funktion $\phi\left(x_1 \dots x_n\right)$ gibt,
 so daß für alle $x_1, x2 \dots x_n$ 
 
 $$ R\left(x_1 \dots x_n\right) \thicksim \left[\phi\left(x_1 \dots x_n\right) = 0\right]\footnote{Für alle inhaltlichen (insbes. auch die metamathematischen) Überlegungen wird die \so{Hilbert}sche Symbolik verwendet. Vgl. Hilbert-Ackermann, Grundzüge der
@@ -616,8 +621,8 @@ Es gelten folgende Sätze:
 	\item \so{Jede aus rekursiven Funktionen (Relationen) durch Einsetzung rekursiver Funktionen an Stelle der Variablen entstehende Funktion (Relation) ist rekursiv; ebenso jede Funktion, die aus rekursiven Funktionen durch rekursive Definition nach dem Schema (2) entsteht.}
 	\item \so{Wenn $R$ und $S$ rekursive Relationen sind,
 	dann auch $R$, $R\lor S$ (daher auch $R \& S$)}.
-	\item \so{Wenn die Funktionen $\phi(\mathfrak{x}), \psi(\mathfrak{y})$ rekursiv sind, dann auch die Relation
-	$\phi(\mathfrak{x}) = \psi(\mathfrak{y})$\footnote{Wir verwenden deutsche
+	\item \so{Wenn die Funktionen $\phi\left(\mathfrak{x}\right), \psi\left(\mathfrak{y}\right)$ rekursiv sind, dann auch die Relation
+	$\phi\left(\mathfrak{x}\right) = \psi\left(\mathfrak{y}\right)$\footnote{Wir verwenden deutsche
 	Buchstaben $\mathfrak{x}, \mathfrak{y}$ als abkürzende Bezeichnung für beliebige Variablen-$n$-tupel, z.\,B. $x_1 x_2 \dots x_n$}.}
 	
 	\item \so{Wenn die Funktion $\phi\left(\mathfrak{x}\right)$
@@ -656,10 +661,10 @@ nämlich:
 \end{equation*}
 rekursiv sind, wie man sich leicht überzeugen kann. Der
 Beweis für Satz IV ist kurz der folgende: Nach der 
-Voraussetzung gibt es ein rekursives $\rho(\mathfrak{x}, \mathfrak{y})$, so daß:
+Voraussetzung gibt es ein rekursives $\rho\left(\mathfrak{x}, \mathfrak{y}\right)$, so daß:
 
 \begin{equation*}
-	R(\mathfrak{x}, \mathfrak{y}) \thicksim [\rho(\mathfrak{x}, \mathfrak{y}) = 0].
+	R\left(\mathfrak{x}, \mathfrak{y}\right) \thicksim \left[\rho(\mathfrak{x}, \mathfrak{y}) = 0\right].
 \end{equation*}
 
 Wir definieren nun nach dem Rekursionsschma (2) eine 
@@ -673,12 +678,16 @@ Funktion $\chi\left(\mathfrak{x}, \mathfrak{y}\right)$ folgendermaßen:
 \end{equation*}
 wobei $a = \alpha\left[\alpha\left(\rho\left(0, \mathfrak{y}\right)\right)\right].\alpha\left[\rho\left(n + 1, \mathfrak{y}\right)\right].\alpha\left[\chi\left(n, \mathfrak{y}\right)\right]$.
 
-$\chi(n + 1, \mathfrak{y})$ ist daher entweder $ = n + 1$ (wenn $a = 1$) oder $ = \chi(n, \mathfrak{y})$ (wenn $a = 0$)\footnote{Andere Werte als 0 und 1 kann $a$, wie aus der Definition für $\alpha$ ersichtlich ist, nicht annehmen.}.
+$\chi\left(n + 1, \mathfrak{y}\right)$ ist daher entweder 
+$ = n + 1$ (wenn $a = 1$) oder 
+$ = \chi\left(n, \mathfrak{y}\right)$ (wenn 
+$a = 0$)\footnote{Andere Werte als 0 und 1 kann $a$, wie aus der 
+Definition für $\alpha$ ersichtlich ist, nicht annehmen.}.
 Der erste Fall tritt offenbar dann und nur dann ein, wenn
 sämtliche Faktoren von $a$ $1$ sind, d.\,h. wenn gilt:
 
 \begin{equation*}
-	\overline{R}(0, \mathfrak{y}) \& R(n + 1, \mathfrak{y}) \& [\chi(n, \mathfrak{y}) = 0]
+	\overline{R}\left(0, \mathfrak{y}\right) \& R\left(n + 1, \mathfrak{y}\right) \& \left[\chi\left(n, \mathfrak{y}\right) = 0\right]
 \end{equation*}
 
 Daraus folgt, daß die Funktion $\chi\left(n, \mathfrak{y}\right)$ (als
@@ -711,12 +720,12 @@ Funktionen (Relationen) 1--45, unter denen z.\,B. die
 Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmittelbare Folge}\grqq\ vorkommen, ist daher rekursiv.
 
 \begin{enumerate}[1.]
-	\item $x/y \equiv (Ez) [z \leqq x \& x = y.z]$\footnote{Das Zeichen $\equiv$ wird im Sinne von \glqq Definitionsgleichheit\grqq\ verwendet, vertritt also bei Definitionen entweder $=$ oder $\thicksim$ (im übrigen ist
+	\item $x/y \equiv \left(Ez\right) [z \leqq x \& x = y.z]$\footnote{Das Zeichen $\equiv$ wird im Sinne von \glqq Definitionsgleichheit\grqq\ verwendet, vertritt also bei Definitionen entweder $=$ oder $\thicksim$ (im übrigen ist
 	die Symbol die \so{Hilbert}sche).}
 
 	$x$ ist teilbar durch $y$\footnote{Überall, wo in den folgenden Definitionen eines der Zeichen $\left(x\right), \left(Ex\right), \epsilon x$ auftritt, ist es von einer Abschätzung für $x$ gefolgt. Diese Abschätzung dient lediglich dazu, um die rekursive Natur des definierten Begriffes (vgl. Satz IV) zu sichern. Dagegen würde sich der Umgang der definierten Begriffe durch Weglassung dieser Abschätzung meistens nicht ändern.}
 
-	\item $\text{Prim }\left(x\right) \equiv \overline{(Ez)} [z \leqq x \& z \not = 1 \& z \not = x \& x/z] \& x > 1$
+	\item $\text{Prim }\left(x\right) \equiv \overline{\left(Ez\right)} [z \leqq x \& z \not = 1 \& z \not = x \& x/z] \& x > 1$
 
 	$x$ ist eine Primzahl.
 
@@ -734,7 +743,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$\left(n + 1\right)! \equiv \left(n + 1\right).n!$
 
-	\item $pr\ (0) \equiv 0$
+	\item $pr\ \left(0\right) \equiv 0$
 
 	$pr\ \left(n + 1\right) \equiv \epsilon y \left[y \leqq \left\{ pr\ \left(n\right) \right\}! + 1 \& \text{prim }\left(y\right) \& y > pr\ \left(n\right)\right] $
 
@@ -884,7 +893,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	\item $Z - Ax\left(x\right) \equiv (x = z_1 \lor x = z_2 \lor x = z_3)$
 
-	\item $A_1 - Ax\left(x\right) \equiv (Ey) [y \leqq x\& \text{Form }(y) \& x = (y \text{ Dis } y) \text{ Imp } y]$
+	\item $A_1 - Ax\left(x\right) \equiv \left(Ey\right) [y \leqq x\& \text{Form }(y) \& x = (y \text{ Dis } y) \text{ Imp } y]$
 
 	$x$ ist eine durch Einsetzung in das Axiomenschema II, 1 entstehende \textit{Formel}. Analog werden $A_2 - Ax, A_3 - Ax, A_4 - Ax$ entsprechend den Axiomen II, 2 bis 4 definiert.
 
@@ -933,15 +942,19 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$x$ ist ein \textit{Beweis} für die \textit{Formel} $y$.
 
-	\item $\text{Bew }\left(x\right) \equiv (Ey) y B x$
+	\item $\text{Bew }\left(x\right) \equiv \left(Ey\right) y B x$
 
 	$x$ ist eine \textit{beweisbare Formel}. [$\text{Bew }\left(x\right)$ ist der einzige unter den Begriffen 1--46, von dem nicht behauptet werden kann, er sei rekursiv.]
 \end{enumerate}
 
 Die Tatsache, die man vage so formulieren kann: Jede rekursive Relation ist innerhalb des Systems $P$ (dieses inhaltlich gedeutet) definierbar, wird, ohne auf eine inhaltliche Deutung der Formeln aus $P$ Bezug zu nehmen, durch folgenden Satz exakt ausgedrückt:
 
-Satz V: Zu jeder rekursiven Relation $R(x_1 \dots x_n)$
-gibt es ein $n$-stelliges \textit{Relationszeichen} $r$ (mit den \textit{freien Variablen}\footnote{Die \textit{Variablen} $u_1 \dots u_n$ können willkürlich vorgegeben werden. Es gibt z.\,B. immer ein $§r$ mit den \textit{freien Variablen} 17, 19, 23 \dots usw., für welches (3) und (4) gilt.}
+Satz V: Zu jeder rekursiven Relation $R\left(x_1 \dots x_n\right)$
+gibt es ein $n$-stelliges \textit{Relationszeichen} $r$ 
+(mit den \textit{freien Variablen}\footnote{Die \textit{Variablen} 
+$u_1 \dots u_n$ können willkürlich vorgegeben werden. Es gibt 
+z.\,B. immer ein $§r$ mit den \textit{freien Variablen} 17, 19, 23 \dots usw., 
+für welches (3) und (4) gilt.}
 $u_1, u_2 \dots u_n$), so, dass für alle Zahlen-$n$-tupel
 $x_1 \dots x_n$ gilt:
 
@@ -955,7 +968,7 @@ $x_1 \dots x_n$ gilt:
 \end{equation}
 
 Wir begnügen uns hier damit, den Beweis dieses Satzes, da er keine prinzipiellen Schwierigkeiten bietet und ziemlich umständlich ist, in Umrissen anzudeuten\footnote{Satz V beruht natürlich darauf, daß bei einer rekursiven Relation $R$ für jedes $n$-tupel von Zahlen \so{aus den Axiomen des Systems $P$} entscheidbar ist, ob dieses Relation $R$ besteht oder nicht.}.
-Wir beweisen den Satz für alle Relationen $R(x_1 \dots x_n)$ der Form: $x_1 = \phi(x2 \dots x_n)$\footnote{Daraus folgt sofort seine Geltung für jede rekursive Relation, da eine solche Gleichbedeutung ist mit $0 = \phi(x_1 \dots x_n)$, wo $\phi$ rekursiv ist.}
+Wir beweisen den Satz für alle Relationen $R\left(x_1 \dots x_n\right)$ der Form: $x_1 = \phi\left(x2 \dots x_n\right)$\footnote{Daraus folgt sofort seine Geltung für jede rekursive Relation, da eine solche Gleichbedeutung ist mit $0 = \phi\left(x_1 \dots x_n\right)$, wo $\phi$ rekursiv ist.}
 (wo $\phi$ eine rekursive Funktion ist) und wenden vollständige Induktion nach der Stufe von $\phi$ an. Für die Funktionen erste Stufe (d.\,h. Konstante und die Funktion $x + 1$) ist der Satz trivial. Habe also
 $\phi$ die $m$-te Stufe. Es entsteht aus Funktionen niedrigerer Stufe $\phi_1 \dots \phi_k$ durch die Operationen der Einsetzung oder der rekursiven Definition. Da für $\phi_1 \dots \phi_k$ nach induktiver Annahme bereits alles bewiesen ist, gibt es zugehörige \textit{Relationszeichen} $r_1 \dots r_k$, so daß (3), (4) gilt. Die Definitionsprozesse, durch die $\phi$ aus $\phi_1 \dots \phi_k$ entsteht (Einsetzung und rekursive Definition), können sämtlich im System $P$ formal nachgebildet werden. Tut man dies, so erhält man aus $r_1 \dots r_k$ ein neues \textit{Relationszeichen} $r$\footnote{Bei der genauen Durchführung dieses Beweises wird natürlich $r$ nicht auf dem Umweg über die inhaltliche Deutung, sondern durch seine rein formale Beschaffenheit definiert.},
 für welches man die Geltung von (3), (4) unter der Verwendung der induktiven Annahmen ohne Schwierigkeit beweisen kann. Ein \textit{Relationszeichen} $r$, welches auf diesem Wege einer rekursiven Relation zugeordnet ist\footnote{Welches also, inhaltlich gedeutet, das Bestehen dieser Relation ausdrückt.},
@@ -974,7 +987,7 @@ Das allgemeine Resultat über die Existenz unentscheidbarer Sätze lautet:
 
 Satz VI: \so{Zu jeder $\omega$-widerspruchsfreien rekursiven Klasse $\chi$ von} \textit{Formeln} \so{gibt es
 rekursive} \textit{Klassenzeichen} $r$, \so{so daß weder $v \text{ Gen } r$ noch $\text{Neg }(v \text{ Gen } r)$ zu
-$\text{Flg }(\chi)$ gehört (wobei $v$ die} \textit{freie Variable} \so{aus $r$ ist)}.
+$\text{Flg }\left(\chi\right)$ gehört (wobei $v$ die} \textit{freie Variable} \so{aus $r$ ist)}.
 
 Beweis: Sei $\chi$ eine beliebige rekursive $\omega$-widerspruchsfreie Klasse von \textit{Formeln}. Wir definieren:
 
@@ -991,7 +1004,7 @@ Beweis: Sei $\chi$ eine beliebige rekursive $\omega$-widerspruchsfreie Klasse vo
 \end{equation}
 \begin{equation}
 	\tag{6.1}
-	\text{Bew}_x\left(x\right) \equiv (Ey) y B_x x
+	\text{Bew}_x\left(x\right) \equiv \left(Ey\right) y B_x x
 \end{equation}
 (vgl. die analogen Begriffe 45, 46).
 
@@ -1080,10 +1093,19 @@ von \textit{Formeln} vorgelegt. Wenn dann eine formale Entscheidung (aus $\chi$)
 	\item Für jedes beliebige $n$ einen Beweis für $Sb\left(r\substack{17\\ Z(n)}\right)$, d.h. eine formale Entscheidung von $17\text{ Gen } r$ würde die effektive Aufweisbarkeit eines $\omega$-Widerspruches zur Folge haben.
 \end{enumerate}
 
-Wir wollen eine Relation (Klasse) zwischen natürlichen Zahlen $R(x_1 \dots x_n)$ \so{entscheidungsdefinit} nennen,
-wenn es ein $n$-stelliges \textit{Relationszeichen} $r$ gibt, so daß (3) und (4) (vgl. Satz V) gilt.
+Wir wollen eine Relation (Klasse) zwischen natürlichen Zahlen $R\left(x_1 \dots x_n\right)$ 
+\so{entscheidungsdefinit} nennen, wenn es ein $n$-stelliges \textit{Relationszeichen} $r$ gibt, 
+so daß (3) und (4) (vgl. Satz V) gilt.
 Insbesondere ist also nach Satz V jede rekursive Relation
-entscheidungsdefinit. Analog soll ein \textit{Relationszeichen} entscheidungsdefinit heißen, wenn es auf diese Weise einer entscheidungsdefiniten Relation zugeordnet ist. Es genügt nun für die Existenz unentscheidbarer Sätze, von der Klasse $\chi$ vorauszusetzen, daß sie $\omega$-widerspruchsfrei und entscheidungsdefinit ist. Denn die Entscheidungsdefinitheit überträgt sich von $\chi$ auf $x B_\chi y$ (vgl. (5), (6)) und auf $Q\left(x, y\right)$ (vgl. (8.1)) und nur dies wurde im obigen Beweise verwendet. Der unentscheidbare Satz hat in diesem Fall die Gestalt $v\text{ Gen } r$, wo $r$ ein entscheidungsdefinites \textit{Klassenzeichen} ist (es genügt übrigens sogar, daß $\chi$ in dem durch $\chi$ erweiterten System entscheidungsdefinit ist).
+entscheidungsdefinit. Analog soll ein \textit{Relationszeichen} entscheidungsdefinit
+ heißen, wenn es auf diese Weise einer entscheidungsdefiniten Relation zugeordnet ist. 
+Es genügt nun für die Existenz unentscheidbarer Sätze, von der Klasse $\chi$ vorauszusetzen, 
+daß sie $\omega$-widerspruchsfrei und entscheidungsdefinit ist. Denn die 
+Entscheidungsdefinitheit überträgt sich von $\chi$ auf $x B_\chi y$ (vgl. (5), (6)) und 
+auf $Q\left(x, y\right)$ (vgl. (8.1)) und nur dies wurde im obigen Beweise verwendet.
+Der unentscheidbare Satz hat in diesem Fall die Gestalt $v\text{ Gen } r$, wo $r$ ein 
+entscheidungsdefinites \textit{Klassenzeichen} ist (es genügt übrigens sogar, 
+daß $\chi$ in dem durch $\chi$ erweiterten System entscheidungsdefinit ist).
 
 Setzt man von $\chi$ statt $\omega$-Widerspruchsfreiheit, bloß 
 Widerspruchsfreiheit voraus, so folgt zwar nicht die Existenz
@@ -1166,7 +1188,7 @@ Zahlen beziehen dürfen\footnote{Das Definiens eines solchen
 nach einem Modul\grqq\ arithmetisch, denn es gilt:
 
 $$
-y > y \thicksim \overline{(Ez)}\left[y = x + z\right]
+y > y \thicksim \overline{\left(Ez\right)}\left[y = x + z\right]
 $$
 
 $$
@@ -1195,7 +1217,7 @@ $$
 (wo $\psi, \mu$ niedrigere Stufen als $s$ haben) oder:
 
 $$
-2. \phi(0, x_2 \dots x_n) = \psi(x_2 \dots x_n)
+2. \phi\left(0, x_2 \dots x_n\right) = \psi\left(x_2 \dots x_n\right)
 $$
 
 $$
@@ -1210,24 +1232,26 @@ $$
 x_0 = \phi(x_1 \dots x_n) \thicksim \left(Ey_1 \dots y_m\right) \left[R(x_0 y_1 \dots y_m) \& S_1(y_1, x_1 \dots x_n) \& \dots \& S_m(y_m, x_1 \dots x_n)\right],
 $$
 
-wo $R$ bzw. $S_i$ die nach induktiver Annahme existierenden mit $x_0 = \rho(y_1 \dots y_m)$ bzw. 
-$y = \chi_i(x_1 \dots x_n)$ äquivalenten arithmetischen
-Relationen sind. Daher ist $x_0 = \phi(x_1\dots x_n)$ in
+wo $R$ bzw. $S_i$ die nach induktiver Annahme existierenden mit $x_0 = \rho\left(y_1 \dots y_m\right)$ bzw. 
+$y = \chi_i\left(x_1 \dots x_n\right)$ äquivalenten arithmetischen
+Relationen sind. Daher ist $x_0 = \phi\left(x_1\dots x_n\right)$ in
 diesem Fall arithmetisch.
 
 Im zweiten Fall wenden wir folgendes Verfahren an: Man 
-kann die Relation $x_0 = \phi(x_1 \dots x_n)$ mit Hilfe des Begriffes \glqq Folge von Zahlen\grqq\ 
+kann die Relation $x_0 = \phi\left(x_1 \dots x_n\right)$ mit Hilfe des Begriffes \glqq Folge von Zahlen\grqq\ 
 ($f$)\footnote{$f$ bedeutet hier eine Variable, deren Wertbereich die Folgen natürl. Zahlen sind. Mit $f_k$ wird das $k + 1$-te Glied einer Folge $f$ bezeichnet (mit $f_0$ das Erste).}
 folgendermaßen ausdrücken:
 
 $$
-x_0 = \phi(x_1 \dots x_n) \thicksim (Ef)\left\{ f_0 = \psi(x_2 \dots x_n) \& (k) \left[k < x_1 \longrightarrow f_{k + 1} = \mu(k, f_k, x_2 \dots x_n)\right] \& x_0 = f_{x_1}\right\}
+x_0 = \phi(x_1 \dots x_n) \thicksim \left(Ef\right)\left\{ f_0 = \psi(x_2 \dots x_n) \& (k) \left[k < x_1 \longrightarrow f_{k + 1} = \mu(k, f_k, x_2 \dots x_n)\right] \& x_0 = f_{x_1}\right\}
 $$
 
-Wenn $S(y, x_2 \dots x_n)$ bzw. $T(z, x_1 \dots x_{n + 1})$ die nach induktiver Annahme existieren mit $y = \psi(x_2 \dots x_n)$ bzw. $z = \mu(x_1 \dots x_{n + 1})$ äquivalenten arithmetische Relationen sind, gilt daher:
+Wenn $S\left(y, x_2 \dots x_n\right)$ bzw. $T\left(z, x_1 \dots x_{n + 1}\right)$ die 
+nach induktiver Annahme existieren mit $y = \psi\left(x_2 \dots x_n\right)$ bzw. 
+$z = \mu\left(x_1 \dots x_{n + 1}\right)$ äquivalenten arithmetische Relationen sind, gilt daher:
 
 \begin{equation}
-x_0 = \phi(x_1 \dots x_n) \thicksim (Ef) \left\{S(f_0, x_2 \dots x_n) \& (k)\left[k < x_1 \longrightarrow T(f_{k + 1}, k, f_k, x_2 \dots x_n)\right] \& x_0 = f_{x_1}\right\}
+x_0 = \phi\left(x_1 \dots x_n\right) \thicksim \left(Ef\right) \left\{S(f_0, x_2 \dots x_n) \& (k)\left[k < x_1 \longrightarrow T(f_{k + 1}, k, f_k, x_2 \dots x_n)\right] \& x_0 = f_{x_1}\right\}
 \end{equation}
 
 Nun ersetzen wir den Begriff \glqq Folge von Zahlen\grqq\ durch 
@@ -1247,8 +1271,10 @@ Beweis: Sei $l$ die größte der Zahlen $k, f_0, f_1 \dots f_{k - 1}$. Man besti
 $$
 n \equiv \left[\text{mod }(1 + (i + 1 l!)\right]\text{ für } i = 0, 1 \dots k - 1
 		$$
-		was möglich ist, da jede der Zahlen $1 + (i + 1) l l!$ $(i = 0, 1 \dots k - 1)$ relativ prim sind. Denn eine in den zwei von diesen Zahlen enthaltene Primzahl müßte auch in der Differenz $i_1 - i_2)l!$ und daher wegen
-$|i_1 - i_2| < l$ in $l!$ enthalten sein, was unmöglich
+		was möglich ist, da jede der Zahlen $1 + \left(i + 1\right) l!$ $\left(i = 0, 1 \dots k - 1\right)$
+		relativ prim sind. Denn eine in den zwei von diesen Zahlen enthaltene Primzahl 
+		müßte auch in der Differenz $i_1 - i_2)l!$ und daher wegen
+$\left|i_1 - i_2\right| < l$ in $l!$ enthalten sein, was unmöglich
 ist. Das Zahlenpaar $n, l!$ leistet dann das Verlangte.
 
 Da die Relation $x = \left[n\right]_p$ durch:
@@ -1257,13 +1283,13 @@ $$
 x \equiv n \left(\text{mod } p\right) \& x < p
 $$
 
-definiert und daher arithmetisch ist, so ist auch die folgendermaßen definierte Relation $P(x_0, x_1 \dots x_n)$:
+definiert und daher arithmetisch ist, so ist auch die folgendermaßen definierte Relation $P\left(x_0, x_1 \dots x_n\right)$:
 
 $$
 P(x_0 \dots x_n) \equiv (En, d) \left\{S([n]_{d + 1}, x_2 \dots x_n) \& (k) \left[k < x_1 \longrightarrow T([n]_{1 + 1 (k + 2)}, k, [n]_{1 + d (k + 1)}, x_2 \dots x_n)\right] \& x_0 = [n]_{1 + d (x_1 + 1)}\right\}
 $$
 arithmetisch, welche nach (17) und Hilfssatz 1 mit:
-$x_0 = \phi(x_1 \dots x_n)$ äquivalent ist (es kommt
+$x_0 = \phi\left(x_1 \dots x_n\right)$ äquivalent ist (es kommt
 		bei der Folge $f$ in (17) nur auf ihren Verlauf 
 		bis zum $x_1 + 1$-ten Glied an). Damit ist der
 Satz~VII bewiesen.
@@ -1304,7 +1330,10 @@ der besagt, daß sämtliche an Stelle der $\phi, \psi \dots$ gesetzte $F, G\dots
 
 Wir zeigen nun, daß es zu jedem Problem der Form $\left(x\right)F\left(x\right)$ ($F$ rekursiv) ein äquivalentes betreffend die Erfüllbarkeit einer Formel i.~w.~S. gibt, woraus nach der eben gemachten Bemerkung Satz X folgt.
 
-Da $F$ rekursiv ist, gibt es eine rekursive Funktion $\Phi\left(x\right)$, so daß $F\left(x\right) \thicksim [\Phi\left(x\right) = 0]$, und für $\Phi$ gibt es eine Reihe von Funktionen $\Phi_1, \Phi2 \dots \Phi_n$, so daß: $\Phi_n = \Phi, \Phi_1\left(x\right) = x + 1$ und für jedes $\Phi_k(1 < k \leqq n)$ entweder:
+Da $F$ rekursiv ist, gibt es eine rekursive Funktion 
+$\Phi\left(x\right)$, so daß $F\left(x\right) \thicksim \left[\Phi\left(x\right) = 0\right]$, 
+und für $\Phi$ gibt es eine Reihe von Funktionen $\Phi_1, \Phi2 \dots \Phi_n$, 
+so daß: $\Phi_n = \Phi, \Phi_1\left(x\right) = x + 1$ und für jedes $\Phi_k\left(1 < k \leqq n\right)$ entweder:
 
 \begin{equation}
 1. \left(x_2 \dots x_m\right) \left[\Phi_k(0, x_2 \dots x_m) = \Phi_p(x_2 \dots x_m)\right] 
@@ -1319,7 +1348,7 @@ p, q < k
 oder:
 
 \begin{equation}
-2. \left(x_1 \dots x_m\right) \left[\Phi_k(x_1 \dots x_m) = \Phi_r(\Phi_{i_1}(\mathfrak{x_1}) \dots \Phi_{i_1}(\mathfrak{x}_s))\right]\footnote{$\mathfrak{x}_i (i = 1 \dots s)$ vertreten irgend welche Komplexe der Variablen $x_1, x_2 \dots x_m$, z.\,B. $x_1 x_3 x_2$.}
+2. \left(x_1 \dots x_m\right) \left[\Phi_k\left(x_1 \dots x_m\right) = \Phi_r\left(\Phi_{i_1}(\mathfrak{x_1}\right) \dots \Phi_{i_1}\left(\mathfrak{x}_s\right))\right]\footnote{$\mathfrak{x}_i \left(i = 1 \dots s\right)$ vertreten irgend welche Komplexe der Variablen $x_1, x_2 \dots x_m$, z.\,B. $x_1 x_3 x_2$.}
 \end{equation}
 \begin{equation*}
 r < k, i_v < k \left(\text{für } v = 1, 2 \dots s\right)
@@ -1383,7 +1412,7 @@ Da man die Überlegungen, welche zu Satz X führen, (für jedes spezielle $F$) a
 
 Aus den Ergebnissen von Abschnitt 2 folgt ein merkwürdiges Resultat, bezüglich eines Widerspruchslosigkeitsbeweises des Systems $P$ (und seiner Erweiterungen), der durch folgenden Satz ausgesprochen wird:
 
-\so{Satz XI: Sei $\chi$ eine beliebige rekursive widerspruchsfreie\footnote{$\chi$ ist widerspruchsfrei (abgekürzt als $\text{Wid }\left(x\right)$) wird folgendermaßen definiert: $\text{Wid}\left(x\right)\equiv(Ex)[\text{Form}\left(x\right)\&\text{Bew}_\chi\left(x\right)]$.}
+\so{Satz XI: Sei $\chi$ eine beliebige rekursive widerspruchsfreie\footnote{$\chi$ ist widerspruchsfrei (abgekürzt als $\text{Wid }\left(x\right)$) wird folgendermaßen definiert: $\text{Wid}\left(x\right)\equiv\left(Ex\right)[\text{Form}\left(x\right)\&\text{Bew}_\chi\left(x\right)]$.}
 Klasse von} \textit{Formeln}\so{, dann gilt: Die }\textit{Satzformel}\so{, welche besagt, daß $\chi$ widerspruchsfrei ist, ist nicht} $\chi$-\textit{beweisbar}; insbesondere ist die Widerspruchsfreiheit von $P$ in $P$ unbeweisbar\footnote{Dies folgt, wenn man für $\chi$ die leere Klasse von \textit{Formeln} einsetzt.},
 vorausgesetzt, daß $P$ widerspruchsfrei ist (im entgegengesetzten Fall ist natürlich jede Aussage beweisbar).
 
@@ -1412,7 +1441,13 @@ d.\,h. nach (8.1):
 Wir stellen nun folgendes fest: Sämtliche in Abschnitt 2\footnote{Von der Definition für \glqq rekursiv\grqq\ auf Seite 179 TODO bis zum Beweis von Satz VI inkl.}
 und Abschnitt 4 bisher definierten Begriffe (bzw. bewiesene Behauptungen) sind auch in $P$ ausdrückbar (bzw. beweisbar). Denn es wurden überall nur die gewöhnlichen Definitions- und Beweismethoden der klassischen Mathematik verwendet, wie sie im System $P$ formalisiert sind. Insbesondere ist $\chi$ (wie jede rekursive Klasse) in $P$ definierbar. Sei $w$ die \textit{Satzformel}, durch welche in $P\text{ Wid } \left(x\right)$ ausgedrückt wird. Die Relation $Q\left(x, y\right)$ wird gemäß (8.1), (9), (10) durch das \textit{Relationszeichen} $q$ ausgedrückt, folglich $Q\left(x, p\right)$ durch $r \left[\text{ da nach (12)} r_?^? = Sb\left(q\substack{19\\ Z(p)}\right)\right]$ und der Satz $\left(x\right)Q\left(x, p\right)$ durch $17\text{ Gen } r$.
 
-Wegen (24) ist also $w\text{ Imp } (17\text{ Gen }r)$ in $P$ beweisbar\footnote{Daß aus (23) auf die Richtigkeit von $w\text{ Imp }(17\text{ Gen } r)$ geschlossen werden kann, beruht einfach darauf, daß der unentscheidbare Satz $17\text{ Gen }r$, wie gleich zu Anfang bemerkt, seine eigene Unbeweisbarkeit behauptet.} (umso mehr $\chi$-\textit{beweisbar}). Wäre nun $w$ $\chi$-\textit{beweisbar}, so wäre auch $17\text{ Gen }r$ $\chi$-\textit{beweisbar} und daraus würde nach (23) folgen, daß $\chi$ nicht widerspruchsfrei ist.
+Wegen (24) ist also $w\text{ Imp } \left(17\text{ Gen }r\right)$ in $P$ 
+beweisbar\footnote{Daß aus (23) auf die Richtigkeit von $w\text{ Imp }\left(17\text{ Gen } r\right)$
+geschlossen werden kann, beruht einfach darauf, daß der unentscheidbare Satz 
+$17\text{ Gen }r$, wie gleich zu Anfang bemerkt, seine eigene Unbeweisbarkeit behauptet.} 
+(umso mehr $\chi$-\textit{beweisbar}). Wäre nun $w$ $\chi$-\textit{beweisbar}, 
+so wäre auch $17\text{ Gen }r$ $\chi$-\textit{beweisbar} und daraus würde nach (23) 
+folgen, daß $\chi$ nicht widerspruchsfrei ist.
 
 Es sei bemerkt, daß auch dieser Beweis konstruktiv ist, d.\,h. er gestattet, falls ein \textit{Beweis} aus $\chi$ für $w$ vorgelegt ist, ein Widerspruch aus $\chi$ effektiv herzuleiten. Der ganze Beweis für Satz XI läßt sich wörtlich auch auf das Axiomensystem der Mengenlehre $M$ und der klassischen Mathematik\footnote{Vgl. J.~v.~\so{Neumann}, Zur \so{Hilbert}schen Beweistheorie, Math. Zeitschr. 26, 1927.}
 $A$ übertragen und liefert auch hier das Resultat: es gibt keinen Widerspruchlosigkeitsbeweis für $M$ bzw. $A$, der innerhalb von $M$ bzw. $A$ formalisiert werden könnte, vorausgesetzt, daß $M$ bzw. $A$ widerspruchsfrei ist. Es sei ausdrücklich bemerkt, daß Satz XI (und die entsprechenden Resultate über $M, A$) in keinem Widerspruch zum \so{Hilbert}schen formalistischen Standpunkt stehen. Denn dieser setzt nur die Existenz eines mit finiten Mitteln geführten Widerspruchsfreiheitsbeweises voraus und es wäre denkbar, daß es finite Beweise gibt, die sich in $P$ (bzw. $M, A$) \so{nicht} darstellen lassen.
