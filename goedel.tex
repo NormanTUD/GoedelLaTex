@@ -817,7 +817,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$x$ ist \textit{Zeichen ersten Typs}.
 
-	\item $\text{Typ}_n\left(x\right) \equiv [n = 1 \& \text{Typ}_1'\left(x\right)] \lor [n > 1 \& (Ev) \{v \leqq x \& n\text{ Var } v \& x = R(v)\}]$
+	\item $\text{Typ}_n\left(x\right) \equiv [n = 1 \& \text{Typ}_1'\left(x\right)] \lor [n > 1 \& (Ev) \{v \leqq x \& n\text{ Var } v \& x = R\left(v\right)\}]$
 
 	$x$ ist \textit{Zeichen $n$-ten Typs}.
 
@@ -848,12 +848,12 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 	$x$ ist \textit{Formel} (d.\,h. letztes Glied einer \textit{Formelreihe $n$}).
 
 	\item $$
-		v \text{ Geb } n, x \equiv \text{Var}(v) \& \text{Form}\left(x\right) \& (Ea, b, c) [a, b, c \leqq x \& x a = \pmstar (v \text{ Gen } b \pmstar c \& \text{Form}(b) \& l(a) + 1 \leqq n \leqq l(a) + l(v \text{ Gen } b)]
+		v \text{ Geb } n, x \equiv \text{Var}\eft(v\right) \& \text{Form}\left(x\right) \& (Ea, b, c) [a, b, c \leqq x \& x a = \pmstar (v \text{ Gen } b \pmstar c \& \text{Form}(b) \& l(a) + 1 \leqq n \leqq l(a) + l(v \text{ Gen } b)]
 		$$
 
 	Die \textit{Variable} $v$ ist in $x$ an $n$-ter Stelle \textit{gebunden}.
 
-	\item $v Fr n, x \equiv \text{Var}(v) \& \text{Form}\left(x\right) \& v = n Gl x \& n \leqq l\left(x\right) \& v \text{ Geb } n, x$
+	\item $v Fr n, x \equiv \text{Var}\left(v\right) \& \text{Form}\left(x\right) \& v = n Gl x \& n \leqq l\left(x\right) \& v \text{ Geb } n, x$
 
 	Die \textit{Variable} $v$ ist in $x$ an $n$-ter Stelle \textit{frei}.
 
@@ -918,11 +918,11 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 	$x$ ist eine aus dem Axiomenschema III, 1 durch Einsetzung entstehende \textit{Formel}.
 
 	\item $$
-		L_2 - Ax\left(x\right) \equiv (Ev, q, p) \{v, q, p \leqq x \& \text{Var}(v) \& \text{Form}(p) \& v Fr p \& \text{Form}\left(x\right) \& x = [v \text{ Gen } (p\text{ Dis } q)]\}
+		L_2 - Ax\left(x\right) \equiv (Ev, q, p) \{v, q, p \leqq x \& \text{Var}\left(v\right) \& \text{Form}(p) \& v Fr p \& \text{Form}\left(x\right) \& x = [v \text{ Gen } (p\text{ Dis } q)]\}
 		$$
 	$x$ ist eine aus dem Axiomenschema III, 2 durch Einsetzung entstehende \textit{Formel}.
 
-	\item $R - Ax\left(x\right) \equiv (Eu, v, y, n) [u, v, y, n \leqq x \& n \text{ Var } v \& (n + 1) \text{ Var } u \&  u Fr y \& \text{Form }(y) \& x = u\text{ Ex } \{v \text{Gen } [[R(u) \pmstar E(R(v))] \text{ Aeq } y ]\} ]$
+	\item $R - Ax\left(x\right) \equiv (Eu, v, y, n) [u, v, y, n \leqq x \& n \text{ Var } v \& (n + 1) \text{ Var } u \&  u Fr y \& \text{Form }(y) \& x = u\text{ Ex } \left\{v \text{Gen } \left[\left[R(u) \pmstar E\left(R\left(v\right)\right)\right] \text{ Aeq } y \right]\right\} ]$
 
 	$x$ ist eine aus aus dem Axiomenschema IV, 1 durch
 	Einsetzung entstehende \textit{Formel}.
@@ -935,7 +935,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$x$ ist ein \textit{Axiom}.
 
-	\item $Fl(x\ y\ z) \equiv y = z \text{ Imp } x \lor (Ev) [ v \leqq x \& \text{ Var }(v) \& x = v \text{ Gen } y]$
+	\item $Fl(x\ y\ z) \equiv y = z \text{ Imp } x \lor (Ev) [ v \leqq x \& \text{ Var }\left(v\right) \& x = v \text{ Gen } y]$
 
 	$x$ ist \textit{unmittelbare Folge} aus $y$ und $z$.
 
