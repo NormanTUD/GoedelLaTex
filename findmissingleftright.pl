@@ -94,7 +94,7 @@ sub get_math {
 		};
 	}
 
-	@math_modes = map { $_ =~ s#\\(?:footnote|text)\{.*?\}##g; $_ } @math_modes;
+	@math_modes = map { $_ =~ s#\\(?:footnote|text)\{.+?\}##g; $_ } @math_modes;
 
 	return @math_modes;
 }
