@@ -10,14 +10,14 @@ main();
 
 sub main {
 	my $text = slurp("goedel.tex");
-	$text = slurp("test2.tex");
+	#$text = slurp("test3.tex");
 	my @math_modes = get_math($text);
 	my @missing_left_right = get_missing_left_right(@math_modes);
 
 	my $count = scalar @missing_left_right;
 
-	foreach my $missing (sort { length($b->{text}) <=> length($a->{text}) } @missing_left_right) {
-		print "$missing->{text} at line $missing->{line}\n\n";
+	foreach my $missing (sort { length($a->{text}) <=> length($b->{text}) } @missing_left_right) {
+		print "$missing->{text} at line $missing->{line}\n".("=" x 80)."\n";
 	}
 
 	print "Found $count math modes with missing \\left's\n";
@@ -55,27 +55,42 @@ sub get_math {
 	my $text = shift;
 	my @math_modes = ();
 
-	while ($text =~ m#(\$?\$)(.+?)\1#gis) {
-		my $match = $2;
+	while ($text =~ m#(?<!\\)\$\$(.+?)\$\$#gis) {
+		my $match = $1;
+		my $original_match = $match;
 		$match =~ s#^\R+##g;
 		$match =~ s#\R+$##g;
 		$match =~ s#^\s+$##g;
 		my $pos = pos($text);
 		push @math_modes, {
 			equation => $match,
-			line => pos_to_line($pos, $text)
+			line => pos_to_line($pos - length($original_match), $text)
 		};
 	}
 
-	while ($text =~ m#\\begin(\{equation\*?\})(.+?)\\end\1#gis) {
-		my $match = $2;
+	while ($text =~ m#(?<!\\|\$)\$(.+?)\$#gis) {
+		my $match = $1;
+		my $original_match = $match;
 		$match =~ s#^\R+##g;
 		$match =~ s#\R+$##g;
 		$match =~ s#^\s+$##g;
 		my $pos = pos($text);
 		push @math_modes, {
 			equation => $match,
-			line => pos_to_line($pos, $text)
+			line => pos_to_line($pos - length($original_match), $text)
+		};
+	}
+
+	while ($text =~ m#\\begin(\{(?:equation|aligned)\*?\})(.+?)\\end\1#gis) {
+		my $match = $2;
+		my $original_match = $match;
+		$match =~ s#^\R+##g;
+		$match =~ s#\R+$##g;
+		$match =~ s#^\s+$##g;
+		my $pos = pos($text);
+		push @math_modes, {
+			equation => $match,
+			line => pos_to_line($pos - length($original_match), $text)
 		};
 	}
 
