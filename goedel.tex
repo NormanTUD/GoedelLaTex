@@ -15,7 +15,6 @@
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{xcolor}
-\usepackage{eulervm}
 
 \everymath{\displaystyle}
 \allowdisplaybreaks
@@ -43,6 +42,7 @@
 \newcommand{\fnfunfundvierziga}{45a}
 \newcommand{\fnachtundvierziga}{48a}
 \newcommand{\mnote}[1]{\marginpar{\textcolor{green}{\tiny#1}}}
+\newcommand{\mcode}[1]{\textcolor{gray}{\texttt{#1}}}
 
 \makeatletter
 \newcommand{\Spvek}[2][r]{%
@@ -249,7 +249,7 @@ eine nicht beweisbare Formel ist.}
 \let\thefootnote=\fnelfa
 \begin{equation}
 \label{formel1}
-n \epsilon K \equiv \overline{Bew}[R(n); n]\footnote{Durch Überstreichen wird die Negation bezeichnet.}
+n \epsilon K \equiv \overline{Bew}\left[R\left(n\right); n\right]\footnote{Durch Überstreichen wird die Negation bezeichnet.}
 \end{equation}
 \let\thefootnote=\originalfootnote
 \setcounter{footnote}{11}
@@ -264,24 +264,24 @@ daß die natürliche Zahl $n$ zu $K$ gehört. $S$ ist als
 Klassenzeichen mit einem bestimmten $R(q)$ identisch, 
 d.\,h. es gilt
 
-$$ S = R(q) $$
+$$ S = R\left(q\right) $$
 
 \noindent für eine bestimme natürliche Zahl $q$. Wir zeigen nun, daß
-der Satz $[R(q); q]$\footnote{Man beachte, daß
-\glqq$[R(q); q]$\grqq\ (oder was dasselbe bedeutet
-\glqq$[S; q]$\grqq) bloß eine \so{metamathematische Beschreibung} 
+der Satz $\left[R\left(q\right); q\right]$\footnote{Man beachte, daß
+\glqq$\left[R\left(q\right); q\right]$\grqq\ (oder was dasselbe bedeutet
+\glqq$\left[S; q\right]$\grqq) bloß eine \so{metamathematische Beschreibung} 
 des unentscheidbaren Satzes ist. Doch kann man, sobald man die Formel 
 $S$ ermittelt hat, natürlich auch die Zahl $q$ bestimmen und damit 
 den unentscheidbaren Satz selbst effektiv hinschreiben.} 
 in PM unentscheidbar ist. Denn angenommen, der Satz\mnote{Wäre der Satz beweisbar, wäre er per definitionem unbeweisbar.
 Ein logischer Widerspruch.}
-$[R(q); q]$ wäre beweisbar, dann wäre er auch richtig,
+$\left[R\left(q\right); q\right]$ wäre beweisbar, dann wäre er auch richtig,
 d.\,h. aber nach dem obigen $q$ würde zu $K$ gehören,
 d.\,h. nach \ref{formel1} es würde 
-$\overline{Bew}[R(q); q]$ gelten, im Widerspruch mit der
+$\overline{Bew}\left[R\left(q\right); q\right]$ gelten, im Widerspruch mit der
 Annahme. Wäre dagegen die Negation von
-$[R(q); q]$ beweisbar, so würde $n \epsilon K$,
-d.\,h. $Bew[R(q); q]$ gelten. $[R(q); q]$ wäre also 
+$\left[R(q); q\right]$ beweisbar, so würde $n \epsilon K$,
+d.\,h. $Bew\left[R\left(q\right); q\right]$ gelten. $\left[R\left(q\right); q\right]$ wäre also 
 zugleich mit seiner Negation beweisbar, was wiederum 
 unmöglich ist.
 
@@ -293,9 +293,9 @@ springt in die Augen. auch mit dem
 \glqq Lügner\grqq\ besteht eine nahe 
 Verwandtschaft\footnote{Es läßt sich überhaupt jede epistemologische 
 Antinomie zu einem derartigen Unentscheidbarkeitsbeweis verwenden.},
-denn der unentscheidbare Satz $[R(q); q]$ besagt ja,
+denn der unentscheidbare Satz $\left[R\left(q\right); q\right]$ besagt ja,
 daß $q$ zu $K$ gehört, d.\,h. nach \ref{formel1},
-daß $[R(q); q]$ nicht beweisbar ist. Wir haben
+daß $\left[R\left(q\right); q\right]$ nicht beweisbar ist. Wir haben
 also einen Satz vor uns, der seine eigene
 Unbeweisbarkeit behauptet\footnote{Ein solcher Satz
 hat entgegen dem Anschein nichts Zirkelhaftes an sich, denn 
@@ -318,10 +318,10 @@ wird unter anderem die Aufgabe haben, die zweite der eben
 angeführten Voraussetzungen durch eine rein formale und 
 weit schwächere zu ersetzen.
 
-Aus der Bemerkung, daß $[R(q); q]$ seine eigene\mnote{Wenn der Satz $S = [R(q); q]$ unbeweisbar ist und 
+Aus der Bemerkung, daß $\left[R\left(q\right); q\right]$ seine eigene\mnote{Wenn der Satz $S = \left[R\left(q\right); q\right]$ unbeweisbar ist und 
 das gezeigt (bewiesen) werden kann, dann ist er nicht mehr unbeweisbar.}
-Unbeweisbarkeit behauptet, folgt sofort, daß $[R(q); q]$ 
-richtig ist, denn $[R(q); q]$ ist ja unbeweisbar (weil 
+Unbeweisbarkeit behauptet, folgt sofort, daß $\left[R\left(q\right); q\right]$ 
+richtig ist, denn $\left[R\left(q\right); q\right]$ ist ja unbeweisbar (weil 
 unentscheidbar). Der im System PM unentscheidbare Satz 
 wurde also durch metamathematische Überlegungen doch
 entschieden. Die genaue Analyse dieses merkwürdigen 
@@ -409,8 +409,8 @@ Formel, wenn $x$ in $a$ nicht oder nicht frei vorkommt. In diesem
 Fall bedeutet $x\Pi(a)$ natürlich dasselbe wie $a$.}
 \let\thefootnote=\originalfootnote
 \setcounter{footnote}{19}
-$(a)\lor(b)$ nennen wir Disjunktion aus $a$ und $b$, 
-$\thicksim(a)$ die Negation und $x\Pi(a)$ eine Generalisation von 
+$\left(a\right)\lor\left(b\right)$ nennen wir Disjunktion aus $a$ und $b$, 
+$\thicksim\left(a\right)$ die Negation und $x\Pi(a)$ eine Generalisation von 
 $a$. Satzformel heißt eine Formel, in der keine freie Variable 
 vorkommt (freie Variable in der bekannten Weise
 definiert). Eine Formel mit genau $n$-freien 
@@ -418,7 +418,8 @@ Individuenvariablen (und sonst keinen freien Variablen)
 nennen wir $n$-stelliges Relationszeichen, für $n = 1$
 auch Klassenzeichen.
 
-Unter $\text{Subst\ } a \Spvek{v; b}$ (wo $a$ eine Formel, 
+Unter $\text{Subst\ } a \Spvek{v; b}$ (wo $a$ eine Formel,\mnote{$\text{Subst\ } a \Spvek{v; b} = $ 
+\mcode{\$a =\~{} s/\textbackslash bv\textbackslash b/b/g}}
 $v$ eine Variable und $b$ ein Zeichen vom selben Typ wie 
 $v$ bedeutet) verstehen wir die Formel, welche aus $a$ 
 entsteht, wenn man darin $v$ überall, wo es frei ist, durch
@@ -446,7 +447,7 @@ muß man also (in II, II, IV nach Ausführung der erlaubten Einsetzungen) noch
 \end{enumerate}
 
 Man beachte, daß die so entstehenden Ausdrücke \glqq Formeln\grqq\ im obigen Sinn sein müssen. (Vgl. auch die 
-exakten Definitionen der metamathe. Begriffe S. 182fg.) TODO}:
+exakten Definitionen der metamathe. Begriffe S. 182fg.) TODO}):
 
 \begin{enumerate}[I.]
 	\item \begin{enumerate}[1.]
@@ -471,7 +472,7 @@ exakten Definitionen der metamathe. Begriffe S. 182fg.) TODO}:
 		\item $v\Pi(b \lor a)\supset b \lor v \Pi(a)$
 	\end{enumerate}
 	dadurch entsteht, daß man für $a, v, b, c$ folgende
-	Einsetzungen vornimmt (und in 1. die durch \glqq Subst\grqq\ angezeigte Operation ausführt:
+	Einsetzungen vornimmt (und in 1. die durch \glqq Subst\grqq\ angezeigte Operation ausführt):
 
 	Für $a$ eine beliebige Formel, für $v$ eine beliebige Variable, für $b$ eine Formel, 
 		in der $v$ nicht frei vorkommt, für $c$ ein Zeichen vom selben Typ wie $v$, 
@@ -583,8 +584,8 @@ werden kann als Aufrufe anderer Funktionen (\glqq Wrapper\grqq)}
 
 \begin{equation}
 	\begin{aligned}
-		\phi(0, x_2 \dots x_n) =  \psi(x_2 \dots x_n)\\
-		\phi(k + 1, x_2 \dots x_n) = \mu\left(k, \phi\left(k, x_2 \dots x_n\right), x_2 \dots x_n\right)
+		\phi\left(0, x_2 \dots x_n\right) =  \psi\left(x_2 \dots x_n\right)\\
+		\phi\left(k + 1, x_2 \dots x_n\right) = \mu\left(k, \phi\left(k, x_2 \dots x_n\right), x_2 \dots x_n\right)
 	\end{aligned}
 \end{equation}
 
@@ -595,7 +596,8 @@ mit $\phi$ endet und die Eigenschaft hat, daß jede
 Funktion $\phi_k$ der Reihe entweder aus zwei
 vorhergehenden rekursiv definiert ist oder aus irgend
 welchen der vorhergehenden durch Einsetzung 
-entsteht\footnote{Genauer: durch Einsetzung gewisser der vorhergehenden Funktionen an die Leerstellen einer der vorhergehenden, z.\,B. $\phi_k(x_1, x_2) = \phi_p[\phi_q(x_1, x_2), \phi_r(x_2)]$ ($p, q, r < k$). Nicht alle Variable der linken Seite müssen auch rechts vorkommen (ebenso im Rekursionsschma (2)).}
+entsteht\footnote{Genauer: durch Einsetzung gewisser der vorhergehenden 
+Funktionen an die Leerstellen einer der vorhergehenden, z.\,B. $\phi_k(x_1, x_2) = \phi_p[\phi_q(x_1, x_2), \phi_r(x_2)]$ ($p, q, r < k$). Nicht alle Variable der linken Seite müssen auch rechts vorkommen (ebenso im Rekursionsschma (2)).}
 oder schließlich eine Konstante oder die Nachfolgerfunktion
 $x + 1$ ist. Die Länge der kürzesten Reihe von $\phi_i$,\mnote{Die minimale \glqq Call Depth\grqq\ der 
 Funktion ist ihre Stufe}
@@ -605,7 +607,7 @@ Zahlen $R(x_1 \dots x_n)$ heißt rekursiv\footnote{Klassen rechnen wir mit zu de
 wenn es eine rekursive Funktion $\phi(x_1 \dots x_n)$ gibt,
 so daß für alle $x_1, x2 \dots x_n$ 
 
-$$ R(x_1 \dots x_n) \thicksim [\phi(x_1 \dots x_n) = 0]\footnote{Für alle inhaltlichen (insbes. auch die metamathematischen) Überlegungen wird die \so{Hilbert}sche Symbolik verwendet. Vgl. Hilbert-Ackermann, Grundzüge der
+$$ R\left(x_1 \dots x_n\right) \thicksim \left[\phi\left(x_1 \dots x_n\right) = 0\right]\footnote{Für alle inhaltlichen (insbes. auch die metamathematischen) Überlegungen wird die \so{Hilbert}sche Symbolik verwendet. Vgl. Hilbert-Ackermann, Grundzüge der
 theoretischen Logik, Berlin 1928.}$$
 
 Es gelten folgende Sätze:
@@ -618,19 +620,19 @@ Es gelten folgende Sätze:
 	$\phi(\mathfrak{x}) = \psi(\mathfrak{y})$\footnote{Wir verwenden deutsche
 	Buchstaben $\mathfrak{x}, \mathfrak{y}$ als abkürzende Bezeichnung für beliebige Variablen-$n$-tupel, z.\,B. $x_1 x_2 \dots x_n$}.}
 	
-	\item \so{Wenn die Funktion $\phi(\mathfrak{x})$
+	\item \so{Wenn die Funktion $\phi\left(\mathfrak{x}\right)$
 	und die Relation $R(\mathfrak{x}, \mathfrak{y})$
 	rekursiv sind, dann auch die Relationen $S, T$}
 
 	\begin{equation*}
 		\begin{aligned}
-			S(\mathfrak{x}, \mathfrak{y}) \thicksim (Ex)[x \leqq \phi(\mathfrak{x}) \& R(\mathfrak{x}, \mathfrak{y})]\\
+			S\left(\mathfrak{x}, \mathfrak{y}\right) \thicksim \left(Ex\right)\left[x \leqq \phi\left(\mathfrak{x}\right) \& R\left(\mathfrak{x}, \mathfrak{y}\right)\right]\\
 			T(\mathfrak{x}, \mathfrak{y}) \thicksim [x \leqq \phi(\mathfrak{x}) \longrightarrow R(\mathfrak{x}, \mathfrak{y})]
 		\end{aligned}
 	\end{equation*}
 	\so{sowie die Funktion $\psi$}
 	\begin{equation*}
-		\psi(\mathfrak{x}, \mathfrak{y}) = \epsilon x[x \leqq \phi(\mathfrak{x}) \& R(\mathfrak{x}, \mathfrak{y})],
+		\psi\left(\mathfrak{x}, \mathfrak{y}\right) = \epsilon x\left[x \leqq \phi\left(\mathfrak{x}\right) \& R\left(\mathfrak{x}, \mathfrak{y}\right)\right],
 	\end{equation*}
 	wobei $\epsilon x F(x)$ bedeutet: Die kleinste 
 	Zahl $x$, für welche $F(x)$ gilt und $0$, falls es 
@@ -661,15 +663,15 @@ Voraussetzung gibt es ein rekursives $\rho(\mathfrak{x}, \mathfrak{y})$, so daß
 \end{equation*}
 
 Wir definieren nun nach dem Rekursionsschma (2) eine 
-Funktion $\chi(\mathfrak{x}, \mathfrak{y})$ folgendermaßen:
+Funktion $\chi\left(\mathfrak{x}, \mathfrak{y}\right)$ folgendermaßen:
 
 \begin{equation*}
-	\chi(0, \mathfrak{y}) = 0
+	\chi\left(0, \mathfrak{y}\right) = 0
 \end{equation*}
 \begin{equation*}
-	\chi(n + 1, \mathfrak{y}) = (n + 1).a + \chi(n, \mathfrak{y}).\alpha(a)\footnote{Wir setzen als bekannt voraus, daß die Funktionen $x + y$ (Addition), $x.y$ (Multiplikation) rekursiv sind.}
+	\chi\left(n + 1, \mathfrak{y}\right) = \left(n + 1\right).a + \chi\left(n, \mathfrak{y}\right).\alpha\left(a\right)\footnote{Wir setzen als bekannt voraus, daß die Funktionen $x + y$ (Addition), $x.y$ (Multiplikation) rekursiv sind.}
 \end{equation*}
-wobei $a = \alpha[\alpha(\rho(0, \mathfrak{y}))].\alpha[\rho(n + 1, \mathfrak{y})].\alpha[\chi(n, \mathfrak{y})]$.
+wobei $a = \alpha\left[\alpha\left(\rho\left(0, \mathfrak{y}\right)\right)\right].\alpha\left[\rho\left(n + 1, \mathfrak{y}\right)\right].\alpha\left[\chi\left(n, \mathfrak{y}\right)\right]$.
 
 $\chi(n + 1, \mathfrak{y})$ ist daher entweder $ = n + 1$ (wenn $a = 1$) oder $ = \chi(n, \mathfrak{y})$ (wenn $a = 0$)\footnote{Andere Werte als 0 und 1 kann $a$, wie aus der Definition für $\alpha$ ersichtlich ist, nicht annehmen.}.
 Der erste Fall tritt offenbar dann und nur dann ein, wenn
@@ -1280,7 +1282,7 @@ oder:
 2. \left(x_1 \dots x_m\right) \left[\Phi_k(x_1 \dots x_m) = \Phi_r(\Phi_{i_1}(\mathfrak{x_1}) \dots \Phi_{i_1}(\mathfrak{x}_s))\right]\footnote{$\mathfrak{x}_i (i = 1 \dots s)$ vertreten irgend welche Komplexe der Variablen $x_1, x_2 \dots x_m$, z.\,B. $x_1 x_3 x_2$.}
 \end{equation}
 \begin{equation*}
-r < k, i_v < k (\text{für } v = 1, 2 \dots s)
+r < k, i_v < k \left(\text{für } v = 1, 2 \dots s\right)
 \end{equation*}
 
 oder:
@@ -1296,14 +1298,14 @@ Ferner bilden wir die Sätze:
 \end{equation}
 
 \begin{equation}
-(x)\left[\Phi_n(x) = 0\right]
+\left(x\right)\left[\Phi_n\left(x\right) = 0\right]
 \end{equation}
 
 Wir ersetzen nun in allen Formeln (18), (19), (20) (für $k = 2, 3 \dots n$) und in (21) (22) die Funktionen $\Phi_i$ durch Funktionsvariable
 $\phi_i$, die Zahl $0$ durch eine sonst nicht vorkommende 
 Individuenvariablen $x_0$ und bilden die Konjunktion $C$ sämtlicher so erhaltener Formeln.
 
-Die Formel $(Ex_0) C$ hat dann die verlangte Eigenschaft, d.\,h.
+Die Formel $\left(Ex_0\right) C$ hat dann die verlangte Eigenschaft, d.\,h.
 
 \begin{enumerate}
 	\item Wenn $(x)[\Phi(x) = 0]$ gilt, ist $(Ex_0)C$ erfüllbar, denn die Funktionen $\Phi_1, \Phi_2 \dots \Phi_n$ ergeben dann offenbar in $(Ex_0)C$ für $\phi_1, \phi2 \dots \phi_n$ eingesetzt einen richtigen Satz.
@@ -1311,10 +1313,25 @@ Die Formel $(Ex_0) C$ hat dann die verlangte Eigenschaft, d.\,h.
 \end{enumerate}
 
 Beweis: Seien $\Psi_1, \Psi_2 \dots \Psi_n$ die nach Voraussetzung
-existierende Funktionen, welche in $(Ex_0)C$für $\phi_1, \phi_2 \dots \phi_n$ eingesetzt einen richtigen Satz liefern. Ihr Individuenbereich Sei $\mathfrak{J}$. Wegen der Richtigkeit von $(Ex_0)C$ für die Funktion $\Psi_4$ gibt es ein Individuum $a$ (aus $\mathfrak{J}$), so, daß sämtliche Formeln (18) bis (22) bei der Ersetzung der $\Phi_i$ durch $\Psi_i$ und von 0 durch $a$ in richtige Sätze ($18'$) bis ($22'$) übergeben. Wir bilden nun die kleinste Teilklasse von $\mathfrak{J}$, welche $a$ enthält und gegen die Operation $\Psi_1(x)$ abgeschlossen ist. Diese Teilklasse ($\mathfrak{J}'$) hat die Eigenschaft, daß jede der Funktionen $\Psi_i$ auf Elemente aus $\mathfrak{J}'$ angewendet wieder Elemente aus $\mathfrak{J}'$ ergibt. 
-Denn für $\Psi_1$ gilt dies nach Definition von $\mathfrak{J}'$ und wegen ($18'$), ($19'$), ($20'$) überträgt sich diese Eigenschaft von $\Psi_i$ mit niedrigerem Index auf solche mit höherem.
-Die Funktion, welche aus $\Psi_i$ durch Beschränkung auf den Individuenbereich $\mathfrak{J}'$ entstehen, nennen wir
-$\Psi_i'$. Auch für diese Funktion gelten sämtliche Formeln (18) bis (22) (bei der  Ersetzung von 0 durch $a$ und $\Phi_i$ durch $\Psi_i'$).
+existierende Funktionen, welche in $\left(Ex_0\right)C$für 
+$\phi_1, \phi_2 \dots \phi_n$ eingesetzt einen richtigen Satz liefern.
+Ihr Individuenbereich Sei $\mathfrak{J}$. Wegen der Richtigkeit von 
+$(Ex_0)C$ für die Funktion $\Psi_4$ gibt es ein Individuum $a$ 
+(aus $\mathfrak{J}$), so, daß sämtliche Formeln (18) bis (22) 
+bei der Ersetzung der $\Phi_i$ durch $\Psi_i$ und von 0 durch $a$ 
+in richtige Sätze ($18'$) bis ($22'$) übergeben. Wir bilden nun 
+die kleinste Teilklasse von $\mathfrak{J}$, welche $a$ enthält 
+und gegen die Operation $\Psi_1(x)$ abgeschlossen ist. 
+Diese Teilklasse ($\mathfrak{J}'$) hat die Eigenschaft, daß 
+jede der Funktionen $\Psi_i$ auf Elemente aus $\mathfrak{J}'$ 
+angewendet wieder Elemente aus $\mathfrak{J}'$ ergibt. 
+Denn für $\Psi_1$ gilt dies nach Definition von $\mathfrak{J}'$ 
+und wegen ($18'$), ($19'$), ($20'$) überträgt sich diese 
+Eigenschaft von $\Psi_i$ mit niedrigerem Index auf solche mit höherem.
+Die Funktion, welche aus $\Psi_i$ durch Beschränkung auf den 
+Individuenbereich $\mathfrak{J}'$ entstehen, nennen wir
+$\Psi_i'$. Auch für diese Funktion gelten sämtliche Formeln 
+(18) bis (22) (bei der  Ersetzung von 0 durch $a$ und $\Phi_i$ durch $\Psi_i'$).
 
 Wegen der Richtigkeit von (21) für $\Psi_1'$ und $a$ kann man die Individuen aus $\mathfrak{J}'$ eineindeutig auf die natürlichen Zahlen abbilden u. zw. so, daß $a$ in $0$ und die Funktion $\Psi_1'$ in die Nachfolgerfunktion $\Phi_1$ übergeht. Durch diese Abbildung gehen aber sämtliche Funktionen $\Psi_i'$ in die Funktionen $\Phi_i$ über und wegen der Richtigkeit von (22) für $\Psi_n'$ und $a$ gilt $(x)\left[\Phi_n(x) = 0\right]$ oder $(x)\left[\Phi(x) = 0\right]$, was zu beweisen war\footnote{Aus Satz X folgt z.\,B., daß das \so{Fermat}sche und das \so{Goldbach}sche Problem lösbar wären, wenn man das Entscheidungsproblem des e.~F. gelöst hätte.}.
 
@@ -1349,7 +1366,7 @@ Nach (13) ist $17\text{ Gen } r = Sb\left(p\substack{19\\ Z(p)}\right)$ und dahe
 d.\,h. nach (8.1):
 
 \begin{equation}
-\text{Wid}(x) \longrightarrow (x) Q(x, p)
+\text{Wid}\left(x\right) \longrightarrow \left(x\right) Q\left(x, p\right)
 \end{equation}
 
 Wir stellen nun folgendes fest: Sämtliche in Abschnitt 2\footnote{Von der Definition für \glqq rekursiv\grqq\ auf Seite 179 TODO bis zum Beweis von Satz VI inkl.}
