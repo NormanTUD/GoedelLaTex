@@ -760,8 +760,8 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 	$l\left(x\right)$ ist die Länge der $x$ zugeordneten Zahlenreihe.
 
 	\item $x \pmstar y \equiv \left\{ z \leqq \left[ Pr \left(l\left(x\right) + l\left(y\right)\right)\right]^{x + 1} \& 
-	\left(n\right) [n \leqq l\left(x\right) \longrightarrow (n Gl z = n Gl x] \&
-		\left(n\right) \left[0 < n \leqq (l\left(y\right) \longrightarrow (n + l\left(x\right)) Gl z = n Gl y\right]\right\}$ % TODO ) fehlt
+	\left(n\right) \left[n \leqq l\left(x\right) \longrightarrow n Gl z = n Gl x\right] \&
+		\left(n\right) \left[0 < n \leqq l\left(y\right) \longrightarrow \left(n + l\left(x\right)\right) Gl z = n Gl y\right]\right\}$ % TODO ) fehlt
 
 	$x \pmstar y$ entspricht der Operation des
 	\glqq Aneinanderfügens\grqq\ zweier endlicher
@@ -828,7 +828,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 	\item $Op\left(x\ y\ z\right) \equiv x = \text{Neg}\left(y\right) \lor x = y \text{ Dis } z \lor\allowbreak \left(Ev\right) \left[v \leqq x \& \text{Var}\left(x\right) \& x = v \text{ Gen } y\right]$
 
 	\item $$
-		FR\left(x\right) \equiv \left(n\right) \left\{ 0 < n \leqq l\left(x\right) \longrightarrow\allowbreak Elf(n Gl x) \lor \left(Ep, q\right)\allowbreak \left[0 < p, q < n \&\allowbreak Op\left(n Gl x, p Gl x, q Gl x\right)\right]\right\} \& l\left(x\right) > 0
+		FR\left(x\right) \equiv \left(n\right) \left\{ 0 < n \leqq l\left(x\right) \longrightarrow\allowbreak Elf\left(n Gl x\right) \lor \left(Ep, q\right)\allowbreak \left[0 < p, q < n \&\allowbreak Op\left(n Gl x, p Gl x, q Gl x\right)\right]\right\} \& l\left(x\right) > 0
 		$$
 
 	$x$ ist eine Reihe von \textit{Formeln}, deren jede entweder
@@ -913,7 +913,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 	$z$ enthält keine Variable, die in $y$ an einer Stelle
 	\textit{gebunden} ist, an der $v$ \textit{frei} ist.
 
-	\item $L_1 - Ax\left(x\right) \equiv \left(Ev, y, z, n\right) \{v, y, z, n \leqq x \& n \text{ Var } v \& \text{Typ}_n(z) \& \text{Form}(y) \& Q(z, y, v) \& x = (v \text{ Gen } y) \text{ Imp } [Sb \left(y \substack{v\\z}\right)]\}$ % TODO } fehlt
+	\item $L_1 - Ax\left(x\right) \equiv \left(Ev, y, z, n\right) \left\{v, y, z, n \leqq x \& n \text{ Var } v \& \text{Typ}_n\left(z\right) \& \text{Form}\left(y\right) \& Q\left(z, y, v\right) \& x = \left(v \text{ Gen } y\right) \text{ Imp } \left[Sb \left(y \substack{v\\z}\right)\right]\right\}$ % TODO } fehlt
 
 	$x$ ist eine aus dem Axiomenschema III, 1 durch Einsetzung entstehende \textit{Formel}.
 
