@@ -16,7 +16,7 @@ sub main {
 
 	my $count = scalar @missing_left_right;
 
-	foreach my $missing (sort { length($a->{text}) <=> length($b->{text}) } @missing_left_right) {
+	foreach my $missing (sort { length($b->{text}) <=> length($a->{text}) } @missing_left_right) {
 		print "$missing->{text} at line $missing->{line}\n".("=" x 80)."\n";
 	}
 
