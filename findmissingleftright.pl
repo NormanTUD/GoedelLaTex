@@ -17,7 +17,7 @@ sub main {
 	my $count = scalar @missing_left_right;
 
 	foreach my $missing (sort { length($b->{text}) <=> length($a->{text}) } @missing_left_right) {
-		print "$missing->{text} at line $missing->{line}\n".("=" x 80)."\n";
+		print "$missing->{text}\nat line $missing->{line}\n".("=" x 80)."\n";
 	}
 
 	print "Found $count math modes with missing \\left's\n";
