@@ -37,7 +37,8 @@
     bottom=25mm,
     marginparsep=5mm,
     marginparwidth=160mm,
-    showframe% for show your page design, normaly not used
+    paperheight=27cm
+%    showframe% for show your page design, normaly not used
 ]{geometry}
 
 
@@ -774,7 +775,9 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	zugeordneten Zahlenreihe (für $n > 0$ und $n$ nicht
 	größer als die Länge dieser Reihe).
 
-	\item $l\left(x\right) \equiv \epsilon y \left[y \leqq x \& y Pr x > 0 \& \left(y + 1\right) Pr x = 0\right]$
+	% 7:
+	\item $l\left(x\right) \equiv \epsilon y \left[y \leqq x \& y Pr x > 0 \& \left(y + 1\right) Pr x = 0\right]$%
+\mnote{$l\left(x\right) \equiv \exists y: y \leqq x \wedge y Pr x > 0 \wedge \left(y + 1\right) Pr x = 0$}
 
 	$l\left(x\right)$ ist die Länge der $x$ zugeordneten Zahlenreihe.
 
@@ -786,7 +789,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	\glqq Aneinanderfügens\grqq\ zweier endlicher
 	Zahlenreihen.\mnote{Konkatinieren von Zahlen}
 
-	\item $R\left(x\right) \equiv 2^\omega$
+	\item $R\left(x\right) \equiv 2^x$\mnote{Die Zahl $x$ an erster Stelle bedeutet: Die erste Primzahl 2 hoch die $x$, die kodiert werden soll. $2^x$ degödelisiert immer $x$ für $x > 0$}
 
 	$R\left(x\right)$ entspricht der nur aus der Zahl $x$ bestehenden Zahlenreihe (für $x > 0$).
 
@@ -796,11 +799,15 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	$E\left(x\right)$ entspricht der Operation des \glqq Einklammerns\grqq\ [11 und 13 sind den Grundzeichen
 	\glqq(\grqq\ und \glqq)\grqq\ zugeordnet].
 
-	\item $n\text{ Var } x \equiv \left(Ez\right)\left[13 < z \leqq x \& \text{Prim }\left(z\right) \& x = z^n\right] \& n \not = 0$
+	%11:
+	\item $n\text{ Var } x \equiv \left(Ez\right)\left[13 < z \leqq x \& \text{Prim }\left(z\right) \& x = z^n\right] \& n \not = 0$%
+\mnote{$n\text{ Var } x \equiv \exists z: \left[\text{\glqq)\grqq} < z \leqq x \wedge \text{Prim }\left(z\right) \wedge x = z^n\right] n \not= 0$, die 13 ist die Gödelnummer für \glqq)\grqq, vgl. § 2}
 
+	%12:
 	$x$ ist eine \textit{Variable $n$-ten Typs}.
 
-	\item $\text{Var }\left(x\right) \equiv \left(En\right)\left[n \leqq x \& n \text{ Var } x\right]$
+	\item $\text{Var }\left(x\right) \equiv \left(En\right)\left[n \leqq x \& n \text{ Var } x\right]$%
+\mnote{$\text{Var }\left(x\right) \equiv \exists n: \left(n \leqq x \wedge \left(n \text{ Var } x\right)\right)$, vgl. § 11}
 
 	$x$ ist eine \textit{Variable}.
 
@@ -895,26 +902,32 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	$k St v, x$ ist die $k + 1$-te Stelle in $x$ (vom Ende der \textit{Formel} $x$ an gezählt), an der $v$ in $x$ \textit{frei} ist (und 0, falls es keine solche Stelle gibt).
 
+	%29:
 	\item $A\left(v, x\right) \equiv \epsilon n\left\{ n \leqq l\left(x\right) \& n St v x = 0\right\}$
 
 	$A\left(v, x\right)$ ist die Anzahl der Stellen, an denen $v$ in $x$ \textit{frei} ist.
 
-	\item $Sb_0 \left(x\substack{v\\y }\right) \equiv \alpha$
+	%30:
+	\item $Sb_0 \left(x\substack{v\\y }\right) \equiv \alpha$%
+\mnote{Rekursive Funktion zum Ersetzen von Variablen, letzter Rekursionsschritt ist immer die 0 (daher spezial definiert)}
 
-	$Sb_{k + 1} \left(x\substack{v\\y}\right) \equiv Su \left[Sb_k\left(x\substack{v\\y}\right)\right] \left(\substack{k\ St\ v, x\\y}\right)$
+	$Sb_{k + 1} \left(x\substack{v\\y}\right) \equiv Su \left[Sb_k\left(x\substack{v\\y}\right)\right] \left(\substack{k\ St\ v, x\\y}\right)$%
+\mnote{Expandiert die Variablen bis in die unterste Formelebene zu ihrem Ersatz}
 	
 	% 31
 	\item $Sb\left(x\substack{v\\y}\right) \equiv Sb_{A\left(v, x\right)}\left(x\substack{v\\y}\right)$\footnote{Falls $v$ keine \textit{Variable} oder $x$ keine \textit{Formel} ist, ist $Sb\left(x\substack{v\\y}\right) = x$.}
 
 	$Sb\left(x\substack{v\\y}\right)$ ist der oben definierte Begriff $Subst\ a\left(\substack{v\\b}\right)$\footnote{Statt $Sb\left[Sb\left(x\substack{v\\y}\right)\substack{w\\z}\right]$ schreiben wir: $Sb\left(x\substack{v\ u\\y\ z}\right)$ (analog für mehr als zwei Variable).}.
 
-\item $x \text{ Imp } y \equiv \left[\text{Neg }\left(x\right)\right] \text{ Dis } y $\mnote{$x \supset y \equiv \left(\thicksim x\right) \lor y$}
+\item $x \text{ Imp } y \equiv \left[\text{Neg }\left(x\right)\right] \text{ Dis } y $\mnote{$x \text{ Imp } y \equiv \left(\thicksim x\right) \lor y$. Bedeutet: $x \supset y$}
 
-	$x \text{ Con } y \equiv \text{ Neg } \left\{\left[\text{Neg }\left(x\right)\right]\text{ Dis }\left[\text{Neg }\left(y\right)\right]\right\}$\mnote{$x \wedge y \equiv \left(x \supset y\right) \lor \thicksim y$}
+	$x \text{ Con } y \equiv \text{ Neg } \left\{\left[\text{Neg }\left(x\right)\right]\text{ Dis }\left[\text{Neg }\left(y\right)\right]\right\}$\mnote{$x \text{ Con } y \equiv \left(x \supset y\right) \lor \thicksim y$. Bedeutet $x \lor y$}
 
-	$x \text{ Aeq } y \equiv \left(x \text{ Imp } y\right) \text{ Con } \left(y \text { Imp } x\right)$
+	$x \text{ Aeq } y \equiv \left(x \text{ Imp } y\right) \text{ Con } \left(y \text { Imp } x\right)$%
+	\mnote{$x \text{ Aeq } y \equiv \left(x \supset y\right) \wedge \left(y \supset x\right)$. Bedeutet: $x \text{ iff } y$}
 
-	$v \text { Ex } y \equiv \text{Neg } \left\{v \text{ Gen } \left[\text{Neg } \left(y\right)\right]\right\}$
+	$v \text { Ex } y \equiv \text{Neg } \left\{v \text{ Gen } \left[\text{Neg } \left(y\right)\right]\right\}$%
+\mnote{$v \text{ Ex } y \equiv \thicksim \left(\forall v: \lnot y\right)$. Bedeutet \glqq alle $y$ in $v$ sind wahr\grqq, vgl. §§ 13, 15}
 
 	\item $n Th x \equiv \epsilon y \left\{ y \leqq x^{\left(x^n\right)} \& \left(k\right) \left[k \leqq l\left(x\right) \longrightarrow \left(k Gl x \leqq 13 \& k Gl y = k Gl x\right) \lor \left(k Gl x > 13 \& k Gl y = k Gl x.\left[1 Pr \left(k Gl x\right)\right]^n\right)\right]\right\}$
 
