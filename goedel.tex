@@ -486,17 +486,17 @@ exakten Definitionen der metamathe. Begriffe S. 182fg.) TODO}):
 	Einsetzungen vornimmt (und in 1. die durch \glqq Subst\grqq\ angezeigte Operation ausführt):
 
 	Für $a$ eine beliebige Formel, für $v$ eine beliebige Variable, für $b$ eine Formel, 
-		in der $v$ nicht frei vorkommt, für $c$ ein Zeichen vom selben Typ wie $v$, 
-		vorausgesetzt, daß $c$ keine Variable enthält, welche in $a$ an einer Stelle
-		gebunden ist, an der $v$ frei ist\footnote{$c$ ist also entweder eine Variable 
-		oder 0 oder ein Zeichen der Form $f \dots fu$, wo $u$ entweder 0 oder eine 
-		Variable 1. Typs ist. Bez. des Begriffs \glqq frei (gebunden) an einer Stelle 
-		von $a$\grqq, vgl. die Fußnote \ref{fussnote24} zitierte Arbeit I A 5.}.
+	in der $v$ nicht frei vorkommt, für $c$ ein Zeichen vom selben Typ wie $v$, 
+	vorausgesetzt, daß $c$ keine Variable enthält, welche in $a$ an einer Stelle
+	gebunden ist, an der $v$ frei ist\footnote{$c$ ist also entweder eine Variable 
+	oder 0 oder ein Zeichen der Form $f \dots fu$, wo $u$ entweder 0 oder eine 
+	Variable 1. Typs ist. Bez. des Begriffs \glqq frei (gebunden) an einer Stelle 
+	von $a$\grqq, vgl. die Fußnote \ref{fussnote24} zitierte Arbeit I A 5.}.
 
 	\item Jede Formel, die aus dem Schema
 
 	\begin{enumerate}[1.]
-		\item $\left(Eu\right)\left(v\Pi\left(u\left(v\right) \equiv a\right)\right)$
+		\item $\left(Eu\right)\left(v\Pi\left(u\left(v\right) \equiv a\right)\right)$\mnote{$\exists u: \forall v: u(v) \equiv a$}
 	\end{enumerate}
 
 	dadurch entsteht, daß man für $v$ bzw. $u$ 
@@ -519,7 +519,7 @@ exakten Definitionen der metamathe. Begriffe S. 182fg.) TODO}):
 
 Eine Formel $c$ heißt unmittelbare Folge aus $a$ und $b$
 (bzw. aus $a$), wenn $a$ die Formel $\left(\thicksim\left(b\right)\right)\lor\left(c\right)$
-ist (bzw. wenn $c$ die Formel $v\Pi\left(a\right)$ ist,
+ist (bzw. wenn $c$ die Formel $v\Pi\left(a\right)$\mnote{$\forall v: a$} ist,
 wo $v$ eine beliebige Variable bedeutet). Die Klasse
 der beweisbaren Formeln wird definiert als die kleinste
 Klasse von Formeln, welche die Axiome enthält und gegen
@@ -871,10 +871,12 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	$x$ ist \textit{Zeichen $n$-ten Typs}.\mnote{Siehe § 18 für Spezialfall $n = 1$}
 
+	%20:
 	\item $Elf\left(x\right) \equiv \left(E y, z, n\right) \left[y, z, n \leqq x \& \text{Typ}_n\left(y\right) \& \text{Typ}_{n + 1}\left(z\right) \& x = z \pmstar E\left(y\right)\right]$
 
 	$x$ ist \textit{Elementarformel}.
 
+	%21:
 	\item $Op\left(x\ y\ z\right) \equiv x = \text{Neg}\left(y\right) \lor x = y \text{ Dis } z \lor\allowbreak \left(Ev\right) \left[v \leqq x \& \text{Var}\left(x\right) \& x = v \text{ Gen } y\right]$
 
 	\item $$
@@ -942,7 +944,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	$Sb\left(x\substack{v\\y}\right)$ ist der oben definierte Begriff $Subst\ a\left(\substack{v\\b}\right)$\footnote{Statt $Sb\left[Sb\left(x\substack{v\\y}\right)\substack{w\\z}\right]$ schreiben wir: $Sb\left(x\substack{v\ u\\y\ z}\right)$ (analog für mehr als zwei Variable).}.
 
 %32:
-\item $x \text{ Imp } y \equiv \left[\text{Neg }\left(x\right)\right] \text{ Dis } y $\mnote{$x \text{ Imp } y \equiv \left(\thicksim x\right) \lor y$. Bedeutet: $x \supset y$}
+	\item $x \text{ Imp } y \equiv \left[\text{Neg }\left(x\right)\right] \text{ Dis } y $\mnote{$x \text{ Imp } y \equiv \left(\thicksim x\right) \lor y$. Bedeutet: $x \supset y$}
 
 	$x \text{ Con } y \equiv \text{ Neg } \left\{\left[\text{Neg }\left(x\right)\right]\text{ Dis }\left[\text{Neg }\left(y\right)\right]\right\}$\mnote{$x \text{ Con } y \equiv \left(x \supset y\right) \lor \thicksim y$. Bedeutet $x \lor y$}
 
@@ -959,9 +961,13 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	Den Axiomen I, 1 bis 3, entsprechen drei bestimmte Zahlen, die wir mit $z_1, z_2, z_3$ bezeichnen un wir definieren:
 
+	%34:
 	\item $Z - Ax\left(x\right) \equiv \left(x = z_1 \lor x = z_2 \lor x = z_3\right)$
 
-	\item $A_1 - Ax\left(x\right) \equiv \left(Ey\right) \left[y \leqq x\& \text{Form }\left(y\right) \& x = \left(y \text{ Dis } y\right) \text{ Imp } y\right]$
+	%35:
+	\item $A_1 - Ax\left(x\right) \equiv \left(Ey\right) \left[y \leqq x\& \text{Form }\left(y\right) \& x = \left(y \text{ Dis } y\right) \text{ Imp } y\right]$%
+\mnote{$A_1 - Ax\left(x\right) \equiv \exists y: y \leqq x \wedge \text{Form }\left(y\right) \wedge x = (y \lor y) \supset y$, vgl. § 14, 23, 32, 34}
+% Was bringt y \lor y???
 
 	$x$ ist eine durch Einsetzung in das Axiomenschema II, 1 entstehende \textit{Formel}. Analog werden $A_2 - Ax, A_3 - Ax, A_4 - Ax$ entsprechend den Axiomen II, 2 bis 4 definiert.
 
