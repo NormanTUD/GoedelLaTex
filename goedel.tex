@@ -28,6 +28,11 @@
 \def\middlebreak {\nulldelimiterspace0pt
 \right.\allowbreak\mskip 0mu plus .5mu \nulldelimiterspace0pt\left.}%
 
+\makeatletter
+\newcommand{\customlabel}[2]{%
+\protected@write \@auxout {}{\string \newlabel {#1}{{#2}{}}}}
+\makeatother
+
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 
 \everymath{\displaystyle}
@@ -44,10 +49,20 @@
 		paperheight=27cm
 		%showframe% for show your page design, normaly not used
 	]{geometry}
-	\newcommand{\mnote}[1]{\marginpar{ \textcolor{darkgray}{\small\arabic{commentaryNumber}: #1}}\stepcounter{commentaryNumber}}
+	\makeatletter
+	\newcommand{\mnote}[1]{%
+		\marginpar{% 
+			\textcolor{darkgray}{%
+				\small\arabic{commentaryNumber}: #1}%
+		}%
+		\stepcounter{commentaryNumber}%
+	}
+	\makeatother
 \else 
 	\newcommand{\mnote}[1]{}
 \fi
+
+\newcommand{\refsatz}[1]{\ref{#1} (#1)}
 
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 
@@ -141,12 +156,12 @@ Mathematica, 2. Aufl., Cambridge 1925. Zu den Axiomen
 des Systems PM rechnen wir insbesondere auch: 
 Das Unendlichkeitsaxiom (in der Form: es gibt 
 genau abzählbar viele Individuen), 
-Das Reduzibilitäts- und das Auswahlaxiom (für alle 
+das Reduzibilitäts- und das Auswahlaxiom (für alle 
 Typen).} einerseits, das Zermelo-Fraenkelsche
 (von J. v. Neumann weiter ausgebildete) Axiomensystem
 der Mengenlehre\footnote{Vgl. A. Fraenkel, Zehn
 Vorlesungen über die Grundlegung der Mengenlehre,
-Wissensch. u. Hypo Bd. XXXI. J. v. Neumann, die
+Wissensch. u. Hyp. Bd. XXXI. J. v. Neumann, die
 Axiomatisierung der Mengenlehre. Math. Zeitschr. 27, 
 1928. Journ. f. reine u. angew. Math. 154 (1925), 
 160 (1929). Wir bemerken, daß man zu den in der
@@ -229,7 +244,7 @@ in der folgenden Beweisskizze, d.\,h. unter \glqq Formel\grqq,
 \so{sind immer die entsprechenden Gegenstände des isomorphen Bildes zu verstehen}.}
 und daher (wenigstens teilweise) in den Symbolen
 des Systems PM selbst ausdrückbar. Insbesondere kann man
-zeigen, daß die Begriffe \mnote{Vgl. § 32, 44, 46}\glqq Formel\grqq, 
+zeigen, daß die Begriffe \mnote{Vgl. § 32, 44, \refsatz{Bew}}\glqq Formel\grqq, 
 \glqq Beweisfigur\grqq, 
 \glqq beweisbare Formel\grqq\ innerhalb des Systems PM 
 definierbar sind, d.\,h. man kann z.\,B. eine Formel 
@@ -266,7 +281,7 @@ Zahlen folgendermaßen:
 
 \let\originalfootnote=\thefootnote
 \let\thefootnote=\fnelfa
-\mnote{$\exists n: n \in K \wedge \thicksim Bew \left[R\left(n\right); n\right]$, vgl. § 46}
+\mnote{$\exists n: n \in K \wedge \thicksim Bew \left[R\left(n\right); n\right]$, vgl. § \refsatz{Bew}}
 \begin{equation}
 \label{formel1}
 n \epsilon K \equiv \overline{Bew}\left[R\left(n\right); n\right]\footnote{Durch Überstreichen wird die Negation bezeichnet.}
@@ -274,7 +289,7 @@ n \epsilon K \equiv \overline{Bew}\left[R\left(n\right); n\right]\footnote{Durch
 \let\thefootnote=\originalfootnote
 \setcounter{footnote}{11}
 
-(wobei $Bew\ x$ bedeutet: $x$ ist eine beweisbare Formel\mnote{Vgl. § 46}).
+(wobei $Bew\ x$ bedeutet: $x$ ist eine beweisbare Formel\mnote{Vgl. § \refsatz{Bew}}).
 Da die Begriffe, welche im Definiens vorkommen, sämtlich
 in PM definierbar sind, so auch der daraus zusammengesetzte
 Begriff $K$, d.\,h. es gibt ein Klassenzeichen 
@@ -285,7 +300,7 @@ Klassenzeichen mit einem bestimmten $R\left(q\right)$ identisch,
 d.\,h. es gilt
 
 $$ S = R\left(q\right) $$%
-\mnote{Vgl. § 9}
+\mnote{Vgl. § \refsatz{Konkat}}
 
 \noindent für eine bestimme natürliche Zahl $q$. Wir zeigen nun, daß
 der Satz $\left[R\left(q\right); q\right]$\footnote{Man beachte, daß
@@ -543,9 +558,9 @@ folgender Weise eineindeutig natürliche Zahlen zu:
 
 \begin{center}
 \begin{tabular}{lll}
-	\glqq$0$\grqq \dots 1 & \glqq$\lor$\grqq \dots 7 & \glqq(\grqq \dots 11 \\
-	\glqq$f$\grqq \dots 3 & \glqq$\Pi$\grqq \dots 9 & \glqq)\grqq \dots 13\\
-	\glqq$\thicksim$\grqq \dots 5 & &
+	\glqq$0$\grqq\dots 1 & \glqq$\lor$\grqq\dots 7 & \glqq(\grqq\dots 11 \\
+	\glqq$f$\grqq\dots 3 & \glqq$\Pi$\grqq\dots 9 & \glqq)\grqq\dots 13\\
+	\glqq$\thicksim$\grqq\dots 5 & &
 \end{tabular}
 \end{center}
 
@@ -662,7 +677,7 @@ Satz I folgt unmittelbar aus der Definition von \glqq rekursiv\grqq. Satz II und
 \begin{equation*}
 	\alpha\left(x\right), \beta\left(x, y\right), \gamma\left(x, y\right)
 \end{equation*}
-nämlich:\mnote{\noindent\begin{equation*}
+nämlich:\mnote{\customlabel{kommentarAlpha}{\arabic{commentaryNumber}}\noindent\begin{equation*}
 	\noindent \alpha\left(x\right) = \left\{
 	\begin{aligned}
 		&1, && \text{wenn }\ x = 0 \\
@@ -706,9 +721,11 @@ Voraussetzung gibt es ein rekursives $\rho\left(\mathfrak{x}, \mathfrak{y}\right
 Wir definieren nun nach dem Rekursionsschema (2) eine 
 Funktion $\chi\left(\mathfrak{x}, \mathfrak{y}\right)$ folgendermaßen:
 
+\mnote{Zweistufig-rekursive Funktionsdefinition}
 \begin{equation*}
 	\chi\left(0, \mathfrak{y}\right) = 0
 \end{equation*}
+\mnote{Gleichbedeutend mit $\chi\left(n, \mathfrak{y}\right) = n \times \chi\left(\left(n - 1\right), \mathfrak{y}\right) \times \alpha\left(a\right)$, für $\alpha$ siehe Kommentar \ref{kommentarAlpha}}
 \begin{equation*}
 	\chi\left(n + 1, \mathfrak{y}\right) = \left(n + 1\right).a + \chi\left(n, \mathfrak{y}\right).\alpha\left(a\right)\footnote{Wir setzen als bekannt voraus, daß die Funktionen $x + y$ (Addition), $x.y$ (Multiplikation) rekursiv sind.}
 \end{equation*}
@@ -754,23 +771,24 @@ meistens mehrere der nach Satz I bis IV erlaubten
 Definitionsschritte in einem zusammengefaßt. Jede der 
 Funktionen (Relationen) 1--45, unter denen z.\,B. die
 Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmittelbare Folge}\grqq\ vorkommen, 
-ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus diesen Axiomen zum Herleiten der Unvollständigkeitssätze (§§ 1--46).}
+ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus diesen Axiomen zum Herleiten der Unvollständigkeitssätze (§§ \refsatz{x/y} -- \refsatz{Bew}).}
 
 \begin{enumerate}[1.]
-	\label{satz1}
-	\item $x/y \equiv \left(Ez\right) \left[z \leqq x \& x = y.z\right]$%
+	% 1:
+	\item \customlabel{x/y}{1}$x/y \equiv \left(Ez\right) \left[z \leqq x \& x = y.z\right]$%
 \mnote{$x/y \equiv \exists z\left(z \leqq x \wedge x = y\times z\right)$}%
 \footnote{Das Zeichen $\equiv$ wird im Sinne von \glqq Definitionsgleichheit\grqq\ verwendet, vertritt also bei Definitionen entweder $=$ oder $\thicksim$ (im übrigen ist
 	die Symbol die \so{Hilbert}sche).}
 
 		$x$ ist teilbar durch $y$\mnote{$x/y \equiv \exists z \left[z \leqq x \wedge x = y\times z\right]$}\footnote{Überall, wo in den folgenden Definitionen eines der Zeichen $\left(x\right), \left(Ex\right), \epsilon x$ auftritt, ist es von einer Abschätzung für $x$ gefolgt. Diese Abschätzung dient lediglich dazu, um die rekursive Natur des definierten Begriffes (vgl. Satz IV) zu sichern. Dagegen würde sich der Umgang der definierten Begriffe durch Weglassung dieser Abschätzung meistens nicht ändern.}
 
-	\label{satz2}
-\item $\text{Prim }\left(x\right) \equiv \overline{\left(Ez\right)} \left[z \leqq x \& z \not = 1 \& z \not = x \& x/z\right] \& x > 1$\mnote{$\text{Prim }\left(x\right) \equiv \not\exists z: \left(z \leqq x \wedge z \not= 1 \wedge z \not= x \wedge x/z\right) \wedge x > 1$}
+	% 2:
+	\item \customlabel{Prim}{2}$\text{Prim }\left(x\right) \equiv \overline{\left(Ez\right)} \left[z \leqq x \& z \not = 1 \& z \not = x \& x/z\right] \& x > 1$\mnote{$\text{Prim }\left(x\right) \equiv \not\exists z: \left(z \leqq x \wedge z \not= 1 \wedge z \not= x \wedge x/z\right) \wedge x > 1$}
 
 	$x$ ist eine Primzahl.
 
-	\item $0 Pr x \equiv 0$
+	% 3:
+	\item \customlabel{0 Pr x}{3} $0 Pr x \equiv 0$
 
 	$\left(n + 1\right) Pr x \equiv \epsilon x \left[y \leqq x \& \text{Prim}\left(y\right) \& x/y \& y > n Pr x\right]$
 	\let\originalfootnote=\thefootnote
@@ -780,75 +798,82 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	\let\thefootnote=\originalfootnote
 	\setcounter{footnote}{35}
 
-	\item $0! \equiv 1$\mnote{Fakultät, zweistufig-rekursive Funktionsdefinition}
+	% 4:
+	\item \customlabel{Fakultät}{4}$0! \equiv 1$\mnote{Fakultät, zweistufig-rekursive Funktionsdefinition}
 
 	$\left(n + 1\right)! \equiv \left(n + 1\right).n!$\mnote{Gleich mit $\left(n\right)! \equiv \left(n - 1\right) \times n!$}
 
 	% 5:
-	\item $Pr\ \left(0\right) \equiv 0$
+	\item \customlabel{Pr}{5}$Pr\ \left(0\right) \equiv 0$
 
 	$Pr\ \left(n + 1\right) \equiv \epsilon y \left[y \leqq \left\{ Pr\ \left(n\right) \right\}! + 1 \& \text{Prim }\left(y\right) \& y > Pr\ \left(n\right)\right] $%
-		\mnote{$Pr\ \left(n\right) \equiv \exists y: y \leqq \left(Pr\ \left(n\right)\right)! + 1 \wedge \text{Prim }\left(y\right) \wedge y > Pr\ \left(n\right)$, vgl. §§ 2, 3, 4, 5}
+		\mnote{$Pr\ \left(n\right) \equiv \exists y: y \leqq \left(Pr\ \left(n\right)\right)! + 1 \wedge \text{Prim }\left(y\right) \wedge y > Pr\ \left(n\right)$, vgl. §§ \refsatz{Prim}, \refsatz{Fakultät}, \refsatz{Pr}}
+%%% TODO HIER WEITERE refsatz!!!
 
 	$Pr\ \left(n\right)$ ist die $n$-te Primzahl (der Größe nach).
 
 	% 6:
-	\item $n Gl x \equiv \epsilon y \left[y \leqq x \& x/\left(n Pr x\right)^y \& \overline{x/n Pr x)^{y + 1}}\right]$%
-		\mnote{$n Gl x \equiv \exists y: y \leqq x \wedge x/\left(n Pr x\right)^y \wedge \thicksim \left(\left(x / n Pr x\right)^{x + 1}\right)$, vgl. §§ 1, 5}
+	\item \customlabel{n Gl x}{6} $n Gl\ x \equiv \epsilon y \left[y \leqq x \& x/\left(n Pr x\right)^y \& \overline{x/n Pr x)^{y + 1}}\right]$%
+		\mnote{$n Gl\ x \equiv \exists y: y \leqq x \wedge x/\left(n Pr x\right)^y \wedge \thicksim \left(\left(x / n Pr x\right)^{x + 1}\right)$, vgl. §§ \refsatz{x/y}, \refsatz{Pr}}
 
-	$n Gl x$ ist das $n$-te Glied der der Zahl $x$
+	$n Gl\ x$ ist das $n$-te Glied der der Zahl $x$
 	zugeordneten Zahlenreihe (für $n > 0$ und $n$ nicht
 	größer als die Länge dieser Reihe).
 
 	% 7:
-	\item $l\left(x\right) \equiv \epsilon y \left[y \leqq x \& y Pr x > 0 \& \left(y + 1\right) Pr x = 0\right]$%
+	\item \customlabel{l(x)}{7} $l\left(x\right) \equiv \epsilon y \left[y \leqq x \& y Pr x > 0 \& \left(y + 1\right) Pr x = 0\right]$%
 \mnote{$l\left(x\right) \equiv \exists y: y \leqq x \wedge y Pr x > 0 \wedge \left(y + 1\right) Pr x = 0$}
 
 	$l\left(x\right)$ ist die Länge der $x$ zugeordneten Zahlenreihe.
 
+	% 8:
 	\item $x \pmstar y \equiv \left\{ z \leqq \left[ Pr \left(l\left(x\right) + l\left(y\right)\right)\right]^{x + 1} \& 
-	\left(n\right) \left[n \leqq l\left(x\right) \longrightarrow n Gl z = n Gl x\right] \&
+	\left(n\right) \left[n \leqq l\left(x\right) \longrightarrow n Gl\ z = n Gl\ x\right] \&
 		\left(n\right) \left[0 < n \leqq l\left(y\right) \longrightarrow \left(n + l\left(x\right)\right) Gl z = n Gl y\right]\right\}$ % TODO ) fehlt
 
 	$x \pmstar y$ entspricht der Operation des
 	\glqq Aneinanderfügens\grqq\ zweier endlicher
 	Zahlenreihen.\mnote{Konkatinieren von Zahlen}
 
-	\item $R\left(x\right) \equiv 2^x$\mnote{Die Zahl $x$ an erster Stelle bedeutet: Die erste Primzahl 2 hoch die $x$, die kodiert werden soll. $2^x$ degödelisiert immer $x$ für $x > 0$}
+	% 9:
+	\item \customlabel{Konkat}{9} $R\left(x\right) \equiv 2^x$\mnote{Die Zahl $x$ an erster Stelle bedeutet: Die erste Primzahl 2 hoch die $x$, die kodiert werden soll. $2^x$ degödelisiert immer $x$ für $x > 0$}
 
 	$R\left(x\right)$ entspricht der nur aus der Zahl $x$ bestehenden Zahlenreihe (für $x > 0$).
 
 	% 10:
-	\item $E\left(x\right) \equiv R\left(11\right) \pmstar x \pmstar R\left(13\right)$\mnote{$E\left(x\right) \equiv \text{\glqq}(\text{\grqq .} x \text{. \glqq})\text{\grqq}$, vgl. § 8}
+	\item $E\left(x\right) \equiv R\left(11\right) \pmstar x \pmstar R\left(13\right)$\mnote{$E\left(x\right) \equiv \text{\glqq}(\text{\grqq. } x \text{. \glqq})\text{\grqq}$, vgl. § \refsatz{Konkat}}
 
 	$E\left(x\right)$ entspricht der Operation des \glqq Einklammerns\grqq\ [11 und 13 sind den Grundzeichen
 	\glqq(\grqq\ und \glqq)\grqq\ zugeordnet].
 
 	%11:
-	\item $n\text{ Var } x \equiv \left(Ez\right)\left[13 < z \leqq x \& \text{Prim }\left(z\right) \& x = z^n\right] \& n \not = 0$%
-\mnote{$n\text{ Var } x \equiv \exists z: \left[\text{\glqq)\grqq} < z \leqq x \wedge \text{Prim }\left(z\right) \wedge x = z^n\right] n \not= 0$, die 13 ist die Gödelnummer für \glqq)\grqq, vgl. § 2}
+	\item \customlabel{n Var x}{11}$n\text{ Var } x \equiv \left(Ez\right)\left[13 < z \leqq x \& \text{Prim }\left(z\right) \& x = z^n\right] \& n \not = 0$%
+\mnote{$n\text{ Var } x \equiv \exists z: \left[\text{\glqq)\grqq} < z \leqq x \wedge \text{Prim }\left(z\right) \wedge x = z^n\right] n \not= 0$, die 13 ist die Gödelnummer für \glqq)\grqq, vgl. § \refsatz{Prim}}
 
 	%12:
 	$x$ ist eine \textit{Variable $n$-ten Typs}.
 
 	\item $\text{Var }\left(x\right) \equiv \left(En\right)\left[n \leqq x \& n \text{ Var } x\right]$%
-\mnote{$\text{Var }\left(x\right) \equiv \exists n: \left(n \leqq x \wedge \left(n \text{ Var } x\right)\right)$, vgl. § 11}
+\mnote{$\text{Var }\left(x\right) \equiv \exists n: \left(n \leqq x \wedge \left(n \text{ Var } x\right)\right)$, vgl. § \refsatz{n Var x}}
 
 	$x$ ist eine \textit{Variable}.
 
-\item $\text{Neg }\left(x\right) \equiv R\left(5\right) \pmstar E\left(x\right)$\mnote{$\text{Neg }\left(x\right) \equiv \thicksim x$, vgl. § 8.}
+	% 13:
+	\item \customlabel{Neg}{13} $\text{Neg }\left(x\right) \equiv R\left(5\right) \pmstar E\left(x\right)$\mnote{$\text{Neg }\left(x\right) \equiv \thicksim x$, vgl. \refsatz{Konkat}.}
 
 	$\text{Neg }\left(x\right)$ ist die \textit{Negation} von
 	$x$.
 
-	\item $x \text{ Dis } y \equiv E\left(x\right) \pmstar R\left(7\right) \pmstar E\left(y\right)$%
-\mnote{$x \text{ Dis } y \equiv x\text{ . \glqq}\lor\text{\grqq . } y$, vgl. § 8.}
+	% 14:
+	\item \customlabel{Dis}{14}$x \text{ Dis } y \equiv E\left(x\right) \pmstar R\left(7\right) \pmstar E\left(y\right)$%
+\mnote{$x \text{ Dis } y \equiv x\text{. \glqq}\lor\text{\grqq. } y$, vgl. § \refsatz{Konkat}}
 
 	$x \text{ Dis } y$ ist die \textit{Disjunktion} aus $x$ und $y$.
 
-	\item $x \text{ Gen } y \equiv R\left(x\right) \pmstar R\left(9\right) \pmstar E\left(y\right)$%
-		\mnote{$x \text{ Gen } y \equiv x \text{ . \glqq}\Pi\text{\grqq . } y$, oder in modern: 
-		$x \text{ Gen } y \equiv \forall x: y$, vgl. § 8}
+	% 15:
+	\item \customlabel{Gen}{15} $x \text{ Gen } y \equiv R\left(x\right) \pmstar R\left(9\right) \pmstar E\left(y\right)$%
+		\mnote{$x \text{ Gen } y \equiv x \text{. \glqq}\Pi\text{\grqq. } y$, oder in modern: 
+		$x \text{ Gen } y \equiv \forall x: y$, vgl. § \refsatz{Konkat}}
 
 	$x \text{ Gen } y$ ist die \textit{Generalisation} von $y$ mittels der Variablen $x$ (vorausgesetzt, daß $x$ eine \textit{Variable} ist).
 
@@ -856,7 +881,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	\item $0 N x \equiv x$\mnote{Zweistufig-rekursive Funktion zum Vorsetzen des Zeichens \glqq$f$\grqq}
 
 	$\left(n + 1\right) N x \equiv R\left(3\right) n N x$%
-\mnote{$\left(n\right) N x \equiv \text{\glqq}f\text{\grqq .} \left(n - 1\right) N x$, die 3 ist das \glqq $f$\grqq, vgl. § 9}
+\mnote{$\left(n\right) N x \equiv \text{\glqq}f\text{\grqq.} \left(n - 1\right) N x$, die 3 ist das \glqq $f$\grqq, vgl. § \refsatz{Konkat}}
 
 	$n N x$ entspricht der Operation \glqq$n$-maliges
 	Vorsetzen des Zeichens \glq$f$\grq\ vor $x$\grqq.
@@ -889,7 +914,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	\item $Op\left(x\ y\ z\right) \equiv x = \text{Neg}\left(y\right) \lor x = y \text{ Dis } z \lor\allowbreak \left(Ev\right) \left[v \leqq x \& \text{Var}\left(x\right) \& x = v \text{ Gen } y\right]$
 
 	\item $$
-		FR\left(x\right) \equiv \left(n\right) \left\{ 0 < n \leqq l\left(x\right) \longrightarrow\allowbreak Elf\left(n Gl x\right) \lor \left(Ep, q\right)\allowbreak \left[0 < p, q < n \&\allowbreak Op\left(n Gl x, p Gl x, q Gl x\right)\right]\right\} \& l\left(x\right) > 0
+		FR\left(x\right) \equiv \left(n\right) \left\{ 0 < n \leqq l\left(x\right) \longrightarrow\allowbreak Elf\left(n Gl\ x\right) \lor \left(Ep, q\right)\allowbreak \left[0 < p, q < n \&\allowbreak Op\left(n Gl\ x, p Gl\ x, q Gl\ x\right)\right]\right\} \& l\left(x\right) > 0
 		$$
 
 	$x$ ist eine Reihe von \textit{Formeln}, deren jede entweder
@@ -897,7 +922,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	\textit{Disjunktion}, \textit{Generalisation} hervorgeht.
 
 	% 23:
-	\item $\text{Form}\left(x\right) \equiv \left(En\right) \left\{n \leqq \left(Pr \left[l\left(x\right)^2\right]\right)^{x.\left[l\left(x\right)\right]^2} \& FR\left(n\right) \& x = \left[l\left(n\right)\right] Gl n\right\}$\footnote{Die Abschätzung $n \leqq \left(Pr \left[l\left(x\right)^2\right]\right)^{x l\left(x\right)^2}$ 
+	\item \customlabel{Form}{23}$\text{Form}\left(x\right) \equiv \left(En\right) \left\{n \leqq \left(Pr \left[l\left(x\right)^2\right]\right)^{x.\left[l\left(x\right)\right]^2} \& FR\left(n\right) \& x = \left[l\left(n\right)\right] Gl n\right\}$\footnote{Die Abschätzung $n \leqq \left(Pr \left[l\left(x\right)^2\right]\right)^{x l\left(x\right)^2}$ 
 		erkennt man so: Die Länge der kürzesten zu $x$ gehörigen Formelreihe 
 		kann höchstens gleich der Anzahl der Teilformeln von $x$ sein. 
 		Es gibt aber höchstens $l\left(x\right)$ Teilformeln der Länge 1, 
@@ -908,20 +933,21 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 		ihre Anzahl $\leqq l\left(x\right)^2$ und ihre Exponenten (welche Teilformeln von $x$ sind) $\leqq x$.}
 
 	$x$ ist \textit{Formel} (d.\,h. letztes Glied einer \textit{Formelreihe $n$}).
-
-	\item $$
+	% 24:
+	\item \customlabel{Geb}{24}$$
 		v \text{ Geb } n, x \equiv \text{Var}\left(v\right) \& \text{Form}\left(x\right) \& \left(Ea, b, c\right) \left[a, b, c \leqq x \& x a = \pmstar \left(v \text{ Gen } b\right) \pmstar c \& \text{Form}\left(b\right) \& l\left(a\right) + 1 \leqq n \leqq l\left(a\right) + l\left(v \text{ Gen } b\right)\right]
 		$$
 
 	Die \textit{Variable} $v$ ist in $x$ an $n$-ter Stelle \textit{gebunden}.
 
-	\item $v Fr\ n, x \equiv \text{Var}\left(v\right) \& \text{Form}\left(x\right) \& v = n Gl\ x \& n \leqq l\left(x\right) \& v \text{ Geb } n, x$
+	% 25:
+	\item \customlabel{v Fr n, x}{25}$v Fr\ n, x \equiv \text{Var}\left(v\right) \& \text{Form}\left(x\right) \& v = n Gl\ x \& n \leqq l\left(x\right) \& v \text{ Geb } n, x$
 
 	Die \textit{Variable} $v$ ist in $x$ an $n$-ter Stelle \textit{frei}.
 
-	% 26
+	% 26:
 	\item $v Fr\ x \equiv \left(En\right) \left[n \leqq l\left(x\right) \& v Fr\ n, x\right]$%
-\mnote{$v Fr\ x \equiv \exists n: n \leqq l\left(x\right) \wedge v Fr\ n, x$, vgl. §§ 7, 25}
+\mnote{$v Fr\ x \equiv \exists n: n \leqq l\left(x\right) \wedge v Fr\ n, x$, vgl. §§ \refsatz{l(x)}, \refsatz{v Fr n, x}}
 
 	$v$ kommt in $x$ als \textit{freie Variable} vor.
 
@@ -954,29 +980,29 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	$Sb\left(x\substack{v\\y}\right)$ ist der oben definierte Begriff $Subst\ a\left(\substack{v\\b}\right)$\footnote{Statt $Sb\left[Sb\left(x\substack{v\\y}\right)\substack{w\\z}\right]$ schreiben wir: $Sb\left(x\substack{v\ u\\y\ z}\right)$ (analog für mehr als zwei Variable).}.
 
 %32:
-	\item $x \text{ Imp } y \equiv \left[\text{Neg }\left(x\right)\right] \text{ Dis } y $\mnote{$x \text{ Imp } y \equiv \left(\thicksim x\right) \lor y$. Bedeutet: $x \supset y$}
+	\item \customlabel{Imp}{32a}$x \text{ Imp } y \equiv \left[\text{Neg }\left(x\right)\right] \text{ Dis } y $\mnote{$x \text{ Imp } y \equiv \left(\thicksim x\right) \lor y$. Bedeutet: $x \supset y$}
 
-	$x \text{ Con } y \equiv \text{ Neg } \left\{\left[\text{Neg }\left(x\right)\right]\text{ Dis }\left[\text{Neg }\left(y\right)\right]\right\}$\mnote{$x \text{ Con } y \equiv \left(x \supset y\right) \lor \thicksim y$. Bedeutet $x \lor y$}
+	\customlabel{Con}{32b}$x \text{ Con } y \equiv \text{ Neg } \left\{\left[\text{Neg }\left(x\right)\right]\text{ Dis }\left[\text{Neg }\left(y\right)\right]\right\}$\mnote{$x \text{ Con } y \equiv \left(x \supset y\right) \lor \thicksim y$. Bedeutet $x \lor y$}
 
-	$x \text{ Aeq } y \equiv \left(x \text{ Imp } y\right) \text{ Con } \left(y \text { Imp } x\right)$%
+	\customlabel{Aeq}{32c}$x \text{ Aeq } y \equiv \left(x \text{ Imp } y\right) \text{ Con } \left(y \text { Imp } x\right)$%
 	\mnote{$x \text{ Aeq } y \equiv \left(x \supset y\right) \wedge \left(y \supset x\right)$. Bedeutet: $x \text{ iff } y$}
 
-	$v \text { Ex } y \equiv \text{Neg } \left\{v \text{ Gen } \left[\text{Neg } \left(y\right)\right]\right\}$%
-\mnote{$v \text{ Ex } y \equiv \thicksim \left(\forall v: \lnot y\right)$. Bedeutet \glqq alle $y$ in $v$ sind wahr\grqq, vgl. §§ 13, 15}
+	\customlabel{Ex}{32d}$v \text { Ex } y \equiv \text{Neg } \left\{v \text{ Gen } \left[\text{Neg } \left(y\right)\right]\right\}$%
+\mnote{$v \text{ Ex } y \equiv \thicksim \left(\forall v: \lnot y\right)$. Bedeutet \glqq alle $y$ in $v$ sind wahr\grqq, vgl. §§ \refsatz{Neg}, \refsatz{Gen}}
 
 %33:
-	\item $n Th\ x \equiv \epsilon y \left\{ y \leqq x^{\left(x^n\right)} \& \left(k\right) \left[k \leqq l\left(x\right) \longrightarrow \left(k Gl\ x \leqq 13 \& k Gl\ y = k Gl\ x\right) \lor \left(k Gl\ x > 13 \& k Gl\ y = k Gl\ x.\left[1 Pr \left(k Gl\  x\right)\right]^n\right)\right]\right\}$
+	\item \customlabel{Th}{33} $n Th\ x \equiv \epsilon y \left\{ y \leqq x^{\left(x^n\right)} \& \left(k\right) \left[k \leqq l\left(x\right) \longrightarrow \left(k Gl\ x \leqq 13 \& k Gl\ y = k Gl\ x\right) \lor \left(k Gl\ x > 13 \& k Gl\ y = k Gl\ x.\left[1 Pr \left(k Gl\  x\right)\right]^n\right)\right]\right\}$
 
 	$n Th\ x$ ist die \textit{$n$-te Typenerhöhung} von $x$ (falls $x$ und $n Th\ x$ \textit{Formeln} sind).
 
 	Den Axiomen I, 1 bis 3, entsprechen drei bestimmte Zahlen, die wir mit $z_1, z_2, z_3$ bezeichnen un wir definieren:
 
 	%34:
-	\item $Z - Ax\left(x\right) \equiv \left(x = z_1 \lor x = z_2 \lor x = z_3\right)$
+	\item \customlabel{Z - Ax(x)}{34}$Z - Ax\left(x\right) \equiv \left(x = z_1 \lor x = z_2 \lor x = z_3\right)$
 
 	%35:
 	\item $A_1 - Ax\left(x\right) \equiv \left(Ey\right) \left[y \leqq x\& \text{Form }\left(y\right) \& x = \left(y \text{ Dis } y\right) \text{ Imp } y\right]$%
-\mnote{$A_1 - Ax\left(x\right) \equiv \exists y: y \leqq x \wedge \text{Form }\left(y\right) \wedge x = \left(y \lor y\right) \supset y$, vgl. § 14, 23, 32, 34}
+\mnote{$A_1 - Ax\left(x\right) \equiv \exists y: y \leqq x \wedge \text{Form }\left(y\right) \wedge x = \left(y \lor y\right) \supset y$, vgl. § \refsatz{Dis}, \refsatz{Form}, \refsatz{Form}, \refsatz{Dis}, \refsatz{Imp}, \refsatz{Z - Ax(x)}}
 % Was bringt y \lor y???
 
 	$x$ ist eine durch Einsetzung in das Axiomenschema II, 1 entstehende \textit{Formel}. Analog werden $A_2 - Ax, A_3 - Ax, A_4 - Ax$ entsprechend den Axiomen II, 2 bis 4 definiert.
@@ -1013,7 +1039,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	%41:
 	\item $M - Ax\left(x\right) \equiv \left(En\right) \left[n \leqq x \& x = n Th\ z_4\right]$%
-\mnote{$M - Ax\left(x\right) \equiv \exists n: n \leqq x \wedge x = n Th\ z_4$, vgl. § 33}
+\mnote{$M - Ax\left(x\right) \equiv \exists n: n \leqq x \wedge x = n Th\ z_4$, vgl. § \refsatz{Th}}
 
 	%42:
 	\item $Ax\left(x\right) \equiv Z - Ax\left(x\right) \lor A - Ax\left(x\right) \lor L_1 - Ax\left(x\right) \lor L_2 - Ax\left(x\right) \lor R - Ax\left(x\right) \lor M - Ax\left(x\right)$
@@ -1025,9 +1051,9 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	$x$ ist \textit{unmittelbare Folge} aus $y$ und $z$.
 
 	%44:
-	\item $
-		Bw\left(x\right) \equiv \left(n\right)\left\{0 < n \leqq l\left(x\right) \longrightarrow Ax\left(n Gl x\right) \lor 
-		\left(Ep, q\right) \left[0, < p, q < n \& Fl\left(n Gl x, p Gl x, q Gl x\right)\right]\right\} 
+	\item \customlabel{Bw}{44}$
+		Bw\left(x\right) \equiv \left(n\right)\left\{0 < n \leqq l\left(x\right) \longrightarrow Ax\left(n Gl\ x\right) \lor 
+		\left(Ep, q\right) \left[0, < p, q < n \& Fl\left(n Gl\ x, p Gl x, q Gl x\right)\right]\right\} 
 		\& l\left(x\right) > 0
 	$
 
@@ -1036,13 +1062,14 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	% nGl x ist das n-te Glied der der Zahl x zugeordneten Zahlenreihe
 	%(für n > 0 und n nicht größer als die Länge dieser Reihe).
-	\item $x B y \equiv Bw\left(x\right) \& \left[ l\left(x\right) \right] Gl x = y$%
-		\mnote{$x$ ist Beweis für $y \equiv \left(x \text{ ist Beweisfigur } \wedge\allowbreak \left(\text{ die Länge von } x \text{ das n}-\text{te Glied der Zahl } x\right) = y\right)$, vgl. §§ 44, 7, 6} % TODO versteh ich nicht richtig mit l usw.
+	% 45:
+	\item \customlabel{x B y}{45}$x B\ y \equiv Bw\left(x\right) \& \left[ l\left(x\right) \right] Gl x = y$%
+		\mnote{$x$ ist Beweis für $y \equiv \left(x \text{ ist Beweisfigur } \wedge\allowbreak \left(\text{ die Länge von } x \text{ das n}-\text{te Glied der Zahl } x\right) = y\right)$, vgl. §§ \refsatz{l(x)}, \refsatz{n Gl x}, \refsatz{Bw}} % TODO versteh ich nicht richtig mit l usw.
 
 	$x$ ist ein \textit{Beweis} für die \textit{Formel} $y$.
 
 	%46
-	\item $\text{Bew }\left(x\right) \equiv \left(Ey\right) y B x$\mnote{$\text{Bew } \equiv \exists y: y B x$, es existiert ein Beweis $y$ für $x$, vgl. § 45}
+	\item \customlabel{Bew}{46}$\text{Bew }\left(x\right) \equiv \left(Ey\right) y B x$\mnote{$\text{Bew } \equiv \exists y: y B x$, es existiert ein Beweis $y$ für $x$, vgl. § \refsatz{x B y}}
 
 	$x$ ist eine \textit{beweisbare Formel}. [$\text{Bew }\left(x\right)$ ist der einzige unter den Begriffen 1--46, von dem nicht behauptet werden kann, er sei rekursiv.]
 \end{enumerate}
@@ -1093,8 +1120,8 @@ $\text{Flg }\left(\chi\right)$ gehört (wobei $v$ die} \textit{freie Variable} \
 Beweis: Sei $\chi$ eine beliebige rekursive $\omega$-widerspruchsfreie Klasse von \textit{Formeln}. Wir definieren:
 
 \begin{equation}
-	Bw_x\left(x\right) \equiv \left(n\right) \left[ n \leqq l\left(x\right) \longrightarrow Ax\left(n Gl x\right) \lor \left(n Gl x\right) \epsilon \chi \lor \\
-	\left(Ep, q\right) \left\{0 < p, q < n \& Fl\left(n Gl x, p Gl x, q Gl x\right)\right\}\right] \& l\left(x\right) > 0
+	Bw_x\left(x\right) \equiv \left(n\right) \left[ n \leqq l\left(x\right) \longrightarrow Ax\left(n Gl\ x\right) \lor \left(n Gl\ x\right) \epsilon \chi \lor \\
+	\left(Ep, q\right) \left\{0 < p, q < n \& Fl\left(n Gl\ x, p Gl x, q Gl x\right)\right\}\right] \& l\left(x\right) > 0
 \end{equation}
 (vgl. den analogen Begriff 44)
 
@@ -1193,7 +1220,7 @@ Daraus ergibt sich:
 
 \let\originalfootnote=\thefootnote
 \let\thefootnote=\fnfunfundvierziga
-Man kann sich leicht überzeugen, daß der eben geführte Beweis konstruktiv ist\footnote{Denn alle im Beweise vorkommenden Existentialbehauptungen beruhen auf Satz , der, wie leicht zu sehen, intuitionistisch einwandfrei ist.},
+Man kann sich leicht überzeugen, daß der eben geführte Beweis konstruktiv ist\footnote{Denn alle im Beweise vorkommenden Existentialbehauptungen beruhen auf Satz, der, wie leicht zu sehen, intuitionistisch einwandfrei ist.},
 \let\thefootnote=\originalfootnote
 \setcounter{footnote}{45}
 d.\,h. es ist intuitionistisch einwandfrei folgendes bewiesen:
@@ -1203,7 +1230,7 @@ von \textit{Formeln} vorgelegt. Wenn dann eine formale Entscheidung (aus $\chi$)
 
 \begin{enumerate}
 	\item Einen \textit{Beweis} für $\text{Neg }\left(17 \text{ Gen } r\right)$.
-	\item Für jedes beliebige $n$ einen Beweis für $Sb\left(r\substack{17\\ Z\left(n\right)}\right)$, d.h. eine formale Entscheidung von $17\text{ Gen } r$ würde die effektive Aufweisbarkeit eines $\omega$-Widerspruches zur Folge haben.
+	\item Für jedes beliebige $n$ einen Beweis für $Sb\left(r\substack{17\\ Z\left(n\right)}\right)$, d.\,h. eine formale Entscheidung von $17\text{ Gen } r$ würde die effektive Aufweisbarkeit eines $\omega$-Widerspruches zur Folge haben.
 \end{enumerate}
 
 Wir wollen eine Relation (Klasse) zwischen natürlichen Zahlen $R\left(x_1 \dots x_n\right)$ 
