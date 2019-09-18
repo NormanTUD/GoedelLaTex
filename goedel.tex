@@ -23,15 +23,14 @@
 \everymath{\displaystyle}
 \allowdisplaybreaks
 
-\usepackage[a4paper,
+\usepackage[a3paper,
     inner=20mm,
-    outer=83mm,% = marginparsep + marginparwidth 
-	       %   + 5mm (between marginpar and page border)
+    outer=171mm,% = marginparsep + marginparwidth + 5mm (between marginpar and page border)
     top=20mm,
     bottom=25mm,
     marginparsep=5mm,
-    marginparwidth=78mm%,
-%    showframe% for show your page design, normaly not used
+    marginparwidth=169mm,
+    showframe% for show your page design, normaly not used
 ]{geometry}
 
 
@@ -953,7 +952,10 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$x$ ist eine \textit{Beweisfigur} (eine endliche Folge von \textit{Formeln}, deren jede entweder \textit{Axiom} oder \textit{unmittelbare Folge} aus der vorhergehenden ist).
 
-	\item $x B y \equiv Bw\left(x\right) \& \left[ l\left(x\right) \right] Gl x = y$
+	% nGl x ist das n-te Glied der der Zahl x zugeordneten Zahlenreihe
+	%(für n > 0 und n nicht größer als die Länge dieser Reihe).
+	\item $x B y \equiv Bw\left(x\right) \& \left[ l\left(x\right) \right] Gl x = y$%
+		\mnote{$x$ ist Beweis für $y \equiv \left(x \text{ ist Beweisfigur } \wedge\allowbreak \left(\text{ die Länge von } x \text{ das n}-\text{te Glied der Zahl } x\right) = y\right)$, vgl. §§ 44, 7, 6}
 
 	$x$ ist ein \textit{Beweis} für die \textit{Formel} $y$.
 
