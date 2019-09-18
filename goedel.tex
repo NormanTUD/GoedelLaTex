@@ -62,7 +62,7 @@
 	\newcommand{\mnote}[1]{}
 \fi
 
-\newcommand{\refsatz}[1]{\ref{#1} (#1)}
+\newcommand{\refsatz}[1]{\textcolor{orange}{\ref{#1} (#1)}}
 
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 
@@ -244,7 +244,7 @@ in der folgenden Beweisskizze, d.\,h. unter \glqq Formel\grqq,
 \so{sind immer die entsprechenden Gegenstände des isomorphen Bildes zu verstehen}.}
 und daher (wenigstens teilweise) in den Symbolen
 des Systems PM selbst ausdrückbar. Insbesondere kann man
-zeigen, daß die Begriffe \mnote{Vgl. § 32, 44, \refsatz{Bew}}\glqq Formel\grqq, 
+zeigen, daß die Begriffe \mnote{Vgl. § \refsatz{Logische Operatoren}, \refsatz{Bw}, \refsatz{Bew}}\glqq Formel\grqq, 
 \glqq Beweisfigur\grqq, 
 \glqq beweisbare Formel\grqq\ innerhalb des Systems PM 
 definierbar sind, d.\,h. man kann z.\,B. eine Formel 
@@ -893,8 +893,9 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	\let\originalfootnote=\thefootnote
 	\let\thefootnote=\fnvierunddreissigb
+
 	% 18:
-	\item $\text{Typ}_1'\left(x\right) \equiv \left(Em, n\right) \left\{m, n\leqq x \& \left[m = 1 \lor 1\textit{ Var } m\right] \& x = n N \left[R\left(m\right)\right]\right\}$\footnote{$m, n \leqq x$ steht für: $m \leqq x \& n \leqq x$ (ebenso für mehr als 2 Variable).}
+	\item \customlabel{Typ1'}{18}$\text{Typ}_1'\left(x\right) \equiv \left(Em, n\right) \left\{m, n\leqq x \& \left[m = 1 \lor 1\textit{ Var } m\right] \& x = n N \left[R\left(m\right)\right]\right\}$\footnote{$m, n \leqq x$ steht für: $m \leqq x \& n \leqq x$ (ebenso für mehr als 2 Variable).}
 	\let\thefootnote=\originalfootnote
 	\setcounter{footnote}{34}
 
@@ -903,7 +904,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	% 19:
 	\item $\text{Typ}_n\left(x\right) \equiv \left[n = 1 \& \text{Typ}_1'\left(x\right)\right] \lor \left[n > 1 \& \left(Ev\right) \left\{v \leqq x \& n\text{ Var } v \& x = R\left(v\right)\right\}\right]$
 
-	$x$ ist \textit{Zeichen $n$-ten Typs}.\mnote{Siehe § 18 für Spezialfall $n = 1$}
+	$x$ ist \textit{Zeichen $n$-ten Typs}.\mnote{Siehe § \refsatz{Typ1'} für Spezialfall $n = 1$}
 
 	%20:
 	\item $Elf\left(x\right) \equiv \left(E y, z, n\right) \left[y, z, n \leqq x \& \text{Typ}_n\left(y\right) \& \text{Typ}_{n + 1}\left(z\right) \& x = z \pmstar E\left(y\right)\right]$
@@ -980,6 +981,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	$Sb\left(x\substack{v\\y}\right)$ ist der oben definierte Begriff $Subst\ a\left(\substack{v\\b}\right)$\footnote{Statt $Sb\left[Sb\left(x\substack{v\\y}\right)\substack{w\\z}\right]$ schreiben wir: $Sb\left(x\substack{v\ u\\y\ z}\right)$ (analog für mehr als zwei Variable).}.
 
 %32:
+	\customlabel{Logische Operatoren}{32}
 	\item \customlabel{Imp}{32a}$x \text{ Imp } y \equiv \left[\text{Neg }\left(x\right)\right] \text{ Dis } y $\mnote{$x \text{ Imp } y \equiv \left(\thicksim x\right) \lor y$. Bedeutet: $x \supset y$}
 
 	\customlabel{Con}{32b}$x \text{ Con } y \equiv \text{ Neg } \left\{\left[\text{Neg }\left(x\right)\right]\text{ Dis }\left[\text{Neg }\left(y\right)\right]\right\}$\mnote{$x \text{ Con } y \equiv \left(x \supset y\right) \lor \thicksim y$. Bedeutet $x \lor y$}
