@@ -14,7 +14,11 @@
 \usepackage{enumerate}
 \usepackage{amssymb}
 \usepackage{mathtools}
-\usepackage{xcolor}
+\usepackage{xargs}
+\usepackage[pdftex,dvipsnames]{xcolor}
+% 
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
 
 \everymath{\displaystyle}
 \allowdisplaybreaks
@@ -26,8 +30,8 @@
     top=20mm,
     bottom=25mm,
     marginparsep=5mm,
-    marginparwidth=50mm,
-    showframe% for show your page design, normaly not used
+    marginparwidth=50mm%,
+%    showframe% for show your page design, normaly not used
 ]{geometry}
 
 
@@ -41,6 +45,8 @@
 \newcommand{\fnvierunddreissigb}{34b}
 \newcommand{\fnfunfundvierziga}{45a}
 \newcommand{\fnachtundvierziga}{48a}
+
+%\newcommand{\mnote}[1]{\marginpar{\todo{\tiny#1}}}
 \newcommand{\mnote}[1]{\marginpar{\textcolor{green}{\tiny#1}}}
 \newcommand{\mcode}[1]{\textcolor{gray}{\texttt{#1}}}
 
@@ -667,7 +673,7 @@ Voraussetzung gibt es ein rekursives $\rho\left(\mathfrak{x}, \mathfrak{y}\right
 	R\left(\mathfrak{x}, \mathfrak{y}\right) \thicksim \left[\rho\left(\mathfrak{x}, \mathfrak{y}\right) = 0\right].
 \end{equation*}
 
-Wir definieren nun nach dem Rekursionsschma (2) eine 
+Wir definieren nun nach dem Rekursionsschema (2) eine 
 Funktion $\chi\left(\mathfrak{x}, \mathfrak{y}\right)$ folgendermaßen:
 
 \begin{equation*}
@@ -720,10 +726,12 @@ Funktionen (Relationen) 1--45, unter denen z.\,B. die
 Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmittelbare Folge}\grqq\ vorkommen, ist daher rekursiv.
 
 \begin{enumerate}[1.]
-	\item $x/y \equiv \left(Ez\right) \left[z \leqq x \& x = y.z\right]$\footnote{Das Zeichen $\equiv$ wird im Sinne von \glqq Definitionsgleichheit\grqq\ verwendet, vertritt also bei Definitionen entweder $=$ oder $\thicksim$ (im übrigen ist
+	\item $x/y \equiv \left(Ez\right) \left[z \leqq x \& x = y.z\right]$%
+\mnote{$x/y \equiv \exists z\left(z \leqq x \wedge x = y\times z\right)$}%
+\footnote{Das Zeichen $\equiv$ wird im Sinne von \glqq Definitionsgleichheit\grqq\ verwendet, vertritt also bei Definitionen entweder $=$ oder $\thicksim$ (im übrigen ist
 	die Symbol die \so{Hilbert}sche).}
 
-	$x$ ist teilbar durch $y$\footnote{Überall, wo in den folgenden Definitionen eines der Zeichen $\left(x\right), \left(Ex\right), \epsilon x$ auftritt, ist es von einer Abschätzung für $x$ gefolgt. Diese Abschätzung dient lediglich dazu, um die rekursive Natur des definierten Begriffes (vgl. Satz IV) zu sichern. Dagegen würde sich der Umgang der definierten Begriffe durch Weglassung dieser Abschätzung meistens nicht ändern.}
+		$x$ ist teilbar durch $y$\mnote{$x/y \equiv \exists z \left[z \leqq x \wedge x = y\times z\right]$}\footnote{Überall, wo in den folgenden Definitionen eines der Zeichen $\left(x\right), \left(Ex\right), \epsilon x$ auftritt, ist es von einer Abschätzung für $x$ gefolgt. Diese Abschätzung dient lediglich dazu, um die rekursive Natur des definierten Begriffes (vgl. Satz IV) zu sichern. Dagegen würde sich der Umgang der definierten Begriffe durch Weglassung dieser Abschätzung meistens nicht ändern.}
 
 	\item $\text{Prim }\left(x\right) \equiv \overline{\left(Ez\right)} \left[z \leqq x \& z \not = 1 \& z \not = x \& x/z\right] \& x > 1$
 
@@ -739,7 +747,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 	\let\thefootnote=\originalfootnote
 	\setcounter{footnote}{35}
 
-	\item $0! \equiv 1$
+	\item $0! \equiv 1$\mnote{Fakultät, zweistufig-rekursive Funktionsdefinition}
 
 	$\left(n + 1\right)! \equiv \left(n + 1\right).n!$
 
@@ -765,7 +773,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$x \pmstar y$ entspricht der Operation des
 	\glqq Aneinanderfügens\grqq\ zweier endlicher
-	Zahlenreihen.
+	Zahlenreihen.\mnote{Konkatinieren von Zahlen}
 
 	\item $R\left(x\right) \equiv 2^\omega$
 
@@ -884,7 +892,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$Sb\left(x\substack{v\\y}\right)$ ist der oben definierte Begriff $Subst a\left(\substack{v\\b}\right)$\footnote{Statt $Sb\left[Sb\left(x\substack{v\\y}\right)\substack{w\\z}\right]$ schreiben wir: $Sb\left(x\substack{v\ u\\y\ z}\right)$ (analog für mehr als zwei Variable).}.
 
-	\item $x \text{ Imp } y \equiv \left[\text{Neg }\left(x\right)\right] \text{ Dis } y $
+\item $x \text{ Imp } y \equiv \left[\text{Neg }\left(x\right)\right] \text{ Dis } y $\mnote{$x \supset y \equiv \left(\lnot x\right) \lor y$}
 
 	$x \text{ Con } y \equiv \text{ Neg } \left\{\left[\text{Neg }\left(x\right)\right]\text{ Dis }\left[\text{Neg }\left(y\right)\right]\right\}$\mnote{$x \wedge y \equiv \left(x \supset y\right) \lor \lnot y$}
 
