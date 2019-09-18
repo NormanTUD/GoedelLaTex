@@ -7,4 +7,6 @@ This is the paper "Über formal unentscheidbare Sätze der Principia Mathematica
 
 - Remove some 'TODO's (mainly where new page numbers arose because of the new layout)
 
-- Add more `\left` and `\right` for better readability
+- Match the position of every word with the original document
+
+- Integrate better tools for creating critical editions
