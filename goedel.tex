@@ -805,7 +805,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$x \text{ Gen } y$ ist die \textit{Generalisation} von $y$ mittels der Variablen $x$ (vorausgesetzt, daß $x$ eine \textit{Variable} ist).
 
-	\item $0 N x \equiv x$
+	\item $0 N x \equiv x$\mnote{Zweistufig-rekursive Funktion zum Vorsetzen des Zeichens \glqq$f$\grqq}
 
 	$\left(n + 1\right) N x \equiv R\left(3\right) n N x$
 
@@ -1498,9 +1498,10 @@ d.\,h. nach (8.1):
 Wir stellen nun folgendes fest: Sämtliche in Abschnitt 2\footnote{Von der Definition für \glqq rekursiv\grqq\ auf Seite 179 TODO bis zum Beweis von Satz VI inkl.}
 und Abschnitt 4 bisher definierten Begriffe (bzw. bewiesene Behauptungen) sind auch in $P$ ausdrückbar (bzw. beweisbar). Denn es wurden überall nur die gewöhnlichen Definitions- und Beweismethoden der klassischen Mathematik verwendet, wie sie im System $P$ formalisiert sind. Insbesondere ist $\chi$ (wie jede rekursive Klasse) in $P$ definierbar. Sei $w$ die \textit{Satzformel}, durch welche in $P\text{ Wid } \left(x\right)$ ausgedrückt wird. Die Relation $Q\left(x, y\right)$ wird gemäß (8.1), (9), (10) durch das \textit{Relationszeichen} $q$ ausgedrückt, folglich $Q\left(x, p\right)$ durch $r \left[\text{ da nach (12)} r_?^? = Sb\left(q\substack{19\\ Z\left(p\right)}\right)\right]$ und der Satz $\left(x\right)Q\left(x, p\right)$ durch $17\text{ Gen } r$.
 
-Wegen (24) ist also $w\text{ Imp } \left(17\text{ Gen }r\right)$ in $P$ 
-beweisbar\footnote{Daß aus (23) auf die Richtigkeit von $w\text{ Imp }\left(17\text{ Gen } r\right)$
-geschlossen werden kann, beruht einfach darauf, daß der unentscheidbare Satz 
+Wegen (24) ist also $w\text{ Imp } \left(17\text{ Gen }r\right)$
+in $P$ beweisbar\footnote{Daß aus (23) auf die Richtigkeit von
+$w\text{ Imp }\left(17\text{ Gen } r\right)$
+geschlossen werden kann, beruht einfach darauf, daß der unentscheidbare Satz%\mnote{$w \supset \left(\glqq 17\grqq\text{ Gen } r\right)$} % Todo was ist 17? Gen -> Satz 17, was ist r? Was ist w?
 $17\text{ Gen }r$, wie gleich zu Anfang bemerkt, seine eigene Unbeweisbarkeit behauptet.} 
 (umso mehr $\chi$-\textit{beweisbar}). Wäre nun $w$ $\chi$-\textit{beweisbar}, 
 so wäre auch $17\text{ Gen }r$ $\chi$-\textit{beweisbar} und daraus würde nach (23) 
