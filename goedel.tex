@@ -44,7 +44,7 @@
 		paperheight=27cm
 		%showframe% for show your page design, normaly not used
 	]{geometry}
-	\newcommand{\mnote}[1]{\marginpar{\textcolor{darkgray}{\small\arabic{commentaryNumber}: #1}}\stepcounter{commentaryNumber}}
+	\newcommand{\mnote}[1]{\marginpar{ \textcolor{darkgray}{\small\arabic{commentaryNumber}: #1}}\stepcounter{commentaryNumber}}
 \else 
 	\newcommand{\mnote}[1]{}
 \fi
@@ -116,7 +116,7 @@
 }
 \makeatother
 
-\makecolorlist{blue, green, cyan, violet, magenta, pink, teal, lime, orange, yellow, purple, red}
+\makecolorlist{green, cyan, blue, violet, magenta, pink, teal, lime, orange, yellow, purple, red}
 
 \begin{document}
 
@@ -266,7 +266,7 @@ Zahlen folgendermaßen:
 
 \let\originalfootnote=\thefootnote
 \let\thefootnote=\fnelfa
-\mnote{$\exists n: n \in K \wedge \thicksim Bew \left[R\left(n\right); n\right]$}
+\mnote{$\exists n: n \in K \wedge \thicksim Bew \left[R\left(n\right); n\right]$, vgl. § 46}
 \begin{equation}
 \label{formel1}
 n \epsilon K \equiv \overline{Bew}\left[R\left(n\right); n\right]\footnote{Durch Überstreichen wird die Negation bezeichnet.}
@@ -505,7 +505,7 @@ exakten Definitionen der metamathe. Begriffe S. 182fg.) TODO}):
 	\item Jede Formel, die aus dem Schema
 
 	\begin{enumerate}[1.]
-		\item $\left(Eu\right)\left(v\Pi\left(u\left(v\right) \equiv a\right)\right)$\mnote{$\exists u: \forall v: u(v) \equiv a$}
+		\item $\left(Eu\right)\left(v\Pi\left(u\left(v\right) \equiv a\right)\right)$\mnote{$\exists u: \forall v: u\left(v\right) \equiv a$}
 	\end{enumerate}
 
 	dadurch entsteht, daß man für $v$ bzw. $u$ 
@@ -856,7 +856,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	\item $0 N x \equiv x$\mnote{Zweistufig-rekursive Funktion zum Vorsetzen des Zeichens \glqq$f$\grqq}
 
 	$\left(n + 1\right) N x \equiv R\left(3\right) n N x$%
-\mnote{$(n) N x \equiv \text{\glqq}f\text{\grqq .} \left(n - 1\right) N x$, die 3 ist das \glqq $f$\grqq, vgl. § 9}
+\mnote{$\left(n\right) N x \equiv \text{\glqq}f\text{\grqq .} \left(n - 1\right) N x$, die 3 ist das \glqq $f$\grqq, vgl. § 9}
 
 	$n N x$ entspricht der Operation \glqq$n$-maliges
 	Vorsetzen des Zeichens \glq$f$\grq\ vor $x$\grqq.
@@ -976,7 +976,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	%35:
 	\item $A_1 - Ax\left(x\right) \equiv \left(Ey\right) \left[y \leqq x\& \text{Form }\left(y\right) \& x = \left(y \text{ Dis } y\right) \text{ Imp } y\right]$%
-\mnote{$A_1 - Ax\left(x\right) \equiv \exists y: y \leqq x \wedge \text{Form }\left(y\right) \wedge x = (y \lor y) \supset y$, vgl. § 14, 23, 32, 34}
+\mnote{$A_1 - Ax\left(x\right) \equiv \exists y: y \leqq x \wedge \text{Form }\left(y\right) \wedge x = \left(y \lor y\right) \supset y$, vgl. § 14, 23, 32, 34}
 % Was bringt y \lor y???
 
 	$x$ ist eine durch Einsetzung in das Axiomenschema II, 1 entstehende \textit{Formel}. Analog werden $A_2 - Ax, A_3 - Ax, A_4 - Ax$ entsprechend den Axiomen II, 2 bis 4 definiert.
