@@ -653,14 +653,36 @@ Satz I folgt unmittelbar aus der Definition von \glqq rekursiv\grqq. Satz II und
 \begin{equation*}
 	\alpha\left(x\right), \beta\left(x, y\right), \gamma\left(x, y\right)
 \end{equation*}
-nämlich:
+nämlich:\mnote{\noindent\begin{equation*}
+	\noindent \alpha\left(x\right) = \left\{
+	\begin{aligned}
+		&1, && \text{wenn }\ x = 0 \\
+		&0, && \text{sonst}
+	\end{aligned} \right.
+\end{equation*}}
 \begin{equation*}
 	\alpha\left(0\right) = 1; \alpha\left(x\right) = 0\text{ für } x \not = 0
 \end{equation*}
+
+\mnote{\noindent\begin{equation*}
+	\noindent \beta\left(x, y\right) = \left\{
+	\begin{aligned}
+		&1, && \text{wenn }\ x \wedge y \\
+		&0, && \text{sonst}
+	\end{aligned} \right.
+\end{equation*}}
 \begin{equation*}
 	\beta\left(0, x\right) = \beta\left(x, 0\right) = 0; \beta\left(x, y\right) = 1,
 	\text{ wenn } x, y \text{ beide } \not = 0 \text{ sind}
 \end{equation*}
+
+\mnote{\noindent\begin{equation*}
+	\noindent \gamma\left(x, y\right) = \left\{
+	\begin{aligned}
+		&0, && \text{wenn }\ x = y \\
+		&1, && \text{sonst}
+	\end{aligned} \right.
+\end{equation*}}
 \begin{equation*}
 	\gamma\left(x, y\right) = 0, \text{ wenn } x = y; \gamma\left(x, y\right) = 1, \text{ wenn } x \not = y
 \end{equation*}
@@ -821,14 +843,17 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	$x \text{ Gen } y$ ist die \textit{Generalisation} von $y$ mittels der Variablen $x$ (vorausgesetzt, daß $x$ eine \textit{Variable} ist).
 
+	%16:
 	\item $0 N x \equiv x$\mnote{Zweistufig-rekursive Funktion zum Vorsetzen des Zeichens \glqq$f$\grqq}
 
-	$\left(n + 1\right) N x \equiv R\left(3\right) n N x$
+	$\left(n + 1\right) N x \equiv R\left(3\right) n N x$%
+\mnote{$(n) N x \equiv \text{\glqq}f\text{\grqq .} \left(n - 1\right) N x$, die 3 ist das \glqq $f$\grqq, vgl. § 9}
 
 	$n N x$ entspricht der Operation \glqq$n$-maliges
 	Vorsetzen des Zeichens \glq$f$\grq\ vor $x$\grqq.
 
-	\item $Z\left(n\right) \equiv n N\left[R\left(1\right)\right]$
+	%17:
+	\item $Z\left(n\right) \equiv n N\left[R\left(1\right)\right]$%
 
 	$Z\left(n\right)$ ist das \textit{Zahlzeichen} für die Zahl $n$.
 
@@ -878,26 +903,29 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	Die \textit{Variable} $v$ ist in $x$ an $n$-ter Stelle \textit{gebunden}.
 
-	\item $v Fr n, x \equiv \text{Var}\left(v\right) \& \text{Form}\left(x\right) \& v = n Gl x \& n \leqq l\left(x\right) \& v \text{ Geb } n, x$
+	\item $v Fr\ n, x \equiv \text{Var}\left(v\right) \& \text{Form}\left(x\right) \& v = n Gl\ x \& n \leqq l\left(x\right) \& v \text{ Geb } n, x$
 
 	Die \textit{Variable} $v$ ist in $x$ an $n$-ter Stelle \textit{frei}.
 
-	\item $v Fr x \equiv \left(En\right) \left[n \leqq l\left(x\right) \& v Fr n, x\right]$
+	% 26
+	\item $v Fr\ x \equiv \left(En\right) \left[n \leqq l\left(x\right) \& v Fr\ n, x\right]$%
+\mnote{$v Fr\ x \equiv \exists n: n \leqq l\left(x\right) \wedge v Fr\ n, x$, vgl. §§ 7, 25}
 
 	$v$ kommt in $x$ als \textit{freie Variable} vor.
 
-	\item $S u x \Spvek{n; y} \equiv \epsilon z \left\{ z \leqq \left[Pr\left(l\left(x\right) + l\left(y\right)\right)\right]^{x + y} \& \left[\left(Eu, v\right) u, v \leqq x \& x = u \pmstar R\left(n Gl x\right) v \& z = u \pmstar y \pmstar v \& n = l\left(u\right) + 1\right]\right\}$
+	\item $Su\ x \Spvek{n; y} \equiv \epsilon z \left\{ z \leqq \left[Pr\left(l\left(x\right) + l\left(y\right)\right)\right]^{x + y} \& \left[\left(Eu, v\right) u, v \leqq x \& x = u \pmstar R\left(n Gl\ x\right) v \& z = u \pmstar y \pmstar v \& n = l\left(u\right) + 1\right]\right\}$
 
-	$S u x \Spvek{n; y}$ entsteht aus $x$, wenn man an Stelle des $n$-ten Gliedes von $x$ $y$ einsetzt (vorausgesetzt, daß $0 < n \leqq l\left(x\right)$).
+	$Su\ x \Spvek{n; y}$ entsteht aus $x$, wenn man an Stelle des $n$-ten Gliedes von $x$ $y$ einsetzt (vorausgesetzt, daß $0 < n \leqq l\left(x\right)$).
 
-	\item $0 St v, x \equiv \left\{ n \leqq l\left(x\right) \& v Fr n, x \& \overline{\left(Ep\right)} \left[n < p \leqq l\left(x\right) \& v Fr p x\right]\right\}$
+	%28:
+	\item $0 St\ v, x \equiv \left\{ n \leqq l\left(x\right) \& v Fr n, x \& \overline{\left(Ep\right)} \left[n < p \leqq l\left(x\right) \& v Fr p x\right]\right\}$
 
-	$\left(k + 1\right) St v, x \equiv \epsilon n \left\{n < k St , x \& v Fr n, x \& \overline{\left(Ep\right)} \left[n < p < k St v, x \& v Fr p, x\right]\right\}$
+	$\left(k + 1\right) St\ v, x \equiv \epsilon n \left\{n < k St\ v, x \& v Fr n, x \& \overline{\left(Ep\right)} \left[n < p < k St\ v, x \& v Fr p, x\right]\right\}$
 
-	$k St v, x$ ist die $k + 1$-te Stelle in $x$ (vom Ende der \textit{Formel} $x$ an gezählt), an der $v$ in $x$ \textit{frei} ist (und 0, falls es keine solche Stelle gibt).
+	$k St\ v, x$ ist die $k + 1$-te Stelle in $x$ (vom Ende der \textit{Formel} $x$ an gezählt), an der $v$ in $x$ \textit{frei} ist (und 0, falls es keine solche Stelle gibt).
 
 	%29:
-	\item $A\left(v, x\right) \equiv \epsilon n\left\{ n \leqq l\left(x\right) \& n St v x = 0\right\}$
+	\item $A\left(v, x\right) \equiv \epsilon n\left\{ n \leqq l\left(x\right) \& n St\ v, x = 0\right\}$
 
 	$A\left(v, x\right)$ ist die Anzahl der Stellen, an denen $v$ in $x$ \textit{frei} ist.
 
@@ -905,7 +933,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	\item $Sb_0 \left(x\substack{v\\y }\right) \equiv \alpha$%
 \mnote{Rekursive Funktion zum Ersetzen von Variablen, letzter Rekursionsschritt ist immer die 0 (daher spezial definiert)}
 
-	$Sb_{k + 1} \left(x\substack{v\\y}\right) \equiv Su \left[Sb_k\left(x\substack{v\\y}\right)\right] \left(\substack{k\ St\ v, x\\y}\right)$%
+	$Sb_{k + 1} \left(x\substack{v\\y}\right) \equiv Su\ \left[Sb_k\left(x\substack{v\\y}\right)\right] \left(\substack{k\ St\ v, x\\y}\right)$%
 \mnote{Expandiert die Variablen bis in die unterste Formelebene zu ihrem Ersatz}
 	
 	% 31
@@ -913,6 +941,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	$Sb\left(x\substack{v\\y}\right)$ ist der oben definierte Begriff $Subst\ a\left(\substack{v\\b}\right)$\footnote{Statt $Sb\left[Sb\left(x\substack{v\\y}\right)\substack{w\\z}\right]$ schreiben wir: $Sb\left(x\substack{v\ u\\y\ z}\right)$ (analog für mehr als zwei Variable).}.
 
+%32:
 \item $x \text{ Imp } y \equiv \left[\text{Neg }\left(x\right)\right] \text{ Dis } y $\mnote{$x \text{ Imp } y \equiv \left(\thicksim x\right) \lor y$. Bedeutet: $x \supset y$}
 
 	$x \text{ Con } y \equiv \text{ Neg } \left\{\left[\text{Neg }\left(x\right)\right]\text{ Dis }\left[\text{Neg }\left(y\right)\right]\right\}$\mnote{$x \text{ Con } y \equiv \left(x \supset y\right) \lor \thicksim y$. Bedeutet $x \lor y$}
@@ -923,9 +952,10 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	$v \text { Ex } y \equiv \text{Neg } \left\{v \text{ Gen } \left[\text{Neg } \left(y\right)\right]\right\}$%
 \mnote{$v \text{ Ex } y \equiv \thicksim \left(\forall v: \lnot y\right)$. Bedeutet \glqq alle $y$ in $v$ sind wahr\grqq, vgl. §§ 13, 15}
 
-	\item $n Th x \equiv \epsilon y \left\{ y \leqq x^{\left(x^n\right)} \& \left(k\right) \left[k \leqq l\left(x\right) \longrightarrow \left(k Gl x \leqq 13 \& k Gl y = k Gl x\right) \lor \left(k Gl x > 13 \& k Gl y = k Gl x.\left[1 Pr \left(k Gl x\right)\right]^n\right)\right]\right\}$
+%33:
+	\item $n Th\ x \equiv \epsilon y \left\{ y \leqq x^{\left(x^n\right)} \& \left(k\right) \left[k \leqq l\left(x\right) \longrightarrow \left(k Gl\ x \leqq 13 \& k Gl\ y = k Gl\ x\right) \lor \left(k Gl\ x > 13 \& k Gl\ y = k Gl\ x.\left[1 Pr \left(k Gl\  x\right)\right]^n\right)\right]\right\}$
 
-	$n Th x$ ist die \textit{$n$-te Typenerhöhung} von $x$ (falls $x$ und $n Th x$ \textit{Formeln} sind).
+	$n Th\ x$ ist die \textit{$n$-te Typenerhöhung} von $x$ (falls $x$ und $n Th\ x$ \textit{Formeln} sind).
 
 	Den Axiomen I, 1 bis 3, entsprechen drei bestimmte Zahlen, die wir mit $z_1, z_2, z_3$ bezeichnen un wir definieren:
 
@@ -960,7 +990,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	Dem Axiom V, 1 entspricht eine bestimmte Zahl $z_4$ und wir definieren:
 
-	\item $M - Ax\left(x\right) \equiv \left(En\right) \left[n \leqq x \& x = n Th z_4\right]$
+	\item $M - Ax\left(x\right) \equiv \left(En\right) \left[n \leqq x \& x = n Th\ z_4\right]$
 
 	\item $Ax\left(x\right) \equiv Z - Ax\left(x\right) \lor A - Ax\left(x\right) \lor L_1 - Ax\left(x\right) \lor L_2 - Ax\left(x\right) \lor R - Ax\left(x\right) \lor M - Ax\left(x\right)$
 
@@ -1199,7 +1229,7 @@ Sei $a$ die größte in $\alpha$ enthaltene Zahl. Dann gilt in diesem
 Fall für $\chi$:
 
 $$
-x \epsilon x \thicksim \left(Em, n\right) \left[m \leqq x \& n \leqq a \& n \epsilon \alpha \& x = m Th n\right]
+x \epsilon x \thicksim \left(Em, n\right) \left[m \leqq x \& n \leqq a \& n \epsilon \alpha \& x = m Th\ n\right]
 $$
 
 $\chi$ ist also rekursiv. Das erlaubt z.\,B. zu schließen, daß auch mit Hilfe des Auswahlaxioms (für alle Typen) oder der verallgemeinerten Kontinuumshypothese nicht alle Sätze entscheidbar sind, vorausgesetzt, daß diese Hypothesen $\omega$-widerspruchsfrei sind.
