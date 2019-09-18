@@ -124,7 +124,7 @@ Von \textbf{Kurt Gödel} in Wien.
 1.
 \end{center}
 
-Die Entwicklung der Mathematik in der Richtung zu größerer
+Die Entwicklung der Mathematik in der Richtung zu größerer\mnote{Das Hilbert-Programm forderte, dass alle mathematischen Sachverhalte zurückführbar sein müssen auf einfache logische Operationen. In der Principia Mathematica haben Russell und Whitehead genau das zu erreichen versucht.}
 Exaktheit hat bekanntlich dazu geführt, daß weite Gebiete
 von ihr formalisiert wurden, in der Art daß das Beweisen
 nach einigen wenigen mechanischen Regeln vollzogen werden
@@ -137,7 +137,7 @@ Das Unendlichkeitsaxiom (in der Form: es gibt
 genau abzählbar viele Individuen), 
 Das Reduzibilitäts- und das Auswahlaxiom (für alle 
 Typen).} einerseits, das Zermelo-Fraenkelsche
-(von J. v. Neumann weiter ausgebildete Axiomensystem
+(von J. v. Neumann weiter ausgebildete) Axiomensystem
 der Mengenlehre\footnote{Vgl. A. Fraenkel, Zehn
 Vorlesungen über die Grundlegung der Mengenlehre,
 Wissensch. u. Hypo Bd. XXXI. J. v. Neumann, die
@@ -177,6 +177,7 @@ an der speziellen Natur der aufgestellten Systeme,
 sondern gilt für eine sehr weite Klasse formaler Systeme,
 zu denen insbesondere alle gehören, die aus den beiden 
 angeführten durch Hinzufügung endlich vieler Axiome
+\mnote{Durch das Hinzufügen von \textit{unendlich} vielen Axiomen wäre das System praktisch nicht mehr verwendbar und es gäbe potenziell gar keine unbewiesenen Aussagen. Daher der Fokus auf die Systeme mit endlich vielen Axiomen.}
 entstehen\footnote{Dabei werden in PM nur solche Axiome
 als verschieden gezählt, die aus einander nicht bloß
 durch Typenwechsel entstehen.}, vorausgesetzt, daß 
@@ -222,7 +223,7 @@ in der folgenden Beweisskizze, d.\,h. unter \glqq Formel\grqq,
 \so{sind immer die entsprechenden Gegenstände des isomorphen Bildes zu verstehen}.}
 und daher (wenigstens teilweise) in den Symbolen
 des Systems PM selbst ausdrückbar. Insbesondere kann man
-zeigen, daß die Begriffe \glqq Formel\grqq, 
+zeigen, daß die Begriffe \mnote{Vgl. § 32, 44, 46}\glqq Formel\grqq, 
 \glqq Beweisfigur\grqq, 
 \glqq beweisbare Formel\grqq\ innerhalb des Systems PM 
 definierbar sind, d.\,h. man kann z.\,B. eine Formel 
@@ -248,16 +249,18 @@ $\alpha$ ein beliebiges Klassenzeichen, mit $\left[\alpha; n\right]$
 bezeichnen wir diejenige Formel, welche aus dem
 Klassenzeichen $\alpha$ dadurch entsteht, daß man die
 freie Variable durch das Zeichen für die natürliche Zahl
-$n$ ersetzt. Auch die Tripel-Relation 
-$\alpha = \left[y; z\right]$ erweist sich als innerhalb von PM 
-definierbar. Nun definieren wir eine Klasse $K$ natürlicher
-Zahlen folgendermaßen:\mnote{Da jede Zahl eineindeutig einer Formel zugeordnet werden kann (durch Primfaktorzerlegung),
+\mnote{Da jede Zahl eineindeutig einer Formel zugeordnet werden kann (durch Primfaktorzerlegung),
 gibt es in $\mathbb{N}$ alle sinnvollen und sinnlosen Formeln, die denkbar sind. Das heißt, dort gibt es alle beweisbaren
 Formeln, aber auch alle die, die nicht beweisbar sind. Gödel definiert hier ein $n \in K$ so, dass $n \leftrightarrow$
 eine nicht beweisbare Formel ist.}
+$n$ ersetzt. Auch die Tripel-Relation 
+$\alpha = \left[y; z\right]$ erweist sich als innerhalb von PM 
+definierbar. Nun definieren wir eine Klasse $K$ natürlicher
+Zahlen folgendermaßen:
 
 \let\originalfootnote=\thefootnote
 \let\thefootnote=\fnelfa
+\mnote{$\exists n: n \in K \wedge \thicksim Bew \left[R\left(n\right); n\right]$}
 \begin{equation}
 \label{formel1}
 n \epsilon K \equiv \overline{Bew}\left[R\left(n\right); n\right]\footnote{Durch Überstreichen wird die Negation bezeichnet.}
@@ -265,7 +268,7 @@ n \epsilon K \equiv \overline{Bew}\left[R\left(n\right); n\right]\footnote{Durch
 \let\thefootnote=\originalfootnote
 \setcounter{footnote}{11}
 
-(wobei $Bew\ x$ bedeutet: $x$ ist eine beweisbare Formel).
+(wobei $Bew\ x$ bedeutet: $x$ ist eine beweisbare Formel\mnote{Vgl. § 46}).
 Da die Begriffe, welche im Definiens vorkommen, sämtlich
 in PM definierbar sind, so auch der daraus zusammengesetzte
 Begriff $K$, d.\,h. es gibt ein Klassenzeichen 
@@ -275,7 +278,8 @@ daß die natürliche Zahl $n$ zu $K$ gehört. $S$ ist als
 Klassenzeichen mit einem bestimmten $R\left(q\right)$ identisch, 
 d.\,h. es gilt
 
-$$ S = R\left(q\right) $$
+$$ S = R\left(q\right) $$%
+\mnote{Vgl. § 9}
 
 \noindent für eine bestimme natürliche Zahl $q$. Wir zeigen nun, daß
 der Satz $\left[R\left(q\right); q\right]$\footnote{Man beachte, daß
@@ -284,8 +288,7 @@ der Satz $\left[R\left(q\right); q\right]$\footnote{Man beachte, daß
 des unentscheidbaren Satzes ist. Doch kann man, sobald man die Formel 
 $S$ ermittelt hat, natürlich auch die Zahl $q$ bestimmen und damit 
 den unentscheidbaren Satz selbst effektiv hinschreiben.} 
-in PM unentscheidbar ist. Denn angenommen, der Satz\mnote{Wäre der Satz beweisbar, wäre er per definitionem unbeweisbar.
-Ein logischer Widerspruch.}
+in PM unentscheidbar ist. Denn angenommen, der Satz\mnote{Wäre der Satz beweisbar, wäre er per definitionem wahr und damit unbeweisbar. Ein logischer Widerspruch.}
 $\left[R\left(q\right); q\right]$ wäre beweisbar, dann wäre er auch richtig,
 d.\,h. aber nach dem obigen $q$ würde zu $K$ gehören,
 d.\,h. nach \ref{formel1} es würde 
@@ -887,6 +890,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	\textit{Elementarformel} ist oder aus vorhergehenden durch die Operationen der \textit{Negation},
 	\textit{Disjunktion}, \textit{Generalisation} hervorgeht.
 
+	% 23:
 	\item $\text{Form}\left(x\right) \equiv \left(En\right) \left\{n \leqq \left(Pr \left[l\left(x\right)^2\right]\right)^{x.\left[l\left(x\right)\right]^2} \& FR\left(n\right) \& x = \left[l\left(n\right)\right] Gl n\right\}$\footnote{Die Abschätzung $n \leqq \left(Pr \left[l\left(x\right)^2\right]\right)^{x l\left(x\right)^2}$ 
 		erkennt man so: Die Länge der kürzesten zu $x$ gehörigen Formelreihe 
 		kann höchstens gleich der Anzahl der Teilformeln von $x$ sein. 
@@ -971,24 +975,29 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	$x$ ist eine durch Einsetzung in das Axiomenschema II, 1 entstehende \textit{Formel}. Analog werden $A_2 - Ax, A_3 - Ax, A_4 - Ax$ entsprechend den Axiomen II, 2 bis 4 definiert.
 
+	%36:
 	\item $A - Ax \left(x\right) \equiv A_1 - Ax\left(x\right) \lor A_2 - Ax\left(x\right) \lor A_3 - Ax\left(x\right) \lor A_4 - Ax\left(x\right)$
 
 	$x$ ist eine durch Einsetzung in ein Aussagenaxiom entstehende \textit{Formel}.
 
+	%37:
 	\item $Q\left(z, y, v\right) \equiv \overline{\left(En, m, w\right)} \left[n \leqq l\left(y\right) \& m \leqq l\left(z\right) \& w \leqq z \&  w = m Gl z \& w \text{ Geb } n, y \& v Fr n, y\right]$
 	
 	$z$ enthält keine Variable, die in $y$ an einer Stelle
 	\textit{gebunden} ist, an der $v$ \textit{frei} ist.
 
+	%38:
 	\item $L_1 - Ax\left(x\right) \equiv \left(Ev, y, z, n\right) \left\{v, y, z, n \leqq x \& n \text{ Var } v \& \text{Typ}_n\left(z\right) \& \text{Form}\left(y\right) \& Q\left(z, y, v\right) \& x = \left(v \text{ Gen } y\right) \text{ Imp } \left[Sb \left(y \substack{v\\z}\right)\right]\right\}$ % TODO } fehlt
 
 	$x$ ist eine aus dem Axiomenschema III, 1 durch Einsetzung entstehende \textit{Formel}.
 
+	%39:
 	\item $$
 		L_2 - Ax\left(x\right) \equiv \left(Ev, q, p\right) \left\{v, q, p \leqq x \& \text{Var}\left(v\right) \& \text{Form}\left(p\right) \& v Fr p \& \text{Form}\left(x\right) \& x = \left[v \text{ Gen } \left(p\text{ Dis } q\right)\right]\right\}
 		$$
 	$x$ ist eine aus dem Axiomenschema III, 2 durch Einsetzung entstehende \textit{Formel}.
 
+	%40:
 	\item $R - Ax\left(x\right) \equiv \left(Eu, v, y, n\right) \left[u, v, y, n \leqq x \& n \text{ Var } v \& \left(n + 1\right) \text{ Var } u \&  u Fr y \& \text{Form }\left(y\right) \& x = u\text{ Ex } \left\{v \text{Gen } \left[\left[R\left(u\right) \pmstar E\left(R\left(v\right)\right)\right] \text{ Aeq } y \right]\right\} \right]$
 
 	$x$ ist eine aus aus dem Axiomenschema IV, 1 durch
@@ -996,8 +1005,11 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	Dem Axiom V, 1 entspricht eine bestimmte Zahl $z_4$ und wir definieren:
 
-	\item $M - Ax\left(x\right) \equiv \left(En\right) \left[n \leqq x \& x = n Th\ z_4\right]$
+	%41:
+	\item $M - Ax\left(x\right) \equiv \left(En\right) \left[n \leqq x \& x = n Th\ z_4\right]$%
+\mnote{$M - Ax\left(x\right) \equiv \exists n: n \leqq x \wedge x = n Th\ z_4$, vgl. § 33}
 
+	%42:
 	\item $Ax\left(x\right) \equiv Z - Ax\left(x\right) \lor A - Ax\left(x\right) \lor L_1 - Ax\left(x\right) \lor L_2 - Ax\left(x\right) \lor R - Ax\left(x\right) \lor M - Ax\left(x\right)$
 
 	$x$ ist ein \textit{Axiom}.
@@ -1023,6 +1035,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	$x$ ist ein \textit{Beweis} für die \textit{Formel} $y$.
 
+	%46
 	\item $\text{Bew }\left(x\right) \equiv \left(Ey\right) y B x$\mnote{$\text{Bew } \equiv \exists y: y B x$, es existiert ein Beweis $y$ für $x$, vgl. § 45}
 
 	$x$ ist eine \textit{beweisbare Formel}. [$\text{Bew }\left(x\right)$ ist der einzige unter den Begriffen 1--46, von dem nicht behauptet werden kann, er sei rekursiv.]
@@ -1034,7 +1047,7 @@ Satz V: Zu jeder rekursiven Relation $R\left(x_1 \dots x_n\right)$
 gibt es ein $n$-stelliges \textit{Relationszeichen} $r$ 
 (mit den \textit{freien Variablen}\footnote{Die \textit{Variablen} 
 $u_1 \dots u_n$ können willkürlich vorgegeben werden. Es gibt 
-z.\,B. immer ein $§r$ mit den \textit{freien Variablen} 17, 19, 23 \dots usw., 
+z.\,B. immer ein $r$ mit den \textit{freien Variablen} 17, 19, 23 \dots usw., 
 für welches (3) und (4) gilt.}
 $u_1, u_2 \dots u_n$), so, dass für alle Zahlen-$n$-tupel
 $x_1 \dots x_n$ gilt:
@@ -1115,7 +1128,7 @@ Da $x B_x y$ [nach (6), (5)] und $Sb\left(y\substack{19\\ Z\left(y\right)}\right
 \end{equation}
 
 Wir setzen:
-
+\mnote{17 ist die erste \textit{freie Variable}}
 \begin{equation}
 	p = 17 \text{ Gen } q
 \end{equation}
