@@ -30,7 +30,7 @@
     top=20mm,
     bottom=25mm,
     marginparsep=5mm,
-    marginparwidth=73mm%,
+    marginparwidth=78mm%,
 %    showframe% for show your page design, normaly not used
 ]{geometry}
 
@@ -47,7 +47,7 @@
 \newcommand{\fnachtundvierziga}{48a}
 
 %\newcommand{\mnote}[1]{\marginpar{\todo{\tiny#1}}}
-\newcommand{\mnote}[1]{\marginpar{\textcolor{green}{\tiny#1}}}
+\newcommand{\mnote}[1]{\marginpar{\textcolor{green}{\small#1}}}
 \newcommand{\mcode}[1]{\textcolor{gray}{\texttt{#1}}}
 
 \makeatletter
@@ -957,7 +957,7 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$x$ ist ein \textit{Beweis} für die \textit{Formel} $y$.
 
-	\item $\text{Bew }\left(x\right) \equiv \left(Ey\right) y B x$
+	\item $\text{Bew }\left(x\right) \equiv \left(Ey\right) y B x$\mnote{$\text{Bew } \equiv \exists y: y B x$, es existiert ein Beweis $y$ für $x$, vgl. § 45}
 
 	$x$ ist eine \textit{beweisbare Formel}. [$\text{Bew }\left(x\right)$ ist der einzige unter den Begriffen 1--46, von dem nicht behauptet werden kann, er sei rekursiv.]
 \end{enumerate}
