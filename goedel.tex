@@ -16,6 +16,13 @@
 \usepackage{mathtools}
 \usepackage{xargs}
 \usepackage[pdftex,dvipsnames]{xcolor}
+
+\usepackage{amsfonts,amsthm}
+\newtheorem{theorem}{Theorem}
+
+\def\middlebreak {\nulldelimiterspace0pt
+\right.\allowbreak\mskip 0mu plus .5mu \nulldelimiterspace0pt\left.}%
+
 % 
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 \newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
@@ -25,16 +32,14 @@
 
 \usepackage[a3paper,
     inner=20mm,
-    outer=171mm,% = marginparsep + marginparwidth + 5mm (between marginpar and page border)
+    outer=171mm,% = marginparsep + marginparwidth
     top=20mm,
     bottom=25mm,
     marginparsep=5mm,
-    marginparwidth=169mm,
+    marginparwidth=160mm,
     showframe% for show your page design, normaly not used
 ]{geometry}
 
-
-\setlength{\marginparwidth}{5cm}
 
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 
@@ -46,7 +51,7 @@
 \newcommand{\fnachtundvierziga}{48a}
 
 %\newcommand{\mnote}[1]{\marginpar{\todo{\tiny#1}}}
-\newcommand{\mnote}[1]{\marginpar{\textcolor{green}{\small#1}}}
+\newcommand{\mnote}[1]{\marginpar{\textcolor{darkgray}{\small#1}}}
 \newcommand{\mcode}[1]{\textcolor{gray}{\texttt{#1}}}
 
 \makeatletter
@@ -722,9 +727,11 @@ I bis IV genannten erfahren definiert ist. Dabei sind
 meistens mehrere der nach Satz I bis IV erlaubten 
 Definitionsschritte in einem zusammengefaßt. Jede der 
 Funktionen (Relationen) 1--45, unter denen z.\,B. die
-Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmittelbare Folge}\grqq\ vorkommen, ist daher rekursiv.
+Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmittelbare Folge}\grqq\ vorkommen, 
+ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus diesen Axiomen zum Herleiten der Unvollständigkeitssätze (§§ 1--46).}
 
 \begin{enumerate}[1.]
+	\label{satz1}
 	\item $x/y \equiv \left(Ez\right) \left[z \leqq x \& x = y.z\right]$%
 \mnote{$x/y \equiv \exists z\left(z \leqq x \wedge x = y\times z\right)$}%
 \footnote{Das Zeichen $\equiv$ wird im Sinne von \glqq Definitionsgleichheit\grqq\ verwendet, vertritt also bei Definitionen entweder $=$ oder $\thicksim$ (im übrigen ist
@@ -732,7 +739,8 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 		$x$ ist teilbar durch $y$\mnote{$x/y \equiv \exists z \left[z \leqq x \wedge x = y\times z\right]$}\footnote{Überall, wo in den folgenden Definitionen eines der Zeichen $\left(x\right), \left(Ex\right), \epsilon x$ auftritt, ist es von einer Abschätzung für $x$ gefolgt. Diese Abschätzung dient lediglich dazu, um die rekursive Natur des definierten Begriffes (vgl. Satz IV) zu sichern. Dagegen würde sich der Umgang der definierten Begriffe durch Weglassung dieser Abschätzung meistens nicht ändern.}
 
-	\item $\text{Prim }\left(x\right) \equiv \overline{\left(Ez\right)} \left[z \leqq x \& z \not = 1 \& z \not = x \& x/z\right] \& x > 1$
+	\label{satz2}
+\item $\text{Prim }\left(x\right) \equiv \overline{\left(Ez\right)} \left[z \leqq x \& z \not = 1 \& z \not = x \& x/z\right] \& x > 1$\mnote{$\text{Prim }\left(x\right) \equiv \not\exists z: \left(z \leqq x \wedge z \not= 1 \wedge z \not= x \wedge x/z\right) \wedge x > 1$}
 
 	$x$ ist eine Primzahl.
 
@@ -742,21 +750,25 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 	\let\originalfootnote=\thefootnote
 	\let\thefootnote=\fnvierunddreissiga
 
-	$n Prx$ ist die $n$-te (der Größe nach) in $x$ enthaltene Primzahl\footnote{Für $0 < n \leqq z$, wenn $z$ die Anzahl der verschiedenen in $x$ aufgehenden Primzahlen ist. Man beachte, daß für $n = z + 1$ \hspace{0.5cm} $n Pr x = 0$ ist!}.
+	$n Pr x$ ist die $n$-te (der Größe nach) in $x$ enthaltene Primzahl\footnote{Für $0 < n \leqq z$, wenn $z$ die Anzahl der verschiedenen in $x$ aufgehenden Primzahlen ist. Man beachte, daß für $n = z + 1$ \hspace{0.5cm} $n Pr x = 0$ ist!}.
 	\let\thefootnote=\originalfootnote
 	\setcounter{footnote}{35}
 
 	\item $0! \equiv 1$\mnote{Fakultät, zweistufig-rekursive Funktionsdefinition}
 
-	$\left(n + 1\right)! \equiv \left(n + 1\right).n!$
+	$\left(n + 1\right)! \equiv \left(n + 1\right).n!$\mnote{Gleich mit $\left(n\right)! \equiv \left(n - 1\right) \times n!$}
 
-	\item $pr\ \left(0\right) \equiv 0$
+	% 5:
+	\item $Pr\ \left(0\right) \equiv 0$
 
-	$pr\ \left(n + 1\right) \equiv \epsilon y \left[y \leqq \left\{ pr\ \left(n\right) \right\}! + 1 \& \text{prim }\left(y\right) \& y > pr\ \left(n\right)\right] $
+	$Pr\ \left(n + 1\right) \equiv \epsilon y \left[y \leqq \left\{ Pr\ \left(n\right) \right\}! + 1 \& \text{Prim }\left(y\right) \& y > Pr\ \left(n\right)\right] $%
+		\mnote{$Pr\ \left(n\right) \equiv \exists y: y \leqq \left(Pr\ \left(n\right)\right)! + 1 \wedge \text{Prim }\left(y\right) \wedge y > Pr\ \left(n\right)$, vgl. §§ 2, 3, 4, 5}
 
-	$pr\ \left(n\right)$ ist die $n$-te Primzahl (der Größe nach).
+	$Pr\ \left(n\right)$ ist die $n$-te Primzahl (der Größe nach).
 
-	\item $n Gl x \equiv \epsilon y \left[y \leqq x \& x/\left(n pr x\right)^y \& \overline{x/n pr x)^{y + 1}}\right]$
+	% 6:
+	\item $n Gl x \equiv \epsilon y \left[y \leqq x \& x/\left(n Pr x\right)^y \& \overline{x/n Pr x)^{y + 1}}\right]$%
+		\mnote{$n Gl x \equiv \exists y: y \leqq x \wedge x/\left(n Pr x\right)^y \wedge \thicksim \left(\left(x / n Pr x\right)^{x + 1}\right)$, vgl. §§ 1, 5}
 
 	$n Gl x$ ist das $n$-te Glied der der Zahl $x$
 	zugeordneten Zahlenreihe (für $n > 0$ und $n$ nicht
@@ -778,7 +790,8 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$R\left(x\right)$ entspricht der nur aus der Zahl $x$ bestehenden Zahlenreihe (für $x > 0$).
 
-	\item $E\left(x\right) \equiv R\left(11\right) \pmstar x \pmstar R\left(13\right)$
+	% 10:
+	\item $E\left(x\right) \equiv R\left(11\right) \pmstar x \pmstar R\left(13\right)$\mnote{$E\left(x\right) \equiv \text{\glqq}(\text{\grqq .} x \text{. \glqq})\text{\grqq}$, vgl. § 8}
 
 	$E\left(x\right)$ entspricht der Operation des \glqq Einklammerns\grqq\ [11 und 13 sind den Grundzeichen
 	\glqq(\grqq\ und \glqq)\grqq\ zugeordnet].
@@ -791,16 +804,19 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$x$ ist eine \textit{Variable}.
 
-	\item $\text{Neg }\left(x\right) \equiv R\left(5\right) \pmstar E\left(x\right)$
+\item $\text{Neg }\left(x\right) \equiv R\left(5\right) \pmstar E\left(x\right)$\mnote{$\text{Neg }\left(x\right) \equiv \thicksim x$, vgl. § 8.}
 
 	$\text{Neg }\left(x\right)$ ist die \textit{Negation} von
 	$x$.
 
-	\item $x \text{ Dis } y \equiv E\left(x\right) \pmstar R\left(7\right) \pmstar E\left(y\right)$
+	\item $x \text{ Dis } y \equiv E\left(x\right) \pmstar R\left(7\right) \pmstar E\left(y\right)$%
+\mnote{$x \text{ Dis } y \equiv x\text{ . \glqq}\lor\text{\grqq . } y$, vgl. § 8.}
 
 	$x \text{ Dis } y$ ist die \textit{Disjunktion} aus $x$ und $y$.
 
-	\item $x \text{ Gen } y \equiv = R\left(x\right) \pmstar R\left(9\right) \pmstar E\left(y\right)$
+	\item $x \text{ Gen } y \equiv R\left(x\right) \pmstar R\left(9\right) \pmstar E\left(y\right)$%
+		\mnote{$x \text{ Gen } y \equiv x \text{ . \glqq}\Pi\text{\grqq . } y$, oder in modern: 
+		$x \text{ Gen } y \equiv \forall x: y$, vgl. § 8}
 
 	$x \text{ Gen } y$ ist die \textit{Generalisation} von $y$ mittels der Variablen $x$ (vorausgesetzt, daß $x$ eine \textit{Variable} ist).
 
@@ -817,16 +833,17 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	\let\originalfootnote=\thefootnote
 	\let\thefootnote=\fnvierunddreissigb
-	% 18
+	% 18:
 	\item $\text{Typ}_1'\left(x\right) \equiv \left(Em, n\right) \left\{m, n\leqq x \& \left[m = 1 \lor 1\textit{ Var } m\right] \& x = n N \left[R\left(m\right)\right]\right\}$\footnote{$m, n \leqq x$ steht für: $m \leqq x \& n \leqq x$ (ebenso für mehr als 2 Variable).}
 	\let\thefootnote=\originalfootnote
 	\setcounter{footnote}{34}
 
 	$x$ ist \textit{Zeichen ersten Typs}.
 
+	% 19:
 	\item $\text{Typ}_n\left(x\right) \equiv \left[n = 1 \& \text{Typ}_1'\left(x\right)\right] \lor \left[n > 1 \& \left(Ev\right) \left\{v \leqq x \& n\text{ Var } v \& x = R\left(v\right)\right\}\right]$
 
-	$x$ ist \textit{Zeichen $n$-ten Typs}.
+	$x$ ist \textit{Zeichen $n$-ten Typs}.\mnote{Siehe § 18 für Spezialfall $n = 1$}
 
 	\item $Elf\left(x\right) \equiv \left(E y, z, n\right) \left[y, z, n \leqq x \& \text{Typ}_n\left(y\right) \& \text{Typ}_{n + 1}\left(z\right) \& x = z \pmstar E\left(y\right)\right]$
 
@@ -889,11 +906,11 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 	% 31
 	\item $Sb\left(x\substack{v\\y}\right) \equiv Sb_{A\left(v, x\right)}\left(x\substack{v\\y}\right)$\footnote{Falls $v$ keine \textit{Variable} oder $x$ keine \textit{Formel} ist, ist $Sb\left(x\substack{v\\y}\right) = x$.}
 
-	$Sb\left(x\substack{v\\y}\right)$ ist der oben definierte Begriff $Subst a\left(\substack{v\\b}\right)$\footnote{Statt $Sb\left[Sb\left(x\substack{v\\y}\right)\substack{w\\z}\right]$ schreiben wir: $Sb\left(x\substack{v\ u\\y\ z}\right)$ (analog für mehr als zwei Variable).}.
+	$Sb\left(x\substack{v\\y}\right)$ ist der oben definierte Begriff $Subst\ a\left(\substack{v\\b}\right)$\footnote{Statt $Sb\left[Sb\left(x\substack{v\\y}\right)\substack{w\\z}\right]$ schreiben wir: $Sb\left(x\substack{v\ u\\y\ z}\right)$ (analog für mehr als zwei Variable).}.
 
-\item $x \text{ Imp } y \equiv \left[\text{Neg }\left(x\right)\right] \text{ Dis } y $\mnote{$x \supset y \equiv \left(\lnot x\right) \lor y$}
+\item $x \text{ Imp } y \equiv \left[\text{Neg }\left(x\right)\right] \text{ Dis } y $\mnote{$x \supset y \equiv \left(\thicksim x\right) \lor y$}
 
-	$x \text{ Con } y \equiv \text{ Neg } \left\{\left[\text{Neg }\left(x\right)\right]\text{ Dis }\left[\text{Neg }\left(y\right)\right]\right\}$\mnote{$x \wedge y \equiv \left(x \supset y\right) \lor \lnot y$}
+	$x \text{ Con } y \equiv \text{ Neg } \left\{\left[\text{Neg }\left(x\right)\right]\text{ Dis }\left[\text{Neg }\left(y\right)\right]\right\}$\mnote{$x \wedge y \equiv \left(x \supset y\right) \lor \thicksim y$}
 
 	$x \text{ Aeq } y \equiv \left(x \text{ Imp } y\right) \text{ Con } \left(y \text { Imp } x\right)$
 
@@ -946,16 +963,20 @@ Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmit
 
 	$x$ ist \textit{unmittelbare Folge} aus $y$ und $z$.
 
-	\item $$
-		Bw\left(x\right) \equiv \left(n\right)\left\{0 < n \leqq l\left(x\right) \longrightarrow Ax\left(n Gl x\right) \lor \left(Ep, q\right) \left[0, < p, q < n \& Fl\left(n Gl x, p Gl x, q Gl x\right)\right]\right\} \& l\left(x\right) > 0
-		$$
+	%44:
+	\item $
+		Bw\left(x\right) \equiv \left(n\right)\left\{0 < n \leqq l\left(x\right) \longrightarrow Ax\left(n Gl x\right) \lor 
+		\left(Ep, q\right) \left[0, < p, q < n \& Fl\left(n Gl x, p Gl x, q Gl x\right)\right]\right\} 
+		\& l\left(x\right) > 0
+	$
+
 
 	$x$ ist eine \textit{Beweisfigur} (eine endliche Folge von \textit{Formeln}, deren jede entweder \textit{Axiom} oder \textit{unmittelbare Folge} aus der vorhergehenden ist).
 
 	% nGl x ist das n-te Glied der der Zahl x zugeordneten Zahlenreihe
 	%(für n > 0 und n nicht größer als die Länge dieser Reihe).
 	\item $x B y \equiv Bw\left(x\right) \& \left[ l\left(x\right) \right] Gl x = y$%
-		\mnote{$x$ ist Beweis für $y \equiv \left(x \text{ ist Beweisfigur } \wedge\allowbreak \left(\text{ die Länge von } x \text{ das n}-\text{te Glied der Zahl } x\right) = y\right)$, vgl. §§ 44, 7, 6}
+		\mnote{$x$ ist Beweis für $y \equiv \left(x \text{ ist Beweisfigur } \wedge\allowbreak \left(\text{ die Länge von } x \text{ das n}-\text{te Glied der Zahl } x\right) = y\right)$, vgl. §§ 44, 7, 6} % TODO versteh ich nicht richtig mit l usw.
 
 	$x$ ist ein \textit{Beweis} für die \textit{Formel} $y$.
 
