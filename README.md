@@ -10,3 +10,7 @@ This is the paper "Über formal unentscheidbare Sätze der Principia Mathematica
 - Match the position of every word with the original document
 
 - Integrate better tools for creating critical editions
+
+# Thanks
+
+Thanks to Lisa P. for painstakingly proofreading the first pages!
