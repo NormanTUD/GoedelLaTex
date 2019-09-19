@@ -788,13 +788,15 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	$x$ ist eine Primzahl.
 
 	% 3:
-	\item \customlabel{0 Pr x}{3} $0 Pr x \equiv 0$
+	\item \customlabel{0 Pr x}{3} $0 Pr\ x \equiv 0$%
+\mnote{In der 0 sind keine Primfaktoren}
 
-	$\left(n + 1\right) Pr x \equiv \epsilon x \left[y \leqq x \& \text{Prim}\left(y\right) \& x/y \& y > n Pr x\right]$
+	$\left(n + 1\right) Pr\ x \equiv \epsilon y \left[y \leqq x \& \text{Prim}\left(y\right) \& x/y \& y > n Pr\ x\right]$%
+\mnote{$n Pr x \equiv \exists y: y  \leqq x \wedge\text{Prim } x \wedge x/y \wedge y > (n - 1) Pr\ x$. Beschreibt den $n$ten Primfaktor von $x$, vgl. \refsatz{x/y}, \refsatz{Prim}, \refsatz{0 Pr x}}
 	\let\originalfootnote=\thefootnote
 	\let\thefootnote=\fnvierunddreissiga
 
-	$n Pr x$ ist die $n$-te (der Größe nach) in $x$ enthaltene Primzahl\footnote{Für $0 < n \leqq z$, wenn $z$ die Anzahl der verschiedenen in $x$ aufgehenden Primzahlen ist. Man beachte, daß für $n = z + 1$ \hspace{0.5cm} $n Pr x = 0$ ist!}.
+	$n Pr\ x$ ist die $n$-te (der Größe nach) in $x$ enthaltene Primzahl\footnote{Für $0 < n \leqq z$, wenn $z$ die Anzahl der verschiedenen in $x$ aufgehenden Primzahlen ist. Man beachte, daß für $n = z + 1$ \hspace{0.5cm} $n Pr\ x = 0$ ist!}.
 	\let\thefootnote=\originalfootnote
 	\setcounter{footnote}{35}
 
@@ -814,7 +816,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	% 6:
 	\item \customlabel{n Gl x}{6} $n Gl\ x \equiv \epsilon y \left[y \leqq x \& x/\left(n Pr x\right)^y \& \overline{x/n Pr x)^{y + 1}}\right]$%
-		\mnote{$n Gl\ x \equiv \exists y: y \leqq x \wedge x/\left(n Pr x\right)^y \wedge \thicksim \left(\left(x / n Pr x\right)^{x + 1}\right)$, vgl. §§ \refsatz{x/y}, \refsatz{Pr}}
+		\mnote{$n Gl\ x \equiv \exists y: y \leqq x \wedge x/\left(n Pr x\right)^y \wedge \thicksim \left(\left(x / n Pr x\right)^{x + 1}\right)$, vgl. §§ \refsatz{x/y}, \refsatz{0 Pr x}}
 
 	$n Gl\ x$ ist das $n$-te Glied der der Zahl $x$
 	zugeordneten Zahlenreihe (für $n > 0$ und $n$ nicht
@@ -827,7 +829,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	$l\left(x\right)$ ist die Länge der $x$ zugeordneten Zahlenreihe.
 
 	% 8:
-	\item $x \pmstar y \equiv \left\{ z \leqq \left[ Pr \left(l\left(x\right) + l\left(y\right)\right)\right]^{x + 1} \& 
+	\item \customlabel{Konkat}{8}$x \pmstar y \equiv \left\{ z \leqq \left[ Pr \left(l\left(x\right) + l\left(y\right)\right)\right]^{x + 1} \& 
 	\left(n\right) \left[n \leqq l\left(x\right) \longrightarrow n Gl\ z = n Gl\ x\right] \&
 		\left(n\right) \left[0 < n \leqq l\left(y\right) \longrightarrow \left(n + l\left(x\right)\right) Gl z = n Gl y\right]\right\}$ % TODO ) fehlt
 
@@ -836,7 +838,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	Zahlenreihen.\mnote{Konkatinieren von Zahlen}
 
 	% 9:
-	\item \customlabel{Konkat}{9} $R\left(x\right) \equiv 2^x$\mnote{Die Zahl $x$ an erster Stelle bedeutet: Die erste Primzahl 2 hoch die $x$, die kodiert werden soll. $2^x$ degödelisiert immer $x$ für $x > 0$}
+	\item  $R\left(x\right) \equiv 2^x$\mnote{Die Zahl $x$ an erster Stelle bedeutet: Die erste Primzahl 2 hoch die $x$, die kodiert werden soll. $2^x$ degödelisiert immer $x$ für $x > 0$}
 
 	$R\left(x\right)$ entspricht der nur aus der Zahl $x$ bestehenden Zahlenreihe (für $x > 0$).
 
@@ -948,7 +950,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	% 26:
 	\item $v Fr\ x \equiv \left(En\right) \left[n \leqq l\left(x\right) \& v Fr\ n, x\right]$%
-\mnote{$v Fr\ x \equiv \exists n: n \leqq l\left(x\right) \wedge v Fr\ n, x$, vgl. §§ \refsatz{l(x)}, \refsatz{v Fr n, x}}
+\mnote{$v Fr\ x \equiv \exists n: n \leqq l\left(x\right) \wedge v Fr\ n, x$, vgl. §§ \refsatz{l(x)}, \refsatz{v Fr n, x}. Macht aus dem Satz \refsatz{v Fr n, x}, der herausfindet, ob $v$ in $x$ an $n$ter Stelle frei ist die generalisierte Aussage: die Variable $v$ befindet sich überhaupt in $x$ oder nicht.}
 
 	$v$ kommt in $x$ als \textit{freie Variable} vor.
 
@@ -957,14 +959,15 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	$Su\ x \Spvek{n; y}$ entsteht aus $x$, wenn man an Stelle des $n$-ten Gliedes von $x$ $y$ einsetzt (vorausgesetzt, daß $0 < n \leqq l\left(x\right)$).
 
 	%28:
-	\item $0 St\ v, x \equiv \left\{ n \leqq l\left(x\right) \& v Fr n, x \& \overline{\left(Ep\right)} \left[n < p \leqq l\left(x\right) \& v Fr p x\right]\right\}$
+	\item \customlabel{n St v, x}{29}$0 St\ v, x \equiv \left\{ n \leqq l\left(x\right) \& v Fr n, x \& \overline{\left(Ep\right)} \left[n < p \leqq l\left(x\right) \& v Fr p x\right]\right\}$
 
 	$\left(k + 1\right) St\ v, x \equiv \epsilon n \left\{n < k St\ v, x \& v Fr n, x \& \overline{\left(Ep\right)} \left[n < p < k St\ v, x \& v Fr p, x\right]\right\}$
 
 	$k St\ v, x$ ist die $k + 1$-te Stelle in $x$ (vom Ende der \textit{Formel} $x$ an gezählt), an der $v$ in $x$ \textit{frei} ist (und 0, falls es keine solche Stelle gibt).
 
 	%29:
-	\item $A\left(v, x\right) \equiv \epsilon n\left\{ n \leqq l\left(x\right) \& n St\ v, x = 0\right\}$
+	\item $A\left(v, x\right) \equiv \epsilon n\left\{ n \leqq l\left(x\right) \& n St\ v, x = 0\right\}$%
+\mnote{$A\left(v, x\right) \equiv \exists n: n \leqq l\left(x\right) \wedge n St\ v, x = 0$, vgl. \refsatz{n St v, x}, \refsatz{l(x)}}
 
 	$A\left(v, x\right)$ ist die Anzahl der Stellen, an denen $v$ in $x$ \textit{frei} ist.
 
@@ -993,7 +996,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 \mnote{$v \text{ Ex } y \equiv \thicksim \left(\forall v: \lnot y\right)$. Bedeutet \glqq alle $y$ in $v$ sind wahr\grqq, vgl. §§ \refsatz{Neg}, \refsatz{Gen}}
 
 %33:
-	\item \customlabel{Th}{33} $n Th\ x \equiv \epsilon y \left\{ y \leqq x^{\left(x^n\right)} \& \left(k\right) \left[k \leqq l\left(x\right) \longrightarrow \left(k Gl\ x \leqq 13 \& k Gl\ y = k Gl\ x\right) \lor \left(k Gl\ x > 13 \& k Gl\ y = k Gl\ x.\left[1 Pr \left(k Gl\  x\right)\right]^n\right)\right]\right\}$
+	\item \customlabel{Th}{33} $n Th\ x \equiv \epsilon y \left\{ y \leqq x^{\left(x^n\right)} \& \left(k\right) \left[k \leqq l\left(x\right) \longrightarrow \left(k Gl\ x \leqq 13 \& k Gl\ y = k Gl\ x\right) \lor \left(k Gl\ x > 13 \& k Gl\ y = k Gl\ x.\left[1 Pr\ \left(k Gl\  x\right)\right]^n\right)\right]\right\}$
 
 	$n Th\ x$ ist die \textit{$n$-te Typenerhöhung} von $x$ (falls $x$ und $n Th\ x$ \textit{Formeln} sind).
 
