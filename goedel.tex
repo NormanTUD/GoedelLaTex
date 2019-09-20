@@ -553,7 +553,7 @@ dadurch überflüssig, daß wir alle möglichen Einsetzungen
 bereits in den Axiomen selbst vorgenommen haben (analog bei
 J.~v.~Neumann, Zur \so{Hilbert}schen Beweistheorie, Math. Zeitschr. 26, 1927.)}.
 
-Wir ordnen nun den Grundzeichen des Systems $P$ in\mnote{Es geht um eine rein syntaktische Betrachtung zum Umwandeln von Formeln in natürliche Zahlen.}
+Wir ordnen nun den Grundzeichen des Systems $P$ in\mnote{Es geht um eine rein syntaktische Betrachtung zum Umwandeln von Formeln in natürliche Zahlen. Gödel bietet einen generalisierten Algorithmus an, um in jedem ausreichend komplexen System Sätze zu formulieren, die nicht nicht-beweisbar sind. Dazu nutzt er zur Vereinfachung die Peano-Axiome, die aber, da sie selbst Folgen der logischen Annahmen sind, an sich entbehrlich sind.}
 folgender Weise eineindeutig natürliche Zahlen zu:
 
 \begin{center}
@@ -780,7 +780,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 \footnote{Das Zeichen $\equiv$ wird im Sinne von \glqq Definitionsgleichheit\grqq\ verwendet, vertritt also bei Definitionen entweder $=$ oder $\thicksim$ (im übrigen ist
 	die Symbol die \so{Hilbert}sche).}
 
-		$x$ ist teilbar durch $y$\mnote{$x/y \equiv \exists z \left[z \leqq x \wedge x = y\times z\right]$}\footnote{Überall, wo in den folgenden Definitionen eines der Zeichen $\left(x\right), \left(Ex\right), \epsilon x$ auftritt, ist es von einer Abschätzung für $x$ gefolgt. Diese Abschätzung dient lediglich dazu, um die rekursive Natur des definierten Begriffes (vgl. Satz IV) zu sichern. Dagegen würde sich der Umgang der definierten Begriffe durch Weglassung dieser Abschätzung meistens nicht ändern.}
+		$x$ ist teilbar durch $y$\footnote{Überall, wo in den folgenden Definitionen eines der Zeichen $\left(x\right), \left(Ex\right), \epsilon x$ auftritt, ist es von einer Abschätzung für $x$ gefolgt. Diese Abschätzung dient lediglich dazu, um die rekursive Natur des definierten Begriffes (vgl. Satz IV) zu sichern. Dagegen würde sich der Umgang der definierten Begriffe durch Weglassung dieser Abschätzung meistens nicht ändern.}
 
 	% 2:
 	\item \customlabel{Prim}{2}$\text{Prim }\left(x\right) \equiv \overline{\left(Ez\right)} \left[z \leqq x \& z \not = 1 \& z \not = x \& x/z\right] \& x > 1$\mnote{$\text{Prim }\left(x\right) \equiv \thicksim \exists z: \left(z \leqq x \wedge z \not= 1 \wedge z \not= x \wedge x/z\right) \wedge x > 1$}
@@ -803,7 +803,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	% 4:
 	\item \customlabel{Fakultät}{4}$0! \equiv 1$\mnote{Fakultät, zweistufig-rekursive Funktionsdefinition}
 
-	$\left(n + 1\right)! \equiv \left(n + 1\right).n!$\mnote{Gleich mit $\left(n\right)! \equiv \left(n - 1\right) \times n!$}
+		$\left(n + 1\right)! \equiv \left(n + 1\right).n!$\mnote{Gleich mit $\left(n\right)! \equiv \left(n - 1\right) \times n!$}%Wirklich (n + 1)! = (n + 1)*n!???
 
 	% 5:
 	\item \customlabel{Pr}{5}$Pr\ \left(0\right) \equiv 0$
@@ -833,12 +833,10 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	\left(n\right) \left[n \leqq l\left(x\right) \longrightarrow n Gl\ z = n Gl\ x\right] \&
 		\left(n\right) \left[0 < n \leqq l\left(y\right) \longrightarrow \left(n + l\left(x\right)\right) Gl z = n Gl y\right]\right\}$ % TODO ) fehlt
 
-	$x \pmstar y$ entspricht der Operation des
-	\glqq Aneinanderfügens\grqq\ zweier endlicher
-	Zahlenreihen.\mnote{Konkatinieren von Zahlen}
+	$x \pmstar y$ entspricht der Operation des \glqq Aneinanderfügens\grqq\ zweier endlicher Zahlenreihen.\mnote{Konkatinieren von Zahlen}
 
 	% 9:
-	\item  $R\left(x\right) \equiv 2^x$\mnote{Die Zahl $x$ an erster Stelle bedeutet: Die erste Primzahl 2 hoch die $x$, die kodiert werden soll. $2^x$ degödelisiert immer $x$ für $x > 0$}
+	\item  $R\left(x\right) \equiv 2^x$\mnote{Für alle $n \in \mathbb{N}$ erzeugt das eine eineindeutige Zahl, die immer wieder \frq zurückkonvertiert\flq\ werden kann zu ihrer Ursprungszahl. Diese Methode ist ein Spezialfall der generalisierten Methode $p(n)^x$, wobei $p(n)$ die Position im Zeichenstring kodiert ($n$) und $p(x)$ die $x$te Primzahl zurückgibt. Multiplikativ zusammengefügt ist eine eineindeutige Zerlegung von Strings in eine Zahlenkette möglich.}
 
 	$R\left(x\right)$ entspricht der nur aus der Zahl $x$ bestehenden Zahlenreihe (für $x > 0$).
 
@@ -890,14 +888,16 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	%17:
 	\item $Z\left(n\right) \equiv n N\left[R\left(1\right)\right]$%
-
+\mnote{Konvertiert \glqq normale\grqq\ Zahlen zu einem Zahlzeichen. So wird die \glqq 5 \grqq\ zu $ffff1$.}
 	$Z\left(n\right)$ ist das \textit{Zahlzeichen} für die Zahl $n$.
 
 	\let\originalfootnote=\thefootnote
 	\let\thefootnote=\fnvierunddreissigb
 
 	% 18:
-	\item \customlabel{Typ1'}{18}$\text{Typ}_1'\left(x\right) \equiv \left(Em, n\right) \left\{m, n\leqq x \& \left[m = 1 \lor 1\textit{ Var } m\right] \& x = n N \left[R\left(m\right)\right]\right\}$\footnote{$m, n \leqq x$ steht für: $m \leqq x \& n \leqq x$ (ebenso für mehr als 2 Variable).}
+	\item \customlabel{Typ1'}{18}$\text{Typ}_1'\left(x\right) \equiv \left(Em, n\right) \left\{m, n\leqq x \& \left[m = 1 \lor 1\textit{ Var } m\right] \& x = n N \left[R\left(m\right)\right]\right\}%
+$\footnote{$m, n \leqq x$ steht für: $m \leqq x \& n \leqq x$ (ebenso für mehr als 2 Variable).}%
+\mnote{$\text{Typ}_1\left(x\right) \equiv \exists m \exists n: n \leqq x \wedge m \leqq x \wedge \left(m = 1 \lor 1 Var\ m\right) \wedge x = n N\left[R\left(m\right)\right]$}
 	\let\thefootnote=\originalfootnote
 	\setcounter{footnote}{34}
 
