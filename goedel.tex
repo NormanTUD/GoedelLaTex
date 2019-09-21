@@ -6,6 +6,13 @@
 \newcounter{commentaryNumber}
 \setcounter{commentaryNumber}{1}
 
+\newcounter{leftRightBrackets}
+\setcounter{leftRightBrackets}{1}
+
+
+\newcounter{leftRightBracketsColor}
+\setcounter{leftRightBracketsColor}{0}
+
 \emergencystretch10em
 
 \usepackage[utf8]{inputenc}
@@ -24,6 +31,7 @@
 \usepackage[pdftex,dvipsnames]{xcolor}
 \usepackage{amsfonts,amsthm}
 \usepackage{ifthen}
+\usepackage{xpatch}
 
 \def\middlebreak {\nulldelimiterspace0pt
 \right.\allowbreak\mskip 0mu plus .5mu \nulldelimiterspace0pt\left.}%
@@ -101,37 +109,44 @@
         }%
 }
 
-\makeatletter
-\newcount\bracketnum
-\newcommand\makecolorlist[1]{%
-    \bracketnum0\relax
-        \makecolorlist@#1,.%
+\ifodd\value{leftRightBracketsColor}
+	\makeatletter
+	\newcount\bracketnum
+	\newcommand\makecolorlist[1]{%
 	    \bracketnum0\relax
-}
-\def\makecolorlist@#1,{%
-    \advance\bracketnum1\relax
-        \expandafter\def\csname bracketcolor\the\bracketnum\endcsname{\color{#1}}%
-	    \@ifnextchar.{\@gobble}{\makecolorlist@}%
-}
-\let\oldleft\left
-\let\oldright\right
-\def\left#1{%
-    \global\advance\bracketnum1\relax 
-        \colorlet{temp}{.}%
-	    \csname bracketcolor\the\bracketnum\endcsname
-	        \oldleft#1%
-		    \color{temp}%
-}
-\def\right#1{%
-    \colorlet{temp}{.}%
-        \csname bracketcolor\the\bracketnum\endcsname
-	    \oldright#1%
-	        \global\advance\bracketnum-1\relax
-		    \color{temp}%
-}
-\makeatother
-
-\makecolorlist{green, cyan, blue, violet, magenta, pink, teal, lime, orange, yellow, purple, red}
+		\makecolorlist@#1,.%
+		    \bracketnum0\relax
+	}
+	\def\makecolorlist@#1,{%
+	    \advance\bracketnum1\relax
+		\expandafter\def\csname bracketcolor\the\bracketnum\endcsname{\color{#1}}%
+		    \@ifnextchar.{\@gobble}{\makecolorlist@}%
+	}
+	\let\oldleft\left
+	\let\oldright\right
+	\def\left#1{%
+	    \global\advance\bracketnum1\relax 
+		\colorlet{temp}{.}%
+		    \csname bracketcolor\the\bracketnum\endcsname
+			\oldleft#1%
+			    \color{temp}%
+	}
+	\def\right#1{%
+	    \colorlet{temp}{.}%
+		\csname bracketcolor\the\bracketnum\endcsname
+		    \oldright#1%
+			\global\advance\bracketnum-1\relax
+			    \color{temp}%
+	}
+	\makeatother
+	\makecolorlist{green, cyan, blue, violet, magenta, pink, teal, lime, orange, yellow, purple, red}
+\else
+	\ifodd\value{leftRightBrackets}
+	\else
+		\def\left#1{#1}
+		\def\right#1{#1}
+	\fi
+\fi
 
 \begin{document}
 
@@ -324,7 +339,7 @@ Die Analogie dieses Schlusses mit der Antinomie Richard\mnote{Der Satz bezieht s
 sondern nur \glqq zufällig\grqq, weil er eine von unendlich vielen Möglichkeiten in $\mathbb{N}$ ist, von denen
 einige sich auf sich selbst beziehen müssen. Damit ist die Typentheorie Russells ausgehebelt, die nur
 explizite Eigenbezüge verbietet.}
-springt in die Augen. auch mit dem 
+springt in die Augen. Auch mit dem 
 \glqq Lügner\grqq\ besteht eine nahe 
 Verwandtschaft\footnote{Es läßt sich überhaupt jede epistemologische 
 Antinomie zu einem derartigen Unentscheidbarkeitsbeweis verwenden.},
@@ -1106,8 +1121,12 @@ $\phi$ die $m$-te Stufe. Es entsteht aus Funktionen niedrigerer Stufe $\phi_1 \d
 für welches man die Geltung von (3), (4) unter der Verwendung der induktiven Annahmen ohne Schwierigkeit beweisen kann. Ein \textit{Relationszeichen} $r$, welches auf diesem Wege einer rekursiven Relation zugeordnet ist\footnote{Welches also, inhaltlich gedeutet, das Bestehen dieser Relation ausdrückt.},
 soll rekursiv heißen.
 
-Wir kommen nun ans Ziel unserer Ausführungen. Sei $\chi$ eine beliebige Klasse von \textit{Formeln}. Wir bezeichnen mit $\text{Flg}\left(x\right)$ (Folgerungsmenge von $\chi$) die kleinste Menge von \textit{Formeln}, die alle \textit{Formeln} aus $\chi$ und alle \textit{Axiome} enthält und gegen die Relation \glqq\textit{unmittelbare Folge}\grqq\ abgeschlossen ist. $\chi$ heißt $\omega$-widerspruchsfrei, wenn es kein \textit{Klassenzeichen}
-$a$ gibt, so daß:
+Wir kommen nun ans Ziel unserer Ausführungen. Sei $\chi$ eine beliebige Klasse von 
+\textit{Formeln}. Wir bezeichnen mit $\text{Flg}\left(x\right)$ (Folgerungsmenge von 
+$\chi$) die kleinste Menge von \textit{Formeln}, die alle \textit{Formeln} aus $\chi$ 
+und alle \textit{Axiome} enthält und gegen die Relation 
+\glqq\textit{unmittelbare Folge}\grqq\ abgeschlossen ist. $\chi$ heißt 
+$\omega$-widerspruchsfrei, wenn es kein \textit{Klassenzeichen} $a$ gibt, so daß:
 \begin{equation*}
 	\left(n\right)\left[Sb\left(a\substack{v\\ Z\left(n\right)}\right) \epsilon \text{ Flg } \left(x\right)\right] \& \left[\text{Neg }\left(v\text{ Gen } a\right)\right] \epsilon \text{ Flg }\left(\chi\right)
 \end{equation*}
