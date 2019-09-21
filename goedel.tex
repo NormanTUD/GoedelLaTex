@@ -15,7 +15,7 @@
 \newlength{\spacebetweenbreakedequations}
 \setlength{\spacebetweenbreakedequations}{-1.1cm}
 \newlength{\spaceafterbreakedequation}
-\setlength{\spaceafterbreakedequation}{-0.6cm}
+\setlength{\spaceafterbreakedequation}{-0.7cm}
 
 \emergencystretch10em
 
@@ -1009,14 +1009,23 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	$$\\[\spacebetweenbreakedequations]
 	$$
 		\left.\left.x = u \pmstar R\left(n Gl\ x\right) v \& z = u \pmstar y \pmstar v \& n = l\left(u\right) + 1\right]\right\}
-	$$\\[\spaceafterbreakedequation]
+	$$\\[\spacebetweenbreakedequations]
 
 	$Su\ x \Spvek{n; y}$ entsteht aus $x$, wenn man an Stelle des $n$-ten Gliedes von $x$ $y$ einsetzt (vorausgesetzt, daß $0 < n \leqq l\left(x\right)$).
 
 	%28:
-	\item \customlabel{n St v, x}{29}$0 St\ v, x \equiv \left\{ n \leqq l\left(x\right) \& v Fr n, x \& \overline{\left(Ep\right)} \left[n < p \leqq l\left(x\right) \& v Fr p x\right]\right\}$
+	\item \customlabel{n St v, x}{29}$$
+		0 St\ v, x \equiv \left\{ n \leqq l\left(x\right) \& v Fr\ n, x \right.
+	$$\\[\spacebetweenbreakedequations]
+	$$\left.\& \overline{\left(Ep\right)} \left[n < p \leqq l\left(x\right) \& v Fr\ p x\right]\right\}
+	$$\\[\spaceafterbreakedequation]
 
-	$\left(k + 1\right) St\ v, x \equiv \epsilon n \left\{n < k St\ v, x \& v Fr n, x \& \overline{\left(Ep\right)} \left[n < p < k St\ v, x \& v Fr p, x\right]\right\}$
+	$$
+	\left(k + 1\right) St\ v, x \equiv \epsilon n \left\{n < k St\ v, x \& v Fr\ n, x \right.
+	$$\\[\spacebetweenbreakedequations]
+	$$
+		\left.\& \overline{\left(Ep\right)} \left[n < p < k St\ v, x \& v Fr\ p, x\right]\right\}
+	$$\\[\spaceafterbreakedequation]
 
 	$k St\ v, x$ ist die $k + 1$-te Stelle in $x$ (vom Ende der \textit{Formel} $x$ an gezählt), an der $v$ in $x$ \textit{frei} ist (und 0, falls es keine solche Stelle gibt).
 
@@ -1051,11 +1060,19 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 \mnote{$v \text{ Ex } y \equiv \thicksim \left(\forall v: \lnot y\right)$. Bedeutet \glqq alle $y$ in $v$ sind wahr\grqq, vgl. §§ \refsatz{Neg}, \refsatz{Gen}}
 
 %33:
-	\item \customlabel{Th}{33} $n Th\ x \equiv \epsilon y \left\{ y \leqq x^{\left(x^n\right)} \& \left(k\right) \left[k \leqq l\left(x\right) \longrightarrow \left(k Gl\ x \leqq 13 \& k Gl\ y = k Gl\ x\right) \lor \left(k Gl\ x > 13 \& k Gl\ y = k Gl\ x.\left[1 Pr\ \left(k Gl\  x\right)\right]^n\right)\right]\right\}$
+	\item \customlabel{Th}{33} $$
+		n Th\ x \equiv \epsilon y \left\{ y \leqq x^{\left(x^n\right)} \& \left(k\right) \left[k \leqq l\left(x\right) \longrightarrow \right.\right.
+	$$\\[\spacebetweenbreakedequations]
+	$$
+		\left.\left.\left(k Gl\ x \leqq 13 \& k Gl\ y = k Gl\ x\right) \lor\right.\right.
+	$$\\[\spacebetweenbreakedequations]
+	$$
+		\left.\left.\left(k Gl\ x > 13 \& k Gl\ y = k Gl\ x.\left[1 Pr\ \left(k Gl\  x\right)\right]^n\right)\right]\right\}
+	$$\\[\spaceafterbreakedequation]
 
 	$n Th\ x$ ist die \textit{$n$-te Typenerhöhung} von $x$ (falls $x$ und $n Th\ x$ \textit{Formeln} sind).
 
-	Den Axiomen I, 1 bis 3, entsprechen drei bestimmte Zahlen, die wir mit $z_1, z_2, z_3$ bezeichnen un wir definieren:
+	Den Axiomen I, 1 bis 3 entsprechen drei bestimmte Zahlen, die wir mit $z_1, z_2, z_3$ bezeichnen un wir definieren:
 
 	%34:
 	\item \customlabel{Z - Ax(x)}{34}$Z - Ax\left(x\right) \equiv \left(x = z_1 \lor x = z_2 \lor x = z_3\right)$
@@ -1075,26 +1092,46 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	%37:
 	\item $$Q\left(z, y, v\right) \equiv \overline{\left(En, m, w\right)} \left[n \leqq l\left(y\right) \& m \leqq l\left(z\right) \& w \leqq z\right. \&
 	$$\\[\spacebetweenbreakedequations]
-	$$ \left.w = m Gl z \& w \text{ Geb } n, y \& v Fr n, y\right]$$\\[\spaceafterbreakedequation]
+	$$ \left.w = m Gl z \& w \text{ Geb } n, y \& v Fr\ n, y\right]$$\\[\spaceafterbreakedequation]
 	
 	$z$ enthält keine Variable, die in $y$ an einer Stelle
 	\textit{gebunden} ist, an der $v$ \textit{frei} ist.
 
 	%38:
-	\item $L_1 - Ax\left(x\right) \equiv \left(Ev, y, z, n\right) \left\{v, y, z, n \leqq x \& n \text{ Var } v \& \text{Typ}_n\left(z\right) \& \text{Form}\left(y\right) \& Q\left(z, y, v\right) \& x = \left(v \text{ Gen } y\right) \text{ Imp } \left[Sb \left(y \substack{v\\z}\right)\right]\right\}$ % TODO } fehlt
+	\item $$
+		L_1 - Ax\left(x\right) \equiv \left(Ev, y, z, n\right) \left\{v, y, z, n \leqq x \& n \text{ Var } v \&\right.
+	$$\\[\spacebetweenbreakedequations]
+	$$ 
+		\left.\text{Typ}_n\left(z\right) \& \text{Form}\left(y\right) \& Q\left(z, y, v\right) \&\right.
+	$$\\[\spacebetweenbreakedequations]
+	$$
+		\left.x = \left(v \text{ Gen } y\right) \text{ Imp } \left[Sb \left(y \substack{v\\z}\right)\right]\right\}
+	$$\\[\spaceafterbreakedequation]
 
 	$x$ ist eine aus dem Axiomenschema III, 1 durch Einsetzung entstehende \textit{Formel}.
 
 	%39:
 	\item $$
-		L_2 - Ax\left(x\right) \equiv \left(Ev, q, p\right) \left\{v, q, p \leqq x \& \text{Var}\left(v\right) \& \text{Form}\left(p\right) \& v Fr p \& \text{Form}\left(x\right) \& x = \left[v \text{ Gen } \left(p\text{ Dis } q\right)\right]\right\}
-		$$
+		L_2 - Ax\left(x\right) \equiv \left(Ev, q, p\right) \left\{v, q, p \leqq x \& \text{Var}\left(v\right)\right.
+	$$\\[\spacebetweenbreakedequations]
+	$$
+		\left.\& \text{Form}\left(p\right) \& v Fr\ p \& \text{Form}\left(x\right) \&\right.
+	$$\\[\spacebetweenbreakedequations]
+	$$ 
+		\left.x = \left[v \text{ Gen } \left(p\text{ Dis } q\right)\right]\right\}
+	$$\\[\spaceafterbreakedequation]
 	$x$ ist eine aus dem Axiomenschema III, 2 durch Einsetzung entstehende \textit{Formel}.
 
 	%40:
-	\item $$R - Ax\left(x\right) \equiv \left(Eu, v, y, n\right) \left[u, v, y, n \leqq x \& n \text{ Var } v \& \right.$$
-	$$\left(n + 1\right) \text{ Var } u \&  u Fr y \& \text{Form }\left(y\right) \& $$
-	$$\left.x = u\text{ Ex } \left\{v \text{Gen } \left[\left[R\left(u\right) \pmstar E\left(R\left(v\right)\right)\right] \text{ Aeq } y \right]\right\} \right]$$
+	\item $$
+		R - Ax\left(x\right) \equiv \left(Eu, v, y, n\right) \left[u, v, y, n \leqq x \& n \text{ Var } v \& \right.
+	$$\\[\spacebetweenbreakedequations]
+	$$
+		\left(n + 1\right) \text{ Var } u \&  u Fr\ y \& \text{Form }\left(y\right) \& 
+	$$\\[\spacebetweenbreakedequations]
+	$$
+		\left.x = u\text{ Ex } \left\{v \text{Gen } \left[\left[R\left(u\right) \pmstar E\left(R\left(v\right)\right)\right] \text{ Aeq } y \right]\right\} \right]
+	$$\\[\spaceafterbreakedequation]
 
 	$x$ ist eine aus aus dem Axiomenschema IV, 1 durch
 	Einsetzung entstehende \textit{Formel}.
