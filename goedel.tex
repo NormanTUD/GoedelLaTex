@@ -966,7 +966,9 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	\textit{Disjunktion}, \textit{Generalisation} hervorgeht.
 
 	% 23:
-	\item \customlabel{Form}{23}$\text{Form}\left(x\right) \equiv \left(En\right) \left\{n \leqq \left(Pr \left[l\left(x\right)^2\right]\right)^{x.\left[l\left(x\right)\right]^2} \& FR\left(n\right) \& x = \left[l\left(n\right)\right] Gl n\right\}$\footnote{Die Abschätzung $n \leqq \left(Pr \left[l\left(x\right)^2\right]\right)^{x l\left(x\right)^2}$ 
+	\item \customlabel{Form}{23}$$\text{Form}\left(x\right) \equiv \left(En\right) \left\{n \leqq \left(Pr \left[l\left(x\right)^2\right]\right)^{x.\left[l\left(x\right)\right]^2}\right.
+		$$\\[\spacebetweenbreakedequations]
+		$$\left.\& FR\left(n\right) \& x = \left[l\left(n\right)\right] Gl n\right\}\footnotemark$$\footnotetext{Die Abschätzung $n \leqq \left(Pr \left[l\left(x\right)^2\right]\right)^{x l\left(x\right)^2}$ 
 		erkennt man so: Die Länge der kürzesten zu $x$ gehörigen Formelreihe 
 		kann höchstens gleich der Anzahl der Teilformeln von $x$ sein. 
 		Es gibt aber höchstens $l\left(x\right)$ Teilformeln der Länge 1, 
@@ -977,10 +979,16 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 		ihre Anzahl $\leqq l\left(x\right)^2$ und ihre Exponenten (welche Teilformeln von $x$ sind) $\leqq x$.}
 
 	$x$ ist \textit{Formel} (d.\,h. letztes Glied einer \textit{Formelreihe $n$}).
+
 	% 24:
 	\item \customlabel{Geb}{24}$$
-		v \text{ Geb } n, x \equiv \text{Var}\left(v\right) \& \text{Form}\left(x\right) \& \left(Ea, b, c\right) \left[a, b, c \leqq x \& x a = \pmstar \left(v \text{ Gen } b\right) \pmstar c \& \text{Form}\left(b\right) \& l\left(a\right) + 1 \leqq n \leqq l\left(a\right) + l\left(v \text{ Gen } b\right)\right]
-		$$
+		v \text{ Geb } n, x \equiv \text{Var}\left(v\right) \& \text{Form}\left(x\right) \& 
+	$$\\[\spacebetweenbreakedequations]
+	$$
+	\left(Ea, b, c\right) \left[a, b, c \leqq x \& x a = \pmstar \left(v \text{ Gen } b\right) \pmstar c\right.
+	$$\\[\spacebetweenbreakedequations]
+	$$\left.\& \text{Form}\left(b\right) \& l\left(a\right) + 1 \leqq n \leqq l\left(a\right) + l\left(v \text{ Gen } b\right)\right]
+	$$\\[\spaceafterbreakedequation]
 
 	Die \textit{Variable} $v$ ist in $x$ an $n$-ter Stelle \textit{gebunden}.
 
@@ -995,7 +1003,13 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	$v$ kommt in $x$ als \textit{freie Variable} vor.
 
-	\item $Su\ x \Spvek{n; y} \equiv \epsilon z \left\{ z \leqq \left[Pr\left(l\left(x\right) + l\left(y\right)\right)\right]^{x + y} \& \left[\left(Eu, v\right) u, v \leqq x \& x = u \pmstar R\left(n Gl\ x\right) v \& z = u \pmstar y \pmstar v \& n = l\left(u\right) + 1\right]\right\}$
+	% 27:
+	\item $$
+		Su\ x \Spvek{n; y} \equiv \epsilon z \left\{ z \leqq \left[Pr\left(l\left(x\right) + l\left(y\right)\right)\right]^{x + y} \& \left[\left(Eu, v\right) u, v \leqq x \& \right.\right.
+	$$\\[\spacebetweenbreakedequations]
+	$$
+		\left.\left.x = u \pmstar R\left(n Gl\ x\right) v \& z = u \pmstar y \pmstar v \& n = l\left(u\right) + 1\right]\right\}
+	$$\\[\spaceafterbreakedequation]
 
 	$Su\ x \Spvek{n; y}$ entsteht aus $x$, wenn man an Stelle des $n$-ten Gliedes von $x$ $y$ einsetzt (vorausgesetzt, daß $0 < n \leqq l\left(x\right)$).
 
@@ -1059,7 +1073,9 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	$x$ ist eine durch Einsetzung in ein Aussagenaxiom entstehende \textit{Formel}.
 
 	%37:
-	\item $Q\left(z, y, v\right) \equiv \overline{\left(En, m, w\right)} \left[n \leqq l\left(y\right) \& m \leqq l\left(z\right) \& w \leqq z \&  w = m Gl z \& w \text{ Geb } n, y \& v Fr n, y\right]$
+	\item $$Q\left(z, y, v\right) \equiv \overline{\left(En, m, w\right)} \left[n \leqq l\left(y\right) \& m \leqq l\left(z\right) \& w \leqq z\right. \&
+	$$\\[\spacebetweenbreakedequations]
+	$$ \left.w = m Gl z \& w \text{ Geb } n, y \& v Fr n, y\right]$$\\[\spaceafterbreakedequation]
 	
 	$z$ enthält keine Variable, die in $y$ an einer Stelle
 	\textit{gebunden} ist, an der $v$ \textit{frei} ist.
