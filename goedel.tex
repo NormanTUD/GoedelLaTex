@@ -9,9 +9,13 @@
 \newcounter{leftRightBrackets}
 \setcounter{leftRightBrackets}{1}
 
-
 \newcounter{leftRightBracketsColor}
-\setcounter{leftRightBracketsColor}{0}
+\setcounter{leftRightBracketsColor}{1}
+
+\newlength{\spacebetweenbreakedequations}
+\setlength{\spacebetweenbreakedequations}{-1.1cm}
+\newlength{\spaceafterbreakedequation}
+\setlength{\spaceafterbreakedequation}{-0.6cm}
 
 \emergencystretch10em
 
@@ -918,8 +922,11 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	\let\thefootnote=\fnvierunddreissigb
 
 	% 18:
-	\item \customlabel{Typ1'}{18}$\text{Typ}_1'\left(x\right) \equiv \left(Em, n\right) \left\{m, n\leqq x \& \left[m = 1 \lor 1\textit{ Var } m\right] \& x = n N \left[R\left(m\right)\right]\right\}%
-$\footnote{$m, n \leqq x$ steht für: $m \leqq x \& n \leqq x$ (ebenso für mehr als 2 Variable).}%
+	\item \customlabel{Typ1'}{18}$$
+		\text{Typ}_1'\left(x\right) \equiv \left(Em, n\right) \left\{m, n\leqq x \& \left[m = 1 \lor 1\textit{ Var } m\right] \right.
+	$$\\[\spacebetweenbreakedequations]
+	$$\left.\& x = n N \left[R\left(m\right)\right]\right\}
+\footnote{$m, n \leqq x$ steht für: $m \leqq x \& n \leqq x$ (ebenso für mehr als 2 Variable).}$$\\[\spaceafterbreakedequation]%
 \mnote{$\text{Typ}_1\left(x\right) \equiv \exists m \exists n: n \leqq x \wedge m \leqq x \wedge \left(m = 1 \lor 1 Var\ m\right) \wedge x = n N\left[R\left(m\right)\right]$}
 	\let\thefootnote=\originalfootnote
 	\setcounter{footnote}{34}
@@ -927,21 +934,32 @@ $\footnote{$m, n \leqq x$ steht für: $m \leqq x \& n \leqq x$ (ebenso für mehr
 	$x$ ist \textit{Zeichen ersten Typs}.
 
 	% 19:
-	\item $\text{Typ}_n\left(x\right) \equiv \left[n = 1 \& \text{Typ}_1'\left(x\right)\right] \lor \left[n > 1 \& \left(Ev\right) \left\{v \leqq x \& n\text{ Var } v \& x = R\left(v\right)\right\}\right]$
+	\item $$\text{Typ}_n\left(x\right) \equiv \left[n = 1 \& \text{Typ}_1'\left(x\right)\right] \lor \left[n > 1 \& \right.
+	$$\\[\spacebetweenbreakedequations]
+	$$\left.\left(Ev\right) \left\{v \leqq x \& n\text{ Var } v \& x = R\left(v\right)\right\}\right]$$\\[\spaceafterbreakedequation]
 
 	$x$ ist \textit{Zeichen $n$-ten Typs}.\mnote{Siehe § \refsatz{Typ1'} für Spezialfall $n = 1$}
 
 	%20:
-	\item $Elf\left(x\right) \equiv \left(E y, z, n\right) \left[y, z, n \leqq x \& \text{Typ}_n\left(y\right) \& \text{Typ}_{n + 1}\left(z\right) \& x = z \pmstar E\left(y\right)\right]$
+	\item $$Elf\left(x\right) \equiv \left(E y, z, n\right) \left[y, z, n \leqq x \& \text{Typ}_n\left(y\right)\right.
+	$$\\[\spacebetweenbreakedequations]
+	$$\left.\& \text{Typ}_{n + 1}\left(z\right) \& x = z \pmstar E\left(y\right)\right]$$\\[\spaceafterbreakedequation]
 
 	$x$ ist \textit{Elementarformel}.
 
 	%21:
 	\item $Op\left(x\ y\ z\right) \equiv x = \text{Neg}\left(y\right) \lor x = y \text{ Dis } z \lor\allowbreak \left(Ev\right) \left[v \leqq x \& \text{Var}\left(x\right) \& x = v \text{ Gen } y\right]$
 
+	% 22:
 	\item $$
-		FR\left(x\right) \equiv \left(n\right) \left\{ 0 < n \leqq l\left(x\right) \longrightarrow\allowbreak Elf\left(n Gl\ x\right) \lor \left(Ep, q\right)\allowbreak \left[0 < p, q < n \&\allowbreak Op\left(n Gl\ x, p Gl\ x, q Gl\ x\right)\right]\right\} \& l\left(x\right) > 0
-		$$
+		FR\left(x\right) \equiv \left(n\right) \left\{ 0 < n \leqq l\left(x\right) \longrightarrow\allowbreak Elf\left(n Gl\ x\right) \lor\right.
+	$$\\[\spacebetweenbreakedequations]
+	$$
+		\left.\left(Ep, q\right)\allowbreak \left[0 < p, q < n \&\allowbreak Op\left(n Gl\ x, p Gl\ x, q Gl\ x\right)\right]\right\} \& 
+	$$\\[\spacebetweenbreakedequations]
+	$$
+		l\left(x\right) > 0
+	$$\\[\spaceafterbreakedequation]
 
 	$x$ ist eine Reihe von \textit{Formeln}, deren jede entweder
 	\textit{Elementarformel} ist oder aus vorhergehenden durch die Operationen der \textit{Negation},
@@ -1058,7 +1076,9 @@ $\footnote{$m, n \leqq x$ steht für: $m \leqq x \& n \leqq x$ (ebenso für mehr
 	$x$ ist eine aus dem Axiomenschema III, 2 durch Einsetzung entstehende \textit{Formel}.
 
 	%40:
-	\item $R - Ax\left(x\right) \equiv \left(Eu, v, y, n\right) \left[u, v, y, n \leqq x \& n \text{ Var } v \& \left(n + 1\right) \text{ Var } u \&  u Fr y \& \text{Form }\left(y\right) \& x = u\text{ Ex } \left\{v \text{Gen } \left[\left[R\left(u\right) \pmstar E\left(R\left(v\right)\right)\right] \text{ Aeq } y \right]\right\} \right]$
+	\item $$R - Ax\left(x\right) \equiv \left(Eu, v, y, n\right) \left[u, v, y, n \leqq x \& n \text{ Var } v \& \right.$$
+	$$\left(n + 1\right) \text{ Var } u \&  u Fr y \& \text{Form }\left(y\right) \& $$
+	$$\left.x = u\text{ Ex } \left\{v \text{Gen } \left[\left[R\left(u\right) \pmstar E\left(R\left(v\right)\right)\right] \text{ Aeq } y \right]\right\} \right]$$
 
 	$x$ ist eine aus aus dem Axiomenschema IV, 1 durch
 	Einsetzung entstehende \textit{Formel}.
@@ -1079,12 +1099,14 @@ $\footnote{$m, n \leqq x$ steht für: $m \leqq x \& n \leqq x$ (ebenso für mehr
 	$x$ ist \textit{unmittelbare Folge} aus $y$ und $z$.
 
 	%44:
-	\item \customlabel{Bw}{44}$
-		Bw\left(x\right) \equiv \left(n\right)\left\{0 < n \leqq l\left(x\right) \longrightarrow Ax\left(n Gl\ x\right) \lor 
-		\left(Ep, q\right) \left[0, < p, q < n \& Fl\left(n Gl\ x, p Gl x, q Gl x\right)\right]\right\} 
+	\item \customlabel{Bw}{44}$$
+		Bw\left(x\right) \equiv \left(n\right)\left\{0 < n \leqq l\left(x\right) \longrightarrow Ax\left(n Gl\ x\right) \lor \right.
+	$$\\[\spacebetweenbreakedequations]
+	$$	\left.\left(Ep, q\right) \left[0, < p, q < n \& Fl\left(n Gl\ x, p Gl x, q Gl x\right)\right]\right\} 
+	$$\\[\spacebetweenbreakedequations]
+	$$
 		\& l\left(x\right) > 0
-	$
-
+	$$\\[\spaceafterbreakedequation]
 
 	$x$ ist eine \textit{Beweisfigur} (eine endliche Folge von \textit{Formeln}, deren jede entweder \textit{Axiom} oder \textit{unmittelbare Folge} aus der vorhergehenden ist).
 
@@ -1152,9 +1174,11 @@ $\text{Flg }\left(\chi\right)$ gehört (wobei $v$ die} \textit{freie Variable} \
 Beweis: Sei $\chi$ eine beliebige rekursive $\omega$-widerspruchsfreie Klasse von \textit{Formeln}. Wir definieren:
 
 \begin{equation}
-	Bw_x\left(x\right) \equiv \left(n\right) \left[ n \leqq l\left(x\right) \longrightarrow Ax\left(n Gl\ x\right) \lor \left(n Gl\ x\right) \epsilon \chi \lor \\
-	\left(Ep, q\right) \left\{0 < p, q < n \& Fl\left(n Gl\ x, p Gl x, q Gl x\right)\right\}\right] \& l\left(x\right) > 0
+	Bw_x\left(x\right) \equiv \left(n\right) \left[ n \leqq l\left(x\right) \longrightarrow Ax\left(n Gl\ x\right) \lor \left(n Gl\ x\right) \epsilon \chi \lor\right.
 \end{equation}
+\begin{equation*}
+	\left.\left(Ep, q\right) \left\{0 < p, q < n \& Fl\left(n Gl\ x, p Gl x, q Gl x\right)\right\}\right] \& l\left(x\right) > 0
+\end{equation*}
 (vgl. den analogen Begriff 44)
 
 \begin{equation}
@@ -1414,8 +1438,10 @@ $$
 Im ersten Falle gilt:
 
 $$
-x_0 = \phi\left(x_1 \dots x_n\right) \thicksim \left(Ey_1 \dots y_m\right) \left[R\left(x_0 y_1 \dots y_m\right) \& S_1\left(y_1, x_1 \dots x_n\right) \& \dots \& S_m\left(y_m, x_1 \dots x_n\right)\right],
-$$
+x_0 = \phi\left(x_1 \dots x_n\right) \thicksim \left(Ey_1 \dots y_m\right) \left[R\left(x_0 y_1 \dots y_m\right) \& \right.
+$$\\[\spacebetweenbreakedequations]
+$$\left.S_1\left(y_1, x_1 \dots x_n\right) \& \dots \& S_m\left(y_m, x_1 \dots x_n\right)\right],
+$$\\[\spaceafterbreakedequation]
 
 wo $R$ bzw. $S_i$ die nach induktiver Annahme existierenden mit $x_0 = \rho\left(y_1 \dots y_m\right)$ bzw. 
 $y = \chi_i\left(x_1 \dots x_n\right)$ äquivalenten arithmetischen
@@ -1428,16 +1454,21 @@ kann die Relation $x_0 = \phi\left(x_1 \dots x_n\right)$ mit Hilfe des Begriffes
 folgendermaßen ausdrücken:
 
 $$
-x_0 = \phi\left(x_1 \dots x_n\right) \thicksim \left(Ef\right)\left\{ f_0 = \psi\left(x_2 \dots x_n\right) \& \left(k\right) \left[k < x_1 \longrightarrow f_{k + 1} = \mu\left(k, f_k, x_2 \dots x_n\right)\right] \& x_0 = f_{x_1}\right\}
-$$
+x_0 = \phi\left(x_1 \dots x_n\right) \thicksim \left(Ef\right)\left\{ f_0 = \psi\left(x_2 \dots x_n\right) \& \left(k\right) \left[k < x_1 \longrightarrow\right.\right.
+$$\\[\spacebetweenbreakedequations]
+$$\left.\left. f_{k + 1} = \mu\left(k, f_k, x_2 \dots x_n\right)\right] \& x_0 = f_{x_1}\right\}
+$$\\[\spaceafterbreakedequation]
 
 Wenn $S\left(y, x_2 \dots x_n\right)$ bzw. $T\left(z, x_1 \dots x_{n + 1}\right)$ die 
 nach induktiver Annahme existieren mit $y = \psi\left(x_2 \dots x_n\right)$ bzw. 
 $z = \mu\left(x_1 \dots x_{n + 1}\right)$ äquivalenten arithmetische Relationen sind, gilt daher:
 
 \begin{equation}
-x_0 = \phi\left(x_1 \dots x_n\right) \thicksim \left(Ef\right) \left\{S\left(f_0, x_2 \dots x_n\right) \& \left(k\right)\left[k < x_1 \longrightarrow T\left(f_{k + 1}, k, f_k, x_2 \dots x_n\right)\right] \& x_0 = f_{x_1}\right\}
-\end{equation}
+x_0 = \phi\left(x_1 \dots x_n\right) \thicksim \left(Ef\right) \left\{S\left(f_0, x_2 \dots x_n\right) \& \left(k\right)\left[k < x_1 \longrightarrow \right.\right.
+\end{equation}\\[\spacebetweenbreakedequations]
+\begin{equation*}
+\left.\left.T\left(f_{k + 1}, k, f_k, x_2 \dots x_n\right)\right] \& x_0 = f_{x_1}\right\}
+\end{equation*}\\[\spaceafterbreakedequation]
 
 Nun ersetzen wir den Begriff \glqq Folge von Zahlen\grqq\ durch 
 \glqq Paar von Zahlen\grqq, indem wir dem Zahlenpaar $n, d$ 
@@ -1471,8 +1502,10 @@ $$
 definiert und daher arithmetisch ist, so ist auch die folgendermaßen definierte Relation $P\left(x_0, x_1 \dots x_n\right)$:
 
 $$
-P\left(x_0 \dots x_n\right) \equiv \left(En, d\right) \left\{S\left(\left[n\right]_{d + 1}, x_2 \dots x_n\right) \& \left(\right) \left[k < x_1 \longrightarrow T\left(\left[n\right]_{1 + 1 \left(k + 2\right)}, k, \left[n\right]_{1 + d \left(k + 1\right)}, x_2 \dots x_n\right)\right] \& x_0 = \left[n\right]_{1 + d \left(x_1 + 1\right)}\right\}
-$$
+P\left(x_0 \dots x_n\right) \equiv \left(En, d\right) \left\{S\left(\left[n\right]_{d + 1}, x_2 \dots x_n\right) \& \left(\right) \left[k < x_1 \longrightarrow\right.\right.
+$$\\[\spacebetweenbreakedequations]
+$$ \left.\left.T\left(\left[n\right]_{1 + 1 \left(k + 2\right)}, k, \left[n\right]_{1 + d \left(k + 1\right)}, x_2 \dots x_n\right)\right] \& x_0 = \left[n\right]_{1 + d \left(x_1 + 1\right)}\right\}
+$$\\[\spaceafterbreakedequation]
 arithmetisch, welche nach (17) und Hilfssatz 1 mit:
 $x_0 = \phi\left(x_1 \dots x_n\right)$ äquivalent ist (es kommt
 		bei der Folge $f$ in (17) nur auf ihren Verlauf 
