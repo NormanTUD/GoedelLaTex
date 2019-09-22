@@ -163,7 +163,8 @@ lautete: wenn man die Mathematik formalisiert, sind dann alle wahren Aussagen du
 einen Algorithmus beweisbar?
 
 Was heißt \frq beweisbar\flq? Beweise sind Zurückführungen auf einzelne Axiome mithilfe
-von syntaktischen Veränderungsregeln. So kann jede mathematische Aussage als Zeichenkette
+von syntaktischen Veränderungsregeln.\mnote{Vgl. Kommentar \ref{tractatus}} 
+So kann jede mathematische Aussage als Zeichenkette
 auffassen und schauen, ob man -- durch erlaubte Veränderungen der Axiome des Systems --
 irgendwie auf diese Zeichenkette kommt. Hierbei ist Gödel ein großer Vorreiter der
 modernen Informatik, denn Computer können auch nur nach fest definierten Regeln
@@ -210,7 +211,7 @@ lösen sollen, keine unendliche Menge an Axiomen abarbeiten können.
 
 Gödels Algorithmus bietet die Möglichkeit, jedem Satz eineindeutig eine solche Nummer
 zuzuordnen, indem er einige Konstanten definiert, z.\,B. wird \frq 0\flq\ zu 1,
-\flq f\flq\ zu 3, \frq$\thicksim$\flq\ zu 5. Außerdem nutzt er die Eineindeutigkeit von
+\frq f\flq\ zu 3, \frq$\thicksim$\flq\ zu 5. Außerdem nutzt er die Eineindeutigkeit von
 Primfaktorzerlegungen aus. So kann man den Satz: 
 \frq es gilt nicht, dass 4\flq\ folgendermaßen umwandeln:
 
@@ -228,9 +229,43 @@ Primfaktorzerlegungen aus. So kann man den Satz:
 		Primfaktorzerlegung prinzipiell wieder 1:1 in den Ursprungssatz zurückwandeln.
 \end{enumerate}
 
+Der Begriff der Beweisbarkeit lässt sich im System der Principia Mathematica selbst
+darstellen als die Möglichkeit der Herleitung aus den Axiomen. Nehmen wir die Abkürzungen
+von Gödel selbst, dann können wir die Beweisbarkeit eines Satzes folgendermaßen
+darstellen: $\text{Bew}\left(x\right)$. Wenn wir also einen Satz der Form:
+
+$$
+(n): \overline{\text{Bew}}\left(n\right)
+$$
+(wobei $(n)$ seine gödelisierte Satznummer, d.\,h. eine lange Zahl, die eineindeutig dem
+Satz zugeordnet ist, ist\footnote{Wie Gödel es selbst sagt, wäre es kein Problem,
+diese Zahl tatsächlich aufzuschreiben; es wäre nur sehr umständlich, siehe Fußnote \ref{leichtaufzuschreiben}.}), 
+dann haben wir einen solchen Satz, der seine eigene Unbeweisbarkeit
+behauptet und im System nicht entscheidbar ist. Wäre er beweisbar, wäre er per definitionem
+richtig, weil nur richtige Sätze beweisbar sind, aber wäre er beweisbar, wäre er auch 
+per definitionem unbeweisbar.
+
+Für solche Sätze sind Systeme wie das der Principia Mathematica prinzipiell überflüssig,
+weil diese nur auf den logischen Axiomen aufbauen und Abkürzungen für lange Reihen von
+Zeichenketten darstellen. Daher sind alle logisch-formalen Systeme betroffen und die
+Principia ist nur ein \frq Einstiegspunkt\flq\ zur Vereinfachung der Thesen.
+
+Die Auswirkungen auf das Verständnis der Mathematik war gewaltig, denn plötzlich war klar,
+dass man nicht jede wahre Aussage auch beweisen kann. Aber auch für die Berechenbarkeitstheorie
+und die später aufkommende Informatik sind betroffen. Gödels Ansatz, mathematische
+Aussagen als Ansammlungen von nach Regeln gebildeter Zeichen zu sehen und nicht primär
+inhaltlich zu deuten, hat die moderne Informatik überhaupt erst möglich gemacht.
+Kein Computer kann mehr als ebendies: Zeichenketten nach genau vorgelegten Regeln
+zu manipulieren, ohne dabei auch nur im Ansatz inhaltlich auf diese einzugehen. Gödel hat
+gezeigt, dass es immer Aussagen gibt, die ein Computer nicht zurückführen kann auf
+seine Axiome, d.\,h. dass es immer Aussagen gibt, die mit einem Computer nicht überprüfbar sind.
+Das setzt -- ähnlich wie das Halteproblem -- der Theorie der Algorithmen überhaupt
+enge Grenzen.
+
 Im Rahmen dieser Arbeit würde ich gern versuchen, den Originalalgorithmus soweit
 es mir möglich ist nachzuvollziehen. Dazu habe ich die Arbeit von Gödel soweit es
-mir möglich war exakt abgetippt und mit \LaTeX\ komplett neu gesetzt, um einige
+mir möglich war exakt abgetippt und mit \LaTeX, einem Textsatzsystem für mathematische
+Texte, komplett neu gesetzt, um einige
 Dinge wie eingefärbte passende Klammern zur besseren Lesbarkeit einzuführen und
 Kommentare hinzuzufügen, die die gödel'schen Formeln in eine modernere
 Schreibweise übertragen. Trotz größtmöglicher Mühe kann ich dabei natürlich
@@ -339,7 +374,7 @@ Unter \glqq Formel aus PM\grqq\ immer eine ohne Abkürzungen
 (d.\,h. ohne Verwendung von Definitionen)
 geschriebene Formel. Definitionen dienen ja nur der kürzeren
 Schreibweise und sind daher prinzipiell überflüssig.}.
-Analog sind Beweise vom formalen Standpunkt nichts anderes\mnote{Ein Beweis ist eine für den Computer nachvollziehbare 
+Analog sind Beweise vom formalen Standpunkt nichts anderes\mnote{\customlabel{tractatus}{\arabic{commentaryNumber}}Ein Beweis ist eine für den Computer nachvollziehbare 
 Kette an a., entweder Axiomen oder b., Schlussfolgerungen aus den Axiomen (vgl. Tractatus Logico Philosophicus, § 6.126 und § 6.1262)}
 als endliche Reihen von Formeln (mit bestimmten angebbaren
 Eigenschaften). Für metamathematische Betrachtungen
@@ -369,7 +404,7 @@ zeigen, daß die Begriffe \mnote{Vgl. § \refsatz{Logische Operatoren}, \refsatz
 \glqq beweisbare Formel\grqq\ innerhalb des Systems PM 
 definierbar sind, d.\,h. man kann z.\,B. eine Formel 
 $F\left(v\right)$ aus PM mit einer freien Variablen $v$ (vom Typus 
-einer Zahlenfolge) angeben\footnote{Es wäre sehr leicht 
+einer Zahlenfolge) angeben\footnote{\label{leichtaufzuschreiben}Es wäre sehr leicht 
 (nur etwas umständlich), diese Formel tatsächlich hinzuschreiben.},
 so daß $F\left(v\right)$ inhaltlich interpretiert besagt:
 $v$ ist eine beweisbare Formel. Nun stellen wir einen
