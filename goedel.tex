@@ -37,6 +37,14 @@
 \usepackage{ifthen}
 \usepackage{xpatch}
 \usepackage{url}
+\usepackage{lettrine}
+
+\setcounter{DefaultLines}{4}
+\setlength{\DefaultFindent}{0.5em}
+\setlength{\DefaultNindent}{0em}
+\renewcommand{\LettrineFontHook}{\usefont{U}{yinit}{m}{n}}
+\renewcommand{\DefaultLoversize}{-0.65}
+
 
 \def\middlebreak {\nulldelimiterspace0pt
 \right.\allowbreak\mskip 0mu plus .5mu \nulldelimiterspace0pt\left.}%
@@ -155,22 +163,22 @@
 
 \begin{document}
 
-\section{Einleitung}
+\section*{Einleitung}
 
 \let\originalthefootnote\thefootnote
 \renewcommand*{\thefootnote}{\fnsymbol{footnote}}
 
-Ein Algorithmus ist eine endliche Abfolge von genau spezifizierten Schritten, um ein
-mathematisches oder logisches Problem zu lösen. Die Frage, vor der \so{Hilbert} stand,
-lautete: wenn man die Mathematik formalisiert, sind dann alle wahren Aussagen durch
-einen Algorithmus beweisbar?
+\lettrine[nindent=0em]{\color{purple}A}{lgorithmen} sind endliche Abfolgen von 
+genau spezifizierten Schritten, um ein mathematisches oder logisches Problem zu lösen. 
+Die Frage, vor der \so{Hilbert} stand, lautete: wenn man die Mathematik formalisiert, 
+sind dann alle wahren Aussagen durch einen Algorithmus beweisbar?
 
 Für \so{Hilbert} schien die Sache klar, dass das so sein muss, nur fehlte im der Beweis
 dafür, dass das so ist. Erst Gödel zeigte, dass das nicht geht.
 
 Was heißt \frq beweisbar\flq? Beweise sind Zurückführungen auf einzelne Axiome mithilfe
 von syntaktischen Veränderungsregeln.\mnote{Vgl. Kommentar \ref{tractatus}} 
-So kann jede mathematische Aussage als Zeichenkette
+So kann man jede mathematische Aussage als Zeichenkette
 auffassen und schauen, ob man -- durch erlaubte Veränderungen der Axiome des Systems --
 irgendwie auf diese Zeichenkette kommt. Hierbei ist Gödel ein großer Vorreiter der
 modernen Informatik, denn Computer können auch nur nach fest definierten Regeln
@@ -235,12 +243,12 @@ Primfaktorzerlegungen aus. So kann man den Satz:
 		und nehmen die $p$te Primzahl als Basis ($p(p)$), die Ziffer für das Zeichen
 		als Exponent: $p(1)^5 \times p(2)^3 \times p(3)^3 \times p(3)^3 \times p(4)^3 \times p(5)^1$.
 		Wir erhalten:
-		$2^5 \times 3^3 \times 5^3 \times 7^3 \times 11^3 \times 13^3 \times 17^1 = 1841513509836000$. Dies
+		$2^5 \times 3^3 \times 5^3 \times 7^3 \times 11^3 \times 13^1 = 640972332000$. Dies
 		können wir, da es unendlich viele Primzahlen gibt, für jede beliebig lange Zeichenkette 
-		bestehend aus den Grundzeichen machen. Die Zahl 1841513509836000 lässt sich durch 
+		bestehend aus den Grundzeichen machen. Die Zahl 640972332000 lässt sich durch 
 		Primfaktorzerlegung prinzipiell wieder 1:1 in den Ursprungssatz zurückwandeln, so dass gilt:
 
-		$$ 1841513509836000 \equiv \text{\frq es gilt nicht, dass 4\flq} $$
+		$$ 640972332000 \equiv \text{\frq es gilt nicht, dass 4\flq} $$
 \end{enumerate}
 
 Der Begriff der Beweisbarkeit lässt sich im System der Principia Mathematica selbst
@@ -251,7 +259,7 @@ darstellen: $\text{Bew}\left(x\right)$. Wenn wir also einen Satz der Form:
 $$
 n \vdash \thicksim \text{Bew}\left(n\right)
 $$\mnote{Vgl. § \refsatz{Bew}}
-(wobei $(n)$ seine gödelisierte Satznummer, d.\,h. eine lange Zahl, die eineindeutig dem
+(wobei $n$ seine gödelisierte Satznummer, d.\,h. eine lange Zahl, die eineindeutig dem
 Satz zugeordnet ist, ist\footnote{Wie Gödel es selbst sagt, wäre es kein Problem,
 diese Zahl für jede Aussage tatsächlich aufzuschreiben; es wäre nur sehr umständlich, siehe Fußnote \ref{leichtaufzuschreiben}.}), 
 dann haben wir einen solchen Satz, der seine eigene Unbeweisbarkeit
