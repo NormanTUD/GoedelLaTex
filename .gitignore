@@ -7,3 +7,8 @@ goedel.log
 goedel.tex~
 .gitignore~
 .gitignore.sw*
+test*.tex
+*.tex~
+*.*~
+*.*.sw*
+log
