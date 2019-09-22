@@ -193,7 +193,7 @@ der Mathematik definierbare Satz eine Nummer bekommt. Dort sind nun alle nur üb
 definierbaren Sätze, wie z.\,B. \frq $1 + 1 = 2$\flq, aber auch \frq der Satz mit
 der Nummer 4922 ist nicht beweisbar\flq. Wenn aber letzterer Satz gerade 
 \frq zufällig\flq\ tatsächlich die zugewiesene Nummer 4922 hat, dann behauptet
-der Satz seine eigene Unbeweisbarkeit, und das mehr oder weniger zufällig.
+der Satz seine eigene Unbeweisbarkeit, und das mehr oder weniger zufällig.\mnote{Siehe dazu Fußnote \ref{zufaellig}.}
 
 Können wir ihn aus den logischen Regeln herleiten (d.\,h. beweisen), dann ist
 er unbeweisbar. \textit{Aber wir haben ihn doch hergeleitet, d.\,h. bewiesen!}
@@ -218,7 +218,7 @@ Primfaktorzerlegungen aus. So kann man den Satz:
 \begin{enumerate}
 	\item \frq es gilt nicht, dass 4\flq
 	\item \frq$\thicksim 4$\flq
-	\item \frq$\thicksim ffff0$\flq\ (mit der peano'schen Nachfolgerfunktion $f$)
+	\item \frq$\thicksim ffff0$\flq\ (mit der peano'schen Nachfolgerfunktion $f$)\mnote{Siehe dazu § \refsatz{Z(n)}}
 	\item Nun nehmen wir die Position $p$ im String (angefangen von links mit 1)
 		und nehmen die $p$te Primzahl als Basis ($p(p)$), die Ziffer für das Zeichen
 		als Exponent: $p(1)^5 \times p(2)^3 \times p(3)^3 \times p(3)^3 \times p(4)^3 \times p(5)^1$.
@@ -236,7 +236,7 @@ darstellen: $\text{Bew}\left(x\right)$. Wenn wir also einen Satz der Form:
 
 $$
 (n): \overline{\text{Bew}}\left(n\right)
-$$
+$$\mnote{Vgl. § \refsatz{Bew}}
 (wobei $(n)$ seine gödelisierte Satznummer, d.\,h. eine lange Zahl, die eineindeutig dem
 Satz zugeordnet ist, ist\footnote{Wie Gödel es selbst sagt, wäre es kein Problem,
 diese Zahl tatsächlich aufzuschreiben; es wäre nur sehr umständlich, siehe Fußnote \ref{leichtaufzuschreiben}.}), 
@@ -487,7 +487,7 @@ denn der unentscheidbare Satz $\left[R\left(q\right); q\right]$ besagt ja,
 daß $q$ zu $K$ gehört, d.\,h. nach \ref{formel1},
 daß $\left[R\left(q\right); q\right]$ nicht beweisbar ist. Wir haben
 also einen Satz vor uns, der seine eigene
-Unbeweisbarkeit behauptet\footnote{Ein solcher Satz
+Unbeweisbarkeit behauptet\footnote{\label{zufaellig}Ein solcher Satz
 hat entgegen dem Anschein nichts Zirkelhaftes an sich, denn 
 er behauptet zunächst die Unbeweisbarkeit einer ganz bestimmenten 
 Formel (nämlich der $q$-ten in der lexikographischen Anordnung
@@ -1045,7 +1045,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	Vorsetzen des Zeichens \glq$f$\grq\ vor $x$\grqq.
 
 	%17:
-	\item $Z\left(n\right) \equiv n N\left[R\left(1\right)\right]$%
+	\item \customlabel{Z(n)}{17}$Z\left(n\right) \equiv n N\left[R\left(1\right)\right]$%
 \mnote{Konvertiert \glqq normale\grqq\ Zahlen zu einem Zahlzeichen. So wird die \glqq 5 \grqq\ zu $ffff1$.}
 	$Z\left(n\right)$ ist das \textit{Zahlzeichen} für die Zahl $n$.
 
@@ -1302,7 +1302,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 
 	$x$ ist ein \textit{Beweis} für die \textit{Formel} $y$.
 
-	%46
+	%46:
 	\item \customlabel{Bew}{46}$\text{Bew }\left(x\right) \equiv \left(Ey\right) y B x$\mnote{$\text{Bew } \equiv \exists y: y B x$, es existiert ein Beweis $y$ für $x$, vgl. § \refsatz{x B y}}
 
 	$x$ ist eine \textit{beweisbare Formel}. [$\text{Bew }\left(x\right)$ ist der einzige unter den Begriffen 1--46, von dem nicht behauptet werden kann, er sei rekursiv.]
