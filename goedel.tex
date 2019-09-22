@@ -254,11 +254,12 @@ Primfaktorzerlegungen aus. So kann man den Satz:
 Der Begriff der Beweisbarkeit lässt sich im System der Principia Mathematica selbst
 darstellen als die Möglichkeit der Herleitung aus den Axiomen. Nehmen wir die Abkürzungen
 von Gödel selbst, dann können wir die Beweisbarkeit eines Satzes folgendermaßen
-darstellen: $\text{Bew}\left(x\right)$. Wenn wir also einen Satz der Form:
+darstellen: $\text{Bew}\left(x\right)$.\mnote{Vgl. § \refsatz{Bew}}
+Wenn wir also einen Satz der Form:
 
 $$
 n \vdash \thicksim \text{Bew}\left(n\right)
-$$\mnote{Vgl. § \refsatz{Bew}}
+$$
 (wobei $n$ seine gödelisierte Satznummer, d.\,h. eine lange Zahl, die eineindeutig dem
 Satz zugeordnet ist, ist\footnote{Wie Gödel es selbst sagt, wäre es kein Problem,
 diese Zahl für jede Aussage tatsächlich aufzuschreiben; es wäre nur sehr umständlich, siehe Fußnote \ref{leichtaufzuschreiben}.}), 
@@ -301,11 +302,10 @@ Vollständigkeit des Systems beweisen, ist es notwendigerweise widersprüchlich
 (zweiter Unvollständigkeitssatz).\mnote{Vgl. Satz XI auf S. \pageref{satzxi}.}
 
 Im Rahmen dieser Arbeit würde ich gern versuchen, den Originalalgorithmus soweit
-es mir möglich ist nachzuvollziehen. Dazu habe ich die Arbeit von Gödel soweit es
-mir möglich war exakt abgetippt und mit \LaTeX, einem Textsatzsystem für mathematische
-Texte, komplett neu gesetzt, um einige
-Dinge wie eingefärbte passende Klammern zur besseren Lesbarkeit einzuführen und
-Kommentare hinzuzufügen, die die gödel'schen Formeln in eine modernere
+es mir möglich ist nachzuvollziehen. Dazu habe ich die Arbeit von Gödel soweit ich 
+es konnte exakt abgetippt und mit \LaTeX, einem Textsatzsystem für mathematische
+Texte, komplett neu gesetzt, um einige Dinge wie eingefärbte passende Klammern zur besseren 
+Lesbarkeit einzuführen und Kommentare hinzuzufügen, die die gödel'schen Formeln in eine modernere
 Schreibweise übertragen. Trotz größtmöglicher Mühe un Bemühung um Genauigkeit
 kann ich dabei natürlich nicht vermeiden, dass sich eventuell Tipp- oder Verständnisfehler 
 eingeschlichen haben.
@@ -578,26 +578,27 @@ als undefinierten Grundbegriff).
 Die Grundzeichen des Systems $P$ sind die folgenden:\mnote{Wieder erstmal rein syntaktisch}
 
 \begin{enumerate}[I.]
-	\item Konstante: \glqq $\thicksim$\grqq\ (nicht), 
+	\item Konstante: \glqq $\thicksim$\grqq\ (nicht),\mnote{Siehe die auf S. \pageref{grundzeichenzahlen} definierten Grundzeichen, die je konstant einer Zahl zugeordnet sind.}
 		\glqq$\lor$\grqq\ (oder), \glqq$\Pi{}$\grqq\ (für alle), % TODO \Pi geht nicht
 		\glqq $0$\grqq\ (Null), \glqq$f$\grqq\ (der Nachfolger
 		von), \glqq(\grqq, \glqq)\grqq\ (Klammern),
 
-	\item Variable ersten Typs (für Individuen, d.\,h. 
+	\item Variable ersten Typs (für Individuen, d.\,h. \mnote{Für Individuenvariablen.}
 		natürliche Zahlen inklusive 0): 
 		\glqq$x_1$\grqq, \glqq$y_1$\grqq,\glqq$z_1$\grqq, \dots,
 
-		Variable zweiten Typs (für Klassen von Individuen):
+		Variable zweiten Typs (für Klassen von Individuen):\mnote{Für Klassen, die aus einzelnen Individuenvariablen bestehen.}
 		\glqq$x_2$\grqq, \glqq$y_2$\grqq, \glqq$z_3$\grqq, \dots,
 
-		Variable dritten Typs (für Klassen von Klassen von 
+		Variable dritten Typs (für Klassen von Klassen von\mnote{Für Klassen, deren Elemente selbst wieder Klassen sind.}
 		Individuen): \glqq$x_3$\grqq, \glqq$y_3$\grqq,
 		\glqq$z_3$\grqq, \dots usw. für jede natürliche Zahl
 		als Typus\footnote{Es wird vorausgesetzt, daß für 
 		jeden Variablentypus abzählbar viele Zeichen zur Verfügung stehen.}.
 \end{enumerate}
 
-Anm.: Variable für zwei- und mehrstellige Funktionen
+Anm.: Variable für zwei- und mehrstellige Funktionen\mnote{Somit wird $f(x, y,  z, \hdots)$ zu $f(\mathfrak{x})$ und $\mathfrak{x}$ expandiert zu 
+$(x, y, z, \dots)$, vgl. Fußnote \ref{fnfraktur}.}
 (Relationen) sind als Grundzeichen überflüssig, da man
 Relationen als Klassen geordneter Paare definieren kann
 und geordnete Paare wiederum als Klassen von Klasse, z.\,B.
@@ -846,7 +847,7 @@ Es gelten folgende Sätze:
 	\item \so{Wenn $R$ und $S$ rekursive Relationen sind,
 	dann auch $R$, $R\lor S$ (daher auch $R \& S$)}.
 	\item \so{Wenn die Funktionen $\phi\left(\mathfrak{x}\right), \psi\left(\mathfrak{y}\right)$ rekursiv sind, dann auch die Relation
-	$\phi\left(\mathfrak{x}\right) = \psi\left(\mathfrak{y}\right)$\footnote{Wir verwenden deutsche
+	$\phi\left(\mathfrak{x}\right) = \psi\left(\mathfrak{y}\right)$\footnote{\label{fnfraktur}Wir verwenden deutsche
 	Buchstaben $\mathfrak{x}, \mathfrak{y}$ als abkürzende Bezeichnung für beliebige Variablen-$n$-tupel, z.\,B. $x_1 x_2 \dots x_n$}.}
 	
 	\item \so{Wenn die Funktion $\phi\left(\mathfrak{x}\right)$
