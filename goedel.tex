@@ -178,7 +178,7 @@ Aber das sind alles nur Vereinfachungen, damit wir als Menschen, die damit arbei
 besser damit klarkommen. Inhaltlich ist ein $a + b$ gleichbedeutend mit einer langen
 Kette an XOR und NICHT-Operationen.
 
-Gödel zeigte, dass das nicht ist, möglich alle wahren Aussagen zu beweisen, 
+Gödel zeigte, dass es nicht ist, alle wahren Aussagen zu beweisen, 
 in dem er einen Algorithmus anbietet, der -- komplett zurückführbar auf die logischen 
 Grundaussagen --, immer Sätze konstruieren kann, die nach formalen Regeln im System 
 gelten, die aber nicht beweisbar sind.
@@ -218,8 +218,8 @@ Primfaktorzerlegungen aus. So kann man den Satz:
 \begin{enumerate}
 	\item \frq es gilt nicht, dass 4\flq
 	\item \frq$\thicksim 4$\flq
-	\item \frq$\thicksim ffff0$\flq\ (mit der peano'schen Nachfolgerfunktion $f$)\mnote{Siehe dazu § \refsatz{Z(n)}}
-	\item Nun nehmen wir die Position $p$ im String (angefangen von links mit 1)
+	\item \frq$\thicksim ffff0$\flq\ (mit der peano'schen Nachfolgerfunktion $f$)\mnote{Siehe dazu § \refsatz{0 N x}}
+	\item Nun nehmen wir die Position $p$ im String (angefangen von links mit 1)\mnote{Siehe dazu § \refsatz{Z(n)}}
 		und nehmen die $p$te Primzahl als Basis ($p(p)$), die Ziffer für das Zeichen
 		als Exponent: $p(1)^5 \times p(2)^3 \times p(3)^3 \times p(3)^3 \times p(4)^3 \times p(5)^1$.
 		Wir erhalten:
@@ -245,7 +245,7 @@ behauptet und im System nicht entscheidbar ist. Wäre er beweisbar, wäre er per
 richtig, weil nur richtige Sätze beweisbar sind, aber wäre er beweisbar, wäre er auch 
 per definitionem unbeweisbar.
 
-Für solche Sätze sind Systeme wie das der Principia Mathematica prinzipiell überflüssig,
+Für solche Sätze sind Systeme wie das der Principia Mathematica prinzipiell überflüssig,\mnote{Siehe wieder Fußnote \ref{leichtaufzuschreiben}}
 weil diese nur auf den logischen Axiomen aufbauen und Abkürzungen für lange Reihen von
 Zeichenketten darstellen. Daher sind alle logisch-formalen Systeme betroffen und die
 Principia ist nur ein \frq Einstiegspunkt\flq\ zur Vereinfachung der Thesen.
@@ -1036,7 +1036,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	$x \text{ Gen } y$ ist die \textit{Generalisation} von $y$ mittels der Variablen $x$ (vorausgesetzt, daß $x$ eine \textit{Variable} ist).
 
 	%16:
-	\item $0 N x \equiv x$\mnote{Zweistufig-rekursive Funktion zum Vorsetzen des Zeichens \glqq$f$\grqq}
+	\item \customlabel{0 N x}{16}$0 N x \equiv x$\mnote{Zweistufig-rekursive Funktion zum Vorsetzen des Zeichens \glqq$f$\grqq}
 
 	$\left(n + 1\right) N x \equiv R\left(3\right) n N x$%
 \mnote{$\left(n\right) N x \equiv \text{\glqq}f\text{\grqq.} \left(n - 1\right) N x$, die 3 ist das \glqq $f$\grqq, vgl. § \refsatz{Konkat}}
