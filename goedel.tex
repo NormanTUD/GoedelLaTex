@@ -36,6 +36,7 @@
 \usepackage{amsfonts,amsthm}
 \usepackage{ifthen}
 \usepackage{xpatch}
+\usepackage{url}
 
 \def\middlebreak {\nulldelimiterspace0pt
 \right.\allowbreak\mskip 0mu plus .5mu \nulldelimiterspace0pt\left.}%
@@ -153,6 +154,101 @@
 \fi
 
 \begin{document}
+
+\section{Einleitung}
+
+Ein Algorithmus ist eine endliche Abfolge von genau spezifizierten Schritten, um ein
+mathematisches oder logisches Problem zu lösen. Die Frage, vor der \so{Hilbert} stand,
+lautete: wenn man die Mathematik formalisiert, sind dann alle wahren Aussagen durch
+einen Algorithmus beweisbar?
+
+Was heißt \frq beweisbar\flq? Beweise sind Zurückführungen auf einzelne Axiome mithilfe
+von syntaktischen Veränderungsregeln. So kann jede mathematische Aussage als Zeichenkette
+auffassen und schauen, ob man -- durch erlaubte Veränderungen der Axiome des Systems --
+irgendwie auf diese Zeichenkette kommt. Hierbei ist Gödel ein großer Vorreiter der
+modernen Informatik, denn Computer können auch nur nach fest definierten Regeln
+Zeichenketten bearbeiten. Die mathematische Formel wird dabei nur sekundär inhaltlich
+betrachtet und primär als Ansammlung von Zeichen, die nach Regeln bearbeitet werden.
+Jede bewiesene mathematische Aussage lässt sich prinzipiell als sehr lange Zeichenkette
+darstellen, die nur aus den Grundoperationen besteht (z.\,B. XOR, AND und NOT in
+der modernen Computertechnik). Daraus lassen sich Operationen wie das Addieren 
+herleiten, woraus sich das Multiplizieren herleiten lässt (mit ganzen Zahlen) usw.
+Aber das sind alles nur Vereinfachungen, damit wir als Menschen, die damit arbeiten,
+besser damit klarkommen. Inhaltlich ist ein $a + b$ gleichbedeutend mit einer langen
+Kette an XOR und NICHT-Operationen.
+
+Gödel zeigte, dass das nicht ist, möglich alle wahren Aussagen zu beweisen, 
+in dem er einen Algorithmus anbietet, der -- komplett zurückführbar auf die logischen 
+Grundaussagen --, immer Sätze konstruieren kann, die nach formalen Regeln im System 
+gelten, die aber nicht beweisbar sind.
+
+Russell und Whitehead haben erkannt, dass man solche Sätze mit selbstreferenziellen
+Aussagen generieren kann, z.\,B. \frq dieser Satz ist falsch\flq, und daher haben sie
+in der Principia Mathematica solche Sätze, die sich auf sich selbst beziehen, verboten.
+Aber selbst, wenn man das verbietet, lassen sich dennoch solche Sätze konstruieren.
+
+Wieder ein vereinfachtes Beispiel: wir nehmen an, dass jeder mit den Grundzeichen
+der Mathematik definierbare Satz eine Nummer bekommt. Dort sind nun alle nur überhaupt
+definierbaren Sätze, wie z.\,B. \frq $1 + 1 = 2$\flq, aber auch \frq der Satz mit
+der Nummer 4922 ist nicht beweisbar\flq. Wenn aber letzterer Satz gerade 
+\frq zufällig\flq\ tatsächlich die zugewiesene Nummer 4922 hat, dann behauptet
+der Satz seine eigene Unbeweisbarkeit, und das mehr oder weniger zufällig.
+
+Können wir ihn aus den logischen Regeln herleiten (d.\,h. beweisen), dann ist
+er unbeweisbar. \textit{Aber wir haben ihn doch hergeleitet, d.\,h. bewiesen!}
+Das Resultat: der Satz ist unentscheidbar. Wenn er wahr ist, ist er falsch,
+und wenn er falsch ist, könnte er zumindest potenziell noch wahr sein.
+
+Das letzte Ressort könnte sein, ihn als Axiom zu setzen. Aber da alle potenziell
+möglichen Sätze generiert werden, dürfen wir den Satz mit der Nummer 559321 nicht
+aus den Augen verlieren, er besagt: \frq der Satz mit der Nummer 559321 ist
+nicht beweisbar\flq. Wir stehen also wieder vor dem gleichen Problem und müssten
+wieder ein Axiom setzen. Das geht ewig so weiter. Wir haben (nach unendlich viel
+vergangener Zeit und unendlich vielen neuen Axiomen) also wieder ein System,
+das aber nicht mehr algorithmisch lösbar ist, weil Algorithmen, die etwas
+lösen sollen, keine unendliche Menge an Axiomen abarbeiten können. 
+
+Gödels Algorithmus bietet die Möglichkeit, jedem Satz eineindeutig eine solche Nummer
+zuzuordnen, indem er einige Konstanten definiert, z.\,B. wird \frq 0\flq\ zu 1,
+\flq f\flq\ zu 3, \frq$\thicksim$\flq\ zu 5. Außerdem nutzt er die Eineindeutigkeit von
+Primfaktorzerlegungen aus. So kann man den Satz: 
+\frq es gilt nicht, dass 4\flq\ folgendermaßen umwandeln:
+
+\begin{enumerate}
+	\item \frq es gilt nicht, dass 4\flq
+	\item \frq$\thicksim 4$\flq
+	\item \frq$\thicksim ffff0$\flq\ (mit der peano'schen Nachfolgerfunktion $f$)
+	\item Nun nehmen wir die Position $p$ im String (angefangen von links mit 1)
+		und nehmen die $p$te Primzahl als Basis ($p(p)$), die Ziffer für das Zeichen
+		als Exponent: $p(1)^5 \times p(2)^3 \times p(3)^3 \times p(3)^3 \times p(4)^3 \times p(5)^1$.
+		Wir erhalten:
+		$2^5 \times 3^3 \times 5^3 \times 7^3 \times 11^3 \times 13^3 \times 17^1 = 1841513509836000$. Dies
+		können wir, da es unendlich viele Primzahlen gibt, für jede beliebig lange Zeichenkette 
+		bestehend aus den Grundzeichen machen. Die Zahl 1841513509836000 lässt sich durch 
+		Primfaktorzerlegung prinzipiell wieder 1:1 in den Ursprungssatz zurückwandeln.
+\end{enumerate}
+
+Im Rahmen dieser Arbeit würde ich gern versuchen, den Originalalgorithmus soweit
+es mir möglich ist nachzuvollziehen. Dazu habe ich die Arbeit von Gödel soweit es
+mir möglich war exakt abgetippt und mit \LaTeX\ komplett neu gesetzt, um einige
+Dinge wie eingefärbte passende Klammern zur besseren Lesbarkeit einzuführen und
+Kommentare hinzuzufügen, die die gödel'schen Formeln in eine modernere
+Schreibweise übertragen. Trotz größtmöglicher Mühe kann ich dabei natürlich
+nicht vermeiden, dass sich eventuell Tipp- oder Verständnisfehler eingeschlichen
+haben.
+
+Da es meiner Recherchen nach noch keine solche Version gab, habe ich sie der
+Forschung auf meinem GitHub-Account unter der GPL2-Lizenz zur Verfügung 
+gestellt\footnote{Siehe \url{https://github.com/NormanTUD/GoedelLaTex/}.}.
+Jeder kann diese Version forken und eigene Änderungen hinzufügen, um das
+Dokument möglichst vollständig zu machen und meine Fehler zu korrigieren.
+Es unterliegt keinen Einschränkungen für Forschung und Lehre, außer dass 
+(wie in der GPL2 mit \textit{Copyleft} üblich) jede Änderung selbst wieder
+öffentlich gemacht und unter die GPL2 gestellt werden muss.
+
+\newpage
+\setcounter{footnote}{0}
+\setcounter{page}{173}
 
 \section*{Über formal unentscheidbare Sätze der Principia Mathematica 
 und verwandter Systeme I\protect\footnote{Vgl. die im Anzeiger der Akad. d. Wiss. in Wien
