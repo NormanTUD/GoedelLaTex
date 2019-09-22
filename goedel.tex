@@ -157,10 +157,16 @@
 
 \section{Einleitung}
 
+\let\originalthefootnote\thefootnote
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
 Ein Algorithmus ist eine endliche Abfolge von genau spezifizierten Schritten, um ein
 mathematisches oder logisches Problem zu lösen. Die Frage, vor der \so{Hilbert} stand,
 lautete: wenn man die Mathematik formalisiert, sind dann alle wahren Aussagen durch
 einen Algorithmus beweisbar?
+
+Für \so{Hilbert} schien die Sache klar, dass das so sein muss, nur fehlte im der Beweis
+dafür, dass das so ist. Erst Gödel zeigte, dass das nicht geht.
 
 Was heißt \frq beweisbar\flq? Beweise sind Zurückführungen auf einzelne Axiome mithilfe
 von syntaktischen Veränderungsregeln.\mnote{Vgl. Kommentar \ref{tractatus}} 
@@ -168,7 +174,11 @@ So kann jede mathematische Aussage als Zeichenkette
 auffassen und schauen, ob man -- durch erlaubte Veränderungen der Axiome des Systems --
 irgendwie auf diese Zeichenkette kommt. Hierbei ist Gödel ein großer Vorreiter der
 modernen Informatik, denn Computer können auch nur nach fest definierten Regeln
-Zeichenketten bearbeiten. Die mathematische Formel wird dabei nur sekundär inhaltlich
+Zeichenketten bearbeiten. Die mathematische Formel wird dabei nur sekundär inhaltlich\mnote{Die inhaltliche Betrachtung findet erst
+beim Menschen statt, der versucht, das, was die Formel aussagt, zu verstehen. Der Formel selbst
+liegt diese inhhaltliche Deutung nicht bei, was unter Anderem zur extrem breiten Verwendbarkeit
+der Mathematik folgt. Vereinfacht gesagt: mit der gleichen Formel kann man berechnen, wie ein Atomkraftwerk funktioniert,
+aber auch eine Atombombe; zwei sehr unterschiedliche Anwendungsbereiche mit ähnlicher mathematische Struktur.}
 betrachtet und primär als Ansammlung von Zeichen, die nach Regeln bearbeitet werden.
 Jede bewiesene mathematische Aussage lässt sich prinzipiell als sehr lange Zeichenkette
 darstellen, die nur aus den Grundoperationen besteht (z.\,B. XOR, AND und NOT in
@@ -178,7 +188,7 @@ Aber das sind alles nur Vereinfachungen, damit wir als Menschen, die damit arbei
 besser damit klarkommen. Inhaltlich ist ein $a + b$ gleichbedeutend mit einer langen
 Kette an UND, XOR und NICHT-Operationen.
 
-Gödel zeigte, dass es nicht ist, alle wahren Aussagen zu beweisen, 
+Gödel zeigte, dass möglich es nicht ist, alle wahren Aussagen zu beweisen, 
 in dem er einen Algorithmus anbietet, der -- komplett zurückführbar auf die logischen 
 Grundaussagen --, immer Sätze konstruieren kann, die nach formalen Regeln im System 
 gelten, die aber nicht beweisbar sind.
@@ -191,7 +201,9 @@ Aber selbst, wenn man das verbietet, lassen sich dennoch solche Sätze konstruie
 Wieder ein vereinfachtes Beispiel: wir nehmen an, dass jeder mit den Grundzeichen
 der Mathematik definierbare Satz eine Nummer bekommt. Dort sind nun alle nur überhaupt
 definierbaren Sätze, wie z.\,B. \frq $1 + 1 = 2$\flq, aber auch \frq der Satz mit
-der Nummer 4922 ist nicht beweisbar\flq. Wenn aber letzterer Satz gerade 
+der Nummer 4922\footnote{Die Nummern sind nur beispielhaft gewählt und entsprechen
+nicht der wirklichen Gödelisierung der Sätze.}
+ist nicht beweisbar\flq. Wenn aber letzterer Satz gerade 
 \frq zufällig\flq\ tatsächlich die zugewiesene Nummer 4922 hat, dann behauptet
 der Satz seine eigene Unbeweisbarkeit, und das mehr oder weniger zufällig.\mnote{Siehe dazu Fußnote \ref{zufaellig}.}
 
@@ -211,7 +223,7 @@ lösen sollen, keine unendliche Menge an Axiomen abarbeiten können.
 
 Gödels Algorithmus bietet die Möglichkeit, jedem Satz eineindeutig eine solche Nummer
 zuzuordnen, indem er einige Konstanten definiert, z.\,B. wird \frq 0\flq\ zu 1,
-\frq f\flq\ zu 3, \frq$\thicksim$\flq\ zu 5. Außerdem nutzt er die Eineindeutigkeit von
+\frq f\flq\ zu 3, \frq$\thicksim$\flq\ zu 5\mnote{Siehe dazu S. \pageref{grundzeichenzahlen}.}. Außerdem nutzt er die Eineindeutigkeit von
 Primfaktorzerlegungen aus. So kann man den Satz: 
 \frq es gilt nicht, dass 4\flq\ folgendermaßen umwandeln:
 
@@ -226,7 +238,9 @@ Primfaktorzerlegungen aus. So kann man den Satz:
 		$2^5 \times 3^3 \times 5^3 \times 7^3 \times 11^3 \times 13^3 \times 17^1 = 1841513509836000$. Dies
 		können wir, da es unendlich viele Primzahlen gibt, für jede beliebig lange Zeichenkette 
 		bestehend aus den Grundzeichen machen. Die Zahl 1841513509836000 lässt sich durch 
-		Primfaktorzerlegung prinzipiell wieder 1:1 in den Ursprungssatz zurückwandeln.
+		Primfaktorzerlegung prinzipiell wieder 1:1 in den Ursprungssatz zurückwandeln, so dass gilt:
+
+		$$ 1841513509836000 \equiv \text{\frq es gilt nicht, dass 4\flq} $$
 \end{enumerate}
 
 Der Begriff der Beweisbarkeit lässt sich im System der Principia Mathematica selbst
@@ -235,7 +249,7 @@ von Gödel selbst, dann können wir die Beweisbarkeit eines Satzes folgendermaß
 darstellen: $\text{Bew}\left(x\right)$. Wenn wir also einen Satz der Form:
 
 $$
-(n): \overline{\text{Bew}}\left(n\right)
+n \vdash \thicksim \text{Bew}\left(n\right)
 $$\mnote{Vgl. § \refsatz{Bew}}
 (wobei $(n)$ seine gödelisierte Satznummer, d.\,h. eine lange Zahl, die eineindeutig dem
 Satz zugeordnet ist, ist\footnote{Wie Gödel es selbst sagt, wäre es kein Problem,
@@ -262,15 +276,31 @@ seine Axiome, d.\,h. dass es immer Aussagen gibt, die mit einem Computer nicht �
 Das setzt -- ähnlich wie das Halteproblem -- der Theorie der Algorithmen und dem
 menschlichen Erkennen überhaupt enge Grenzen.
 
+%In der mathematischen Logik wird eine Theorie als ω-konsistent (oder omega-konsistent) bezeichnet, falls sie keine Existenzaussage beweisen kann, wenn sie alle konkreten Instanzen dieser Aussage widerlegen kann. 
+Ein System, in dem keine Existenzaussage bewiesen werden kann, die in irgendeinem
+Einzelfall widerlegt werden kann, heißt $\omega$-widerspruchsfrei. Jedes 
+$\omega$-widerspruchsfrei System ist auch widerspruchsfrei, aber nicht umgekehrt.
+Die Axiome der PM sind widerspruchsfrei, aber mit den Methoden der Gödelisierung
+lassen sich ebensolche Existenzaussagen treffen, die das System $\omega$-widersprüchlich
+machen. \mnote{Dazu muss es nur \textit{irgendwie} möglich sein, 
+aus dem System etwas wie die natürlichen Zahlen und Addition herleiten zu können, was auf fast alle
+praktisch-relevanten logisch-widerspruchsfreien Systeme zutrifft. Dazu muss es auch möglich sein,
+dass im genannten System der Begriff \frq die Formel $f$ ist beweisbar im System $S$\flq\ definierbar ist.}Dies gilt für alle ausreichend komplexen
+Systeme. Wenn ein System ausreichend komplex ist, dann ist es notwendigerweise unvollständig,
+d.\,h. es gibt Existenzaussagen, die nicht aus den Axiomen herleitbar sind (erster
+Unvollständigkeitssatz)\mnote{Vgl. Satz VIII auf S. \pageref{satzvii}.}. Kann man jedoch die
+Vollständigkeit des Systems beweisen, ist es notwendigerweise widersprüchlich 
+(zweiter Unvollständigkeitssatz).\mnote{Vgl. Satz XI auf S. \pageref{satzxi}.}
+
 Im Rahmen dieser Arbeit würde ich gern versuchen, den Originalalgorithmus soweit
 es mir möglich ist nachzuvollziehen. Dazu habe ich die Arbeit von Gödel soweit es
 mir möglich war exakt abgetippt und mit \LaTeX, einem Textsatzsystem für mathematische
 Texte, komplett neu gesetzt, um einige
 Dinge wie eingefärbte passende Klammern zur besseren Lesbarkeit einzuführen und
 Kommentare hinzuzufügen, die die gödel'schen Formeln in eine modernere
-Schreibweise übertragen. Trotz größtmöglicher Mühe kann ich dabei natürlich
-nicht vermeiden, dass sich eventuell Tipp- oder Verständnisfehler eingeschlichen
-haben.
+Schreibweise übertragen. Trotz größtmöglicher Mühe un Bemühung um Genauigkeit
+kann ich dabei natürlich nicht vermeiden, dass sich eventuell Tipp- oder Verständnisfehler 
+eingeschlichen haben.
 
 Da es meiner Recherchen nach noch keine solche Version gab, habe ich sie der
 Forschung auf meinem GitHub-Account unter der GPL2-Lizenz zur Verfügung 
@@ -284,6 +314,7 @@ Es unterliegt keinen Einschränkungen für Forschung und Lehre, außer dass
 \newpage
 \setcounter{footnote}{0}
 \setcounter{page}{173}
+\let\thefootnote\originalthefootnote
 
 \section*{Über formal unentscheidbare Sätze der Principia Mathematica 
 und verwandter Systeme I\protect\footnote{Vgl. die im Anzeiger der Akad. d. Wiss. in Wien
@@ -711,6 +742,7 @@ J.~v.~Neumann, Zur \so{Hilbert}schen Beweistheorie, Math. Zeitschr. 26, 1927.)}.
 Wir ordnen nun den Grundzeichen des Systems $P$ in\mnote{Es geht um eine rein syntaktische Betrachtung zum Umwandeln von Formeln in natürliche Zahlen. Gödel bietet einen generalisierten Algorithmus an, um in jedem ausreichend komplexen System Sätze zu formulieren, die nicht nicht-beweisbar sind. Dazu nutzt er zur Vereinfachung die Peano-Axiome, die aber, da sie selbst Folgen der logischen Annahmen sind, an sich entbehrlich sind.}
 folgender Weise eineindeutig natürliche Zahlen zu:
 
+\label{grundzeichenzahlen}
 \begin{center}
 \begin{tabular}{lll}
 	\glqq$0$\grqq\dots 1 & \glqq$\lor$\grqq\dots 7 & \glqq(\grqq\dots 11 \\
@@ -1700,7 +1732,7 @@ Gemäß Satz VII gibt es zu jedem Problem der Form
 $\left(x\right)F\left(x\right)$ ($F$ rekursiv) ein äquivalentes arithmetisches
 Problem und da der ganze Beweis von Satz VII sich (für jedes spezielle $F$) innerhalb des Systems $P$ formalisieren läßt, ist diese Äquivalenz in $P$ beweisbar. Daher gilt:
 
-\so{Satz VIII: In jedem der in Satz VI genannten formalen Systeme\footnote{Das sind diejenigen $\omega$-widerspruchsfreien Systeme, welche aus $P$ durch Hinzufügung einer rekursiv definierbaren Klasse von Axiomen entstehen.}
+\label{satzvii}\so{Satz VIII: In jedem der in Satz VI genannten formalen Systeme\footnote{Das sind diejenigen $\omega$-widerspruchsfreien Systeme, welche aus $P$ durch Hinzufügung einer rekursiv definierbaren Klasse von Axiomen entstehen.}
 gibt es unentscheidbare arithmetische Sätze.}
 
 Dasselbe gilt (nach der Bemerkung auf Seite 190 TODO)
@@ -1837,7 +1869,7 @@ Aus den Ergebnissen von Abschnitt 2 folgt ein merkwürdiges Resultat, bezüglich
 widerspruchsfreie\footnote{$\chi$ ist widerspruchsfrei 
 (abgekürzt als $\text{Wid }\left(x\right)$) wird folgendermaßen 
 definiert: $\text{Wid}\left(x\right)\equiv\left(Ex\right)\left[\text{Form}\left(x\right)\&\text{Bew}_\chi\left(x\right)\right]$.}
-Klasse von} \textit{Formeln}\so{, dann gilt: Die }\textit{Satzformel}\so{, welche besagt, 
+Klasse von}\label{satzxi} \textit{Formeln}\so{, dann gilt: Die }\textit{Satzformel}\so{, welche besagt, 
 daß $\chi$ widerspruchsfrei ist, ist nicht} $\chi$-\textit{beweisbar}; insbesondere ist 
 die Widerspruchsfreiheit von $P$ in $P$ unbeweisbar\footnote{Dies folgt, wenn man für 
 $\chi$ die leere Klasse von \textit{Formeln} einsetzt.},
