@@ -173,10 +173,12 @@
 \lettrine[nindent=0em]{\color{purple}A}{lgorithmen} sind endliche Abfolgen von 
 genau spezifizierten Schritten, um ein mathematisches oder logisches Problem zu lösen. 
 Die Frage, vor der \so{Hilbert} stand, lautete: wenn man die Mathematik formalisiert, 
-sind dann alle wahren Aussagen durch einen Algorithmus beweisbar?
+sind dann alle wahren Aussagen durch einen Algorithmus beweisbar? Oder: kann man durch
+einen Algorithmus, der alle möglichen Aussagen durchschreitet, von jeder Einzelnen
+herausfinden, ob sie wahr ist oder nicht?
 
 Für \so{Hilbert} schien die Sache klar, dass das so sein muss, nur fehlte im der Beweis
-dafür, dass das so ist. Erst Gödel zeigte, dass das nicht geht.
+dafür. Erst Gödel zeigte, dass die Sache viel vertrackter ist und so nicht geht.
 
 Was heißt \frq beweisbar\flq? Beweise sind Zurückführungen auf einzelne Axiome mithilfe
 von syntaktischen Veränderungsregeln.\mnote{Vgl. Kommentar \ref{tractatus}} 
@@ -184,7 +186,8 @@ So kann man jede mathematische Aussage als Zeichenkette
 auffassen und schauen, ob man -- durch erlaubte Veränderungen der Axiome des Systems --
 irgendwie auf diese Zeichenkette kommt. Hierbei ist Gödel ein großer Vorreiter der
 modernen Informatik, denn Computer können auch nur nach fest definierten Regeln
-Zeichenketten bearbeiten. Die mathematische Formel wird dabei nur sekundär inhaltlich\mnote{Die inhaltliche Betrachtung findet erst
+Zeichenketten bearbeiten. Die mathematische Formel wird dabei nur sekundär 
+inhaltlich\mnote{Die inhaltliche Betrachtung findet erst
 beim Menschen statt, der versucht, das, was die Formel aussagt, zu verstehen. Der Formel selbst
 liegt diese inhhaltliche Deutung nicht bei, was unter Anderem zur extrem breiten Verwendbarkeit
 der Mathematik folgt. Vereinfacht gesagt: mit der gleichen Formel kann man berechnen, wie ein Atomkraftwerk funktioniert,
@@ -196,31 +199,35 @@ der modernen Computertechnik). Daraus lassen sich Operationen wie das Addieren
 herleiten, woraus sich das Multiplizieren herleiten lässt (mit ganzen Zahlen) usw.
 Aber das sind alles nur Vereinfachungen, damit wir als Menschen, die damit arbeiten,
 besser damit klarkommen. Inhaltlich ist ein $a + b$ gleichbedeutend mit einer langen
-Kette an UND, XOR und NICHT-Operationen.
+Kette an UND, XOR und NICHT-Operationen im CPU eines Computers.
 
 Gödel zeigte, dass möglich es nicht ist, alle wahren Aussagen zu beweisen, 
 in dem er einen Algorithmus anbietet, der -- komplett zurückführbar auf die logischen 
-Grundaussagen --, immer Sätze konstruieren kann, die nach formalen Regeln im System 
-gelten, die aber nicht beweisbar sind.
+Grundaussagen --, immer Sätze konstruieren kann, die zwar durch metamathematische
+Überlegungen von \frq außerhalb\flq\ des Systems\mnote{Vgl. Kommentar \ref{metamatematischeueberlegungen}.}
+als geltend gezeigt werden können, die aber nicht innerhalb des Systems beweisbar sind.
 
 Russell und Whitehead haben erkannt, dass man solche Sätze mit selbstreferenziellen
 Aussagen generieren kann, z.\,B. \frq dieser Satz ist falsch\flq, und daher haben sie
-in der Principia Mathematica solche Sätze, die sich auf sich selbst beziehen, verboten.
-Aber selbst, wenn man das verbietet, lassen sich dennoch solche Sätze konstruieren.
+in der Principia Mathematica solche Sätze, die sich auf sich selbst beziehen, 
+verboten Aber selbst, wenn man das verbietet, lassen sich dennoch vergleichbare Sätze 
+konstruieren.
 
 Wieder ein vereinfachtes Beispiel: wir nehmen an, dass jeder mit den Grundzeichen
 der Mathematik definierbare Satz eine Nummer bekommt. Dort sind nun alle nur überhaupt
-definierbaren Sätze, wie z.\,B. \frq $1 + 1 = 2$\flq, aber auch \frq der Satz mit
+definierbaren Sätze, sinnvoll wie sinnlos, falsch wie richtig,
+wie z.\,B. \frq $45 + 16 = 1$\flq, \frq $1 + 1 = 2$\flq, aber auch \frq der Satz mit
 der Nummer 4922\footnote{Die Nummern sind nur beispielhaft gewählt und entsprechen
 nicht der wirklichen Gödelisierung der Sätze.}
 ist nicht beweisbar\flq. Wenn aber letzterer Satz gerade 
 \frq zufällig\flq\ tatsächlich die zugewiesene Nummer 4922 hat, dann behauptet
-der Satz seine eigene Unbeweisbarkeit, und das mehr oder weniger zufällig.\mnote{Siehe dazu Fußnote \ref{zufaellig}.}
+der Satz seine eigene Unbeweisbarkeit, und das mehr oder weniger
+zufällig, ohne dass eine selbstreferenzielle-Strukturen-verbietende
+Typentheorie das verbieten könnte.\mnote{Siehe dazu Fußnote \ref{zufaellig}.}
 
-Können wir ihn aus den logischen Regeln herleiten (d.\,h. beweisen), dann ist
-er unbeweisbar. \textit{Aber wir haben ihn doch hergeleitet, d.\,h. bewiesen!}
-Das Resultat: der Satz ist unentscheidbar. Wenn er wahr ist, ist er falsch,
-und wenn er falsch ist, könnte er zumindest potenziell noch wahr sein.
+Unbeweisbar heißt hier, dass der Satz nicht hergeleitet werden kann aus den gewählten
+Axiomen. Aber durch metamathematische Überlegungen können wir ihn doch als wahr anerkennen,
+weil er eben nicht aus den Axiomen herleitbar ist (d.\,h. unbeweisbar).
 
 Das letzte Ressort könnte sein, ihn als Axiom zu setzen. Aber da alle potenziell
 möglichen Sätze generiert werden, dürfen wir den Satz mit der Nummer 559321 nicht
@@ -231,10 +238,20 @@ vergangener Zeit und unendlich vielen neuen Axiomen) also wieder ein System,
 das aber nicht mehr algorithmisch lösbar ist, weil Algorithmen, die etwas
 lösen sollen, keine unendliche Menge an Axiomen abarbeiten können. 
 
-Gödels Algorithmus bietet die Möglichkeit, jedem Satz eineindeutig eine solche Nummer
-zuzuordnen, indem er einige Konstanten definiert, z.\,B. wird \frq 0\flq\ zu 1,
-\frq f\flq\ zu 3, \frq$\thicksim$\flq\ zu 5\mnote{Siehe dazu S. \pageref{grundzeichenzahlen}.}. Außerdem nutzt er die Eineindeutigkeit von
-Primfaktorzerlegungen aus. So kann man den Satz: 
+Gödels Algorithmus bietet die Möglichkeit, jedem sinnvollen und sinnlosen 
+Satz\mnote{Siehe dazu S. \pageref{grundzeichenzahlen}. Die gewählten Grundzeichen hängen
+vom System ab, das man als Grundlage nehmen möchte. Gödel nimmt das System der Peano-Axiome
+mit dem System der Principia Mathematica zusammen zur Vereinfachung seines Beweises.}
+eineindeutig eine eineindeutige Nummer zuzuordnen, indem er einige Konstanten 
+definiert, z.\,B. wird \frq 0\flq\ zu 1, \frq f\flq\ zu 3, 
+\frq$\thicksim$\flq\ zu 5. 
+Außerdem nutzt er die Eineindeutigkeit von Primfaktorzerlegungen aus.\mnote{Jede
+natürliche Zahl ist entweder selbst Prim oder das Produkt aus $n$ Primzahlen. Die Zerlegung
+einer Zahl in Primzahlen ist eineindeutig und jede Zahl hat exakt eine ihr zugeordnete
+Primfaktorzerlegung. Nimmt man die Position $p$ als $p$te Primzahl hoch einer Zahl, die
+ein spezielles Zeichen symbolisiert, so lässt sich diese Zahl jederzeit zurückwandeln
+in den ursprünglichen Satz, weil die Primfaktorzerlegung immer eineindeutig bleibt.}
+So kann man den (sinnlosen) Satz: 
 \frq es gilt nicht, dass 4\flq\ folgendermaßen umwandeln:
 
 \begin{enumerate}
@@ -260,17 +277,20 @@ darstellen: $\text{Bew}\left(x\right)$.\mnote{Vgl. § \refsatz{Bew}}
 Wenn wir also einen Satz der Form:
 
 $$
-n \vdash \thicksim \text{Bew}\left(n\right)
+n \vdash \thicksim \text{Bew}\left(m\right)
 $$
-(wobei $n$ seine gödelisierte Satznummer, d.\,h. eine lange Zahl, die eineindeutig dem
+(wobei $n$ seine gödelisierte Satznummer und \frq zufälligerweise\flq\ $n = m$, 
+d.\,h. eine lange Zahl, die eineindeutig dem
 Satz zugeordnet ist, ist\footnote{Wie Gödel es selbst sagt, wäre es kein Problem,
 diese Zahl für jede Aussage tatsächlich aufzuschreiben; es wäre nur sehr umständlich, siehe Fußnote \ref{leichtaufzuschreiben}.}), 
 dann haben wir einen solchen Satz, der seine eigene Unbeweisbarkeit
 behauptet und im System nicht entscheidbar ist. Wäre er beweisbar, wäre er per definitionem
 richtig, weil nur richtige Sätze beweisbar sind, aber wäre er beweisbar, wäre er auch 
-per definitionem unbeweisbar.
+per definitionem unbeweisbar. Seine Richtigkeit lässt sich aber eben durch
+metamathematische Überlegungen zeigen.\mnote{Vgl. Kommentar \ref{metamatematischeueberlegungen}.}
 
-Für solche Sätze sind Systeme wie das der Principia Mathematica prinzipiell überflüssig,\mnote{Siehe wieder Fußnote \ref{leichtaufzuschreiben}}
+Für solche Sätze sind Systeme wie das der Principia Mathematica prinzipiell 
+überflüssig,\mnote{Siehe wieder Fußnote \ref{leichtaufzuschreiben}}
 weil diese nur auf den logischen Axiomen aufbauen und Abkürzungen für lange Reihen von
 Zeichenketten darstellen. Daher sind alle logisch-formalen Systeme betroffen und die
 Principia ist nur ein \frq Einstiegspunkt\flq\ zur Vereinfachung der Thesen.
@@ -287,7 +307,6 @@ seine Axiome, d.\,h. dass es immer Aussagen gibt, die mit einem Computer nicht �
 Das setzt -- ähnlich wie das Halteproblem -- der Theorie der Algorithmen und dem
 menschlichen Erkennen überhaupt enge Grenzen.
 
-%In der mathematischen Logik wird eine Theorie als ω-konsistent (oder omega-konsistent) bezeichnet, falls sie keine Existenzaussage beweisen kann, wenn sie alle konkreten Instanzen dieser Aussage widerlegen kann. 
 Ein System, in dem keine Existenzaussage bewiesen werden kann, die in irgendeinem
 Einzelfall widerlegt werden kann, heißt $\omega$-widerspruchsfrei. Jedes 
 $\omega$-widerspruchsfrei System ist auch widerspruchsfrei, aber nicht umgekehrt.
@@ -550,11 +569,14 @@ wird unter anderem die Aufgabe haben, die zweite der eben
 angeführten Voraussetzungen durch eine rein formale und 
 weit schwächere zu ersetzen.
 
-Aus der Bemerkung, daß $\left[R\left(q\right); q\right]$ seine eigene\mnote{Wenn der Satz $S = \left[R\left(q\right); q\right]$ unbeweisbar ist und 
-das gezeigt (bewiesen) werden kann, dann ist er nicht mehr unbeweisbar.}
+Aus der Bemerkung, daß $\left[R\left(q\right); q\right]$ seine 
+eigene\mnote{\customlabel{metamatematischeueberlegungen}{\arabic{commentaryNumber}} Wenn der Satz 
+$S = \left[R\left(q\right); q\right]$ unbeweisbar ist und er nicht bewiesen werden kann,
+dann ist er wahr. Das kann dann durch die metamathematische Überlegung gezeigt werden,
+dass man eben sieht, dass die Aussage wahr ist, weil sie eben nicht beweisbar ist.}
 Unbeweisbarkeit behauptet, folgt sofort, daß $\left[R\left(q\right); q\right]$ 
 richtig ist, denn $\left[R\left(q\right); q\right]$ ist ja unbeweisbar (weil 
-unentscheidbar). Der im System PM unentscheidbare Satz 
+unentscheidbar). Der im System PM unentscheidbare Satz
 wurde also durch metamathematische Überlegungen doch
 entschieden. Die genaue Analyse dieses merkwürdigen 
 Umstandes führt zu überraschenden Resultaten, bezüglich der
@@ -1951,3 +1973,6 @@ von Satz XI ausführlich dargestellt werden.
 
 
 \end{document}
+
+%  What Gödel did was create a mathematical statement that said, "The statement with code number 42 cannot be proved." But - and this is the clever bit - he did this in such a way that the statement with code number 42 was that very same statement. In short, it was really saying, "This sentence cannot be proved." So if it could be proved, it would be false; and if you can prove anything false, you can prove 1=0. But if it couldn't be proved, then it would be true. So, contrary to what we were all told in school, there would indeed be statements in math that could not be proved right or wrong, but which would in fact be right - you just couldn't prove it!
+% -> Metamathematische Überlegungen haben das bewiesen, was im System unbeweisbar war
