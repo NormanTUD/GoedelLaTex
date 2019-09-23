@@ -170,7 +170,18 @@
 \let\originalthefootnote\thefootnote
 \renewcommand*{\thefootnote}{\fnsymbol{footnote}}
 
-\lettrine[nindent=0em]{\color{purple}A}{lgorithmen} sind endliche Abfolgen von 
+
+\lettrine[nindent=0em]{\color{purple}A}{lgorithmen} sind endliche Abfolgen von\mnote{Für
+die Spezifikationen der Schritte von Algorithmen siehe Knuth, TAOCP 1, S. 4f. Die Punkte sind:
+\begin{itemize}
+	\item Finiteness
+	\item Defineteness
+	\item Input
+	\item Output
+	\item (Effectiveness; eingeklammert, weil Knuth Computer und praktische
+		Algorithmen im Kopf hat; Gödels Beweise aufzuschreiben wäre alles andere als effizient; es ist
+		aber \textit{prinzipiell} möglich.)
+\end{itemize}}
 genau spezifizierten Schritten, um ein mathematisches oder logisches Problem zu lösen. 
 Die Frage, vor der \so{Hilbert} stand, lautete: wenn man die Mathematik formalisiert, 
 sind dann alle wahren Aussagen durch einen Algorithmus beweisbar? Oder: kann man durch
@@ -181,7 +192,10 @@ Für \so{Hilbert} schien die Sache klar, dass das so sein muss, nur fehlte im de
 dafür. Erst Gödel zeigte, dass die Sache viel vertrackter ist und so nicht geht.
 
 Was heißt \frq beweisbar\flq? Beweise sind Zurückführungen auf einzelne Axiome mithilfe
-von syntaktischen Veränderungsregeln.\mnote{Vgl. Kommentar \ref{tractatus}} 
+von syntaktischen Veränderungsregeln.\mnote{Zumindest lassen sie sich analog zu
+solchen Regeln behandeln, wie die moderne Computertechnik eindrucksvoll zeigt. Vgl. Kommentar \ref{tractatus}. Vgl.
+auch \url{https://www.youtube.com/watch?v=qT8NyyRgLDQ} für ein Weiterdenken in eine alternative Richtung, die
+aber auch das \frq Gödelproblem\flq\ hat.} 
 So kann man jede mathematische Aussage als Zeichenkette
 auffassen und schauen, ob man -- durch erlaubte Veränderungen der Axiome des Systems --
 irgendwie auf diese Zeichenkette kommt. Hierbei ist Gödel ein großer Vorreiter der
@@ -189,7 +203,7 @@ modernen Informatik, denn Computer können auch nur nach fest definierten Regeln
 Zeichenketten bearbeiten. Die mathematische Formel wird dabei nur sekundär 
 inhaltlich\mnote{Die inhaltliche Betrachtung findet erst
 beim Menschen statt, der versucht, das, was die Formel aussagt, zu verstehen. Der Formel selbst
-liegt diese inhhaltliche Deutung nicht bei, was unter Anderem zur extrem breiten Verwendbarkeit
+liegt diese inhaltliche Deutung nicht bei, was unter Anderem zur extrem breiten Verwendbarkeit
 der Mathematik folgt. Vereinfacht gesagt: mit der gleichen Formel kann man berechnen, wie ein Atomkraftwerk funktioniert,
 aber auch eine Atombombe; zwei sehr unterschiedliche Anwendungsbereiche mit ähnlicher mathematische Struktur.}
 betrachtet und primär als Ansammlung von Zeichen, die nach Regeln bearbeitet werden.
@@ -208,9 +222,11 @@ Grundaussagen --, immer Sätze konstruieren kann, die zwar durch metamathematisc
 als geltend gezeigt werden können, die aber nicht innerhalb des Systems beweisbar sind.
 
 Russell und Whitehead haben erkannt, dass man solche Sätze mit selbstreferenziellen
-Aussagen generieren kann, z.\,B. \frq dieser Satz ist falsch\flq, und daher haben sie
+Aussagen generieren kann, z.\,B. \frq dieser Satz ist falsch\flq,\mnote{\customlabel{luegezwei}{\arabic{commentaryNumber}} 
+Kommentar \ref{luegeeins} ist falsch.} und daher haben sie
 in der Principia Mathematica solche Sätze, die sich auf sich selbst beziehen, 
-verboten Aber selbst, wenn man das verbietet, lassen sich dennoch vergleichbare Sätze 
+\frq verboten\flq\mnote{$\longrightarrow$ Typentheorie%TODO
+}. Aber selbst, wenn man das verbietet, lassen sich dennoch vergleichbare Sätze 
 konstruieren.
 
 Wieder ein vereinfachtes Beispiel: wir nehmen an, dass jeder mit den Grundzeichen
@@ -232,7 +248,10 @@ weil er eben nicht aus den Axiomen herleitbar ist (d.\,h. unbeweisbar).
 Das letzte Ressort könnte sein, ihn als Axiom zu setzen. Aber da alle potenziell
 möglichen Sätze generiert werden, dürfen wir den Satz mit der Nummer 559321 nicht
 aus den Augen verlieren, er besagt: \frq der Satz mit der Nummer 559321 ist
-nicht beweisbar\flq. Wir stehen also wieder vor dem gleichen Problem und müssten
+nicht beweisbar\flq\mnote{Dieser Satz könnte auch aussagen: $\thicksim \thicksim \text{Bew}(4922) $, wenn
+man mehr als die absolute Minimalmenge nimmt. Vgl. dazu Kommentar \ref{minimalmenge}. Aber das würde die
+Sache nur komplizierter machen.}. Wir 
+stehen also wieder vor dem gleichen Problem und müssten
 wieder ein Axiom setzen. Das geht ewig so weiter. Wir haben (nach unendlich viel
 vergangener Zeit und unendlich vielen neuen Axiomen) also wieder ein System,
 das aber nicht mehr algorithmisch lösbar ist, weil Algorithmen, die etwas
@@ -263,18 +282,32 @@ So kann man den (sinnlosen) Satz:
 		als Exponent: $p(1)^5 \times p(2)^3 \times p(3)^3 \times p(3)^3 \times p(4)^3 \times p(5)^1$.
 		Wir erhalten:
 		$2^5 \times 3^3 \times 5^3 \times 7^3 \times 11^3 \times 13^1 = 640972332000$. Dies
-		können wir, da es unendlich viele Primzahlen gibt, für jede beliebig lange Zeichenkette 
+		können wir, da es unendlich viele Primzahlen gibt\mnote{Die Eineindeutigkeit der Zuordnung von Zahlenwerten
+		zu Zeichenketten bedeutet de facto, dass jede mögliche Zeichenkette existiert;
+		diese Eineindeutigkeit Zahl $\longleftrightarrow$ Satz ist wichtig, denn in diesen unendlich
+		vielen Sätzen wären alle Texte nach \frq mathematischer Grammatik\flq\ entstanden. 
+		Vgl. dazu die Idee der \frq Library of Babel\flq, wo zwar (wahrscheinlich) nicht alle
+		Texte gespeichert werden, sie aber im Bereich der mathematischen Hashfunktion,die
+		angewandt wird, um die Seiten \frq statisch\flq\ zu erzeugen, dennoch bereits alle
+		\frq existieren\flq; hierzu auch eine metaphysische Anmerkung: damit wird
+		ein platonischer Realismus der mathematischen Welt vorausgesetzt, in der das Ergebnis jeder
+		Gleichung schon \frq existiert\flq, unabhängig davon, ob ausgerechnet oder nicht. In
+		einem z.\,B. ultrafinitistischen Denkmodell wäre Gödel gar kein Problem (womit ich nicht
+		dafür argumentieren möchte, sondern eher Platonist bin).}, für 
+		jede beliebig lange Zeichenkette 
 		bestehend aus den Grundzeichen machen. Die Zahl 640972332000 lässt sich durch 
 		Primfaktorzerlegung prinzipiell wieder 1:1 in den Ursprungssatz zurückwandeln, so dass gilt:
 
 		$$ 640972332000 \equiv \text{\frq es gilt nicht, dass 4\flq} $$
 \end{enumerate}
 
-Der Begriff der Beweisbarkeit lässt sich im System der Principia Mathematica selbst
+Der Begriff der Beweisbarkeit\mnote{Vgl. § \refsatz{Bw}}
+lässt sich im System der Principia Mathematica selbst
 darstellen als die Möglichkeit der Herleitung aus den Axiomen. Nehmen wir die Abkürzungen
 von Gödel selbst, dann können wir die Beweisbarkeit eines Satzes folgendermaßen
 darstellen: $\text{Bew}\left(x\right)$.\mnote{Vgl. § \refsatz{Bew}}
-Wenn wir also einen Satz der Form:
+Wenn wir also einen Satz der Form:\mnote{\customlabel{luegeeins}{\arabic{commentaryNumber}} 
+Kommentar \ref{luegezwei} ist richtig.}
 
 $$
 n \vdash \thicksim \text{Bew}\left(m\right)
@@ -327,7 +360,7 @@ es mir möglich ist nachzuvollziehen. Dazu habe ich die Arbeit von Gödel soweit
 es konnte exakt abgetippt und mit \LaTeX, einem Textsatzsystem für mathematische
 Texte, komplett neu gesetzt, um einige Dinge wie eingefärbte passende Klammern zur besseren 
 Lesbarkeit einzuführen und Kommentare hinzuzufügen, die die gödel'schen Formeln in eine modernere
-Schreibweise übertragen. Trotz größtmöglicher Mühe un Bemühung um Genauigkeit
+Schreibweise übertragen. Trotz größtmöglicher Mühe und Bemühung um Genauigkeit
 kann ich dabei natürlich nicht vermeiden, dass sich eventuell Tipp- oder Verständnisfehler 
 eingeschlichen haben.
 
@@ -637,7 +670,9 @@ der Form: $\left(\left(x_2\right), \left(\left(x_1\right), x_3\right)\right)$.
 Alle in den PM über Relationen beweisbaren Sätze sind, wie eine 
 einfache Überlegung lehrt, auch bei dieser Behandlungsweise beweisbar.}.
 
-Unter einem Zeichen ersten Typs verstehen wir eine Zeichenkombination der Form:
+Unter einem Zeichen ersten Typs verstehen wir eine Zeichenkombination der Form:\mnote{Damit sind
+mit der peanoschen Nachfolgerfunktion gemeint: $0, 1, 2, 3, \dots$. Daher auch der Name
+\frq Zahlzeichen\flq.}
 
 $$ a, fa, ffa, fffa \dots \text{usw.} $$
 
@@ -649,7 +684,11 @@ Zeichenkombinationen der Form $a\left(b\right)$, wobei
 $b$ ein Zeichen $n$-ten und $a$ ein Zeichen $n + 1$-ten 
 Typs ist, nennen wir Elementarformeln. Die Klasse der 
 Formeln definieren wir als die kleinste
-Klasse\footnote{Bez. dieser Definition (und analoger 
+Klasse\mnote{\customlabel{minimalmenge}{\arabic{commentaryNumber}}Damit ist die Minimalmenge \frq sinnvoller\flq\ Sätze
+gemeint, die alle Formeln
+beinhaltet, d.\,h. $a, b; \thicksim a; a \lor b; , \forall x: (a)$ mit $x$ als beliebigem Zahlzeichen. 
+Praktisch ist das dann ein großes Array von langen Zahlen, deren Verneinungen, deren Adjunktion und deren 
+Generalisierung(auch alles Zahlen).}\footnote{Bez. dieser Definition (und analoger 
 später vorkommender), vgl. J. \L{}ukasiewicz und 
 A. Tarski, Untersuchungen über den Aussagenkalkül, 
 Comptes Rendus des s\'eances de la Soci\'et\'e de 
@@ -664,7 +703,7 @@ Formel, wenn $x$ in $a$ nicht oder nicht frei vorkommt. In diesem
 Fall bedeutet $x\Pi\left(a\right)$ natürlich dasselbe wie $a$.}
 \let\thefootnote=\originalfootnote
 \setcounter{footnote}{19}
-$\left(a\right)\lor\left(b\right)$ nennen wir Disjunktion aus $a$ und $b$, 
+$\left(a\right)\lor\left(b\right)$. nennen wir Disjunktion aus $a$ und $b$, 
 $\thicksim\left(a\right)$ die Negation und $x\Pi\left(a\right)$ eine Generalisation von 
 $a$. Satzformel heißt eine Formel, in der keine freie Variable 
 vorkommt (freie Variable in der bekannten Weise
@@ -681,7 +720,9 @@ entsteht, wenn man darin $v$ überall, wo es frei ist, durch
 $b$ ersetzt\footnote{Falls $v$ in $a$ nicht als freie 
 Variable vorkommt, soll $\text{Subst\ } a \Spvek{v; b} = a$
 sein. Man beachte, daß \glqq Subst\grqq\ ein Zeichen der Metamathematik ist.}.
-Wir sagen, daß eine Formel $a$ eine Typenerhöhung einer
+Wir sagen, daß eine Formel $a$ eine Typenerhöhung einer\mnote{$a$ ist Typenerhöhung von $b$, wenn
+man $a$ aus $b$ konstruieren kann, indem man die Typen (Zahlzeichen oder Klasse oder Klasse
+von Klassen) aller in $b$ vorkommenden Variablen erhöht.}
 anderen $b$ ist, wenn $a$ aus $b$ dadurch entsteht, daß
 man den Typus aller in $b$ vorkommenden Variablen um die
 gleiche Zahl erhöht.
@@ -720,11 +761,12 @@ exakten Definitionen der metamathe. Begriffe S. 182fg.) TODO}):
 		\item $\left(p \supset q\right) \supset \left(r \lor p \supset r \lor q\right)$\mnote{Wenn aus $p$ $q$ folgt, kann man an beide ein beliebiges $r$ ran-ODERN und der Wahrheitswert bleibt gleich}
 	\end{enumerate}
 
-	\item Jede Formel, die aus einem der beiden Schemata
+	\item Jede Formel, die aus einem der beiden Schemata\mnote{Formeln dieser Art werden
+		der \frq Einfachheit\flq\ halber als Axiome gesetzt.}
 
 	\begin{enumerate}[1.]
-		\item $v\Pi\left(a\right) \supset \text{Subst\ } a \Spvek{v; c}$
-		\item $v\Pi\left(b \lor a\right)\supset b \lor v \Pi\left(a\right)$
+		\item $v\Pi\left(a\right) \supset \text{Subst\ } a \Spvek{v; c}$\mnote{$\forall v: a \supset \text{Subst } \Spvek{v ;c }$; $v$ Variable, $c$ selber Typus wie $v$}
+		\item $v\Pi\left(b \lor a\right)\supset b \lor v \Pi\left(a\right)$\mnote{$\forall v: (b \lor a) \supset b \lor \forall v: a$}
 	\end{enumerate}
 	dadurch entsteht, daß man für $a, v, b, c$ folgende
 	Einsetzungen vornimmt (und in 1. die durch \glqq Subst\grqq\ angezeigte Operation ausführt):
@@ -751,7 +793,7 @@ exakten Definitionen der metamathe. Begriffe S. 182fg.) TODO}):
 	(Komprehensionsaxiom der Mengenlehre).
 
 	\item Jede Formel, die aus der folgenden durch 
-	Typenerhöhung entsteht (und diese Formel selbst):
+		Typenerhöhung entsteht (und diese Formel selbst):\mnote{$\forall x_y: \left(x_2\left(x_1\right) \equiv y_2\left(x_1\right)\right) \supset x_2 = y_2$. Hier wird die Äquivalenz von zwei Mengen darüber definiert, dass all ihre Elemente gleich sind.}
 
 	\begin{enumerate}[1.]
 		\item $x_1\Pi\left(x_2\left(x_1\right)\equiv y_2\left(x_1\right)\right) \supset x_2 = y_2$.
