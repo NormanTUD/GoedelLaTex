@@ -282,7 +282,7 @@ So kann man den (sinnlosen) Satz:
 		als Exponent: $p(1)^5 \times p(2)^3 \times p(3)^3 \times p(3)^3 \times p(4)^3 \times p(5)^1$.
 		Wir erhalten:
 		$2^5 \times 3^3 \times 5^3 \times 7^3 \times 11^3 \times 13^1 = 640972332000$. Dies
-		können wir, da es unendlich viele Primzahlen gibt\mnote{Die Eineindeutigkeit der Zuordnung von Zahlenwerten
+		können wir, da es unendlich viele Primzahlen gibt\mnote{\customlabel{eineindeutigkeit}{\arabic{commentaryNumber}}Die Eineindeutigkeit der Zuordnung von Zahlenwerten
 		zu Zeichenketten bedeutet de facto, dass jede mögliche Zeichenkette existiert;
 		diese Eineindeutigkeit Zahl $\longleftrightarrow$ Satz ist wichtig, denn in diesen unendlich
 		vielen Sätzen wären alle Texte nach \frq mathematischer Grammatik\flq\ entstanden. 
@@ -473,10 +473,12 @@ Kette an a., entweder Axiomen oder b., Schlussfolgerungen aus den Axiomen (vgl. 
 als endliche Reihen von Formeln (mit bestimmten angebbaren
 Eigenschaften). Für metamathematische Betrachtungen
 ist es natürlich gleichgültig, welche Gegenstände man
-als Grundzeichen nimmt, und wir entschließen uns dazu,
+als Grundzeichen nimmt, und wir entschließen uns dazu,\mnote{Natürliche Zahlen sind relativ einfach über die
+Peano-Axiome herleitbar und zu verstehen. Es könnten aber auch andere mathematische Strukturen genommen werden,
+wenn sie aus den Axiomen folgen, die dann analoge Schlüsse zulassen.}
 natürliche Zahlen\footnote{D.\,h. wir bilden die Grundzeichen 
 in eineindeutiger Weise auf die natürlichen Zahlen ab (Vgl. die Durchführung auf S. TODO.}
-als solche zu verwenden. Dementsprechend ist dann eine
+als solche zu verwenden. Dementsprechend ist dann eine\mnote{Vgl. Kommentar \ref{eineindeutigkeit}}
 Formel eine endliche Folge natürlicher 
 Zahlen\footnote{D.\,h. eine Belegung eines Abschnittes der 
 Zahlenreihe mit natürlichen Zahlen. (Zahlen können ja nicht in
@@ -501,7 +503,9 @@ $F\left(v\right)$ aus PM mit einer freien Variablen $v$ (vom Typus
 einer Zahlenfolge) angeben\footnote{\label{leichtaufzuschreiben}Es wäre sehr leicht 
 (nur etwas umständlich), diese Formel tatsächlich hinzuschreiben.},
 so daß $F\left(v\right)$ inhaltlich interpretiert besagt:
-$v$ ist eine beweisbare Formel. Nun stellen wir einen
+$v$ ist eine beweisbare Formel.\mnote{Das ist eine rein-syntaktische Definition, die zahlentheoretisch
+aus den Axiomen überprüft werden kann (zumindest im Beispielsystem der PM). Vgl. § \refsatz{Bew}}
+Nun stellen wir einen
 unentscheidbaren Satz des Systems PM, d.\,h. einen
 Satz $A$, für den weder $A$ noch \textit{non}-$A$ beweisbar
 ist, folgendermaßen her:
@@ -518,11 +522,10 @@ Relation $R$ im System PM definieren lassen. Sei
 $\alpha$ ein beliebiges Klassenzeichen, mit $\left[\alpha; n\right]$
 bezeichnen wir diejenige Formel, welche aus dem
 Klassenzeichen $\alpha$ dadurch entsteht, daß man die
-freie Variable durch das Zeichen für die natürliche Zahl
-\mnote{Da jede Zahl eineindeutig einer Formel zugeordnet werden kann (durch Primfaktorzerlegung),
-gibt es in $\mathbb{N}$ alle sinnvollen und sinnlosen Formeln, die denkbar sind. Das heißt, dort gibt es alle beweisbaren
-Formeln, aber auch alle die, die nicht beweisbar sind. Gödel definiert hier ein $n \in K$ so, dass $n \leftrightarrow$
-eine nicht beweisbare Formel ist.}
+freie Variable durch das Zeichen für die natürliche Zahl\mnote{Da jede Zahl eineindeutig einer Formel zugeordnet 
+werden kann (durch Primfaktorzerlegung), gibt es in $\mathbb{N}$ alle sinnvollen und sinnlosen Formeln, 
+die denkbar sind. Das heißt, dort gibt es alle beweisbaren Formeln, aber auch alle die, die nicht beweisbar sind. Gödel 
+definiert hier ein $n \in K$ so, dass $n \leftrightarrow$ eine nicht beweisbare Formel ist.}
 $n$ ersetzt. Auch die Tripel-Relation 
 $\alpha = \left[y; z\right]$ erweist sich als innerhalb von PM 
 definierbar. Nun definieren wir eine Klasse $K$ natürlicher
@@ -544,12 +547,11 @@ in PM definierbar sind, so auch der daraus zusammengesetzte
 Begriff $K$, d.\,h. es gibt ein Klassenzeichen 
 $S$\footnote{Es macht wieder nicht die geringsten Schwierigkeiten, die Formel $S$ tatsächlich hinzuschreiben.},
 so daß die Formel $\left[S; n\right]$ inhaltlich gedeutet besagt,
-daß die natürliche Zahl $n$ zu $K$ gehört. $S$ ist als
+daß die natürliche Zahl $n$ zu $K$ gehört.\mnote{$n \in K$} $S$ ist als
 Klassenzeichen mit einem bestimmten $R\left(q\right)$ identisch, 
 d.\,h. es gilt
 
 $$ S = R\left(q\right) $$%
-\mnote{Vgl. § \refsatz{Konkat}}
 
 \noindent für eine bestimme natürliche Zahl $q$. Wir zeigen nun, daß
 der Satz $\left[R\left(q\right); q\right]$\footnote{Man beachte, daß
@@ -594,7 +596,8 @@ in fast allen komplexeren Systemen sind die Mittel dafür irgendwie zumindest pr
 offenbar auf jedes formale System anwenden, das erstens 
 inhaltlich gedeutet über genügen Ausdrucksmittel
 verfügt, um die in der obigen Überlegung vorkommenden
-Begriffe (insbesondere den Begriff \glqq beweisbare
+Begriffe (insbesondere den Begriff \glqq beweisbare\mnote{Die Bedingungen für die Unvollständigkeit: der Begriff 
+\frq beweisbare Formel\flq\ muss im System definiert sein, jede beweisbare Formel muss inhaltlich richtig sein.}
 Formel\grqq) zu definieren, und in dem zweitens jede
 beweisbare Formel auch inhaltlich richtig ist. Die
 nun folgende exakte Durchführung des obigen Beweises
@@ -1066,7 +1069,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	% 4:
 	\item \customlabel{Fakultät}{4}$0! \equiv 1$\mnote{Fakultät, zweistufig-rekursive Funktionsdefinition}
 
-		$\left(n + 1\right)! \equiv \left(n + 1\right).n!$\mnote{Gleich mit $\left(n\right)! \equiv \left(n - 1\right) \times n!$}%Wirklich (n + 1)! = (n + 1)*n!???
+		$\left(n + 1\right)! \equiv \left(n + 1\right).n!$\mnote{Gleich mit $\left(n\right)! \equiv \left(n - 1\right) \times n!$}
 
 	% 5:
 	\item \customlabel{Pr}{5}$Pr\ \left(0\right) \equiv 0$
@@ -1509,7 +1512,7 @@ Da $x B_x y$ [nach (6), (5)] und $Sb\left(y\substack{19\\ Z\left(y\right)}\right
 \end{equation}
 
 Wir setzen:
-\mnote{17 ist die erste \textit{freie Variable}}
+\mnote{17 ist die erste \textit{freie Variable} ($x_1$)}
 \begin{equation}
 	p = 17 \text{ Gen } q
 \end{equation}
