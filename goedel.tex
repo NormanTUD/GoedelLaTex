@@ -444,8 +444,10 @@ $\left(x\right)$ (für alle), $=$ (identisch mit) keine anderen
 Begriffe vorkommen als $+$ (Addition), $.$ 
 (Multiplikation), beide bezogen auf natürliche Zahlen,
 wobei auch die Präfixe (x) sich nur auf natürliche Zahlen beziehen dürfen.}, die sich aus den Axiomen nicht 
-entscheiden lassen. Dieser Umstand liegt nicht etwa\mnote{Alle Systeme, die komplex genug sind, dass sich aus
-ihnen etwas wie natürliche Zahlen und Addition auch nur \so{herleiten} lassen, sind betroffen}
+entscheiden lassen. Dieser Umstand liegt nicht etwa\mnote{\customlabel{bedingungen}{\arabic{commentaryNumber}}Alle
+Systeme, die komplex genug sind, dass sich aus
+ihnen etwas wie natürliche Zahlen und Addition auch nur \so{herleiten} lassen, und in denen selbst definierbar
+ist, dass eine Aussage ein Beweis einer anderen Aussage ist, sind betroffen}
 an der speziellen Natur der aufgestellten Systeme,
 sondern gilt für eine sehr weite Klasse formaler Systeme,
 zu denen insbesondere alle gehören, die aus den beiden 
@@ -480,7 +482,7 @@ als Grundzeichen nimmt, und wir entschließen uns dazu,\mnote{Natürliche Zahlen
 Peano-Axiome herleitbar und zu verstehen. Es könnten aber auch andere mathematische Strukturen genommen werden,
 wenn sie aus den Axiomen folgen, die dann analoge Schlüsse zulassen.}
 natürliche Zahlen\footnote{D.\,h. wir bilden die Grundzeichen 
-in eineindeutiger Weise auf die natürlichen Zahlen ab (Vgl. die Durchführung auf S. TODO.}
+in eineindeutiger Weise auf die natürlichen Zahlen ab (Vgl. die Durchführung auf S. TODO.)}
 als solche zu verwenden. Dementsprechend ist dann eine\mnote{Vgl. Kommentar \ref{eineindeutigkeit}}
 Formel eine endliche Folge natürlicher 
 Zahlen\footnote{D.\,h. eine Belegung eines Abschnittes der 
@@ -1544,7 +1546,6 @@ Dann gilt:
 \begin{equation}
 	Sb\left(q\substack{17\\ Z\left(x\right)}\substack{19\\ Z\left(p\right)}\right) = Sb\left(r\substack{17\\ Z\left(x\right)}\right)
 \end{equation}
-
 [nach (12)]. Setzt man nun in (9) und (10) $p$ für $y$ ein, so entsteht unter Berücksichtigung von (13) und (14):
 
 \begin{equation}
@@ -1652,7 +1653,7 @@ $$
 
 $\chi$ ist also rekursiv. Das erlaubt z.\,B. zu schließen, daß auch mit Hilfe des Auswahlaxioms (für alle Typen) oder der verallgemeinerten Kontinuumshypothese\mnote{Lapsig gesagt die Frage,
 ob es zwischen der Dichten der Mengen $\mathbb{Q}$ und $\mathbb{R}$ noch eine
-weitere Menge gibt. Aber so ganz versteh ichs noch nicht}%TODO
+weitere Menge gibt. Aber so ganz versteh ichs noch nicht}
 nicht alle Sätze entscheidbar sind, vorausgesetzt, daß diese Hypothesen $\omega$-widerspruchsfrei sind.
 
 Beim Beweise von Satz VI wurden keine anderen Eigenschaften des Systems $P$ verwendet als die folgenden:
@@ -1663,11 +1664,20 @@ Beim Beweise von Satz VI wurden keine anderen Eigenschaften des Systems $P$ verw
 	 \item Jede rekursive Relation ist innerhalb des Systems $P$ definierbar (im Sinn von Satz V).
 \end{enumerate}
 
-Daher gibt es in jedem formalen System, das den Voraussetzungen 1, 2 genügt und $\omega$-widerspruchsfrei ist, unentscheidbare Sätze der Form $\left(x\right)F\left(x\right)$, wo $F$ eine rekursiv definierte Eigenschaft natürlicher Zahlen ist, un ebenso in jeder Erweiterung eines solchen Systems durch eine rekursiv definierbare $\omega$-widerspruchsfreie Klasse von Axiomen.
-Zu den Systemen, welche die Voraussetzungen 1, 2 erfüllen, gehören, wie man leicht bestätigen kann, das \so{Zermelo-Fraenkel}sche und das \so{v.~Neumann}sche Axiomensystem
-der Mengenlehre\footnote{Der Beweis von Voraussetzung 1. gestaltet sich hier sogar einfacher als im Falle des Systems $P$, da es nur eine Art von Grundvariablen gibt (bzw. zwei bei J.~v.~Neumann).},
+Daher gibt es in jedem formalen System, das den Voraussetzungen 1, 2 genügt
+und $\omega$-widerspruchsfrei ist, unentscheidbare Sätze der Form 
+$\left(x\right)F\left(x\right)$, wo $F$ eine rekursiv definierte Eigenschaft 
+natürlicher Zahlen ist, un ebenso in jeder Erweiterung eines solchen Systems 
+durch eine rekursiv definierbare $\omega$-widerspruchsfreie Klasse von Axiomen.
+Zu den Systemen, welche die Voraussetzungen 1, 2 erfüllen, gehören, wie man leicht 
+bestätigen kann, das \so{Zermelo-Fraenkel}sche und das \so{v.~Neumann}sche Axiomensystem\mnote{Die von
+Gödel aufgedeckte Problematik gilt für extrem viele logische Systeme, vgl. Kommentar \ref{bedingungen}.}
+der Mengenlehre\footnote{Der Beweis von Voraussetzung 1. gestaltet sich hier sogar einfacher 
+als im Falle des Systems $P$, da es nur eine Art von Grundvariablen gibt (bzw. zwei bei J.~v.~Neumann).},
 ferner das Axiomensystem der Zahlentheorie, welches aus
-den \so{Peano}schen Axiomen, der rekursiven Definition [nach Schema (2)] und den logischen Regeln besteht\footnote{Vgl. Problem III in D. \so{Hilbert}s Vortrag: Probleme der Grundlegung der Mathematik. Math. Ann. 102.}.
+den \so{Peano}schen Axiomen, der rekursiven Definition [nach Schema (2)] 
+und den logischen Regeln besteht\footnote{Vgl. Problem III in D. \so{Hilbert}s Vortrag: 
+Probleme der Grundlegung der Mathematik. Math. Ann. 102.}.
 
 \let\originalfootnote=\thefootnote
 \let\thefootnote=\fnachtundvierziga
@@ -1965,10 +1975,12 @@ Aus den Ergebnissen von Abschnitt 2 folgt ein merkwürdiges Resultat, bezüglich
 \so{Satz XI: Sei $\chi$ eine beliebige rekursive 
 widerspruchsfreie\footnote{$\chi$ ist widerspruchsfrei 
 (abgekürzt als $\text{Wid }\left(x\right)$) wird folgendermaßen 
-definiert: $\text{Wid}\left(x\right)\equiv\left(Ex\right)\left[\text{Form}\left(x\right)\&\text{Bew}_\chi\left(x\right)\right]$.}
+definiert: 
+$\text{Wid}\left(x\right)\equiv\left(Ex\right)\left[\text{Form}\left(x\right)\&\text{Bew}_\chi\left(x\right)\right]$.}
 Klasse von}\label{satzxi} \textit{Formeln}\so{, dann gilt: Die }\textit{Satzformel}\so{, welche besagt, 
-daß $\chi$ widerspruchsfrei ist, ist nicht} $\chi$-\textit{beweisbar}; insbesondere ist 
-die Widerspruchsfreiheit von $P$ in $P$ unbeweisbar\footnote{Dies folgt, wenn man für 
+daß $\chi$ widerspruchsfrei ist, ist nicht} $\chi$-\textit{beweisbar}; insbesondere ist\mnote{Zweiter 
+Unvollständigkeitssatz: ein System kann aus sich selbst heraus seine eigene Widerspruchsfreiheit nicht
+beweisen.}die Widerspruchsfreiheit von $P$ in $P$ unbeweisbar\footnote{Dies folgt, wenn man für 
 $\chi$ die leere Klasse von \textit{Formeln} einsetzt.},
 vorausgesetzt, daß $P$ widerspruchsfrei ist (im entgegengesetzten Fall ist natürlich jede Aussage beweisbar).
 
@@ -1994,8 +2006,19 @@ d.\,h. nach (8.1):
 \text{Wid}\left(x\right) \longrightarrow \left(x\right) Q\left(x, p\right)
 \end{equation}
 
-Wir stellen nun folgendes fest: Sämtliche in Abschnitt 2\footnote{Von der Definition für \glqq rekursiv\grqq\ auf Seite 179 TODO bis zum Beweis von Satz VI inkl.}
-und Abschnitt 4 bisher definierten Begriffe (bzw. bewiesene Behauptungen) sind auch in $P$ ausdrückbar (bzw. beweisbar). Denn es wurden überall nur die gewöhnlichen Definitions- und Beweismethoden der klassischen Mathematik verwendet, wie sie im System $P$ formalisiert sind. Insbesondere ist $\chi$ (wie jede rekursive Klasse) in $P$ definierbar. Sei $w$ die \textit{Satzformel}, durch welche in $P\text{ Wid } \left(x\right)$ ausgedrückt wird. Die Relation $Q\left(x, y\right)$ wird gemäß (8.1), (9), (10) durch das \textit{Relationszeichen} $q$ ausgedrückt, folglich $Q\left(x, p\right)$ durch $r \left[\text{ da nach (12) } r = Sb\left(q\substack{19\\ Z\left(p\right)}\right)\right]$ und der Satz $\left(x\right)Q\left(x, p\right)$ durch $17\text{ Gen } r$.
+Wir stellen nun folgendes fest: Sämtliche in Abschnitt 2\footnote{Von der Definition für 
+\glqq rekursiv\grqq\ auf Seite 179 TODO bis zum Beweis von Satz VI inkl.}
+und Abschnitt 4 bisher definierten Begriffe (bzw. bewiesene Behauptungen) sind auch in 
+$P$ ausdrückbar (bzw. beweisbar). Denn es wurden überall nur die gewöhnlichen Definitions-\mnote{Man braucht
+keine extraordinäre \frq Magie\flq, um diese Sätze herzuleiten; es reichen die einfachen Grundlagen
+der logischen Systeme.}
+und Beweismethoden der klassischen Mathematik verwendet, wie sie im System $P$ formalisiert 
+sind. Insbesondere ist $\chi$ (wie jede rekursive Klasse) in $P$ definierbar. 
+Sei $w$ die \textit{Satzformel}, durch welche in $P\text{ Wid } \left(x\right)$ 
+ausgedrückt wird. Die Relation $Q\left(x, y\right)$ wird gemäß (8.1), (9), (10) 
+durch das \textit{Relationszeichen} $q$ ausgedrückt, folglich 
+$Q\left(x, p\right)$ durch $r \left[\text{ da nach (12) } r = Sb\left(q\substack{19\\ Z\left(p\right)}\right)\right]$ 
+und der Satz $\left(x\right)Q\left(x, p\right)$ durch $17\text{ Gen } r$.
 
 Wegen (24) ist also $w\text{ Imp } \left(17\text{ Gen }r\right)$
 in $P$ beweisbar\footnote{Daß aus (23) auf die Richtigkeit von
