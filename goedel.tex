@@ -170,6 +170,7 @@
 \let\originalthefootnote\thefootnote
 \renewcommand*{\thefootnote}{\fnsymbol{footnote}}
 
+\subsection*{Algorithmen}
 
 \lettrine[nindent=0em]{\color{purple}A}{lgorithmen} sind endliche Abfolgen von\mnote{Für
 die Spezifikationen der Schritte von Algorithmen siehe Knuth, TAOCP 1, S. 4f. Die Punkte sind:
@@ -190,6 +191,8 @@ herausfinden, ob sie wahr ist oder nicht?
 
 Für \so{Hilbert} schien die Sache klar, dass das so sein muss, nur fehlte im der Beweis
 dafür. Erst Gödel zeigte, dass die Sache viel vertrackter ist und so nicht geht.
+
+\subsection*{Beweisbarkeit und Gödelnummern}
 
 Was heißt \frq beweisbar\flq? Beweise sind Zurückführungen auf einzelne Axiome mithilfe
 von syntaktischen Veränderungsregeln.\mnote{Zumindest lassen sie sich analog zu
@@ -215,11 +218,13 @@ Aber das sind alles nur Vereinfachungen, damit wir als Menschen, die damit arbei
 besser damit klarkommen. Inhaltlich ist ein $a + b$ gleichbedeutend mit einer langen
 Kette an UND, XOR und NICHT-Operationen im CPU eines Computers.
 
-Gödel zeigte, dass möglich es nicht ist, alle wahren Aussagen zu beweisen, 
+Gödel zeigte, dass es nicht möglich ist, alle wahren Aussagen zu beweisen, 
 in dem er einen Algorithmus anbietet, der -- komplett zurückführbar auf die logischen 
 Grundaussagen --, immer Sätze konstruieren kann, die zwar durch metamathematische
 Überlegungen von \frq außerhalb\flq\ des Systems\mnote{Vgl. Kommentar \ref{metamatematischeueberlegungen}.}
 als geltend gezeigt werden können, die aber nicht innerhalb des Systems beweisbar sind.
+
+\subsection*{Die \textit{Principia Mathematica} und die Typentheorie}
 
 Russell und Whitehead haben erkannt, dass man solche Sätze mit selbstreferenziellen
 Aussagen generieren kann, z.\,B. \frq dieser Satz ist falsch\flq,\mnote{\customlabel{luegezwei}{\arabic{commentaryNumber}} 
@@ -228,6 +233,8 @@ in der Principia Mathematica solche Sätze, die sich auf sich selbst beziehen,
 \frq verboten\flq\mnote{$\longrightarrow$ Typentheorie%TODO
 }. Aber selbst, wenn man das verbietet, lassen sich dennoch vergleichbare Sätze 
 konstruieren.
+
+\subsection*{(Vereinfachtes) Beispiel für einen gödelisierten Satz}
 
 Wieder ein vereinfachtes Beispiel: wir nehmen an, dass jeder mit den Grundzeichen
 der Mathematik definierbare Satz eine Nummer bekommt. Dort sind nun alle nur überhaupt
@@ -243,7 +250,8 @@ Typentheorie das verbieten könnte.\mnote{Siehe dazu Fußnote \ref{zufaellig}.}
 
 Unbeweisbar heißt hier, dass der Satz nicht hergeleitet werden kann aus den gewählten
 Axiomen. Aber durch metamathematische Überlegungen können wir ihn doch als wahr anerkennen,
-weil er eben nicht aus den Axiomen herleitbar ist (d.\,h. unbeweisbar).
+weil er eben nicht aus den Axiomen herleitbar ist (d.\,h. unbeweisbar, was der
+Satz ja auch behauptet).
 
 Das letzte Ressort könnte sein, ihn als Axiom zu setzen. Aber da alle potenziell
 möglichen Sätze generiert werden, dürfen wir den Satz mit der Nummer 559321 nicht
@@ -261,9 +269,9 @@ Gödels Algorithmus bietet die Möglichkeit, jedem sinnvollen und sinnlosen
 Satz\mnote{Siehe dazu S. \pageref{grundzeichenzahlen}. Die gewählten Grundzeichen hängen
 vom System ab, das man als Grundlage nehmen möchte. Gödel nimmt das System der Peano-Axiome
 mit dem System der Principia Mathematica zusammen zur Vereinfachung seines Beweises.}
-eineindeutig eine eineindeutige Nummer zuzuordnen, indem er einige Konstanten 
+eine eineindeutige Nummer zuzuordnen, indem er einige Konstanten 
 definiert, z.\,B. wird \frq 0\flq\ zu 1, \frq f\flq\ zu 3, 
-\frq$\thicksim$\flq\ zu 5. 
+\frq$\thicksim$\flq\ zu 5 usw. 
 Außerdem nutzt er die Eineindeutigkeit von Primfaktorzerlegungen aus.\mnote{Jede
 natürliche Zahl ist entweder selbst Prim oder das Produkt aus $n$ Primzahlen. Die Zerlegung
 einer Zahl in Primzahlen ist eineindeutig und jede Zahl hat exakt eine ihr zugeordnete
@@ -299,6 +307,9 @@ So kann man den (sinnlosen) Satz:
 		Primfaktorzerlegung prinzipiell wieder 1:1 in den Ursprungssatz zurückwandeln, so dass gilt:
 
 		$$ 640972332000 \equiv \text{\frq es gilt nicht, dass 4\flq} $$
+
+		Die Zahl $640972332000$ ist damit eineindeutig ebendiesem Satz zugeordnet und mit dem
+		gewählten Alphabet keinem anderen ($\longrightarrow$ Eineindeutigkeit).
 \end{enumerate}
 
 Der Begriff der Beweisbarkeit\mnote{Vgl. § \refsatz{Bw}}
@@ -315,12 +326,15 @@ $$
 (wobei $n$ seine gödelisierte Satznummer und \frq zufälligerweise\flq\ $n = m$, 
 d.\,h. eine lange Zahl, die eineindeutig dem
 Satz zugeordnet ist, ist\footnote{Wie Gödel es selbst sagt, wäre es kein Problem,
-diese Zahl für jede Aussage tatsächlich aufzuschreiben; es wäre nur sehr umständlich, siehe Fußnote \ref{leichtaufzuschreiben}.}), 
+diese Zahl für jede Aussage tatsächlich aufzuschreiben; es wäre nur sehr umständlich, 
+siehe Fußnote \ref{leichtaufzuschreiben}.}, der rein zufällig auf sich selbst verweist), 
 dann haben wir einen solchen Satz, der seine eigene Unbeweisbarkeit
 behauptet und im System nicht entscheidbar ist. Wäre er beweisbar, wäre er per definitionem
 richtig, weil nur richtige Sätze beweisbar sind, aber wäre er beweisbar, wäre er auch 
 per definitionem unbeweisbar. Seine Richtigkeit lässt sich aber eben durch
 metamathematische Überlegungen zeigen.\mnote{Vgl. Kommentar \ref{metamatematischeueberlegungen}.}
+
+\subsection*{\frq\textit{\dots und verwandter Syteme}\flq}
 
 Für solche Sätze sind Systeme wie das der Principia Mathematica prinzipiell 
 überflüssig,\mnote{Siehe wieder Fußnote \ref{leichtaufzuschreiben}}
@@ -328,17 +342,12 @@ weil diese nur auf den logischen Axiomen aufbauen und Abkürzungen für lange Re
 Zeichenketten darstellen. Daher sind alle logisch-formalen Systeme betroffen und die
 Principia ist nur ein \frq Einstiegspunkt\flq\ zur Vereinfachung der Thesen.
 
-Die Auswirkungen auf das Verständnis der Mathematik war gewaltig, denn plötzlich war klar,
-dass man nicht jede wahre Aussage auch beweisen kann. Aber auch für die Berechenbarkeitstheorie
-und die später aufkommende Informatik sind betroffen. Gödels Ansatz, mathematische
-Aussagen als Ansammlungen von nach Regeln gebildeter Zeichen zu sehen und nicht primär
-inhaltlich zu deuten, hat die moderne Informatik überhaupt erst möglich gemacht.
-Kein Computer kann mehr als ebendies: Zeichenketten nach genau vorgelegten Regeln
-zu manipulieren, ohne dabei auch nur im Ansatz inhaltlich auf diese einzugehen. Gödel hat
-gezeigt, dass es immer Aussagen gibt, die ein Computer nicht zurückführen kann auf
-seine Axiome, d.\,h. dass es immer Aussagen gibt, die mit einem Computer nicht überprüfbar sind.
-Das setzt -- ähnlich wie das Halteproblem -- der Theorie der Algorithmen und dem
-menschlichen Erkennen überhaupt enge Grenzen.
+Benötigt zum Erzeugen solcher Sätze sind nur die logischen Schlussregeln und die
+potenzielle Möglichkeit, etwas wie natürliche Zahlen herzuleiten, sowie die Möglichkeit,
+im System selbst herauszufinden, ob ein Satz ein Beweis eines anderen Satzes ist, ohne dabei
+auf ein Metasystem zurückzugreifen.
+
+\subsection*{$\omega$-Vollständigkeit}
 
 Ein System, in dem keine Existenzaussage bewiesen werden kann, die in irgendeinem
 Einzelfall widerlegt werden kann, heißt $\omega$-widerspruchsfrei. Jedes 
@@ -355,6 +364,35 @@ Unvollständigkeitssatz)\mnote{Vgl. Satz VIII auf S. \pageref{satzvii}.}. Kann m
 Vollständigkeit des Systems beweisen, ist es notwendigerweise widersprüchlich 
 (zweiter Unvollständigkeitssatz).\mnote{Vgl. Satz XI auf S. \pageref{satzxi}.}
 
+\subsection*{Die beiden Unvollständigkeitssätze}
+
+Aus der Arbeit Gödels folgen zwei fundamentale Sätze zur Metamathematik:
+
+\begin{enumerate}
+	\item Jedes ausreichend komplexe System beinhaltet immer Sätze, die innerhalb
+		des Systems nicht bewiesen werden können.
+	\item Jedes ausreichend komplexe System kann seine eigene Widerspruchsfreiheit
+		nicht beweisen; wenn es das kann, dann ist es\mnote{Zweiter Unvollständigkeitssatz, 
+		vgl. Kommentar \ref{zweiterunvollstaendigkeitssatz}.}
+		notwendigerweise widersprüchlich.
+\end{enumerate}
+
+\subsection*{Auswirkungen}
+
+Die Auswirkungen auf das Verständnis der Mathematik waren gewaltig, denn plötzlich war klar,
+dass man nicht jede wahre Aussage auch beweisen kann. Aber auch für die Berechenbarkeitstheorie
+und die später aufkommende Informatik sind betroffen. Gödels Ansatz, mathematische
+Aussagen als Ansammlungen von nach Regeln gebildeter Zeichen zu sehen und nicht primär
+inhaltlich zu deuten, hat die moderne Informatik überhaupt erst möglich gemacht.
+Kein Computer kann mehr als ebendies: Zeichenketten nach genau vorgelegten Regeln
+zu manipulieren, ohne dabei auch nur im Ansatz inhaltlich auf diese einzugehen. Gödel hat
+gezeigt, dass es immer Aussagen gibt, die ein Computer nicht zurückführen kann auf
+seine Axiome, d.\,h. dass es immer Aussagen gibt, die mit einem Computer nicht überprüfbar sind.
+Das setzt -- ähnlich wie das Halteproblem -- der Theorie der Algorithmen und dem
+menschlichen Erkennen überhaupt enge Grenzen.
+
+\subsection*{Ziel dieser Arbeit}
+
 Im Rahmen dieser Arbeit würde ich gern versuchen, den Originalalgorithmus soweit
 es mir möglich ist nachzuvollziehen. Dazu habe ich die Arbeit von Gödel soweit ich 
 es konnte exakt abgetippt und mit \LaTeX, einem Textsatzsystem für mathematische
@@ -364,6 +402,8 @@ Schreibweise übertragen. Trotz größtmöglicher Mühe und Bemühung um Genauig
 kann ich dabei natürlich nicht vermeiden, dass sich eventuell Tipp- oder Verständnisfehler 
 eingeschlichen haben.
 
+\subsection*{Lizenz}
+
 Da es meiner Recherchen nach noch keine solche Version gab, habe ich sie der
 Forschung auf meinem GitHub-Account unter der GPL2-Lizenz zur Verfügung 
 gestellt\footnote{Siehe \url{https://github.com/NormanTUD/GoedelLaTex/}.}.
@@ -372,6 +412,10 @@ Dokument möglichst vollständig zu machen und meine Fehler zu korrigieren.
 Es unterliegt keinen Einschränkungen für Forschung und Lehre, außer dass 
 (wie in der GPL2 mit \textit{Copyleft} üblich) jede Änderung selbst wieder
 öffentlich gemacht und unter die GPL2 gestellt werden muss.
+
+Juristisch beziehe ich mich auf § 3 des Urheberrechtsgesetzes, das eine
+Bearbeitung und Kommentierung eines Werkes mit eigener Schöpfungshöhe
+erlaubt.
 
 \newpage
 \pagenumbering{arabic}
@@ -2030,7 +2074,8 @@ so wäre auch $17\text{ Gen }r$ $\chi$-\textit{beweisbar} und daraus würde nach
 folgen, daß $\chi$ nicht widerspruchsfrei ist.
 
 Es sei bemerkt, daß auch dieser Beweis konstruktiv ist, d.\,h. er gestattet, falls ein \textit{Beweis} aus $\chi$ für $w$ vorgelegt ist, ein Widerspruch aus $\chi$ effektiv herzuleiten. Der ganze Beweis für Satz XI läßt sich wörtlich auch auf das Axiomensystem der Mengenlehre $M$ und der klassischen Mathematik\footnote{Vgl. J.~v.~\so{Neumann}, Zur \so{Hilbert}schen Beweistheorie, Math. Zeitschr. 26, 1927.}
-$A$ übertragen und liefert auch hier das Resultat: es gibt keinen Widerspruchlosigkeitsbeweis\mnote{Der zweite gödel'sche 
+$A$ übertragen und liefert auch hier das Resultat: es gibt keinen 
+Widerspruchlosigkeitsbeweis\mnote{\customlabel{zweiterunvollstaendigkeitssatz}{\arabic{commentaryNumber}}Der zweite gödel'sche 
 Unvollständigkeitssatz; ein ausreichend komplexes System kann seine eigene Vollständigkeit nicht beweisen.}
 für $M$ bzw. $A$, der innerhalb von $M$ bzw. $A$ formalisiert werden könnte, vorausgesetzt,
 daß $M$ bzw. $A$ widerspruchsfrei ist. Es sei ausdrücklich bemerkt, daß Satz XI 
