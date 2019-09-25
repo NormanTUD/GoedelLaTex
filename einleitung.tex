@@ -20,9 +20,9 @@ genau spezifizierten Schritten, um ein mathematisches oder logisches Problem zu 
 Die Frage, vor der \so{Hilbert} stand, lautete: wenn man die Mathematik formalisiert, 
 sind dann alle wahren Aussagen durch einen Algorithmus beweisbar? Oder: kann man durch
 einen Algorithmus, der alle möglichen Aussagen durchschreitet, von jeder Einzelnen
-herausfinden, ob sie wahr ist oder nicht?
+in endlicher Zeit herausfinden, ob sie wahr ist oder nicht?
 
-Für \so{Hilbert} schien die Sache klar, dass das so sein muss, nur fehlte ihm der Beweis
+Für \so{Hilbert} schien die Sache klar zu sein: es musste so sein. Nur fehlte ihm der Beweis
 dafür. Erst Gödel zeigte, dass die Sache viel vertrackter ist und so nicht geht.
 
 \subsection*{Beweisbarkeit und Gödelnummern}
@@ -180,22 +180,28 @@ potenzielle Möglichkeit, etwas wie natürliche Zahlen herzuleiten, sowie die M�
 im System selbst herauszufinden, ob ein Satz ein Beweis eines anderen Satzes ist, ohne dabei
 auf ein Metasystem zurückzugreifen.
 
-\subsection*{$\omega$-Vollständigkeit}
+\subsection*{$\omega$-Widerspruchsfreiheit}
 
-Ein System, in dem keine Existenzaussage bewiesen werden kann, die in irgendeinem
-Einzelfall widerlegt werden kann, heißt $\omega$-widerspruchsfrei. Jedes 
-$\omega$-widerspruchsfrei System ist auch widerspruchsfrei, aber nicht umgekehrt.
-Die Axiome der PM sind widerspruchsfrei, aber mit den Methoden der Gödelisierung
+Ein System, in dem die Axiome keine Widersprüchlichkeiten aufweisen, heißt
+\frq widerspruchsfrei\flq. Aber nicht jedes widerspruchsfreie System ist auch
+$\omega$-widerspruchsfrei. Die $\omega$-Widerspruchsfreiheit ist rigoroser als
+die allgemeine Widerspruchsfreiheit, denn in der $\omega$-Widerspruchsfreiheit
+gilt -- neben der allgemeinen Widerspruchsfreiheit --, dass auch keine kontraintuitiven
+Schlüsse gezogen werden können dürfen (z.\,B. Sätze, die wahr sind, ohne dass 
+ihre Wahrheit aus den Axiomen herleitbar ist).
+
+Die Axiome der PM sind widerspruchsfrei, aber mit der Methode der Gödelisierung
 lassen sich ebensolche Existenzaussagen treffen, die das System $\omega$-widersprüchlich
-machen. \mnote{Dazu muss es nur \textit{irgendwie} möglich sein, 
+machen.\mnote{Dazu muss es nur \textit{irgendwie} möglich sein, 
 aus dem System etwas wie die natürlichen Zahlen und Addition herleiten zu können, was auf fast alle
 praktisch-relevanten logisch-widerspruchsfreien Systeme zutrifft. Dazu muss es auch möglich sein,
-dass im genannten System der Begriff \frq die Formel $f$ ist beweisbar im System $S$\flq\ definierbar ist.}Dies gilt für alle ausreichend komplexen
+dass im genannten System der Begriff \frq die Formel $f$ ist beweisbar im 
+System $S$\flq\ definierbar ist.} Dies gilt für alle ausreichend komplexen
 Systeme. Wenn ein System ausreichend komplex ist, dann ist es notwendigerweise unvollständig,
 d.\,h. es gibt Existenzaussagen, die nicht aus den Axiomen herleitbar sind (erster
 Unvollständigkeitssatz)\mnote{Vgl. Satz VIII auf S. \pageref{satzvii}.}. Kann man jedoch die
-Vollständigkeit des Systems beweisen, ist es notwendigerweise widersprüchlich 
-(zweiter Unvollständigkeitssatz).\mnote{Vgl. Satz XI auf S. \pageref{satzxi}.}
+Vollständigkeit des ausreichend-komplexen Systems beweisen, ist es notwendigerweise 
+widersprüchlich (zweiter Unvollständigkeitssatz).\mnote{Vgl. Satz XI auf S. \pageref{satzxi}.}
 
 \subsection*{Die beiden Unvollständigkeitssätze}
 

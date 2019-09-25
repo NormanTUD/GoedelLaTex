@@ -1157,7 +1157,7 @@ Nun definieren wir die Relation:
 	Q\left(x, y\right) \equiv \overline{x B\chi\left[ Sb\left(y\substack{19\\ Z\left(y\right)}\right)\right]}.
 \end{equation}
 
-Da $x B_x y$ [nach (6), (5)] und $Sb\left(y\substack{19\\ Z\left(y\right)}\right)$ (nach Def. 17, 31) rekursiv sind, so auch $Q\left(xy\right)$. Nach Satz V und (8) gibt es also ein \textit{Relationszeichen} $q$ (mit den \textit{freien Variablen} 17, 19), so daß gilt:
+Da $x B_x y$ [nach (6), (5)] und $Sb\left(y\substack{19\\ Z\left(y\right)}\right)$ (nach Def. 17, 31) rekursiv sind, so auch $Q\left(xy\right)$. Nach Satz V und (8) gibt es also ein \textit{Relationszeichen} $q$ (mit den \textit{freien Variablen} 17, 19),\mnote{17 entspricht $x_1$, 19 entspricht $y_1$.} so daß gilt:
 
 \begin{equation}
 	\overline{x B_\chi\left[Sb\left(y\substack{19\\ Z\left(y\right)}\right)\right]} \longrightarrow \text{Bew}_{\chi} \left[Sb \left(q \substack{17\\ Z\left(x\right)}\substack{19\\ Z\left(y\right)}\right)\right]
@@ -1288,11 +1288,12 @@ $\chi$ gibt (d.\,h. daß $P$ widerspruchsfrei ist).}.
 Ein Spezialfall von Satz VI ist der, daß die Klasse $\chi$ aus endlich
 vielen \textit{Formeln} (und ev. den daraus durch \textit{Typenerhöhung} 
 entstehenden) besteht. Jede endliche Klasse $\alpha$ ist natürlich rekursiv.
-Sei $a$ die größte in $\alpha$ enthaltene Zahl. Dann gilt in diesem
+Sei $a$ die größte in $\alpha$ enthaltene Zahl\mnote{\frq die größte in $\alpha$ enthaltene Zahl\flq\ bedeutet:
+der größte Primfaktor von $\alpha$.}. Dann gilt in diesem
 Fall für $\chi$:
 
 $$
-x \epsilon x \thicksim \left(Em, n\right) \left[m \leqq x \& n \leqq a \& n \epsilon \alpha \& x = m Th\ n\right]
+x \epsilon \chi \thicksim \left(Em, n\right) \left[m \leqq x \& n \leqq a \& n \epsilon \alpha \& x = m Th\ n\right]
 $$
 
 $\chi$ ist also rekursiv. Das erlaubt z.\,B. zu schließen, daß auch mit Hilfe 
@@ -1350,24 +1351,26 @@ für das Axiomensystem der Mengenlehre.}.
 
 Wir ziehen nun aus Satz VI weitere Folgerungen und geben zu diesem Zweck folgende Definition:
 
-Eine Relation (Klasse) heißt arithmetisch, wenn sie allein mittels der Begriffe $+, .$ 
-[Addition und Multiplikation, bezogen auf natürliche 
+Eine Relation (Klasse) heißt arithmetisch, wenn sie allein 
+mittels der Begriffe $+$, $.$\mnote{D.\,h. sie
+zurückführbar ist auf einfach Integer-Arithmetik und einfache
+logische Aussagen.} [Addition und Multiplikation, bezogen auf natürliche 
 Zahlen\footnote{Die Null wird hier und im folgenden immer 
 mit zu den natürlichen Zahlen gerechnet.}] und den 
 logischen Konstanten $\lor, \overline{\phantom{XX}}, \left(x\right), =$ definieren 
 lässt, wobei $\left(x\right)$ und $=$ sich nur auf natürliche 
 Zahlen beziehen dürfen\footnote{Das Definiens eines solchen
- Begriffes muß sich also allein mittels der angeführten Zeichen,
- Variablen für natürliche Zahlen $x, y, \dots$ und den Zeichen
- $0, 1$ aufbauen (Funktions- und Mengenvariable dürfen nicht vorkommen). 
+Begriffes muß sich also allein mittels der angeführten Zeichen,
+Variablen für natürliche Zahlen $x, y, \dots$ und den Zeichen
+$0, 1$ aufbauen (Funktions- und Mengenvariable dürfen nicht vorkommen). 
 (In den Präfixen darf statt $x$ natürlich auch jede andere Zahlvariable
- stehen.)}. Entsprechend wird der Begriff \glqq arithmetischer Satz\grqq\ definiert.
- Insbesondere sind z.\,B. die Relation \glqq größer\grqq\ und \glqq kongruent 
+stehen.)}. Entsprechend wird der Begriff \glqq arithmetischer Satz\grqq\ definiert.
+Insbesondere sind z.\,B. die Relation \glqq größer\grqq\ und \glqq kongruent 
 nach einem Modul\grqq\ arithmetisch, denn es gilt:
 
 $$
-y > y \thicksim \overline{\left(Ez\right)}\left[y = x + z\right]
-$$
+x > y \thicksim \overline{\left(Ez\right)}\left[y = x + z\right]
+$$\mnote{Wenn $x$ größer $y$ ist, existiert kein $z \in \mathbb{N}$, so dass $y = x + z$.}
 
 $$
 x \equiv y \left(\text{mod} n\right) \thicksim \left(Ez\right) \left[x = y + z.n \lor y = x + z.n\right]
@@ -1588,7 +1591,7 @@ Die Formel $\left(Ex_0\right) C$ hat dann die verlangte Eigenschaft, d.\,h.
 \end{enumerate}
 
 Beweis: Seien $\Psi_1, \Psi_2 \dots \Psi_n$ die nach Voraussetzung
-existierende Funktionen, welche in $\left(Ex_0\right)C$für 
+existierende Funktionen, welche in $\left(Ex_0\right)C$ für 
 $\phi_1, \phi_2 \dots \phi_n$ eingesetzt einen richtigen Satz liefern.
 Ihr Individuenbereich Sei $\mathfrak{J}$. Wegen der Richtigkeit von 
 $\left(Ex_0\right)C$ für die Funktion $\Psi_4$ gibt es ein Individuum $a$ 
