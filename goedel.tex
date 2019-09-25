@@ -388,8 +388,7 @@ Kein Computer kann mehr als ebendies: Zeichenketten nach genau vorgelegten Regel
 zu manipulieren, ohne dabei auch nur im Ansatz inhaltlich auf diese einzugehen. Gödel hat
 gezeigt, dass es immer Aussagen gibt, die ein Computer nicht zurückführen kann auf
 seine Axiome, d.\,h. dass es immer Aussagen gibt, die mit einem Computer nicht überprüfbar sind.
-Das setzt -- ähnlich wie das Halteproblem -- der Theorie der Algorithmen und dem
-menschlichen Erkennen überhaupt enge Grenzen.
+Das setzt -- ähnlich wie das Halteproblem -- der Theorie der Algorithmen enge Grenzen.
 
 \subsection*{Ziel dieser Arbeit}
 
@@ -2024,12 +2023,15 @@ $\text{Wid}\left(x\right)\equiv\left(Ex\right)\left[\text{Form}\left(x\right)\&\
 Klasse von}\label{satzxi} \textit{Formeln}\so{, dann gilt: Die }\textit{Satzformel}\so{, welche besagt, 
 daß $\chi$ widerspruchsfrei ist, ist nicht} $\chi$-\textit{beweisbar}; insbesondere ist\mnote{Zweiter 
 Unvollständigkeitssatz: ein System kann aus sich selbst heraus seine eigene Widerspruchsfreiheit nicht
-beweisen.}die Widerspruchsfreiheit von $P$ in $P$ unbeweisbar\footnote{Dies folgt, wenn man für 
+beweisen.} die Widerspruchsfreiheit von $P$ in $P$ unbeweisbar\footnote{Dies folgt, wenn man für 
 $\chi$ die leere Klasse von \textit{Formeln} einsetzt.},
 vorausgesetzt, daß $P$ widerspruchsfrei ist (im entgegengesetzten Fall ist natürlich jede Aussage beweisbar).
 
-Der Beweis ist (in Umrissen skizziert) der folgende: Sei $\chi$ eine beliebige für die folgenden Betrachtungen ein für allemal gewählte rekursive Klasse von \textit{Formeln} (im einfachsten Falle die leere Klasse).
-Zum Beweise der Tatsache, daß $17\text{ Gen }r$ nicht $\chi$-\textit{beweisbar} ist\footnote{$r$ hängt natürlich (ebenso wie $p$) von $\chi$ ab.}, wurde, wie aus 1. Seite 189 TODO hervorgeht, nur die Widerspruchsfreiheit von $\chi$ benutzt, d.\,h. es gilt:
+Der Beweis ist (in Umrissen skizziert) der folgende: Sei $\chi$ eine beliebige für die folgenden 
+Betrachtungen ein für allemal gewählte rekursive Klasse von \textit{Formeln} (im einfachsten Falle die leere Klasse).
+Zum Beweise der Tatsache, daß $17\text{ Gen }r$ nicht $\chi$-\textit{beweisbar} ist\footnote{$r$
+hängt natürlich (ebenso wie $p$) von $\chi$ ab.}, wurde, wie aus 1. Seite 189 TODO hervorgeht,
+nur die Widerspruchsfreiheit von $\chi$ benutzt, d.\,h. es gilt:
 
 \begin{equation}
 \text{Wid }\left(x\right) \longrightarrow \overline{\text{Bew}_x} \left(17\text{ Gen } r\right)
@@ -2076,8 +2078,8 @@ folgen, daß $\chi$ nicht widerspruchsfrei ist.
 Es sei bemerkt, daß auch dieser Beweis konstruktiv ist, d.\,h. er gestattet, falls ein \textit{Beweis} aus $\chi$ für $w$ vorgelegt ist, ein Widerspruch aus $\chi$ effektiv herzuleiten. Der ganze Beweis für Satz XI läßt sich wörtlich auch auf das Axiomensystem der Mengenlehre $M$ und der klassischen Mathematik\footnote{Vgl. J.~v.~\so{Neumann}, Zur \so{Hilbert}schen Beweistheorie, Math. Zeitschr. 26, 1927.}
 $A$ übertragen und liefert auch hier das Resultat: es gibt keinen 
 Widerspruchlosigkeitsbeweis\mnote{\customlabel{zweiterunvollstaendigkeitssatz}{\arabic{commentaryNumber}}Der zweite gödel'sche 
-Unvollständigkeitssatz; ein ausreichend komplexes System kann seine eigene Vollständigkeit nicht beweisen.}
-für $M$ bzw. $A$, der innerhalb von $M$ bzw. $A$ formalisiert werden könnte, vorausgesetzt,
+Unvollständigkeitssatz; ein ausreichend komplexes System kann seine eigene Vollständigkeit 
+nicht beweisen.} für $M$ bzw. $A$, der innerhalb von $M$ bzw. $A$ formalisiert werden könnte, vorausgesetzt,
 daß $M$ bzw. $A$ widerspruchsfrei ist. Es sei ausdrücklich bemerkt, daß Satz XI 
 (und die entsprechenden Resultate über $M, A$) in keinem Widerspruch zum \so{Hilbert}schen 
 formalistischen Standpunkt stehen. Denn dieser setzt nur die Existenz eines mit finiten 
