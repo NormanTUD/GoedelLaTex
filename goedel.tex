@@ -324,14 +324,14 @@ mit der peanoschen Nachfolgerfunktion gemeint: $0, 1, 2, 3, \dots$. Daher auch d
 \frq Zahlzeichen\flq.}
 
 $$ a, fa, ffa, fffa \dots \text{usw.} $$
-
 wo $a$ entweder 0 oder eine Variable ersten Typs ist.
 Im ersten Fall nennen wir ein solches Zeichen Zahlzeichen.
 Für $n > 1$ verstehen wir unter einem Zeichen $n$-ten
 Typs dasselbe wie Variable $n$-ten Typs. 
 Zeichenkombinationen der Form $a\left(b\right)$, wobei
 $b$ ein Zeichen $n$-ten und $a$ ein Zeichen $n + 1$-ten 
-Typs ist, nennen wir Elementarformeln. Die Klasse der 
+Typs ist, nennen wir Elementarformeln\mnote{\customlabel{elementarformeln}{\arabic{commentaryNumber}}Eine \frq Elementarformel\flq\ ist
+eine Zuordnung von Mengen zu Zahlen (oder Mengen von Mengen zu Mengen).}. Die Klasse der 
 Formeln definieren wir als die kleinste
 Klasse\mnote{\customlabel{minimalmenge}{\arabic{commentaryNumber}}Damit ist die Minimalmenge \frq sinnvoller\flq\ Sätze
 gemeint, die alle Formeln
@@ -398,7 +398,7 @@ exakten Definitionen der metamathe. Begriffe S. 182fg.) TODO}):
 	\item \begin{enumerate}[1.]
 		\item $\thicksim\left(fx_1 = 0\right)$\mnote{0 ist nicht Nachfolger irgendeiner natürlichen Zahl}
 		\item $fx_1 = fy_1 \supset x_y = y_1$\mnote{Wenn die Nachfolger gleich sind, ist die Zahl gleich}
-		\item $x_2\left(0\right).x_1\Pi\left(x_2\left(x_1\right) \supset x_2\left(fx_1\right)\right) \supset x_1 \Pi \left(x_2\left(x_1\right)\right)$.\mnote{???}
+		\item $x_2\left(0\right).x_1\Pi\left(x_2\left(x_1\right) \supset x_2\left(fx_1\right)\right) \supset x_1 \Pi \left(x_2\left(x_1\right)\right)$.
 	\end{enumerate}
 	\item Jede Formel, die aus den folgenden Schemata
 	durch Einsetzung beliebiger Formeln für $p$, $q$,
@@ -756,7 +756,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	$R\left(x\right)$ entspricht der nur aus der Zahl $x$ bestehenden Zahlenreihe (für $x > 0$).
 
 	% 10:
-	\item $E\left(x\right) \equiv R\left(11\right) \pmstar x \pmstar R\left(13\right)$\mnote{$E\left(x\right) \equiv \text{\glqq}(\text{\grqq. } x \text{. \glqq})\text{\grqq}$, vgl. § \refsatz{Konkat}}
+	\item \customlabel{E(x)}{10} $E\left(x\right) \equiv R\left(11\right) \pmstar x \pmstar R\left(13\right)$\mnote{$E\left(x\right) \equiv \text{\glqq}(\text{\grqq. } x \text{. \glqq})\text{\grqq}$, vgl. § \refsatz{Konkat}}
 
 	$E\left(x\right)$ entspricht der Operation des \glqq Einklammerns\grqq\ [11 und 13 sind den Grundzeichen
 	\glqq(\grqq\ und \glqq)\grqq\ zugeordnet].
@@ -822,18 +822,19 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	$x$ ist \textit{Zeichen ersten Typs}.
 
 	% 19:
-	\item $$\text{Typ}_n\left(x\right) \equiv \left[n = 1 \& \text{Typ}_1'\left(x\right)\right] \lor \left[n > 1 \& \right.
+	\item \customlabel{Typ}{19}$$\text{Typ}_n\left(x\right) \equiv \left[n = 1 \& \text{Typ}_1'\left(x\right)\right] \lor \left[n > 1 \& \right.
 	$$\\[\spacebetweenbreakedequations]
 	$$\left.\left(Ev\right) \left\{v \leqq x \& n\text{ Var } v \& x = R\left(v\right)\right\}\right]$$\\[\spaceafterbreakedequation]
 
 	$x$ ist \textit{Zeichen $n$-ten Typs}.\mnote{Siehe § \refsatz{Typ1'} für Spezialfall $n = 1$}
 
 	%20:
-	\item $$Elf\left(x\right) \equiv \left(E y, z, n\right) \left[y, z, n \leqq x \& \text{Typ}_n\left(y\right)\right.
-	$$\\[\spacebetweenbreakedequations]
+	\item $$
+		Elf\left(x\right) \equiv \left(E y, z, n\right) \left[y, z, n \leqq x \& \text{Typ}_n\left(y\right)\right.
+	$$\mnote{$Elf\left(x\right) \equiv \exists y: \exists z: \exists n: y, z, n \leqq x \wedge \text{Typ}_n\left(y\right) \wedge \text{Typ}_{n + ¹}\left(z\right) \wedge x = z \pmstar E\left(y\right)$, vgl. §§ \refsatz{Konkat}, \refsatz{Typ}, \refsatz{E(x)}.}\\[\spacebetweenbreakedequations]
 	$$\left.\& \text{Typ}_{n + 1}\left(z\right) \& x = z \pmstar E\left(y\right)\right]$$\\[\spaceafterbreakedequation]
 
-	$x$ ist \textit{Elementarformel}.
+	$x$ ist \textit{Elementarformel}\mnote{Vgl. Kommentar \ref{elementarformeln}}.
 
 	%21:
 	\item $Op\left(x\ y\ z\right) \equiv x = \text{Neg}\left(y\right) \lor x = y \text{ Dis } z \lor\allowbreak \left(Ev\right) \left[v \leqq x \& \text{Var}\left(x\right) \& x = v \text{ Gen } y\right]$
