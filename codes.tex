@@ -24,6 +24,7 @@
 \usepackage{xpatch}
 \usepackage{url}
 \usepackage{lettrine}
+\usepackage{marginnote}
 
 \setcounter{DefaultLines}{4}
 \setlength{\DefaultFindent}{0.5em}
@@ -59,7 +60,7 @@
 	]{geometry}
 	\makeatletter
 	\newcommand{\mnote}[1]{%
-		\marginpar{% 
+		\marginnote{% 
 			\textcolor{darkgray}{%
 				\small\arabic{commentaryNumber}: #1}%
 		}%
