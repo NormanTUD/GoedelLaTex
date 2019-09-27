@@ -123,7 +123,7 @@ als Grundzeichen nimmt, und wir entschließen uns dazu,\mnote{Natürliche Zahlen
 Peano-Axiome herleitbar und zu verstehen. Es könnten aber auch andere mathematische Strukturen genommen werden,
 wenn sie aus den Axiomen folgen, die dann analoge Schlüsse zulassen.}
 natürliche Zahlen\footnote{D.\,h. wir bilden die Grundzeichen 
-in eineindeutiger Weise auf die natürlichen Zahlen ab (Vgl. die Durchführung auf S. TODO.)}
+in eineindeutiger Weise auf die natürlichen Zahlen ab (Vgl. die Durchführung auf S. \pageref{grundzeichenzahlen}.)}
 als solche zu verwenden. Dementsprechend ist dann eine\mnote{Vgl. Kommentar \ref{eineindeutigkeit}}
 Formel eine endliche Folge natürlicher 
 Zahlen\footnote{D.\,h. eine Belegung eines Abschnittes der 
@@ -392,7 +392,7 @@ muß man also (in II, II, IV nach Ausführung der erlaubten Einsetzungen) noch
 \end{enumerate}
 
 Man beachte, daß die so entstehenden Ausdrücke \glqq Formeln\grqq\ im obigen Sinn sein müssen. (Vgl. auch die 
-exakten Definitionen der metamathe. Begriffe S. 182fg.) TODO}):
+exakten Definitionen der metamathe. Begriffe S. \pageref{genaueformeln}fg.)}):
 
 \begin{enumerate}[I.]
 	\item \begin{enumerate}[1.]
@@ -502,7 +502,9 @@ auf dieser Weise den bisher definierten
 metamathematischen Begriffen, z.\,B. \glqq Variable\grqq,
 \glqq Formel\grqq, \glqq Satzformel\grqq, \glqq Axiom\grqq,
 \glqq beweisbare Formel\grqq\ usw. zugeordnet sind,
-bezeichnen wir mit denselben Worten in Kursivschrit. Der
+bezeichnen wir mit denselben Worten in Kursivschrift. Der\mnote{Es existiert eine Menge an Aussagen mit 
+der Mindestkardinalität $1$, so dass die Einzelaussagen nicht beweisbar sind, aber auch das Gegenteil
+nicht gezeigt werden kann.}
 Satz, daß es im System $P$ unentscheidbare Probleme gibt, 
 lautet z.\,B. folgendermaßen: es gibt \textit{Satzformeln} $a$, 
 so daß weder $a$ noch die \textit{Negation} von $a$
@@ -685,6 +687,7 @@ Funktionen (Relationen) 1--45, unter denen z.\,B. die
 Begriffe \glqq\textit{Formel}\grqq, \glqq\textit{Axiom}\grqq, \glqq\textit{unmittelbare Folge}\grqq\ vorkommen, 
 ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus diesen Axiomen zum Herleiten der Unvollständigkeitssätze (§§ \refsatz{x/y} -- \refsatz{Bew}).}
 
+\label{genaueformeln}
 \begin{enumerate}[1.]
 	% 1:
 	\item \customlabel{x/y}{1}$x/y \equiv \left(Ez\right) \left[z \leqq x \& x = y.z\right]$%
@@ -1200,17 +1203,20 @@ Dann gilt:
 	x B_\chi\left(17\text{ Gen } r\right) \longrightarrow \text{Bew}_\chi\left[\text{Neg } Sb\left(r\substack{17\\ Z\left(x\right)}\right)\right]
 \end{equation}
 
-Daraus ergibt sich:
+Daraus ergibt sich:\label{chibeweisbarkeit}
 
 \begin{enumerate}
-	\item $17 \text{ Gen } r$ ist nicht $\chi$-beweisbar\footnote{$x$ 
-		ist $\chi$-beweisbar, soll bedeuten: $x \epsilon \text{Flg}\left(x\right)$, 
+	\item $17 \text{ Gen } r$\mnote{$17 \text{ Gen } r \equiv \forall x_1: r$} ist nicht 
+		$\chi$-beweisbar\footnote{$x$ ist $\chi$-beweisbar, soll bedeuten: 
+		$x \epsilon \text{Flg}\left(x\right)$, 
 		was nach (7) dasselbe besagt wie: $\text{Bew}_\chi\left(x\right)$.}. Denn 
 		wäre dies der Fall, so gäbe es (nach 6.1) ein $n$, so daß 
-		$n B_\chi \left(17 \text{ Gen } r\right)$. Nach 17 gälte also: 
+		$n B_\chi \left(17 \text{ Gen } r\right)$\mnote{$n$ ist ein Beweis 
+		in $\chi$ für $\left(17 \text{ Gen } r\right)$.}. Nach 17 gälte also: 
 		$\text{Bew}_\chi \left[\text{Neg }Sb\left(r\substack{17\\ Z\left(n\right)}\right)\right]$, 
 		während andererseits aus der $\chi$-\textit{Beweisbarkeit} von $17 \text{ Gen } r$ auch 
-		die von $Sb \left(r\substack{17\\ Z\left(n\right)}\right)$ folgt. $\chi$ wäre also 
+		die von $Sb \left(r\substack{17\\ Z\left(n\right)}\right)$ folgt. $\chi$ wäre also\mnote{Daraus
+		würde folgen, dass $\forall x_1: r$ sowohl beweisbar, als auch nicht-beweisbar wäre: ein Widerspruch.}
 		widerspruchsvoll (umso mehr $\omega$-widerspruchsvoll).
 
 	\item $\text{Neg }\left(17 \text{ Gen } r\right)$ ist nicht 
@@ -1265,7 +1271,7 @@ Eigenschaft $\left(r\right)$, für die weder ein Gegenbeispiel
 \so{angebbar}, noch beweisbar ist, daß sie allen Zahlen zukommt. 
 Denn zum Beweise, dass $17\text{ Gen } r$ nicht 
 $\chi$-\textit{beweisbar} ist, wurde nur die Widerspruchsfreiheit 
-von $\chi$ verwendet (Vgl. S. 189 TODO) und aus
+von $\chi$ verwendet (Vgl. S. \pageref{chibeweisbarkeit}) und aus
  $\overline{\text{Bew}_\chi}\left(17\text{ Gen } r\right)$ folgt
 nach (15), daß für jede Zahl $x$ 
 $Sb\left(r\substack{17\\ Z\left(x\right)}\right)$, folglich für
@@ -1280,7 +1286,7 @@ $\overline{\text{Bew}_\chi}\left(17\text{ Gen } r\right)$ und (15) gilt:
 $\left(x\right) \text{Bew}_\chi Sb\left(r\substack{17\\ Z\left(x\right)}\right)$, umso mehr also:
 $\left(x\right)\text{Bew}_{\chi'} Sb\left(r\substack{17\\ Z\left(x\right)}\right)$ 
 und anderseits gilt natürlich: 
-$\text{Bew}_{\chi'}\left[\text{Neg }\left(17\text{ Gen }r\right)\right]$\footnote{Die Existenz 
+$\text{Bew}_{\chi'}\left[\text{Neg }\left(17\text{ Gen }r\right)\right]$\footnote{\label{fussnote46}Die Existenz 
 widerspruchsfreie und nicht $\omega$-widerspruchsfreier $\chi$ ist damit natürlich nur 
 unter der Voraussetzung bewiesen, daß es überhaupt widerspruchsfreie 
 $\chi$ gibt (d.\,h. daß $P$ widerspruchsfrei ist).}.
@@ -1491,20 +1497,40 @@ Problem und da der ganze Beweis von Satz VII sich (für jedes spezielle $F$) inn
 \label{satzvii}\so{Satz VIII: In jedem der in Satz VI genannten formalen Systeme\footnote{Das sind diejenigen $\omega$-widerspruchsfreien Systeme, welche aus $P$ durch Hinzufügung einer rekursiv definierbaren Klasse von Axiomen entstehen.}
 gibt es unentscheidbare arithmetische Sätze.}
 
-Dasselbe gilt (nach der Bemerkung auf Seite 190 TODO)
+Dasselbe gilt (nach der Bemerkung auf Seite \pageref{fussnote46})
 für das Axiomensystem der Mengenlehre und dessen Erweiterungen durch $\omega$-widerspruchsfreie rekursive
 Klassen von Axiomen.
 
 Wir leiten schließlich noch folgendes Resultat her:
 
-\so{Satz IX: In allen in Satz VI genannten formalen Systeme gibt es unentscheidbare Probleme des engeren Funktionenkalküls}\footnote{Vgl. \so{Hilbert-Ackermann}, Grundzüge der theoretischen Logik. Im System $P$ sind unter Formeln des engeren Funktionenkalküls diejenigen zu verstehen, welche aus den Formeln des engeren Funktionenkalküls der PM durch die auf S. 176 TODO angedeutete Ersetzung der Relationen durch Klassen höheren Typs entstehen.}
-(d.\,h. Formeln des engeren Funktionenkalküls, für die weder Allgemeingültigkeit noch Existenz eines Gegenbeispiels beweisbar ist)\footnote{In meiner Arbeit: Die Vollständigkeit der Axiome des logischen Funktionenkalküls, Monatsh. f. Math. u. Phys. XXXVII, 2, habe ich gezeigt, daß jede Formel des engeren Funktionenkalküls entweder als allgemeingültig nachweisbar ist oder ein Gegenbeispiel existiert; die Existenz dieses Gegenbeispiels ist aber nach Satz IX \so{nicht} immer nachweisbar (in den angeführten formalen Systemen).}.
+\so{Satz IX: In allen in Satz VI genannten formalen Systeme gibt es
+unentscheidbare Probleme des engeren Funktionenkalküls}\footnote{Vgl. \so{Hilbert-Ackermann}, 
+Grundzüge der theoretischen Logik. Im System $P$ sind unter Formeln des engeren 
+Funktionenkalküls diejenigen zu verstehen, welche aus den Formeln des engeren 
+Funktionenkalküls der PM durch die auf S. 176 TODO angedeutete Ersetzung der 
+Relationen durch Klassen höheren Typs entstehen.} (d.\,h. Formeln des engeren 
+Funktionenkalküls, für die weder Allgemeingültigkeit noch Existenz eines 
+Gegenbeispiels beweisbar ist)\footnote{In meiner Arbeit: Die Vollständigkeit 
+der Axiome des logischen Funktionenkalküls, Monatsh. f. Math. u. Phys. XXXVII, 2, 
+habe ich gezeigt, daß jede Formel des engeren Funktionenkalküls entweder als 
+allgemeingültig nachweisbar ist oder ein Gegenbeispiel existiert; die Existenz 
+dieses Gegenbeispiels ist aber nach Satz IX \so{nicht} immer nachweisbar (in den 
+angeführten formalen Systemen).}.
 
 Dies beruht auf:
 
-\so{Satz X: Jedes Problem der Form $\left(x\right)F\left(x\right)$ ($F$ rekursiv) läßt sich zurückführen auf die Frage nach der Erfüllbarkeit einer Formel des engeren Funktionenkalküls} (d.\,h. zu jedem rekursiven $F$ kann man eine Formel des engeren Funktionenkalküls angeben, deren Erfüllbarkeit mit der Richtigkeit von $\left(x\right)F\left(x\right)$ äquivalent ist).
+\so{Satz X: Jedes Problem der Form $\left(x\right)F\left(x\right)$ ($F$ rekursiv) 
+läßt sich zurückführen auf die Frage nach der Erfüllbarkeit einer Formel des engeren 
+Funktionenkalküls} (d.\,h. zu jedem rekursiven $F$ kann man eine Formel des engeren 
+Funktionenkalküls angeben, deren Erfüllbarkeit mit der Richtigkeit von 
+$\left(x\right)F\left(x\right)$ äquivalent ist).
 
-Zum engeren Funktionenkalkül (e. F.) rechnen wir diejenigen Formeln, welche sich aus den Grundzeichen $\overline{\phantom{XX}}, \lor, \left(x\right), =, x, y \dots \text{(Individuenvariable)} F\left(x\right), G\left(x y\right), H\left(x, y, z\right) \dots $ (Eigenschafts- und Relationsvariable) aufbauen\footnote{D.~\so{Hilbert} und \so{W.~Ackermann} rechnen in dem eben zitierten Buch das Zeichen $=$ nicht zum engeren Funktionenkalkül. Es geht aber zu jeder Formel in der das Zeichen $=$ vorkommt, eine solche ohne dieses Zeichen, die mit der ursprünglichen gleichzeitig erfüllbar ist (vgl. die in Fußnote $^{55}$ zitiert Arbeit).},
+Zum engeren Funktionenkalkül (e. F.) rechnen wir diejenigen Formeln, welche sich aus den Grundzeichen 
+$\overline{\phantom{XX}}, \lor, \left(x\right), =, x, y \dots \text{(Individuenvariable)} F\left(x\right), G\left(x y\right), H\left(x, y, z\right) \dots $ 
+(Eigenschafts- und Relationsvariable) aufbauen\footnote{D.~\so{Hilbert} und \so{W.~Ackermann} rechnen 
+in dem eben zitierten Buch das Zeichen $=$ nicht zum engeren Funktionenkalkül. Es geht aber zu jeder 
+Formel in der das Zeichen $=$ vorkommt, eine solche ohne dieses Zeichen, die mit der ursprünglichen 
+gleichzeitig erfüllbar ist (vgl. die in Fußnote $^{55}$ zitiert Arbeit).},
 wobei $\left(x\right)$ und $=$ sich nur
  auf Individuen beziehen dürfen. Wir fügen zu
  diesen Zeichen noch eine dritte Art von Variablen 
@@ -1513,8 +1539,10 @@ $\phi\left(x\right), \psi\left(x y\right), \chi\left(x y z\right)$ hinzu,
  etc. bezeichnen eindeutige Funktionen, deren Argumente und Werte Individuen sind\footnote{Und zwar soll der Definitionsbereich immer der \so{ganze} Individuenbereich sein.}.
 Eine Formel, die außer den zuerst angeführten Zeichen
 des e.~F. noch Variable dritter Art ($\phi\left(x\right), \psi\left(x y\right)$ etc.) 
-enthält, soll eine Formel im weiteren Sinne (i.~w.~S.) heißen\footnote{Variable dritter Art dürfen dabei an allen Leerstellen für Individuenvariable stehen, z.\,B.: 
-$y = \phi\left(x\right), F\left(x, \phi\left(y\right)\right), G\left[\psi\left(x, \phi\left(y\right)\right), x\right]$ usw.}.
+enthält, soll eine Formel im weiteren Sinne (i.~w.~S.) heißen\footnote{Variable dritter Art dürfen dabei an 
+allen Leerstellen für Individuenvariable stehen, z.\,B.: 
+$y = \phi\left(x\right), F\left(x, \phi\left(y\right)\right), G\left[\psi\left(x, \phi\left(y\right)\right), x\right]$ 
+usw.}.
 Die Begriffe \glqq erfüllbar\grqq, \glqq allgemeingültig\grqq\ übertragen 
 sich ohneweiters auf die Formel i.~w.~S. und es gilt der Satz, daß man zu
 jeder Formel i.~w.~S. $A$ eine gewöhnliche Formel des e.~F.
@@ -1636,7 +1664,7 @@ vorausgesetzt, daß $P$ widerspruchsfrei ist (im entgegengesetzten Fall ist nat�
 Der Beweis ist (in Umrissen skizziert) der folgende: Sei $\chi$ eine beliebige für die folgenden 
 Betrachtungen ein für allemal gewählte rekursive Klasse von \textit{Formeln} (im einfachsten Falle die leere Klasse).
 Zum Beweise der Tatsache, daß $17\text{ Gen }r$ nicht $\chi$-\textit{beweisbar} ist\footnote{$r$
-hängt natürlich (ebenso wie $p$) von $\chi$ ab.}, wurde, wie aus 1. Seite 189 TODO hervorgeht,
+hängt natürlich (ebenso wie $p$) von $\chi$ ab.}, wurde, wie aus 1. Seite \pageref{chibeweisbarkeit} hervorgeht,
 nur die Widerspruchsfreiheit von $\chi$ benutzt, d.\,h. es gilt:
 
 \begin{equation}
