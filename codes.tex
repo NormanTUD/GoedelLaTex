@@ -26,6 +26,11 @@
 \usepackage{lettrine}
 \usepackage{marginnote}
 
+\renewcommand\neq{\mathrel{\vphantom{|}\mathpalette\xsneq\relax}}
+\newcommand\xsneq[2]{%
+  \ooalign{\hidewidth$#1|$\hidewidth\cr$#1=$\cr}%
+}
+
 \setcounter{DefaultLines}{4}
 \setlength{\DefaultFindent}{0.5em}
 \setlength{\DefaultNindent}{0em}

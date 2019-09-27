@@ -590,18 +590,18 @@ Satz I folgt unmittelbar aus der Definition von \glqq rekursiv\grqq. Satz II und
 	\alpha\left(x\right), \beta\left(x, y\right), \gamma\left(x, y\right)
 \end{equation*}
 nämlich:\mnote{\customlabel{kommentarAlpha}{\arabic{commentaryNumber}}\noindent\begin{equation*}
-	\noindent \alpha\left(x\right) = \left\{
+	\noindent \thicksim x \equiv \alpha\left(x\right) = \left\{
 	\begin{aligned}
 		&1, && \text{wenn }\ x = 0 \\
 		&0, && \text{sonst}
 	\end{aligned} \right.
 \end{equation*}}
 \begin{equation*}
-	\alpha\left(0\right) = 1; \alpha\left(x\right) = 0\text{ für } x \not = 0
+	\alpha\left(0\right) = 1; \alpha\left(x\right) = 0\text{ für } x \neq 0
 \end{equation*}
 
 \mnote{\noindent\begin{equation*}
-	\noindent \beta\left(x, y\right) = \left\{
+	\noindent x \wedge b \equiv \beta\left(x, y\right) = \left\{
 	\begin{aligned}
 		&1, && \text{wenn }\ x \wedge y \\
 		&0, && \text{sonst}
@@ -609,18 +609,18 @@ nämlich:\mnote{\customlabel{kommentarAlpha}{\arabic{commentaryNumber}}\noindent
 \end{equation*}}
 \begin{equation*}
 	\beta\left(0, x\right) = \beta\left(x, 0\right) = 0; \beta\left(x, y\right) = 1,
-	\text{ wenn } x, y \text{ beide } \not = 0 \text{ sind}
+	\text{ wenn } x, y \text{ beide } \neq 0 \text{ sind}
 \end{equation*}
 
 \mnote{\noindent\begin{equation*}
-	\noindent \gamma\left(x, y\right) = \left\{
+	\noindent \thicksim(x = y) \equiv \gamma\left(x, y\right) = \left\{
 	\begin{aligned}
 		&0, && \text{wenn }\ x = y \\
 		&1, && \text{sonst}
 	\end{aligned} \right.
 \end{equation*}}
 \begin{equation*}
-	\gamma\left(x, y\right) = 0, \text{ wenn } x = y; \gamma\left(x, y\right) = 1, \text{ wenn } x \not = y
+	\gamma\left(x, y\right) = 0, \text{ wenn } x = y; \gamma\left(x, y\right) = 1, \text{ wenn } x \neq y
 \end{equation*}
 rekursiv sind, wie man sich leicht überzeugen kann. Der
 Beweis für Satz IV ist kurz der folgende: Nach der 
@@ -695,7 +695,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 		$x$ ist teilbar durch $y$\footnote{Überall, wo in den folgenden Definitionen eines der Zeichen $\left(x\right), \left(Ex\right), \epsilon x$ auftritt, ist es von einer Abschätzung für $x$ gefolgt. Diese Abschätzung dient lediglich dazu, um die rekursive Natur des definierten Begriffes (vgl. Satz IV) zu sichern. Dagegen würde sich der Umgang der definierten Begriffe durch Weglassung dieser Abschätzung meistens nicht ändern.}
 
 	% 2:
-	\item \customlabel{Prim}{2}$\text{Prim }\left(x\right) \equiv \overline{\left(Ez\right)} \left[z \leqq x \& z \not = 1 \& z \not = x \& x/z\right] \& x > 1$\mnote{$\text{Prim }\left(x\right) \equiv \thicksim \exists z: \left(z \leqq x \wedge z \not= 1 \wedge z \not= x \wedge x/z\right) \wedge x > 1$}
+	\item \customlabel{Prim}{2}$\text{Prim }\left(x\right) \equiv \overline{\left(Ez\right)} \left[z \leqq x \& z \neq 1 \& z \not = x \& x/z\right] \& x > 1$\mnote{$\text{Prim }\left(x\right) \equiv \thicksim \exists z: \left(z \leqq x \wedge z \not= 1 \wedge z \not= x \wedge x/z\right) \wedge x > 1$}
 
 	$x$ ist eine Primzahl.
 
@@ -762,7 +762,7 @@ ist daher rekursiv.\mnote{Es folgt die Liste der Axiome und Definitionen aus die
 	\glqq(\grqq\ und \glqq)\grqq\ zugeordnet].
 
 	%11:
-	\item \customlabel{n Var x}{11}$n\text{ Var } x \equiv \left(Ez\right)\left[13 < z \leqq x \& \text{Prim }\left(z\right) \& x = z^n\right] \& n \not = 0$%
+	\item \customlabel{n Var x}{11}$n\text{ Var } x \equiv \left(Ez\right)\left[13 < z \leqq x \& \text{Prim }\left(z\right) \& x = z^n\right] \& n \neq 0$%
 \mnote{$n\text{ Var } x \equiv \exists z: \left[\text{\glqq)\grqq} < z \leqq x \wedge \text{Prim }\left(z\right) \wedge x = z^n\right] n \not= 0$, die 13 ist die Gödelnummer für \glqq)\grqq, vgl. § \refsatz{Prim}}
 
 	%12:
