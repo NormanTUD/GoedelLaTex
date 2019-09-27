@@ -16,8 +16,8 @@ die Spezifikationen der Schritte von Algorithmen siehe Knuth, TAOCP 1, S. 4f. Di
 		Algorithmen im Kopf hat; Gödels Beweise aufzuschreiben wäre alles andere als effizient; es ist
 		aber \textit{prinzipiell} möglich.)
 \end{itemize}}
-genau spezifizierten Schritten, um ein mathematisches oder logisches Problem zu lösen. 
-Die Frage, vor der \so{Hilbert} stand, lautete: wenn man die Mathematik formalisiert, 
+genau spezifizierten Schritten, um ein mathematisches oder logisches Problem zu lösen.
+Die Frage, vor der \so{Hilbert} stand, lautete: wenn man die Mathematik formalisiert,
 sind dann alle wahren Aussagen durch einen Algorithmus beweisbar? Oder: kann man durch
 einen Algorithmus, der alle möglichen Aussagen durchschreitet, von jeder Einzelnen
 in endlicher Zeit herausfinden, ob sie wahr ist oder nicht?
@@ -31,12 +31,12 @@ Was heißt \frq beweisbar\flq? Beweise sind Zurückführungen auf einzelne Axiom
 von syntaktischen Veränderungsregeln.\mnote{Zumindest lassen sie sich analog zu
 solchen Regeln behandeln, wie die moderne Computertechnik eindrucksvoll zeigt. Vgl. Kommentar \ref{tractatus}. Vgl.
 auch \url{https://www.youtube.com/watch?v=qT8NyyRgLDQ} für ein Weiterdenken in eine alternative Richtung, die
-aber auch das \frq Gödelproblem\flq\ hat.} 
+aber auch das \frq Gödelproblem\flq\ hat.}
 So kann man jede mathematische Aussage als Zeichenkette
 auffassen und schauen, ob man -- durch erlaubte Veränderungen der Axiome des Systems --
 irgendwie auf diese Zeichenkette kommt. Hierbei ist Gödel ein großer Vorreiter der
 modernen Informatik, denn Computer können auch nur nach fest definierten Regeln
-Zeichenketten bearbeiten. Die mathematische Formel wird dabei nur sekundär 
+Zeichenketten bearbeiten. Die mathematische Formel wird dabei nur sekundär
 inhaltlich\mnote{Die inhaltliche Betrachtung findet erst
 beim Menschen statt, der versucht, das, was die Formel aussagt, zu verstehen. Der Formel selbst
 liegt diese inhaltliche Deutung nicht bei, was unter Anderem zur extrem breiten Verwendbarkeit
@@ -45,14 +45,14 @@ aber auch eine Atombombe; zwei sehr unterschiedliche Anwendungsbereiche mit ähn
 betrachtet und primär als Ansammlung von Zeichen, die nach Regeln bearbeitet werden.
 Jede bewiesene mathematische Aussage lässt sich prinzipiell als sehr lange Zeichenkette
 darstellen, die nur aus den Grundoperationen besteht (z.\,B. XOR, AND und NOT in
-der modernen Computertechnik). Daraus lassen sich Operationen wie das Addieren 
+der modernen Computertechnik). Daraus lassen sich Operationen wie das Addieren
 herleiten, woraus sich das Multiplizieren herleiten lässt (mit ganzen Zahlen) usw.
 Aber das sind alles nur Vereinfachungen, damit wir als Menschen, die damit arbeiten,
 besser damit klarkommen. Inhaltlich ist ein $a + b$ gleichbedeutend mit einer langen
 Kette an UND, XOR und NICHT-Operationen im CPU eines Computers.
 
-Gödel zeigte, dass es nicht möglich ist, alle wahren Aussagen zu beweisen, 
-in dem er einen Algorithmus anbietet, der -- komplett zurückführbar auf die logischen 
+Gödel zeigte, dass es nicht möglich ist, alle wahren Aussagen zu beweisen,
+in dem er einen Algorithmus anbietet, der -- komplett zurückführbar auf die logischen
 Grundaussagen --, immer Sätze konstruieren kann, die zwar durch metamathematische
 Überlegungen von \frq außerhalb\flq\ des Systems\mnote{Vgl. Kommentar \ref{metamatematischeueberlegungen}.}
 als geltend gezeigt werden können, die aber nicht innerhalb des Systems beweisbar sind.
@@ -60,11 +60,11 @@ als geltend gezeigt werden können, die aber nicht innerhalb des Systems beweisb
 \subsection*{Die \textit{Principia Mathematica} und die Typentheorie}
 
 Russell und Whitehead haben erkannt, dass man solche Sätze mit selbstreferenziellen
-Aussagen generieren kann, z.\,B. \frq dieser Satz ist falsch\flq,\mnote{\customlabel{luegezwei}{\arabic{commentaryNumber}} 
+Aussagen generieren kann, z.\,B. \frq dieser Satz ist falsch\flq,\mnote{\customlabel{luegezwei}{\arabic{commentaryNumber}}
 Kommentar \ref{luegeeins} ist falsch.} und daher haben sie
-in der Principia Mathematica solche Sätze, die sich auf sich selbst beziehen, 
+in der Principia Mathematica solche Sätze, die sich auf sich selbst beziehen,
 \frq verboten\flq\mnote{$\longrightarrow$ Typentheorie%TODO
-}. Aber selbst, wenn man das verbietet, lassen sich dennoch ver\-gleich\-bare Sätze 
+}. Aber selbst, wenn man das verbietet, lassen sich dennoch ver\-gleich\-bare Sätze
 konstruieren.
 
 \subsection*{(Vereinfachtes) Beispiel für einen gödelisierten Satz}
@@ -75,7 +75,7 @@ definierbaren Sätze, sinnvoll wie sinnlos, falsch wie richtig,
 wie z.\,B. \frq $45 + 16 = 1$\flq, \frq $1 + 1 = 2$\flq, aber auch \frq der Satz mit
 der Nummer 4922\footnote{Die Nummern sind nur beispielhaft gewählt und entsprechen
 nicht der wirklichen Gödelisierung der Sätze.}
-ist nicht beweisbar\flq. Wenn aber letzterer Satz gerade 
+ist nicht beweisbar\flq. Wenn aber letzterer Satz gerade
 \frq zufällig\flq\ tatsächlich die zugewiesene Nummer 4922 hat, dann behauptet
 der Satz seine eigene Unbeweisbarkeit, und das mehr oder weniger
 zufällig, ohne dass eine selbstreferenzielle-Strukturen-verbietende
@@ -91,27 +91,27 @@ möglichen Sätze generiert werden, dürfen wir den Satz mit der Nummer 559321 n
 aus den Augen verlieren, er besagt: \frq der Satz mit der Nummer 559321 ist
 nicht beweisbar\flq\mnote{Dieser Satz könnte auch aussagen: $\thicksim \thicksim \thicksim \text{Bew}(4922) $, wenn
 man mehr als die absolute Minimalmenge nimmt. Vgl. dazu Kommentar \ref{minimalmenge}. Aber das würde die
-Sache nur komplizierter machen.}. Wir 
+Sache nur komplizierter machen.}. Wir
 stehen also wieder vor dem gleichen Problem und müssten
 wieder ein Axiom setzen. Das geht ewig so weiter. Wir haben (nach unendlich viel
 vergangener Zeit und unendlich vielen neuen Axiomen) also wieder ein System,
 das aber nicht mehr algorithmisch lösbar ist, weil Algorithmen, die etwas
-lösen sollen, keine unendliche Menge an Axiomen abarbeiten können. 
+lösen sollen, keine unendliche Menge an Axiomen abarbeiten können.
 
-Gödels Algorithmus bietet die Möglichkeit, jedem sinnvollen und sinnlosen 
+Gödels Algorithmus bietet die Möglichkeit, jedem sinnvollen und sinnlosen
 Satz\mnote{Siehe dazu S. \pageref{grundzeichenzahlen}. Die gewählten Grundzeichen hängen
 vom System ab, das man als Grundlage nehmen möchte. Gödel nimmt das System der Peano-Axiome
 mit dem System der Principia Mathematica zusammen zur Vereinfachung seines Beweises.}
-eine eineindeutige Nummer zuzuordnen, indem er einige Konstanten 
-definiert, z.\,B. wird \frq 0\flq\ zu 1, \frq f\flq\ zu 3, 
-\frq$\thicksim$\flq\ zu 5 usw. 
+eine eineindeutige Nummer zuzuordnen, indem er einige Konstanten
+definiert, z.\,B. wird \frq 0\flq\ zu 1, \frq f\flq\ zu 3,
+\frq$\thicksim$\flq\ zu 5 usw.
 Außerdem nutzt er die Eineindeutigkeit von Primfaktorzerlegungen aus.\mnote{Jede
 natürliche Zahl ist entweder selbst Prim oder das Produkt aus $n$ Primzahlen. Die Zerlegung
 einer Zahl in Primzahlen ist eineindeutig und jede Zahl hat exakt eine ihr zugeordnete
 Primfaktorzerlegung. Nimmt man die Position $p$ als $p$te Primzahl hoch einer Zahl, die
 ein spezielles Zeichen symbolisiert, so lässt sich diese Zahl jederzeit zurückwandeln
 in den ursprünglichen Satz, weil die Primfaktorzerlegung immer eineindeutig bleibt.}
-So kann man den (sinnlosen) Satz: 
+So kann man den (sinnlosen) Satz:
 \frq es gilt nicht, dass 4\flq\ folgendermaßen umwandeln:
 
 \begin{enumerate}
@@ -126,7 +126,7 @@ So kann man den (sinnlosen) Satz:
 		können wir, da es unendlich viele Primzahlen gibt\mnote{\customlabel{eineindeutigkeit}{\arabic{commentaryNumber}}Die Eineindeutigkeit der Zuordnung von Zahlenwerten
 		zu Zeichenketten bedeutet de facto, dass jede mögliche Zeichenkette existiert;
 		diese Eineindeutigkeit Zahl $\longleftrightarrow$ Satz ist wichtig, denn in diesen unendlich
-		vielen Sätzen wären alle Texte nach \frq mathematischer Grammatik\flq\ entstanden. 
+		vielen Sätzen wären alle Texte nach \frq mathematischer Grammatik\flq\ entstanden.
 		Vgl. dazu die Idee der \frq Library of Babel\flq, wo zwar (wahrscheinlich) nicht alle
 		Texte gespeichert werden, sie aber im Bereich der mathematischen Hashfunktion,die
 		angewandt wird, um die Seiten \frq statisch\flq\ zu erzeugen, dennoch bereits alle
@@ -134,9 +134,9 @@ So kann man den (sinnlosen) Satz:
 		ein platonischer Realismus der mathematischen Welt vorausgesetzt, in der das Ergebnis jeder
 		Gleichung schon \frq existiert\flq, unabhängig davon, ob ausgerechnet oder nicht. In
 		einem z.\,B. ultrafinitistischen Denkmodell wäre Gödel gar kein Problem (womit ich nicht
-		dafür argumentieren möchte, sondern eher Platonist bin).}, für 
-		jede beliebig lange Zeichenkette 
-		bestehend aus den Grundzeichen machen. Die Zahl 640972332000 lässt sich durch 
+		dafür argumentieren möchte, sondern eher Platonist bin).}, für
+		jede beliebig lange Zeichenkette
+		bestehend aus den Grundzeichen machen. Die Zahl 640972332000 lässt sich durch
 		Primfaktorzerlegung prinzipiell wieder 1:1 in den Ursprungssatz zurückwandeln, so dass gilt:
 
 		$$ 640972332000 \equiv \text{\frq es gilt nicht, dass 4\flq} $$
@@ -155,22 +155,22 @@ Wenn wir also einen Satz der Form:
 $$
 n \vdash \thicksim \text{Bew}\left(m\right)
 $$
-(wobei $n$ seine gödelisierte Satznummer und \frq zufälligerweise\flq\ $n = m$, 
+(wobei $n$ seine gödelisierte Satznummer und \frq zufälligerweise\flq\ $n = m$,
 d.\,h. eine lange Zahl, die eineindeutig dem
-Satz zugeordnet ist, ist\footnote{Wie Gödel es selbst sagt, wäre es kein 
-Problem,\mnote{\customlabel{luegeeins}{\arabic{commentaryNumber}} 
-Kommentar \ref{luegezwei} ist richtig.} diese Zahl für jede Aussage tatsächlich 
-aufzuschreiben; es wäre nur sehr umständlich, 
-siehe Fußnote \ref{leichtaufzuschreiben}.}, der rein zufällig auf sich selbst verweist), 
+Satz zugeordnet ist, ist\footnote{Wie Gödel es selbst sagt, wäre es kein
+Problem,\mnote{\customlabel{luegeeins}{\arabic{commentaryNumber}}
+Kommentar \ref{luegezwei} ist richtig.} diese Zahl für jede Aussage tatsächlich
+aufzuschreiben; es wäre nur sehr umständlich,
+siehe Fußnote \ref{leichtaufzuschreiben}.}, der rein zufällig auf sich selbst verweist),
 dann haben wir einen solchen Satz, der seine eigene Unbeweisbarkeit
 behauptet und im System nicht entscheidbar ist. Wäre er beweisbar, wäre er per definitionem
-richtig, weil nur richtige Sätze beweisbar sind, aber wäre er beweisbar, wäre er auch 
+richtig, weil nur richtige Sätze beweisbar sind, aber wäre er beweisbar, wäre er auch
 per definitionem unbeweisbar. Seine Richtigkeit lässt sich aber eben durch
 metamathematische Überlegungen zeigen.\mnote{Vgl. Kommentar \ref{metamatematischeueberlegungen}.}
 
 \subsection*{\frq\textit{\dots und verwandter Syteme}\flq}
 
-Für solche Sätze sind Systeme wie das der Principia Mathematica prinzipiell 
+Für solche Sätze sind Systeme wie das der Principia Mathematica prinzipiell
 überflüssig,\mnote{Siehe wieder Fußnote \ref{leichtaufzuschreiben}}
 weil diese nur auf den logischen Axiomen aufbauen und Abkürzungen für lange Reihen von
 Zeichenketten darstellen. Daher sind alle logisch-formalen Systeme betroffen und die
@@ -188,33 +188,33 @@ Ein System, in dem die Axiome keine Widersprüchlichkeiten aufweisen, heißt
 $\omega$-widerspruchsfrei. Die $\omega$-Widerspruchsfreiheit ist rigoroser als
 die allgemeine Widerspruchsfreiheit, denn in der $\omega$-Widerspruchsfreiheit
 gilt -- neben der allgemeinen Widerspruchsfreiheit --, dass auch keine kontraintuitiven
-Schlüsse gezogen werden können dürfen (z.\,B. Sätze, die wahr sind, ohne dass 
+Schlüsse gezogen werden können dürfen (z.\,B. Sätze, die wahr sind, ohne dass
 ihre Wahrheit aus den Axiomen herleitbar ist).
 
 Die Axiome der PM sind widerspruchsfrei, aber mit der Methode der Gödelisierung
 lassen sich ebensolche Existenzaussagen treffen, die das System $\omega$-widersprüchlich
-machen.\mnote{Dazu muss es nur \textit{irgendwie} möglich sein, 
+machen.\mnote{Dazu muss es nur \textit{irgendwie} möglich sein,
 aus dem System etwas wie die natürlichen Zahlen und Addition herleiten zu können, was auf fast alle
 praktisch-relevanten logisch-widerspruchsfreien Systeme zutrifft. Dazu muss es auch möglich sein,
-dass im genannten System der Begriff \frq die Formel $f$ ist beweisbar im 
+dass im genannten System der Begriff \frq die Formel $f$ ist beweisbar im
 System $S$\flq\ definierbar ist.} Dies gilt für alle ausreichend komplexen
 Systeme. Wenn ein System ausreichend komplex ist, dann ist es notwendigerweise unvollständig,
 d.\,h. es gibt Existenzaussagen, die nicht aus den Axiomen herleitbar sind (erster
 Unvollständigkeitssatz)\mnote{Vgl. Satz VIII auf S. \pageref{satzvii}.}. Kann man jedoch die
-Vollständigkeit des ausreichend-komplexen Systems beweisen, ist es notwendigerweise 
+Vollständigkeit des ausreichend-komplexen Systems beweisen, ist es notwendigerweise
 widersprüchlich (zweiter Unvollständigkeitssatz).\mnote{Vgl. Satz XI auf S. \pageref{satzxi}.}
 
 \subsection*{Vollständigkeit und Entscheidbarkeit}
 
-Ein formales System $P$ ist vollständig, wenn jede Aussage $p \in P$ entweder 
+Ein formales System $P$ ist vollständig, wenn jede Aussage $p \in P$ entweder
 exakt \textit{wahr} oder \textit{falsch} ist. Wenn im System für jeden Wert
 von $p$ der  Wahrheitswert algorithmisch anhand der Regeln des
 formalen Systems bestimmt werden kann, heißt das System \frq entscheidbar\flq.
 
 Es gibt Systeme, auf die die gödelschen Unvollständigkeitssätze nicht zutreffen,\mnote{Ohne
-Primzahlen lassen sich die gödelschen Unvollständigkeitssatzbeweise 
+Primzahlen lassen sich die gödelschen Unvollständigkeitssatzbeweise
 nicht konstruieren, weil es keine sonstige Möglichkeit gibt, jedem Satz eine eineindeutige,
-algorithmisch bestimmbare Nummer zuzuweisen.} beispielsweise die Presburger-Arithmetik; 
+algorithmisch bestimmbare Nummer zuzuweisen.} beispielsweise die Presburger-Arithmetik;
 diese sind aber sehr eingeschränkt
 (z.\,B. unterstützt die Presburger-Arithmetik keine Aussagen über Multiplikation,
 Division oder Primzahlen).
@@ -227,7 +227,7 @@ Aus der Arbeit Gödels folgen zwei fundamentale Sätze zur Metamathematik:
 	\item Jedes ausreichend komplexe System beinhaltet immer Sätze, die innerhalb
 		des Systems nicht bewiesen werden können.
 	\item Jedes ausreichend komplexe System kann seine eigene Widerspruchsfreiheit
-		nicht beweisen; wenn es das kann, dann ist es\mnote{Zweiter Unvollständigkeitssatz, 
+		nicht beweisen; wenn es das kann, dann ist es\mnote{Zweiter Unvollständigkeitssatz,
 		vgl. Kommentar \ref{zweiterunvollstaendigkeitssatz}.}
 		notwendigerweise widersprüchlich.
 \end{enumerate}
@@ -249,22 +249,22 @@ der Beweistheorie überhaupt enge Grenzen.
 \subsection*{Ziel dieser Arbeit}
 
 Im Rahmen dieser Arbeit würde ich gern versuchen, den Originalalgorithmus soweit
-es mir möglich ist nachzuvollziehen. Dazu habe ich die Arbeit von Gödel soweit ich 
+es mir möglich ist nachzuvollziehen. Dazu habe ich die Arbeit von Gödel soweit ich
 es konnte exakt abgetippt und mit \LaTeX, einem Textsatzsystem für mathematische
-Texte, komplett neu gesetzt, um einige Dinge wie eingefärbte passende Klammern zur besseren 
+Texte, komplett neu gesetzt, um einige Dinge wie eingefärbte passende Klammern zur besseren
 Lesbarkeit einzuführen und Kommentare hinzuzufügen, die die gödel'schen Formeln in eine modernere
 Schreibweise übertragen. Trotz größtmöglicher Mühe und Bemühung um Genauigkeit
-kann ich dabei natürlich nicht vermeiden, dass sich eventuell Tipp- oder Verständnisfehler 
+kann ich dabei natürlich nicht vermeiden, dass sich eventuell Tipp- oder Verständnisfehler
 eingeschlichen haben.
 
 \subsection*{Lizenz}
 
 Da es meiner Recherchen nach noch keine solche Version gab, habe ich sie der
-Forschung auf meinem GitHub-Account unter der GPL2-Lizenz zur Verfügung 
+Forschung auf meinem GitHub-Account unter der GPL2-Lizenz zur Verfügung
 gestellt\footnote{Siehe \url{https://github.com/NormanTUD/GoedelLaTex/}.}.
 Jeder kann diese Version forken und eigene Änderungen hinzufügen, um das
 Dokument möglichst vollständig zu machen und meine Fehler zu korrigieren.
-Es unterliegt keinen Einschränkungen für Forschung und Lehre, außer dass 
+Es unterliegt keinen Einschränkungen für Forschung und Lehre, außer dass
 (wie in der GPL2 mit \textit{Copyleft} üblich) jede Änderung selbst wieder
 öffentlich gemacht und unter die GPL2 gestellt werden muss.
 

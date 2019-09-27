@@ -65,14 +65,14 @@
 	]{geometry}
 	\makeatletter
 	\newcommand{\mnote}[1]{%
-		\marginnote{% 
+		\marginnote{%
 			\textcolor{darkgray}{%
 				\small\arabic{commentaryNumber}: #1}%
 		}%
 		\stepcounter{commentaryNumber}%
 	}
 	\makeatother
-\else 
+\else
 	\newcommand{\mnote}[1]{}
 \fi
 
@@ -131,7 +131,7 @@
 	\let\oldleft\left
 	\let\oldright\right
 	\def\left#1{%
-	    \global\advance\bracketnum1\relax 
+	    \global\advance\bracketnum1\relax
 		\colorlet{temp}{.}%
 		    \csname bracketcolor\the\bracketnum\endcsname
 			\oldleft#1%
