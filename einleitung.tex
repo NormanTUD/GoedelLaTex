@@ -89,7 +89,7 @@ Satz ja auch behauptet).
 Das letzte Ressort könnte sein, ihn als Axiom zu setzen. Aber da alle potenziell
 möglichen Sätze generiert werden, dürfen wir den Satz mit der Nummer 559321 nicht
 aus den Augen verlieren, er besagt: \frq der Satz mit der Nummer 559321 ist
-nicht beweisbar\flq\mnote{Dieser Satz könnte auch aussagen: $\thicksim \thicksim \text{Bew}(4922) $, wenn
+nicht beweisbar\flq\mnote{Dieser Satz könnte auch aussagen: $\thicksim \thicksim \thicksim \text{Bew}(4922) $, wenn
 man mehr als die absolute Minimalmenge nimmt. Vgl. dazu Kommentar \ref{minimalmenge}. Aber das würde die
 Sache nur komplizierter machen.}. Wir 
 stehen also wieder vor dem gleichen Problem und müssten
@@ -150,16 +150,17 @@ lässt sich im System der Principia Mathematica selbst
 darstellen als die Möglichkeit der Herleitung aus den Axiomen. Nehmen wir die Abkürzungen
 von Gödel selbst, dann können wir die Beweisbarkeit eines Satzes folgendermaßen
 darstellen: $\text{Bew}\left(x\right)$.\mnote{Vgl. § \refsatz{Bew}}
-Wenn wir also einen Satz der Form:\mnote{\customlabel{luegeeins}{\arabic{commentaryNumber}} 
-Kommentar \ref{luegezwei} ist richtig.}
+Wenn wir also einen Satz der Form:
 
 $$
 n \vdash \thicksim \text{Bew}\left(m\right)
 $$
 (wobei $n$ seine gödelisierte Satznummer und \frq zufälligerweise\flq\ $n = m$, 
 d.\,h. eine lange Zahl, die eineindeutig dem
-Satz zugeordnet ist, ist\footnote{Wie Gödel es selbst sagt, wäre es kein Problem,
-diese Zahl für jede Aussage tatsächlich aufzuschreiben; es wäre nur sehr umständlich, 
+Satz zugeordnet ist, ist\footnote{Wie Gödel es selbst sagt, wäre es kein 
+Problem,\mnote{\customlabel{luegeeins}{\arabic{commentaryNumber}} 
+Kommentar \ref{luegezwei} ist richtig.} diese Zahl für jede Aussage tatsächlich 
+aufzuschreiben; es wäre nur sehr umständlich, 
 siehe Fußnote \ref{leichtaufzuschreiben}.}, der rein zufällig auf sich selbst verweist), 
 dann haben wir einen solchen Satz, der seine eigene Unbeweisbarkeit
 behauptet und im System nicht entscheidbar ist. Wäre er beweisbar, wäre er per definitionem
@@ -202,6 +203,21 @@ d.\,h. es gibt Existenzaussagen, die nicht aus den Axiomen herleitbar sind (erst
 Unvollständigkeitssatz)\mnote{Vgl. Satz VIII auf S. \pageref{satzvii}.}. Kann man jedoch die
 Vollständigkeit des ausreichend-komplexen Systems beweisen, ist es notwendigerweise 
 widersprüchlich (zweiter Unvollständigkeitssatz).\mnote{Vgl. Satz XI auf S. \pageref{satzxi}.}
+
+\subsection*{Vollständigkeit und Entscheidbarkeit}
+
+Ein formales System $P$ ist vollständig, wenn jede Aussage $p \in P$ entweder 
+exakt \textit{wahr} oder \textit{falsch} ist. Wenn im System für jeden Wert
+von $p$ der  Wahrheitswert algorithmisch anhand der Regeln des
+formalen Systems bestimmt werden kann, heißt das System \frq entscheidbar\flq.
+
+Es gibt Systeme, auf die die gödelschen Unvollständigkeitssätze nicht zutreffen,\mnote{Ohne
+Primzahlen lassen sich die gödelschen Unvollständigkeitssatzbeweise 
+nicht konstruieren, weil es keine sonstige Möglichkeit gibt, jedem Satz eine eineindeutige,
+algorithmisch bestimmbare Nummer zuzuweisen.} beispielsweise die Presburger-Arithmetik; 
+diese sind aber sehr eingeschränkt
+(z.\,B. unterstützt die Presburger-Arithmetik keine Aussagen über Multiplikation,
+Division oder Primzahlen).
 
 \subsection*{Die beiden Unvollständigkeitssätze}
 
