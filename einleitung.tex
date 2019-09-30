@@ -13,28 +13,28 @@ die Spezifikationen der Schritte von Algorithmen siehe Knuth, \citetitle{taocp1}
 	\item Input
 	\item Output
 	\item (Effectiveness; eingeklammert, weil Knuth Computer und praktische
-		Algorithmen im Kopf hat; Gödels Beweise aufzuschreiben wäre alles andere als effizient; es ist
+		Algorithmen im Kopf hat; \textsc{Gödel}s Beweise aufzuschreiben wäre alles andere als effizient; es ist
 		aber \textit{prinzipiell} möglich.)
 \end{itemize}}
 genau spezifizierten Schritten, um ein mathematisches oder logisches Problem zu lösen.
-Die Frage, vor der \so{Hilbert} stand, lautete: wenn man die Mathematik formalisiert,
+Die Frage, vor der \textsc{Hilbert} stand, lautete: wenn man die Mathematik formalisiert,
 sind dann alle wahren Aussagen durch einen Algorithmus beweisbar? Oder: kann man durch
 einen Algorithmus, der alle möglichen Aussagen durchschreitet, von jeder Einzelnen
 in endlicher Zeit herausfinden, ob sie wahr ist oder nicht?
 
-Für \so{Hilbert} schien die Sache klar zu sein: es musste so sein. Nur fehlte ihm der Beweis
-dafür. Erst Gödel zeigte, dass die Sache viel vertrackter ist und so nicht geht.
+Für \textsc{Hilbert} schien die Sache klar zu sein: es musste so sein. Nur fehlte ihm der Beweis
+dafür. Erst \textsc{Gödel} zeigte, dass die Sache viel vertrackter ist und so nicht geht.
 
-\subsection*{Beweisbarkeit und Gödelnummern}
+\subsection*{Beweisbarkeit und \textsc{Gödel}nummern}
 
 Was heißt \frq beweisbar\flq? Beweise sind Zurückführungen auf einzelne Axiome mithilfe
 von syntaktischen Veränderungsregeln.\mnote{Zumindest lassen sie sich analog zu
 solchen Regeln behandeln, wie die moderne Computertechnik eindrucksvoll zeigt. Vgl. Kommentar \ref{tractatus}. Vgl.
 auch \citeurl{altenkirch} für ein Weiterdenken in eine alternative Richtung, die
-aber auch das \frq Gödelproblem\flq\ hat.}
+aber auch das \frq \textsc{Gödel}problem\flq\ hat.}
 So kann man jede mathematische Aussage als Zeichenkette
 auffassen und schauen, ob man -- durch erlaubte Veränderungen der Axiome des Systems --
-irgendwie auf diese Zeichenkette kommt. Hierbei ist Gödel ein großer Vorreiter der
+irgendwie auf diese Zeichenkette kommt. Hierbei ist \textsc{Gödel} ein großer Vorreiter der
 modernen Informatik, denn Computer können auch nur nach fest definierten Regeln
 Zeichenketten bearbeiten. Die mathematische Formel wird dabei nur sekundär
 inhaltlich\mnote{Die inhaltliche Betrachtung findet erst
@@ -51,15 +51,15 @@ Aber das sind alles nur Vereinfachungen, damit wir als Menschen, die damit arbei
 besser damit klarkommen. Inhaltlich ist ein $a + b$ gleichbedeutend mit einer langen
 Kette an UND, XOR und NICHT-Operationen im CPU eines Computers.
 
-Gödel zeigte, dass es nicht möglich ist, alle wahren Aussagen zu beweisen,
+\textsc{Gödel} zeigte, dass es nicht möglich ist, alle wahren Aussagen zu beweisen,
 in dem er einen Algorithmus anbietet, der -- komplett zurückführbar auf die logischen
 Grundaussagen --, immer Sätze konstruieren kann, die zwar durch metamathematische
 Überlegungen von \frq außerhalb\flq\ des Systems\mnote{Vgl. Kommentar \ref{metamatematischeueberlegungen}.}
 als geltend gezeigt werden können, die aber nicht innerhalb des Systems beweisbar sind.
 
-\subsection*{Die \textit{Principia Mathematica} und die Typentheorie}
+\subsection*{Die \text{\citefield{principiamathematicavol1}{title}} und die Typentheorie}
 
-Russell und Whitehead haben erkannt, dass man solche Sätze mit selbstreferenziellen
+\textsc{Russell} und \textsc{Whitehead} haben erkannt, dass man solche Sätze mit selbstreferenziellen
 Aussagen generieren kann, z.\,B. \frq dieser Satz ist falsch\flq,\mnote{\customlabel{luegezwei}{\arabic{commentaryNumber}}
 Kommentar \ref{luegeeins} ist falsch.} und daher haben sie
 in der Principia Mathematica solche Sätze, die sich auf sich selbst beziehen,
@@ -74,7 +74,7 @@ der Mathematik definierbare Satz eine Nummer bekommt. Dort sind nun alle nur üb
 definierbaren Sätze, sinnvoll wie sinnlos, falsch wie richtig,
 wie z.\,B. \frq $45 + 16 = 1$\flq, \frq $1 + 1 = 2$\flq, aber auch \frq der Satz mit
 der Nummer 4922\footnote{Die Nummern sind nur beispielhaft gewählt und entsprechen
-nicht der wirklichen Gödelisierung der Sätze.}
+nicht der wirklichen \textsc{Gödel}isierung der Sätze.}
 ist nicht beweisbar\flq. Wenn aber letzterer Satz gerade
 \frq zufällig\flq\ tatsächlich die zugewiesene Nummer 4922 hat, dann behauptet
 der Satz seine eigene Unbeweisbarkeit, und das mehr oder weniger
@@ -98,9 +98,9 @@ vergangener Zeit und unendlich vielen neuen Axiomen) also wieder ein System,
 das aber nicht mehr algorithmisch lösbar ist, weil Algorithmen, die etwas
 lösen sollen, keine unendliche Menge an Axiomen abarbeiten können.
 
-Gödels Algorithmus bietet die Möglichkeit, jedem sinnvollen und sinnlosen
+\textsc{Gödel}s Algorithmus bietet die Möglichkeit, jedem sinnvollen und sinnlosen
 Satz\mnote{Siehe dazu S. \pageref{grundzeichenzahlen}. Die gewählten Grundzeichen hängen
-vom System ab, das man als Grundlage nehmen möchte. Gödel nimmt das System der Peano-Axiome
+vom System ab, das man als Grundlage nehmen möchte. \textsc{Gödel} nimmt das System der Peano-Axiome
 mit dem System der Principia Mathematica zusammen zur Vereinfachung seines Beweises.}
 eine eineindeutige Nummer zuzuordnen, indem er einige Konstanten
 definiert, z.\,B. wird \frq 0\flq\ zu 1, \frq f\flq\ zu 3,
@@ -133,7 +133,7 @@ So kann man den (sinnlosen) Satz:
 		\frq existieren\flq; hierzu auch eine metaphysische Anmerkung: damit wird
 		ein platonischer Realismus der mathematischen Welt vorausgesetzt, in der das Ergebnis jeder
 		Gleichung schon \frq existiert\flq, unabhängig davon, ob ausgerechnet oder nicht. In
-		einem z.\,B. ultrafinitistischen Denkmodell wäre Gödel gar kein Problem (womit ich nicht
+		einem z.\,B. ultrafinitistischen Denkmodell wäre \textsc{Gödel} gar kein Problem (womit ich nicht
 		dafür argumentieren möchte, sondern eher Platonist bin).}, für
 		jede beliebig lange Zeichenkette
 		bestehend aus den Grundzeichen machen. Die Zahl 640972332000 lässt sich durch
@@ -148,7 +148,7 @@ So kann man den (sinnlosen) Satz:
 Der Begriff der Beweisbarkeit\mnote{Vgl. § \refsatz{Bw}}
 lässt sich im System der Principia Mathematica selbst
 darstellen als die Möglichkeit der Herleitung aus den Axiomen. Nehmen wir die Abkürzungen
-von Gödel selbst, dann können wir die Beweisbarkeit eines Satzes folgendermaßen
+von \textsc{Gödel} selbst, dann können wir die Beweisbarkeit eines Satzes folgendermaßen
 darstellen: $\text{Bew}\left(x\right)$.\mnote{Vgl. § \refsatz{Bew}}
 Wenn wir also einen Satz der Form:
 
@@ -157,7 +157,7 @@ n \vdash \thicksim \text{Bew}\left(m\right)
 $$
 (wobei $n$ seine gödelisierte Satznummer und \frq zufälligerweise\flq\ $n = m$,
 d.\,h. eine lange Zahl, die eineindeutig dem
-Satz zugeordnet ist, ist\footnote{Wie Gödel es selbst sagt, wäre es kein
+Satz zugeordnet ist, ist\footnote{Wie \textsc{Gödel} es selbst sagt, wäre es kein
 Problem,\mnote{\customlabel{luegeeins}{\arabic{commentaryNumber}}
 Kommentar \ref{luegezwei} ist richtig.} diese Zahl für jede Aussage tatsächlich
 aufzuschreiben; es wäre nur sehr umständlich,
@@ -191,7 +191,7 @@ gilt -- neben der allgemeinen Widerspruchsfreiheit --, dass auch keine kontraint
 Schlüsse gezogen werden können dürfen (z.\,B. Sätze, die wahr sind, ohne dass
 ihre Wahrheit aus den Axiomen herleitbar ist).
 
-Die Axiome der PM sind widerspruchsfrei, aber mit der Methode der Gödelisierung
+Die Axiome der PM sind widerspruchsfrei, aber mit der Methode der \textsc{Gödel}isierung
 lassen sich ebensolche Existenzaussagen treffen, die das System $\omega$-widersprüchlich
 machen.\mnote{Dazu muss es nur \textit{irgendwie} möglich sein,
 aus dem System etwas wie die natürlichen Zahlen und Addition herleiten zu können, was auf fast alle
@@ -221,7 +221,7 @@ Division oder Primzahlen).
 
 \subsection*{Die beiden Unvollständigkeitssätze}
 
-Aus der Arbeit Gödels folgen zwei fundamentale Sätze zur Metamathematik:
+Aus der Arbeit \textsc{Gödel}s folgen zwei fundamentale Sätze zur Metamathematik:
 
 \begin{enumerate}
 	\item Jedes ausreichend komplexe System beinhaltet immer Sätze, die innerhalb
@@ -236,11 +236,11 @@ Aus der Arbeit Gödels folgen zwei fundamentale Sätze zur Metamathematik:
 
 Die Auswirkungen auf das Verständnis der Mathematik waren gewaltig, denn plötzlich war klar,
 dass man nicht jede wahre Aussage auch beweisen kann. Aber auch für die Berechenbarkeitstheorie
-und die später aufkommende Informatik sind betroffen. Gödels Ansatz, mathematische
+und die später aufkommende Informatik sind betroffen. \textsc{Gödel}s Ansatz, mathematische
 Aussagen als Ansammlungen von nach Regeln gebildeter Zeichen zu sehen und nicht primär
 inhaltlich zu deuten, hat die moderne Informatik überhaupt erst möglich gemacht.
 Kein Computer kann mehr als ebendies: Zeichenketten nach genau vorgelegten Regeln
-zu manipulieren, ohne dabei auch nur im Ansatz inhaltlich auf diese einzugehen. Gödel hat
+zu manipulieren, ohne dabei auch nur im Ansatz inhaltlich auf diese einzugehen. \textsc{Gödel} hat
 gezeigt, dass es immer Aussagen gibt, die ein Computer nicht zurückführen kann auf
 seine Axiome, d.\,h. dass es immer Aussagen gibt, die mit einem Computer nicht überprüfbar sind.
 Das setzt -- ähnlich wie das Halteproblem -- der Theorie der Algorithmen sowie
@@ -249,7 +249,7 @@ der Beweistheorie überhaupt enge Grenzen.
 \subsection*{Ziel dieser Arbeit}
 
 Im Rahmen dieser Arbeit würde ich gern versuchen, den Originalalgorithmus soweit
-es mir möglich ist nachzuvollziehen. Dazu habe ich die Arbeit von Gödel soweit ich
+es mir möglich ist nachzuvollziehen. Dazu habe ich die Arbeit von \textsc{Gödel} soweit ich
 es konnte exakt abgetippt und mit \LaTeX, einem Textsatzsystem für mathematische
 Texte, komplett neu gesetzt, um einige Dinge wie eingefärbte passende Klammern zur besseren
 Lesbarkeit einzuführen und Kommentare hinzuzufügen, die die gödel'schen Formeln in eine modernere
