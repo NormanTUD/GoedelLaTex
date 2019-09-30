@@ -6,7 +6,7 @@
 \subsection*{Algorithmen}
 
 \lettrine[nindent=0em]{\color{purple}A}{lgorithmen} sind endliche Abfolgen von\mnote{Für
-die Spezifikationen der Schritte von Algorithmen siehe Knuth, TAOCP 1, S. 4f. Die Punkte sind:
+die Spezifikationen der Schritte von Algorithmen siehe Knuth, \citetitle{taocp1}, S. 4f. Die Punkte sind:
 \begin{itemize}
 	\item Finiteness
 	\item Defineteness
@@ -30,7 +30,7 @@ dafür. Erst Gödel zeigte, dass die Sache viel vertrackter ist und so nicht geh
 Was heißt \frq beweisbar\flq? Beweise sind Zurückführungen auf einzelne Axiome mithilfe
 von syntaktischen Veränderungsregeln.\mnote{Zumindest lassen sie sich analog zu
 solchen Regeln behandeln, wie die moderne Computertechnik eindrucksvoll zeigt. Vgl. Kommentar \ref{tractatus}. Vgl.
-auch \url{https://www.youtube.com/watch?v=qT8NyyRgLDQ} für ein Weiterdenken in eine alternative Richtung, die
+auch \citeurl{altenkirch} für ein Weiterdenken in eine alternative Richtung, die
 aber auch das \frq Gödelproblem\flq\ hat.}
 So kann man jede mathematische Aussage als Zeichenkette
 auffassen und schauen, ob man -- durch erlaubte Veränderungen der Axiome des Systems --
@@ -63,8 +63,8 @@ Russell und Whitehead haben erkannt, dass man solche Sätze mit selbstreferenzie
 Aussagen generieren kann, z.\,B. \frq dieser Satz ist falsch\flq,\mnote{\customlabel{luegezwei}{\arabic{commentaryNumber}}
 Kommentar \ref{luegeeins} ist falsch.} und daher haben sie
 in der Principia Mathematica solche Sätze, die sich auf sich selbst beziehen,
-\frq verboten\flq\mnote{$\longrightarrow$ Typentheorie%TODO
-}. Aber selbst, wenn man das verbietet, lassen sich dennoch ver\-gleich\-bare Sätze
+\frq verboten\flq\mnote{$\longrightarrow$ Typentheorie, vgl. \cite{septypetheory}}. 
+Aber selbst, wenn man das verbietet, lassen sich dennoch ver\-gleich\-bare Sätze
 konstruieren.
 
 \subsection*{(Vereinfachtes) Beispiel für einen gödelisierten Satz}
@@ -216,7 +216,7 @@ Primzahlen lassen sich die gödelschen Unvollständigkeitssatzbeweise
 nicht konstruieren, weil es keine sonstige Möglichkeit gibt, jedem Satz eine eineindeutige,
 algorithmisch bestimmbare Nummer zuzuweisen.} beispielsweise die Presburger-Arithmetik;
 diese sind aber sehr eingeschränkt
-(z.\,B. unterstützt die Presburger-Arithmetik keine Aussagen über Multiplikation,
+(z.\,B. unterstützt die \citefield{presburger}{note} keine Aussagen über Multiplikation,
 Division oder Primzahlen).
 
 \subsection*{Die beiden Unvollständigkeitssätze}
@@ -261,7 +261,7 @@ eingeschlichen haben.
 
 Da es meiner Recherchen nach noch keine solche Version gab, habe ich sie der
 Forschung auf meinem GitHub-Account unter der GPL2-Lizenz zur Verfügung
-gestellt\footnote{Siehe \url{https://github.com/NormanTUD/GoedelLaTex/}.}.
+gestellt\footnote{Siehe \citeurl{github}.}.
 Jeder kann diese Version forken und eigene Änderungen hinzufügen, um das
 Dokument möglichst vollständig zu machen und meine Fehler zu korrigieren.
 Es unterliegt keinen Einschränkungen für Forschung und Lehre, außer dass
@@ -271,6 +271,10 @@ Es unterliegt keinen Einschränkungen für Forschung und Lehre, außer dass
 Juristisch beziehe ich mich auf §~3 des Urheberrechtsgesetzes, das eine
 Bearbeitung und Kommentierung eines Werkes mit eigener Schöpfungshöhe
 erlaubt.
+
+\newpage
+
+\printbibliography
 
 \newpage
 \pagenumbering{arabic}

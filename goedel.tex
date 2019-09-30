@@ -20,8 +20,7 @@
 
 \input{einleitung}
 
-\section*{Über formal unentscheidbare Sätze der Principia Mathematica
-und verwandter Systeme I\protect\footnote{Vgl. die im Anzeiger der Akad. d. Wiss. in Wien
+\section*{\citefield{goedel}{title}\protect\footnote{Vgl. die im Anzeiger der Akad. d. Wiss. in Wien
 (math.-naturw. KI.) 1930, Nr. 19 erschienene Zusammenfassung der Resultate dieser Arbeit.}}
 
 \begin{center}
@@ -117,7 +116,7 @@ Schreibweise und sind daher prinzipiell überflüssig.}.
 Analog sind Beweise vom formalen Standpunkt nichts
 anderes\mnote{\customlabel{tractatus}{\arabic{commentaryNumber}}Ein Beweis ist eine für den Computer nachvollziehbare
 Kette an a., entweder Axiomen oder b., Schlussfolgerungen aus den
-Axiomen (vgl. Tractatus Logico Philosophicus, § 6.126 und § 6.1262)}
+Axiomen (vgl. \protect\citetitle{wittgenstein}, § 6.126 und § 6.1262)}
 als endliche Reihen von Formeln (mit bestimmten angebbaren
 Eigenschaften). Für metamathematische Betrachtungen
 ist es natürlich gleichgültig, welche Gegenstände man
@@ -336,16 +335,16 @@ $b$ ein Zeichen $n$-ten und $a$ ein Zeichen $n + 1$-ten
 Typs ist, nennen wir Elementarformeln\mnote{\customlabel{elementarformeln}{\arabic{commentaryNumber}}Eine \frq Elementarformel\flq\ ist
 eine Zuordnung von Mengen zu Zahlen (oder Mengen von Mengen zu Mengen).}. Die Klasse der
 Formeln definieren wir als die kleinste
-Klasse\mnote{\customlabel{minimalmenge}{\arabic{commentaryNumber}}Damit ist die Minimalmenge \frq sinnvoller\flq\ Sätze
-gemeint, die alle Formeln
-beinhaltet, d.\,h. $a, b; \thicksim a; a \lor b; , \forall x: (a)$ mit $x$ als beliebigem Zahlzeichen.
-Praktisch ist das dann ein großes Array von langen Zahlen, deren Verneinungen, deren Adjunktion und deren
-Generalisierung(auch alles Zahlen).}\footnote{Bez. dieser Definition (und analoger
+Klasse\footnote{Bez. dieser Definition (und analoger
 später vorkommender), vgl. J. \L{}ukasiewicz und
 A. Tarski, Untersuchungen über den Aussagenkalkül,
 Comptes Rendus des s\'eances de la Soci\'et\'e de
 Sciences et Lettres de Varsovie XXIII, 1930, Cl. III.},
-zu welcher sämtliche Elementarformeln gehören und zu
+zu welcher sämtliche Elementarformeln gehören und zu\mnote{\customlabel{minimalmenge}{\arabic{commentaryNumber}}Damit ist die Minimalmenge \frq sinnvoller\flq\ Sätze
+gemeint, die alle Formeln
+beinhaltet, d.\,h. $a, b; \thicksim a; a \lor b; , \forall x: (a)$ mit $x$ als beliebigem Zahlzeichen.
+Praktisch ist das dann ein großes Array von langen Zahlen, deren Verneinungen, deren Adjunktion und deren
+Generalisierung(auch alles Zahlen).}
 welcher zugleich mit $a, b$ stets auch
 $\thicksim\left(a\right)$, $\left(a\right)\lor\left(b\right)$, $x\Pi\left(a\right)$ gehören (wobei $x$ eine
 \let\originalfootnote=\thefootnote
