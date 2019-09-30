@@ -12,3 +12,7 @@ test*.tex
 *.*~
 *.*.sw*
 log
+goedel-blx.bib
+goedel.bbl
+goedel.blg
+goedel.run.xml
