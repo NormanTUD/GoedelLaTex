@@ -171,3 +171,9 @@
 		\def\right#1{#1}
 	\fi
 \fi
+
+\newcommand{\goedelcite}[1]{\citefield{#1}{note}\nocite{#1}}
+
+\makeatletter
+\renewcommand\@biblabel[1]{\textbullet}
+\makeatother
