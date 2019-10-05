@@ -177,3 +177,13 @@
 \makeatletter
 \renewcommand\@biblabel[1]{\textbullet}
 \makeatother
+
+\newcommand{\centeredquote}[2]{
+	\hbadness=5000
+	\vspace{-1em}
+	\frqq\textsl{#1}\flqq\\
+	\nopagebreak
+	\hfill ---\,\textsc{#2}\newline
+	\vspace{-1em}
+}
+
