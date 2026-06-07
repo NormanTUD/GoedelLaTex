@@ -121,10 +121,18 @@ wie z.\,B. \frq $45 + 16 = 1$\flq, \frq $1 + 1 = 2$\flq, aber auch \frq der Satz
 der Nummer 4922\footnote{Die Nummern sind nur beispielhaft gewählt und entsprechen
 nicht der wirklichen \textsc{Gödel}isierung der Sätze.}
 ist nicht beweisbar\flq. Wenn aber letzterer Satz gerade
-\frq zufällig\flq\ tatsächlich die zugewiesene Nummer 4922 hat, dann behauptet
-der Satz seine eigene Unbeweisbarkeit, und das mehr oder weniger
-zufällig, ohne dass eine selbstreferenzielle-Strukturen-verbietende
-Typentheorie das verbieten könnte.\mnote{Siehe dazu Fußnote \ref{zufaellig}.}
+die zugewiesene Nummer 4922 hat, dann behauptet
+der Satz seine eigene Unbeweisbarkeit. Diese Selbstreferenz ist keine
+explizite Bezugnahme des Satzes auf sich selbst (die durch eine Typentheorie
+verboten werden könnte), sondern ergibt sich als Konsequenz der
+diagonalen Konstruktion: der Satz behauptet zunächst nur die Unbeweisbarkeit
+einer bestimmten Formel mit einer bestimmten Gödelnummer, und es stellt sich
+nachträglich heraus, dass diese Gödelnummer gerade diejenige des Satzes selbst
+ist.\mnote{Siehe dazu Fußnote \ref{zufaellig}. \textsc{Gödel} selbst spricht davon,
+dass sich dies \frq gewissermaßen zufällig\flq\ herausstellt -- gemeint ist damit nicht,
+dass die Konstruktion auf Zufall beruht, sondern dass der Satz \textit{strukturell}
+keine explizite Selbstreferenz enthält. Die Typentheorie \textsc{Russell}s kann daher
+diese Art der Selbstbezüglichkeit nicht ausschließen.}
 
 Unbeweisbar heißt hier, dass der Satz nicht hergeleitet werden kann aus den gewählten
 Axiomen. Aber durch metamathematische Überlegungen können wir ihn doch als wahr anerkennen,
@@ -200,14 +208,13 @@ Wenn wir also einen Satz der Form:
 $$
 n \vdash \thicksim \text{Bew}\left(m\right)
 $$
-(wobei $n$ seine gödelisierte Satznummer und \frq zufälligerweise\flq\ $n = m$,
-d.\,h. eine lange Zahl, die eineindeutig dem
-Satz zugeordnet ist, ist\footnote{Wie \textsc{Gödel} es selbst sagt, wäre es kein
+haben (wobei $n$ seine gödelisierte Satznummer ist und sich durch die diagonale
+Konstruktion ergibt, dass $n = m$\footnote{Wie \textsc{Gödel} es selbst sagt, wäre es kein
 Problem,\mnote{\customlabel{luegeeins}{\arabic{commentaryNumber}}
 Kommentar \ref{luegezwei} ist richtig.} diese Zahl für jede Aussage tatsächlich
 aufzuschreiben; es wäre nur sehr umständlich,
-siehe Fußnote \ref{leichtaufzuschreiben}.}, der rein zufällig auf sich selbst verweist),
-dann haben wir einen solchen Satz, der seine eigene Unbeweisbarkeit
+siehe Fußnote \ref{leichtaufzuschreiben}.}),
+dann haben wir einen Satz, der seine eigene Unbeweisbarkeit
 behauptet und im System nicht entscheidbar ist. Wäre er beweisbar, wäre er per definitionem
 richtig, weil nur richtige Sätze beweisbar sind, aber wäre er beweisbar, wäre er auch
 per definitionem unbeweisbar. Seine Richtigkeit lässt sich aber eben durch
