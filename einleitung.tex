@@ -117,99 +117,244 @@ konstruieren.
 Wieder ein vereinfachtes Beispiel: wir nehmen an, dass jeder mit den Grundzeichen
 der Mathematik definierbare Satz eine Nummer bekommt. Dort sind nun alle nur überhaupt
 definierbaren Sätze, sinnvoll wie sinnlos, falsch wie richtig,
-wie z.\,B. \frq $45 + 16 = 1$\flq, \frq $1 + 1 = 2$\flq, aber auch \frq der Satz mit
-der Nummer 4922\footnote{Die Nummern sind nur beispielhaft gewählt und entsprechen
-nicht der wirklichen \textsc{Gödel}isierung der Sätze.}
-ist nicht beweisbar\flq. Wenn aber letzterer Satz gerade
-die zugewiesene Nummer 4922 hat, dann behauptet
-der Satz seine eigene Unbeweisbarkeit. Diese Selbstreferenz ist keine
-explizite Bezugnahme des Satzes auf sich selbst (die durch eine Typentheorie
-verboten werden könnte), sondern ergibt sich als Konsequenz der
-diagonalen Konstruktion: der Satz behauptet zunächst nur die Unbeweisbarkeit
-einer bestimmten Formel mit einer bestimmten Gödelnummer, und es stellt sich
-nachträglich heraus, dass diese Gödelnummer gerade diejenige des Satzes selbst
+wie z.\,B. \frq $45 + 16 = 1$\flq, \frq $1 + 1 = 2$\flq, aber auch Sätze der Form
+\frq der Satz mit der Nummer $m$ ist nicht beweisbar\flq.
+
+\subsubsection*{Warum muss ein selbstreferenzieller Satz existieren?}
+
+Man könnte einwenden: nur weil alle Sätze aufgezählt werden, heißt das noch nicht,
+dass es einen Satz gibt, der \textit{zufällig} über seine eigene Nummer spricht.
+Vielleicht reden alle Sätze der Form \frq der Satz mit Nummer $m$ ist nicht beweisbar\flq\
+immer nur über \textit{andere} Sätze? Dieser Einwand ist berechtigt -- und genau deshalb
+beruht \textsc{Gödel}s Beweis \textit{nicht} auf Zufall, sondern auf einer gezielten
+diagonalen Konstruktion.
+
+Die Konstruktion funktioniert wie folgt. Wir betrachten \textit{Klassenzeichen}:
+das sind Formeln mit genau einer freien Variable (vom Typ der natürlichen Zahlen).
+Diese lassen sich in eine Folge ordnen\footnote{Etwa nach steigender Gliedersumme
+und bei gleicher Summe lexikographisch.} und durchnummerieren:
+$R(1), R(2), R(3), \dots$
+
+Die Operation $[R(n); n]$ bedeutet: nimm das $n$-te Klassenzeichen $R(n)$ und
+setze für seine freie Variable das Zahlzeichen für $n$ selbst ein. Damit entsteht
+eine \textit{Satzformel} (ein Satz ohne freie Variable), die \textit{etwas über die
+Zahl $n$ aussagt}.
+
+Nun definiert \textsc{Gödel} eine Klasse $K$ so:
+$$
+n \in K \equiv \overline{Bew}[R(n); n]
+$$
+Das heißt: $n$ gehört zu $K$ genau dann, wenn der Satz $[R(n); n]$ \textit{nicht beweisbar} ist.
+
+Der entscheidende Punkt: Die Klasse $K$ ist im System selbst definierbar (weil alle
+verwendeten Begriffe -- \frq Klassenzeichen\flq, \frq beweisbar\flq, die Einsetzungsoperation --
+rekursiv sind). Also gibt es nach dem Komprehensionsaxiom (Axiom IV) ein Klassenzeichen $S$,
+das genau $K$ ausdrückt. Dieses $S$ kommt irgendwo in der Aufzählung vor, sagen wir
+an Position $q$:
+$$
+S = R(q)
+$$
+
+Jetzt fragen wir: Gehört $q$ selbst zu $K$? Der Satz $[R(q); q]$ -- also $[S; q]$ --
+behauptet genau das. Und \textit{dieser Satz ist} $S$ mit eingesetztem $q$. Die
+Selbstreferenz ist also \textit{keine Hoffnung auf einen glücklichen Zufall in der
+Nummerierung}, sondern eine \textit{erzwungene Konsequenz} der diagonalen Einsetzung:
+man nimmt das $q$-te Klassenzeichen und setzt $q$ für seine eigene freie Variable ein.
+
+Die folgende Tabelle zeigt das Schema. Jede Zeile steht für ein Klassenzeichen $R(n)$,
+jede Spalte für die Einsetzung der Zahl $m$. Der Eintrag in Zeile $n$, Spalte $m$
+ist der Satz $[R(n); m]$:
+
+\begin{center}
+\begin{tabular}{c|cccccc}
+	& $m = 1$ & $m = 2$ & $m = 3$ & $\dots$ & $m = q$ & $\dots$ \\
+	\hline
+	$R(1)$ & $[R(1); 1]$ & $[R(1); 2]$ & $[R(1); 3]$ & $\dots$ & $[R(1); q]$ & $\dots$ \\
+	$R(2)$ & $[R(2); 1]$ & $[R(2); 2]$ & $[R(2); 3]$ & $\dots$ & $[R(2); q]$ & $\dots$ \\
+	$R(3)$ & $[R(3); 1]$ & $[R(3); 2]$ & $[R(3); 3]$ & $\dots$ & $[R(3); q]$ & $\dots$ \\
+	$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & \\
+	$R(q) = S$ & $[R(q); 1]$ & $[R(q); 2]$ & $[R(q); 3]$ & $\dots$ & $\mathbf{[R(q); q]}$ & $\dots$ \\
+	$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & & $\vdots$ & $\ddots$ \\
+\end{tabular}
+\end{center}
+
+Die \textbf{Diagonale} dieser Tabelle enthält genau die Sätze $[R(n); n]$ -- also
+diejenigen Sätze, bei denen das $n$-te Klassenzeichen auf seine \textit{eigene}
+Positionsnummer angewandt wird:
+
+\begin{center}
+\begin{tabular}{cl}
+	\textbf{Diagonaleintrag} & \textbf{Bedeutung} \\
+	\hline
+	$[R(1); 1]$ & Was sagt das 1. Klassenzeichen über die Zahl 1? \\
+	$[R(2); 2]$ & Was sagt das 2. Klassenzeichen über die Zahl 2? \\
+	$[R(3); 3]$ & Was sagt das 3. Klassenzeichen über die Zahl 3? \\
+	$\vdots$ & $\vdots$ \\
+	$[R(q); q]$ & Was sagt das $q$-te Klassenzeichen über die Zahl $q$? \\
+	$\vdots$ & $\vdots$ \\
+\end{tabular}
+\end{center}
+
+Die Klasse $K$ wird nun definiert als: $n \in K$ genau dann, wenn der
+Diagonaleintrag $[R(n); n]$ \textit{nicht beweisbar} ist. Da $K$ im System
+definierbar ist, existiert ein Klassenzeichen $S = R(q)$ dafür. Der Satz
+$[R(q); q]$ sagt also aus: \frq $q \in K$\flq, d.\,h. \frq $[R(q); q]$ ist
+nicht beweisbar\flq\ -- und das \textit{ist} der Satz $[R(q); q]$ selbst.
+
+Zusammengefasst in einer Tabelle:
+
+\begin{center}
+\begin{tabular}{rp{10cm}}
+	\textbf{Schritt} & \textbf{Was passiert} \\
+	\hline
+	1 & Alle Klassenzeichen werden aufgezählt: $R(1), R(2), R(3), \dots$ \\
+	2 & Die Diagonaloperation $[R(n); n]$ wird definiert (setze $n$ in das $n$-te Klassenzeichen ein). \\
+	3 & Die Klasse $K$ wird definiert: $n \in K \equiv \overline{Bew}[R(n); n]$. \\
+	4 & $K$ ist im System definierbar $\Longrightarrow$ es existiert ein Klassenzeichen $S$ für $K$. \\
+	5 & $S$ hat eine Position in der Aufzählung: $S = R(q)$ für ein bestimmtes $q$. \\
+	6 & Der Satz $[R(q); q] = [S; q]$ sagt aus: \frq $q \in K$\flq, also: \frq $[R(q); q]$ ist nicht beweisbar\flq. \\
+	7 & Aber $[R(q); q]$ \textit{ist} genau dieser Satz $\Longrightarrow$ er behauptet seine eigene Unbeweisbarkeit. \\
+\end{tabular}
+\end{center}
+
+\textbf{Warum muss $q$ existieren?} Nicht weil man hofft, dass irgendein Satz
+\frq zufällig\flq\ über seine eigene Nummer redet. Sondern weil:
+\begin{enumerate}
+	\item Der Begriff \frq beweisbar\flq\ im System ausdrückbar ist (§ \refsatz{Bew}).
+	\item Man daraus die Klasse $K$ definieren kann (über die Diagonale).
+	\item Jede im System definierbare Klasse ein Klassenzeichen hat (Axiom IV).
+	\item Jedes Klassenzeichen in der Aufzählung vorkommt, also eine Position $q$ hat.
+\end{enumerate}
+
+Die Selbstreferenz entsteht also \textit{strukturell} durch die Diagonalkonstruktion --
+ähnlich wie bei Cantors Diagonalargument eine Zahl erzwungen wird, die nicht in der
+Liste steht. Der Satz enthält \textit{syntaktisch} keine explizite Selbstreferenz
+(er spricht nur über \frq die Formel mit der Gödelnummer $q$\flq), und erst
+\textit{nachträglich} stellt sich heraus, dass diese Gödelnummer seine eigene
 ist.\mnote{Siehe dazu Fußnote \ref{zufaellig}. \textsc{Gödel} selbst spricht davon,
 dass sich dies \frq gewissermaßen zufällig\flq\ herausstellt -- gemeint ist damit nicht,
 dass die Konstruktion auf Zufall beruht, sondern dass der Satz \textit{strukturell}
-keine explizite Selbstreferenz enthält. Die Typentheorie \textsc{Russell}s kann daher
-diese Art der Selbstbezüglichkeit nicht ausschließen.}
+keine explizite Selbstreferenz enthält (wie etwa \frq dieser Satz ist falsch\flq).
+Die Typentheorie \textsc{Russell}s kann daher diese Art der Selbstbezüglichkeit
+nicht ausschließen.}
+
+\subsubsection*{Konsequenzen}
 
 Unbeweisbar heißt hier, dass der Satz nicht hergeleitet werden kann aus den gewählten
 Axiomen. Aber durch metamathematische Überlegungen können wir ihn doch als wahr anerkennen,
 weil er eben nicht aus den Axiomen herleitbar ist (d.\,h. unbeweisbar, was der
 Satz ja auch behauptet).
 
-Das letzte Ressort könnte sein, ihn als Axiom zu setzen. Aber da alle potenziell
-möglichen Sätze generiert werden, dürfen wir den Satz mit der Nummer 559321 nicht
-aus den Augen verlieren, er besagt: \frq der Satz mit der Nummer 559321 ist
-nicht beweisbar\flq\mnote{Dieser Satz könnte auch aussagen: $\thicksim \thicksim \thicksim \text{Bew}(4922) $, wenn
+Das letzte Ressort könnte sein, ihn als Axiom zu setzen. Aber die Konstruktion lässt
+sich sofort wiederholen: im erweiterten System gibt es wieder eine Aufzählung aller
+Klassenzeichen, wieder eine Diagonale, wieder eine Klasse $K'$, wieder ein
+Klassenzeichen $S'$ mit Position $q'$ -- und wieder einen unbeweisbaren Satz
+$[R'(q'); q']$.\mnote{Dieser Satz könnte auch aussagen: $\thicksim \thicksim \thicksim \text{Bew}(4922) $, wenn
 man mehr als die absolute Minimalmenge nimmt. Vgl. dazu Kommentar \ref{minimalmenge}. Aber das würde die
-Sache nur komplizierter machen.}. Wir
-stehen also wieder vor dem gleichen Problem und müssten
-wieder ein Axiom setzen. Das geht ewig so weiter. Wir haben (nach unendlich viel
+Sache nur komplizierter machen.}
+Das geht ewig so weiter. Wir haben (nach unendlich viel
 vergangener Zeit und unendlich vielen neuen Axiomen) also wieder ein System,
 das aber nicht mehr algorithmisch lösbar ist, weil Algorithmen, die etwas
 lösen sollen, keine unendliche Menge an Axiomen abarbeiten können.
+
+\subsubsection*{Die Gödelisierung im Detail}
 
 \textsc{Gödel}s Algorithmus bietet die Möglichkeit, jedem sinnvollen und sinnlosen
 Satz\mnote{Siehe dazu S. \pageref{grundzeichenzahlen}. Die gewählten Grundzeichen hängen
 vom System ab, das man als Grundlage nehmen möchte. \textsc{Gödel} nimmt das System der Peano-Axiome
 mit dem System der Principia Mathematica zusammen zur Vereinfachung seines Beweises.}
 eine eineindeutige Nummer zuzuordnen, indem er einige Konstanten
-definiert, z.\,B. wird \frq 0\flq\ zu 1, \frq f\flq\ zu 3,
-\frq$\thicksim$\flq\ zu 5 usw.
-Außerdem nutzt er die Eineindeutigkeit von Primfaktorzerlegungen aus.\mnote{Jede
+definiert und die Eineindeutigkeit von Primfaktorzerlegungen ausnutzt.\mnote{Jede
 natürliche Zahl ist entweder selbst Prim oder das Produkt aus $n$ Primzahlen. Die Zerlegung
 einer Zahl in Primzahlen ist eineindeutig und jede Zahl hat exakt eine ihr zugeordnete
 Primfaktorzerlegung. Nimmt man die Position $p$ als $p$te Primzahl hoch einer Zahl, die
 ein spezielles Zeichen symbolisiert, so lässt sich diese Zahl jederzeit zurückwandeln
 in den ursprünglichen Satz, weil die Primfaktorzerlegung immer eineindeutig bleibt.}
-So kann man den (sinnlosen) Satz:
+
+Die Zuordnung der Grundzeichen zu Zahlen:
+
+\begin{center}
+\begin{tabular}{cl}
+	\textbf{Zeichen} & \textbf{Zugeordnete Zahl} \\
+	\hline
+	$0$ & 1 \\
+	$f$ (Nachfolger) & 3 \\
+	$\thicksim$ (nicht) & 5 \\
+	$\lor$ (oder) & 7 \\
+	$\Pi$ (für alle) & 9 \\
+	( & 11 \\
+	) & 13 \\
+\end{tabular}
+\end{center}
+
+So kann man den (sinnlosen) Satz
 \frq es gilt nicht, dass 4\flq\ folgendermaßen umwandeln:
 
-\begin{enumerate}
-	\item \frq es gilt nicht, dass 4\flq
-	\item \frq$\thicksim 4$\flq
-	\item \frq$\thicksim ffff0$\flq\ (mit der peano'schen Nachfolgerfunktion $f$)\mnote{Siehe dazu § \refsatz{0 N x}}
-	\item Nun nehmen wir die Position $p$ im String (angefangen von links mit 1)\mnote{Siehe dazu § \refsatz{Z(n)}}
-		und nehmen die $p$te Primzahl als Basis ($p(p)$), die Ziffer für das Zeichen
-		als Exponent: $p(1)^5 \times p(2)^3 \times p(3)^3 \times p(3)^3 \times p(4)^3 \times p(5)^1$.
-		Wir erhalten:
-		$2^5 \times 3^3 \times 5^3 \times 7^3 \times 11^3 \times 13^1 = 640972332000$. Dies
-		können wir, da es unendlich viele Primzahlen gibt\mnote{\customlabel{eineindeutigkeit}{\arabic{commentaryNumber}}Die Eineindeutigkeit der Zuordnung von Zahlenwerten
-		zu Zeichenketten bedeutet de facto, dass jede mögliche Zeichenkette existiert;
-		diese Eineindeutigkeit Zahl $\longleftrightarrow$ Satz ist wichtig, denn in diesen unendlich
-		vielen Sätzen wären alle Texte nach \frq mathematischer Grammatik\flq\ entstanden.
-		Vgl. dazu die Idee der \frq\citetitle{libraryofbabel}\flq, wo zwar (wahrscheinlich) nicht alle
-		Texte gespeichert werden, sie aber im Bereich der mathematischen Hashfunktion,die
-		angewandt wird, um die Seiten \frq statisch\flq\ zu erzeugen, dennoch bereits alle
-		\frq existieren\flq; hierzu auch eine metaphysische Anmerkung: damit wird
-		ein platonischer Realismus der mathematischen Welt vorausgesetzt, in der das Ergebnis jeder
-		Gleichung schon \frq existiert\flq, unabhängig davon, ob ausgerechnet oder nicht. In
-		einem z.\,B. ultrafinitistischen Denkmodell wäre \textsc{Gödel} gar kein Problem (womit ich nicht
-		dafür argumentieren möchte, sondern eher Platonist bin).}, für
-		jede beliebig lange Zeichenkette
-		bestehend aus den Grundzeichen machen. Die Zahl 640972332000 lässt sich durch
-		Primfaktorzerlegung prinzipiell wieder 1:1 in den Ursprungssatz zurückwandeln, so dass gilt:
+\begin{center}
+\begin{tabular}{rp{11cm}}
+	\textbf{Schritt} & \textbf{Umwandlung} \\
+	\hline
+	1 & Natürliche Sprache: \frq es gilt nicht, dass 4\flq \\
+	2 & Formalisierung: $\thicksim 4$ \\
+	3 & Peano-Darstellung: $\thicksim ffff0$ (mit der Nachfolgerfunktion $f$)\mnote{Siehe dazu § \refsatz{0 N x}} \\
+	4 & Gödelisierung (siehe unten) \\
+\end{tabular}
+\end{center}
 
-		$$ 640972332000 \equiv \thicksim ffff0 \equiv \text{\frq es gilt nicht, dass 4\flq} $$
+Für Schritt 4 nehmen wir die Position $p$ im String (angefangen von links mit 1)\mnote{Siehe dazu § \refsatz{Z(n)}}
+und nehmen die $p$te Primzahl als Basis, die Ziffer für das Zeichen als Exponent:
 
-		Die Zahl $640972332000$ ist damit eineindeutig ebendiesem Satz zugeordnet und mit dem
-		gewählten Alphabet keinem anderen ($\longrightarrow$ Eineindeutigkeit).
-\end{enumerate}
+\begin{center}
+\begin{tabular}{ccccc}
+	\textbf{Position $p$} & \textbf{Zeichen} & \textbf{Zeichenwert} & \textbf{$p$-te Primzahl} & \textbf{Faktor} \\
+	\hline
+	1 & $\thicksim$ & 5 & 2 & $2^5 = 32$ \\
+	2 & $f$ & 3 & 3 & $3^3 = 27$ \\
+	3 & $f$ & 3 & 5 & $5^3 = 125$ \\
+	4 & $f$ & 3 & 7 & $7^3 = 343$ \\
+	5 & $f$ & 3 & 11 & $11^3 = 1331$ \\
+	6 & $0$ & 1 & 13 & $13^1 = 13$ \\
+\end{tabular}
+\end{center}
+
+Das Produkt ergibt die Gödelnummer:
+$$
+2^5 \times 3^3 \times 5^3 \times 7^3 \times 11^3 \times 13^1 = 640\,972\,332\,000
+$$
+
+Diese Zahl lässt sich durch Primfaktorzerlegung jederzeit 1:1 in den Ursprungssatz
+zurückwandeln\mnote{\customlabel{eineindeutigkeit}{\arabic{commentaryNumber}}Die Eineindeutigkeit der Zuordnung von Zahlenwerten
+zu Zeichenketten bedeutet de facto, dass jede mögliche Zeichenkette existiert;
+diese Eineindeutigkeit Zahl $\longleftrightarrow$ Satz ist wichtig, denn in diesen unendlich
+vielen Sätzen wären alle Texte nach \frq mathematischer Grammatik\flq\ entstanden.
+Vgl. dazu die Idee der \frq\citetitle{libraryofbabel}\flq, wo zwar (wahrscheinlich) nicht alle
+Texte gespeichert werden, sie aber im Bereich der mathematischen Hashfunktion, die
+angewandt wird, um die Seiten \frq statisch\flq\ zu erzeugen, dennoch bereits alle
+\frq existieren\flq; hierzu auch eine metaphysische Anmerkung: damit wird
+ein platonischer Realismus der mathematischen Welt vorausgesetzt, in der das Ergebnis jeder
+Gleichung schon \frq existiert\flq, unabhängig davon, ob ausgerechnet oder nicht. In
+einem z.\,B. ultrafinitistischen Denkmodell wäre \textsc{Gödel} gar kein Problem (womit ich nicht
+dafür argumentieren möchte, sondern eher Platonist bin).}, so dass gilt:
+
+$$ 640\,972\,332\,000 \equiv \thicksim ffff0 \equiv \text{\frq es gilt nicht, dass 4\flq} $$
+
+Die Zahl $640\,972\,332\,000$ ist damit eineindeutig ebendiesem Satz zugeordnet und mit dem
+gewählten Alphabet keinem anderen ($\longrightarrow$ Eineindeutigkeit).
+
+\subsubsection*{Beweisbarkeit als formaler Begriff}
 
 Der Begriff der Beweisbarkeit\mnote{Vgl. § \refsatz{Bw}}
 lässt sich im System der Principia Mathematica selbst
 darstellen als die Möglichkeit der Herleitung aus den Axiomen. Nehmen wir die Abkürzungen
 von \textsc{Gödel} selbst, dann können wir die Beweisbarkeit eines Satzes folgendermaßen
 darstellen: $\text{Bew}\left(x\right)$.\mnote{Vgl. § \refsatz{Bew}}
-Wenn wir also einen Satz der Form:
 
+Wenn wir also einen Satz der Form:
 $$
 n \vdash \thicksim \text{Bew}\left(m\right)
 $$
-haben (wobei $n$ seine gödelisierte Satznummer ist und sich durch die diagonale
-Konstruktion ergibt, dass $n = m$\footnote{Wie \textsc{Gödel} es selbst sagt, wäre es kein
+haben (wobei $n$ seine gödelisierte Satznummer ist und sich durch die oben gezeigte
+diagonale Konstruktion ergibt, dass $n = m$\footnote{Wie \textsc{Gödel} es selbst sagt, wäre es kein
 Problem,\mnote{\customlabel{luegeeins}{\arabic{commentaryNumber}}
 Kommentar \ref{luegezwei} ist richtig.} diese Zahl für jede Aussage tatsächlich
 aufzuschreiben; es wäre nur sehr umständlich,
@@ -219,6 +364,23 @@ behauptet und im System nicht entscheidbar ist. Wäre er beweisbar, wäre er per
 richtig, weil nur richtige Sätze beweisbar sind, aber wäre er beweisbar, wäre er auch
 per definitionem unbeweisbar. Seine Richtigkeit lässt sich aber eben durch
 metamathematische Überlegungen zeigen.\mnote{Vgl. Kommentar \ref{metamatematischeueberlegungen}.}
+
+Die Logik des Widerspruchs nochmals als Tabelle:
+
+\begin{center}
+\begin{tabular}{lp{9cm}}
+	\textbf{Annahme} & \textbf{Konsequenz} \\
+	\hline
+	$[R(q); q]$ ist beweisbar & $\Longrightarrow$ $[R(q); q]$ ist wahr
+		$\Longrightarrow$ $q \in K$
+		$\Longrightarrow$ $[R(q); q]$ ist \textit{nicht} beweisbar. \textbf{Widerspruch.} \\[0.5em]
+	$\text{Neg}([R(q); q])$ ist beweisbar & $\Longrightarrow$ $q \notin K$
+		$\Longrightarrow$ $[R(q); q]$ \textit{ist} beweisbar
+		$\Longrightarrow$ $[R(q); q]$ und seine Negation sind beweisbar. \textbf{Widerspruch mit $\omega$-Widerspruchsfreiheit.} \\[0.5em]
+	\hline
+	\textbf{Ergebnis} & $[R(q); q]$ ist \textit{unentscheidbar}: weder beweisbar noch widerlegbar. Aber durch metamathematische Überlegung als \textit{wahr} erkennbar. \\
+\end{tabular}
+\end{center}
 
 \subsection*{\frq\textit{\dots und verwandter Syteme}\flq}
 
